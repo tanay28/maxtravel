@@ -24,7 +24,7 @@ class Dashboard extends CI_Controller {
 	{
 		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']))
 		{
-			$this->load->model('Dashboard_model');
+			$this->load->model('Usermanagement');
 			if($_POST['txtNew'] != $_POST['txtConfirm'])
 			{
 				$this->session->set_flashdata('error', 'Mismatch Password..!!');
@@ -35,10 +35,10 @@ class Dashboard extends CI_Controller {
 				$checkuservars = $this->session->userdata;
 				if(isset($checkuservars['userid']))
 				{
-					$chk = $this->Dashboard_model->ChangePassword($checkuservars['userid'],$_POST['txtNew']);
+					$chk = $this->Usermanagement->ChangePassword($checkuservars['userid'],$_POST['txtNew']);
 					if($chk)
 					{
-						$this->session->set_flashdata('success', 'Password reset successful..');
+						$this->session->set_flashdata('success', 'Password changed successfully..');
 						redirect('dashboard');	
 					}	
 				}

@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set("Asia/Kolkata");
+ini_set('memory_limit', '-1');
 class Login extends CI_Controller {
 
 
@@ -30,8 +31,8 @@ class Login extends CI_Controller {
 		$data = array();
 		if(isset($_POST['txtEmail']) && isset($_POST['txtPassword'])){
 
-			$this->load->model('Registrationlogin');
-			$xx = $this->Registrationlogin->validateLogin($_POST['txtEmail'],$_POST['txtPassword']);
+			$this->load->model('Usermanagement');
+			$xx = $this->Usermanagement->validateLogin($_POST['txtEmail'],$_POST['txtPassword']);
 			/*echo "<pre>";
 			var_dump($xx);
 			die;*/
@@ -67,17 +68,13 @@ class Login extends CI_Controller {
 		}
 		$this->load->view('login');
 	}
-	public function showresetpassword()
-	{
-
-	}
 	public function viewforgetpassword()
 	{
 		$data = array();
 		if(isset($_POST['txtEmail']) && isset($_POST['txtDOB']))
 		{
-			$this->load->model('Registrationlogin');
-			$chk = $this->Registrationlogin->validateUser($_POST['txtEmail'],date('Y-m-d',strtotime($_POST['txtDOB'])));
+			$this->load->model('Usermanagement');
+			$chk = $this->Usermanagement->validateUser($_POST['txtEmail'],date('Y-m-d',strtotime($_POST['txtDOB'])));
 			if($chk)
 			{
 				$Arr = array('email' => $_POST['txtEmail'],'dob' => date('Y-m-d',strtotime($_POST['txtDOB'])));
@@ -96,7 +93,7 @@ class Login extends CI_Controller {
 	{
 		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']) && isset($_POST['hiddEmail']) && isset($_POST['hiddDOB']))
 		{
-			$this->load->model('Registrationlogin');
+			$this->load->model('Usermanagement');
 			if($_POST['txtNew'] != $_POST['txtConfirm'])
 			{
 				$this->session->set_flashdata('error', 'Mismatch Password..!!');
@@ -106,7 +103,7 @@ class Login extends CI_Controller {
 			}
 			else
 			{
-				$chk = $this->Registrationlogin->resetPassword($_POST['hiddEmail'],date('Y-m-d',strtotime($_POST['hiddDOB'])),$_POST['txtNew']);
+				$chk = $this->Usermanagement->resetPassword($_POST['hiddEmail'],date('Y-m-d',strtotime($_POST['hiddDOB'])),$_POST['txtNew']);
 				if($chk)
 				{
 					$this->session->set_flashdata('success', 'Password reset successful..');

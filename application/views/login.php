@@ -22,7 +22,7 @@
       <?php }?>
     </div>
     <form action="<?php echo base_url('login');?>" method="post" name="fromLogin">
-      <table cellpadding="0" cellspacing="0" border="0" height="100px" width="180px" align="center">
+      <table cellpadding="0" cellspacing="0" border="1" height="100px" width="180px" align="center">
         <tr align="center"><td><input type="text" name="txtEmail" placeholder="Email" required=""></td></tr>
         <tr align="center"><td><input type="password" name="txtPassword" placeholder="Password" required=""></td></tr>
         <tr>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
           <td colspan="2" align="center">
-            <a href="#">Signup</a>
+            <a href="<?php echo base_url('signup');?>">Signup</a>
             <a href="<?php echo base_url('login/viewforgetpassword');?>">Forgot Password.?</a>
           </td>
         </tr>
