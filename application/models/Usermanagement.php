@@ -31,10 +31,10 @@ class Usermanagement extends CI_Model {
             return false;
         }
     }
-    public function validateUser($email,$dob)
+    public function validateUser($email)
     {
         $this->db->select("*");
-        $query = $this->db->get_where("users", array("email" => $email,'date_of_birth' => $dob));
+        $query = $this->db->get_where("users", array("email" => $email));
         $p = $query->row_array();
 
         if($query->num_rows() > 0){  
@@ -43,9 +43,9 @@ class Usermanagement extends CI_Model {
             return false;
         }   
     } 
-    public function resetPassword($email,$dob,$new)
+    public function resetPassword($email,$new)
     {
-        $sql = "UPDATE users SET password = '".md5($new)."' WHERE email = '".$email."' AND date_of_birth = '".$dob."'";
+        $sql = "UPDATE users SET password = '".md5($new)."' WHERE email = '".$email."'";
         return $this->db->query($sql);
     }
     public function changePassword($uid,$pass)
@@ -70,6 +70,11 @@ class Usermanagement extends CI_Model {
     {
         $sql = "SELECT * FROM city WHERE cc_fips = '".$con."'";
         return $this->db->query($sql)->result_array();
+    }
+    public function insert_user($tbl_name,$Arr_users)
+    {
+        $this->db->insert($tbl_name,$Arr_users);
+        return $this->db->insert_id();
     }
 }
 ?>

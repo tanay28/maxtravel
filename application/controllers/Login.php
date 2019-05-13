@@ -71,39 +71,41 @@ class Login extends CI_Controller {
 	public function viewforgetpassword()
 	{
 		$data = array();
-		if(isset($_POST['txtEmail']) && isset($_POST['txtDOB']))
+		//if(isset($_POST['txtEmail']) && isset($_POST['txtDOB']))
+		if(isset($_POST['txtEmail']))	
 		{
 			$this->load->model('Usermanagement');
-			$chk = $this->Usermanagement->validateUser($_POST['txtEmail'],date('Y-m-d',strtotime($_POST['txtDOB'])));
+			$chk = $this->Usermanagement->validateUser($_POST['txtEmail']);
 			if($chk)
 			{
-				$Arr = array('email' => $_POST['txtEmail'],'dob' => date('Y-m-d',strtotime($_POST['txtDOB'])));
+				//$Arr = array('email' => $_POST['txtEmail'],'dob' => date('Y-m-d',strtotime($_POST['txtDOB'])));
+				$Arr = array('email' => $_POST['txtEmail']);
 				$data['user'] = $Arr;
 				$this->load->view('resetpassword',$data);
 				return;
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Enter Valid Email Or Date of Birth..!!');
+				$this->session->set_flashdata('error', 'Enter Valid Email..!!');
 			}	
 		}
 		$this->load->view('forgetpassword');
 	}
 	public function resetpassword()
 	{
-		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']) && isset($_POST['hiddEmail']) && isset($_POST['hiddDOB']))
+		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']) && isset($_POST['hiddEmail']))
 		{
 			$this->load->model('Usermanagement');
 			if($_POST['txtNew'] != $_POST['txtConfirm'])
 			{
 				$this->session->set_flashdata('error', 'Mismatch Password..!!');
-				$Arr = array('email' => $_POST['hiddEmail'],'dob' => date('Y-m-d',strtotime($_POST['hiddDOB'])));
+				$Arr = array('email' => $_POST['hiddEmail']);
 				$data['user'] = $Arr;
 				$this->load->view('resetpassword',$data);
 			}
 			else
 			{
-				$chk = $this->Usermanagement->resetPassword($_POST['hiddEmail'],date('Y-m-d',strtotime($_POST['hiddDOB'])),$_POST['txtNew']);
+				$chk = $this->Usermanagement->resetPassword($_POST['hiddEmail'],$_POST['txtNew']);
 				if($chk)
 				{
 					$this->session->set_flashdata('success', 'Password reset successful..');

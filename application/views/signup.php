@@ -18,13 +18,17 @@
       $('#cmbCountry').on('change',function(){
         $('#cmbCity').empty();
         var con = $(this).val();
-        alert(con);
+        //alert(con);
         $.ajax({
           url  : "<?php echo base_url('signup/ajax_fetch_city');?>",
           type : "post",
           data : {"key":con}, 
           success: function(result){ 
-          $("#cmbCity").html(result);
+          //$("#cmbCity").html(result);
+          var opts = $.parseJSON(result);
+          $.each(opts, function(i, d){
+              $('#cmbCity').append('<option value="' + d.full_name_nd + '">' + d.full_name_nd + '</option>');
+          });
         }});
         if(con == 'IN')
         {
@@ -52,14 +56,14 @@
         </div>
       <?php }?>
     </div>
-    <form action="<?php echo base_url('login');?>" method="post" name="fromLogin" enctype="multipart/form-data">
+    <form action="<?php echo base_url('signup/add');?>" method="post" name="fromLogin" enctype="multipart/form-data">
       <table cellpadding="0" cellspacing="0" border="1" height="100px" width="180px" align="center">
         <tr>
           <td colspan="3" style="background:'#d5dbe5';" align="left">Personal Details</td>    
         </tr>
         <tr>
           <td><input type="text" name="txtAgencyname" placeholder="Agency Name" required=""></td>
-          <td><input type="text" name="txtAgencyemail" placeholder="Agency Email" required=""></td>
+          <!-- <td><input type="text" name="txtAgencyemail" placeholder="Agency Email" required=""></td> -->
         </tr>
         <tr>
           <td><input type="text" name="txtFirstname" placeholder="First Name" required=""></td>
@@ -96,7 +100,7 @@
         </tr>
         <tr>
           <td>
-            <select name="cmbKnowfrom" placeholder="How did you hear about Travelmaxx.com?" required="">
+            <select name="cmbKnowfrom" placeholder="How did you hear about Travelmaxx.com?">
               <option value="none">Select</option>
               <option value="email_marketing">Email Marketing</option>
               <option value="trade_show">Trade Show</option>
@@ -107,7 +111,7 @@
             </select>
           </td>
           <td>
-            <select name="cmbPrefferdcurrency" placeholder="Prefferd Currency" required="">
+            <select name="cmbPrefferedcurrency" placeholder="Prefferd Currency" required="">
               <option value="none">Select</option>
               <option value="USD">United States Dollars</option>
               <option value="EUR">Euro</option>
@@ -346,11 +350,11 @@
               <option value="2">(GMT-11:00) Samoa</option>
             </select>
           </td>
-          <td><input type="text" name="txtWbsite" required="" placeholder="Website"></td>
+          <td><input type="text" name="txtWebsite" required="" placeholder="Website"></td>
         </tr>
         <tr><td colspan="3" align="left" style="background:'#d5dbe5';">Access Details</td></tr>
         <tr>
-          <td><input type="text" name="txtUsername" required="" placeholder="User Name"></td>
+          <td><input type="text" name="txtAgencyemail" required="" placeholder="Email id"></td>
           <td><input type="password" name="txtPassword" id="txtPassword" required="" placeholder="Password"></td>
           <td><input type="password" name="txtConfirmPassword" id="txtConfirmPassword" required="" placeholder=" Confirm Password"></td>
         </tr>

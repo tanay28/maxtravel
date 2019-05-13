@@ -24,7 +24,7 @@
     <form action="<?php echo base_url('login/viewforgetpassword');?>" method="post" name="fromForgotPass" id="fromForgotPass">
       <table cellpadding="0" cellspacing="0" border="0" height="100px" width="180px" align="center">
         <tr align="center"><td><input type="text" name="txtEmail" placeholder="Email" required=""></td></tr>
-        <tr align="center"><td><input type="text" name="txtDOB" placeholder="Date of Birth" required=""></td></tr>
+        <!-- <tr align="center"><td><input type="text" name="txtDOB" placeholder="Date of Birth" required=""></td></tr> -->
           <td colspan="2" align="center">
             <input type="submit" name="btnSubmit" value="Next">
           </td>
