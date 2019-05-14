@@ -5,20 +5,11 @@ class Dashboard extends CI_Controller {
 
 	function __construct()
 	{
-
-		parent::__construct();
-
-		$checkuservars = $this->session->userdata;
-                
-        if((!isset($checkuservars['usertype']) || $checkuservars['usertype']!="SUPERADMIN") && (!isset($checkuservars['usertype']) || $checkuservars['usertype']!="ADMIN") && (!isset($checkuservars['usertype']) || $checkuservars['usertype']!="AGENT"))
-        {
-         redirect('login/logout/'); 
-        }	
+		parent::__construct();	
 	}
 	public function index()
 	{
-		$data = array();
-		$this->load->view('dashboard',$data);
+		$this->load->view('dashboard');
 	}
 	public function changePassword()
 	{

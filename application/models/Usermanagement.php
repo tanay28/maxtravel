@@ -10,8 +10,6 @@ class Usermanagement extends CI_Model {
         $p = $query->row_array();
 
         if($query->num_rows() == 1 && $password == $p['password']){
-            /*var_dump($query->row());
-            die;*/  
             return $query->row();
         }else{
             /*echo "<pre>";

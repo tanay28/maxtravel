@@ -18,7 +18,7 @@ class Login extends CI_Controller {
 	public function Logout()
     {
         $this->session->sess_destroy();
-        redirect('login');
+        redirect('dashboard');
     }
 
 	public function index()
@@ -30,6 +30,7 @@ class Login extends CI_Controller {
 		die;*/
 		$data = array();
 		if(isset($_POST['txtEmail']) && isset($_POST['txtPassword'])){
+
 
 			$this->load->model('Usermanagement');
 			$xx = $this->Usermanagement->validateLogin($_POST['txtEmail'],$_POST['txtPassword']);
@@ -46,27 +47,24 @@ class Login extends CI_Controller {
              		'usertype' => $xx->userstype,
              		'is_logged_in'=>1
              	);
-             	// $userdata = array('userid' => $xx->id,'usertype' => $xx->userstype);
-             	// $this->session->set_userdata('userdata',$userdata);
             	$this->session->set_userdata($data123);
             	//echo "loggedIn";
             	//////
 				$data['status'] = 'true';
 				$data['message'] = $xx;
 
-				// Redirect 
-				// var_dump($xx->userstype);
-				// die;
-				if($xx->userstype=='SUPERADMIN' || $xx->userstype=='AGENT' || $xx->userstype=='ADMIN' || $xx->userstype=='ACCOUNT'){
-					redirect('dashboard');
-				}
+				// if($xx->userstype=='SUPERADMIN' || $xx->userstype=='AGENT' || $xx->userstype=='ADMIN' || $xx->userstype=='ACCOUNT'){
+				// 	redirect('dashboard');
+				// }
+				echo $xx->userstype;
 
 			}else{
-				$this->session->set_flashdata('error', 'Enter Valid Email And Password!!');
+				//$this->session->set_flashdata('error', 'Enter Valid Email And Password!!');
+				echo("Enter Valid Email And Password!!");
 			}
 
 		}
-		$this->load->view('login');
+		//$this->load->view('login');
 	}
 	public function viewforgetpassword()
 	{
