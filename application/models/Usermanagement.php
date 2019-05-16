@@ -66,10 +66,10 @@ class Usermanagement extends CI_Model {
     }
     public function getCities($con)
     {
-        $sql = "SELECT * FROM city WHERE cc_fips = '".$con."'";
+        $sql = "SELECT * FROM city WHERE country_id = '".$con."'";
         return $this->db->query($sql)->result_array();
     }
-    public function insert_user($tbl_name,$Arr_users)
+    public function insert_user_data($tbl_name,$Arr_users)
     {
         $this->db->insert($tbl_name,$Arr_users);
         return $this->db->insert_id();

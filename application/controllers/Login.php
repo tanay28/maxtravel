@@ -18,7 +18,7 @@ class Login extends CI_Controller {
 	public function Logout()
     {
         $this->session->sess_destroy();
-        redirect('dashboard');
+        redirect('home');
     }
 
 	public function index()
@@ -42,7 +42,6 @@ class Login extends CI_Controller {
 				//////////////
 				$data123 = array(
 					'userid' => $xx->id,
-             		'username' => $xx->name,
              		'useremail' => $xx->email,
              		'usertype' => $xx->userstype,
              		'is_logged_in'=>1
@@ -56,11 +55,11 @@ class Login extends CI_Controller {
 				// if($xx->userstype=='SUPERADMIN' || $xx->userstype=='AGENT' || $xx->userstype=='ADMIN' || $xx->userstype=='ACCOUNT'){
 				// 	redirect('dashboard');
 				// }
-				echo $xx->userstype;
+				echo($xx->userstype);
 
 			}else{
 				//$this->session->set_flashdata('error', 'Enter Valid Email And Password!!');
-				echo("Enter Valid Email And Password!!");
+				echo("");
 			}
 
 		}

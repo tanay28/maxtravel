@@ -85,8 +85,19 @@
 
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
 				<div class="container">
+					<div>
+						<?php if ($this->session->userdata('success')) { ?>
+		              	<div class="alert alert-success">
+		                  <?php echo $this->session->userdata('success');?>
+		              	</div>
+			            <?php }?>
+			            <?php if ($this->session->userdata('error')) { ?>
+			              <div class="alert alert-danger">
+			                  <?php echo $this->session->userdata('error');?>
+			              </div>
+			            <?php }?>
+					</div>
 					<div class="row">
-
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Agent Registration</h1>
 						</div>
@@ -280,7 +291,7 @@
 								                foreach ($country as $ikey => $ivalue)
 								                {
 								            ?>
-								             <option value="<?php echo $ivalue['cc_fips'];?>"><?php echo $ivalue['country_name'];?></option> 
+								             <option value="<?php echo $ivalue['id'];?>"><?php echo $ivalue['country_name'];?></option> 
 								            <?php
 								                }
 								              }
@@ -291,11 +302,11 @@
 										<label class="float-left">City<font class="mandetory-star">*</font></label>
 										<select class="input-class-common float-left" name="cmbCity" id="cmbCity" required=""></select>
 									</div>
-									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDetails" style="display: none">
+									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDetails" style="display:none">
 										<label class="float-left">GST Number</label>
 										<input type="text" class="input-class-common float-left" name="txtGSTNO">
 									</div>
-									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDoc" style="display:none">
 										<label class="float-left">Upload Document</label>
 										<input type="file" class=" float-left" name="fileGSTDoc">
 									</div>
@@ -323,12 +334,12 @@
 								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Password<font class="mandetory-star">*</font>
 									</label>
-									<input type="text" class="input-class-common  w-100 float-left" name="txtPassword" id="txtPassword" required="">
+									<input type="password" class="input-class-common  w-100 float-left" name="txtPassword" id="txtPassword" required="">
 								</div>
 								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Confirm Password<font class="mandetory-star">*</font>
 									</label>
-									<input type="text" class="input-class-common  w-100 float-left" name="txtConfirmPassword" id="txtConfirmPassword" required="">
+									<input type="password" class="input-class-common  w-100 float-left" name="txtConfirmPassword" id="txtConfirmPassword" required="">
 								</div>
 
 
@@ -341,7 +352,7 @@
 								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 									<label class="float-left w-100">Accounts Name<font class="mandetory-star">*</font>
 									</label>
-									<input type="text" class="input-class-common  w-100 float-left" txtAccountName" required="">
+									<input type="text" class="input-class-common  w-100 float-left" name="txtAccountName" required="">
 								</div>
 								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Accounts Email<font class="mandetory-star">*</font>
@@ -438,6 +449,7 @@
 		});
 		$(document).ready(function(){
       	  $('#gstDetails').hide();
+      	  $('#gstDoc').hide();
 	      if($('#txtPassword').val() != $('#txtConfirmPassword').val())
 	      {
 	        alert('Mismatch Password..!!');
@@ -446,25 +458,29 @@
       	  $('#cmbCountry').on('change',function(){
           	$('#cmbCity').empty();
         	var con = $(this).val();
-        	//alert(con);
+        	var con_name = $('#cmbCountry option:selected').text();
+        	//alert(con_name);
 	        $.ajax({
 	          url  : "<?php echo base_url('signup/ajax_fetch_city');?>",
 	          type : "post",
 	          data : {"key":con}, 
 	          success: function(result){ 
 	          //$("#cmbCity").html(result);
+	          $('#cmbCity').append('<option value="none">Select</option>');
 	          var opts = $.parseJSON(result);
 	          $.each(opts, function(i, d){
-	              $('#cmbCity').append('<option value="' + d.full_name_nd + '">' + d.full_name_nd + '</option>');
+	              $('#cmbCity').append('<option value="' + d.city_name + '">' + d.city_name + '</option>');
 	          });
 	        }});
-	        if(con == 'IN')
+	        if(con_name == 'India')
 	        {
 	          $('#gstDetails').show('slow');
+	          $('#gstDoc').show('slow');
 	        }
 	        else
 	        {
-	          $('#gstDetails').hide('slow'); 
+	          $('#gstDetails').hide('slow');
+	          $('#gstDoc').hide('slow'); 
 	        }
       });
     });
@@ -480,7 +496,7 @@
 	<script src="<?php echo base_url('assets/js/owl.carousel.min.js');?>"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="<?php echo base_url('assets/js/main.js');?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script>
+	<!-- <script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script> -->
 	<script>
 		$(document).ready(function () {
 			$('select:not(.ignore)').niceSelect();
