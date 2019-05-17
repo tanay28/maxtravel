@@ -401,7 +401,7 @@
 							</div>
 							<div class="col-lg-12 float-left mt-4">
 							<input type="submit" value="Register Now" class="register-button-form float-left mr-3 ">
-							<a href="<?php echo base_url('dashboard');?>" class="cancel-button-form float-left">Cancel</a>
+							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
 					</div>

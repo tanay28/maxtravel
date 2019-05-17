@@ -68,48 +68,54 @@ class Login extends CI_Controller {
 	public function viewforgetpassword()
 	{
 		$data = array();
-		//if(isset($_POST['txtEmail']) && isset($_POST['txtDOB']))
+		//echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : '';
 		if(isset($_POST['txtEmail']))	
 		{
 			$this->load->model('Usermanagement');
 			$chk = $this->Usermanagement->validateUser($_POST['txtEmail']);
+			//var_dump($chk);
 			if($chk)
 			{
-				//$Arr = array('email' => $_POST['txtEmail'],'dob' => date('Y-m-d',strtotime($_POST['txtDOB'])));
-				$Arr = array('email' => $_POST['txtEmail']);
-				$data['user'] = $Arr;
-				$this->load->view('resetpassword',$data);
+				// $Arr = array('email' => $_POST['txtEmail']);
+				// $data['user'] = $Arr;
+				// $this->load->view('resetpassword',$data);
+				$this->session->set_userdata('email',$_POST['txtEmail']);
+				echo 'success';
 				return;
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Enter Valid Email..!!');
-			}	
+				// $this->session->set_flashdata('error', 'Enter Valid Email..!!');
+				$this->session->sess_destroy();
+				echo 'error';
+				return;
+			}
 		}
 		$this->load->view('forgetpassword');
 	}
 	public function resetpassword()
 	{
-		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']) && isset($_POST['hiddEmail']))
+		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']) && isset($_POST['txtEmail']))
 		{
+			
 			$this->load->model('Usermanagement');
 			if($_POST['txtNew'] != $_POST['txtConfirm'])
 			{
 				$this->session->set_flashdata('error', 'Mismatch Password..!!');
-				$Arr = array('email' => $_POST['hiddEmail']);
-				$data['user'] = $Arr;
-				$this->load->view('resetpassword',$data);
+				$this->load->view('resetpassword');
 			}
 			else
 			{
-				$chk = $this->Usermanagement->resetPassword($_POST['hiddEmail'],$_POST['txtNew']);
+				$chk = $this->Usermanagement->resetPassword($_POST['txtEmail'],$_POST['txtNew']);
 				if($chk)
 				{
 					$this->session->set_flashdata('success', 'Password reset successful..');
-					redirect('login');	
+					$this->session->sess_destroy();
+					redirect('home');
 				}
 			}
 		}
+		$this->load->view('resetpassword');
 	}
 	
 }

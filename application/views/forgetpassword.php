@@ -96,26 +96,22 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12 float-left page-title-top mt-3">
-							<h1>Chagne Password</h1>
+							<h1>Forgot Password</h1>
 						</div>
-						<form name="frmChange" method="post" action="<?php echo base_url('dashboard/changepassword');?>">
+						<form name="frmforgotpass" method="post" action="javascript:void()">
 							<div class="w-100 float-left wrap-section-sign account-sett mb-3 mt-3">
 								<div class="col-lg-12 mb-3">
 									<h3>Access Details</h3>
 								</div>
+
 								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
-									<label class="float-left  w-100">Password<font class="mandetory-star">*</font>
+									<label class="float-left w-100">Email<font class="mandetory-star">*</font>
 									</label>
-									<input type="password" class="input-class-common  w-100 float-left" name="txtNew" id="txtNew" required="">
-								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
-									<label class="float-left  w-100">Confirm Password<font class="mandetory-star">*</font>
-									</label>
-									<input type="password" class="input-class-common  w-100 float-left" name="txtConfirm" id="txtConfirm" required="">
+									<input type="text" class="input-class-common  w-100 float-left" name="txtAgencyemail" id="txtAgencyemail" required="">
 								</div>
 							</div>
 							<div class="col-lg-12 float-left mt-4">
-							<input type="submit" value="Change Now" class="register-button-form float-left mr-3" id="btnChange">
+							<input type="submit" value="Next" class="register-button-form float-left mr-3" id="btnForgot">
 							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
@@ -163,12 +159,25 @@
 			jQuery('#loading').hide();
 		});
 		$(document).ready(function(){
-      	  $('#btnChange').on('click',function(){
-          	if($('#txtNew').val() != $('#txtConfirm').val())
-		    {
-		        alert('Mismatch Password..!!');
-		        return false;
-		    }
+      	 
+      	  $('#btnForgot').on('click',function(){
+        	var email = $('#txtAgencyemail').val();
+	        $.ajax({
+	          url  : "<?php echo base_url('login/viewforgetpassword');?>",
+	          type : "post",
+	          data : {"txtEmail":email}, 
+	          success: function(result){
+	          			//alert(result);
+	          			if(result == 'error')
+	          			{
+	          				alert('Please provide a valid email..!!');
+	          				return false;
+	          			}
+	          			else
+	          			{
+	          				window.location.href = "<?php echo base_url('login/resetpassword');?>";	
+	          			}
+	        }});
       });
     });
 	</script>

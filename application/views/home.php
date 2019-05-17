@@ -94,7 +94,7 @@
 							<button class="text-uppercase button-login" id="btnLogin">Login</button>
 						</div>
 						<div class="w-100 text-center register-area mt-3">
-							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="#" class="forgot">Forgot password?</a></p>
+							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('login/viewforgetpassword');?>" class="forgot">Forgot password?</a></p>
 						</div>
 					</div>
 					<?php //}?>
