@@ -75,7 +75,7 @@
 			<header class="home-header header-other-page w-100 float-left">
 				<div class="container position-relative">
 					<div class="float-left logo-others text-left">
-						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url('dashboard');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
 					<div class="nav-afterlogin float-right">
@@ -85,7 +85,8 @@
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="#">My Account</a>
-							<a class="dropdown-item" href="#">Logout</a>
+							<a class="dropdown-item" href="<?php echo base_url('dashboard/changepassword');?>">Change Password</a>
+							<a class="dropdown-item" href="<?php echo base_url('login/logout');?>">Logout</a>
 						</div>
 					</div>
 					</div>
