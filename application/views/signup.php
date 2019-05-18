@@ -96,6 +96,7 @@
 			                  <?php echo $this->session->userdata('error');?>
 			              </div>
 			            <?php }?>
+			            <div class="alert alert-danger" id="ajaxmsg" style="display: none"></div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 float-left page-title-top mt-3">
@@ -452,7 +453,9 @@
       	  $('#gstDoc').hide();
 	      if($('#txtPassword').val() != $('#txtConfirmPassword').val())
 	      {
-	        alert('Mismatch Password..!!');
+	      	$('#ajaxmsg').show('slow');
+	      	var msg = 'Mismatch Password..!!';
+	        $('#ajaxmsg').html(msg);
 	        return false;
 	      }
       	  $('#cmbCountry').on('change',function(){
