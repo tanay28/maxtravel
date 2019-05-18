@@ -50,11 +50,11 @@
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
 			<div class="colorlib-table">
 				<div class="colorlib-table-cell">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-12 logonav mb-4 text-left">
 							<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
 						</div>
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-md-12">
 							<ul>
@@ -72,12 +72,23 @@
 		</nav>
 
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100">
+			<header class="home-header header-other-page w-100 float-left">
 				<div class="container position-relative">
-					<div class="w-100 logo-others text-left">
+					<div class="float-left logo-others text-left">
 						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
+					<div class="nav-afterlogin float-right">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">My Account</a>
+							<a class="dropdown-item" href="#">Logout</a>
+						</div>
+					</div>
+					</div>
 				</div>
 			</header>
 
@@ -139,7 +150,7 @@
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Nature of Business <font class="mandetory-star">*</font>
 										</label>
-										<select class="input-class-common float-left" name="cmbNatureofbusiness" required="">
+										<select class="input-class-common float-left select-box" name="cmbNatureofbusiness" required="">
 											<option value="none">Select</option>
 											<option value="destination_management_company">Destination Management Company</option>
 	              							<option value="tour_operator">Tour Operator</option>
@@ -151,7 +162,7 @@
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Business Type <font class="mandetory-star">*</font>
 										</label>
-										<select class="input-class-common float-left" name="cmbBusinesstype" required="">
+										<select class="input-class-common float-left select-box" name="cmbBusinesstype" required="">
 										  	<option value="none">Select</option>
 							              	<option value="B2B">B2B</option>
 							              	<option value="B2C">B2C</option>
@@ -162,7 +173,7 @@
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">How did you hear about us
 										</label>
-										<select class="input-class-common float-left" name="cmbKnowfrom">
+										<select class="input-class-common float-left select-box" name="cmbKnowfrom">
 										  	<option value="none">Select</option>
 	              							<option value="email_marketing">Email Marketing</option>
 							              	<option value="trade_show">Trade Show</option>
@@ -175,7 +186,7 @@
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Preferred Currency <font class="mandetory-star">*</font>
 										</label>
-										<select class="input-class-common float-left" name="cmbPrefferedcurrency" required="">
+										<select class="input-class-common float-left select-box" name="cmbPrefferedcurrency" required="">
 											<option value="none">Select</option>
 							              	<option value="USD">United States Dollars</option>
 							              	<option value="EUR">Euro</option>
@@ -284,7 +295,7 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Country<font class="mandetory-star">*</font></label>
-										<select class="input-class-common float-left" name="cmbCountry" id="cmbCountry" required="">
+										<select class="input-class-common float-left select-box" name="cmbCountry" id="cmbCountry" required="">
 											<option value="none">Select</option>
 								             <?php
 								              if(isset($country) && count($country)>0)
@@ -309,7 +320,7 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDoc" style="display:none">
 										<label class="float-left">Upload Document</label>
-										<input type="file" class=" float-left" name="fileGSTDoc">
+										<input type="file" class=" float-left file-input" name="fileGSTDoc">
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Time Zone <font class="mandetory-star">*</font></label>
@@ -491,6 +502,7 @@
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
+	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->
@@ -499,10 +511,10 @@
 	<script src="<?php echo base_url('assets/js/owl.carousel.min.js');?>"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="<?php echo base_url('assets/js/main.js');?>"></script>
-	<!-- <script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script> -->
+	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script> 
 	<script>
 		$(document).ready(function () {
-			$('select:not(.ignore)').niceSelect();
+			$('.select-box:not(.ignore)').niceSelect();
 			FastClick.attach(document.body);
 		});    
 	</script>

@@ -49,11 +49,11 @@
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active"><i></i></a>
 			<div class="colorlib-table">
 				<div class="colorlib-table-cell">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-12 logonav mb-4 text-left">
 							<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
 						</div>
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-md-12">
 							<ul>
@@ -431,6 +431,7 @@
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
+	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->

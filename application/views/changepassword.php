@@ -72,12 +72,23 @@
 		</nav>
 
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100">
+			<header class="home-header header-other-page w-100 float-left">
 				<div class="container position-relative">
-					<div class="w-100 logo-others text-left">
+					<div class="float-left logo-others text-left">
 						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
+					<div class="nav-afterlogin float-right">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">My Account</a>
+							<a class="dropdown-item" href="#">Logout</a>
+						</div>
+					</div>
+					</div>
 				</div>
 			</header>
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
@@ -100,23 +111,21 @@
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Chagne Password</h1>
 						</div>
-						<form name="frmChange" method="post" action="<?php echo base_url('dashboard/changepassword');?>">
+						<form name="frmChange" method="post" action="<?php echo base_url('dashboard/changepassword');?>" class="col-lg-6 col-md-12 col-12 float-left">
 							<div class="w-100 float-left wrap-section-sign account-sett mb-3 mt-3">
-								<div class="col-lg-12 mb-3">
-									<h3>Access Details</h3>
-								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
-									<label class="float-left  w-100">Password<font class="mandetory-star">*</font>
+								
+								<div class="col-lg-12 float-left wrap-sign-main">
+									<label class="float-left  w-100">New Password<font class="mandetory-star">*</font>
 									</label>
 									<input type="password" class="input-class-common  w-100 float-left" name="txtNew" id="txtNew" required="">
 								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Confirm Password<font class="mandetory-star">*</font>
 									</label>
 									<input type="password" class="input-class-common  w-100 float-left" name="txtConfirm" id="txtConfirm" required="">
 								</div>
 							</div>
-							<div class="col-lg-12 float-left mt-4">
+							<div class="w-100 float-left mt-4">
 							<input type="submit" value="Change Now" class="register-button-form float-left mr-3" id="btnChange">
 							<a href="<?php echo base_url('dashboard');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
@@ -179,6 +188,7 @@
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
+	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->

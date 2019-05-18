@@ -50,11 +50,11 @@
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
 			<div class="colorlib-table">
 				<div class="colorlib-table-cell">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-12 logonav mb-4 text-left">
 							<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
 						</div>
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-md-12">
 							<ul>
@@ -72,12 +72,23 @@
 		</nav>
 
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100">
+			<header class="home-header header-other-page w-100 float-left">
 				<div class="container position-relative">
-					<div class="w-100 logo-others text-left">
+					<div class="float-left logo-others text-left">
 						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
+					<div class="nav-afterlogin float-right">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">My Account</a>
+							<a class="dropdown-item" href="#">Logout</a>
+						</div>
+					</div>
+					</div>
 				</div>
 			</header>
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
@@ -100,29 +111,27 @@
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Reset Password</h1>
 						</div>
-						<form name="frmReset" method="post" action="<?php echo base_url('Forgotpassword/resetpassword');?>">
+						<form name="frmReset" method="post" action="<?php echo base_url('Forgotpassword/resetpassword');?>" class="col-lg-6 col-md-12 col-12 float-left">
 							<div class="w-100 float-left wrap-section-sign account-sett mb-3 mt-3">
-								<div class="col-lg-12 mb-3">
-									<h3>Access Details</h3>
-								</div>
+								
 
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Email<font class="mandetory-star">*</font>
 									</label>
 									<input type="text" class="input-class-common  w-100 float-left" name="txtEmail" id="txtEmail" required=""  value="<?php echo $this->session->userdata('email');?>" readonly="">
 								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Password<font class="mandetory-star">*</font>
 									</label>
 									<input type="password" class="input-class-common  w-100 float-left" name="txtNew" id="txtNew" required="">
 								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Confirm Password<font class="mandetory-star">*</font>
 									</label>
 									<input type="password" class="input-class-common  w-100 float-left" name="txtConfirm" id="txtConfirm" required="">
 								</div>
 							</div>
-							<div class="col-lg-12 float-left mt-4">
+							<div class="w-100 float-left mt-4">
 							<input type="submit" value="Reset Now" class="register-button-form float-left mr-3" id="btnReset">
 							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
@@ -188,6 +197,7 @@
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
+	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->
