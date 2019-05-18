@@ -75,7 +75,7 @@
 			<header class="home-header header-other-page w-100">
 				<div class="container position-relative">
 					<div class="w-100 logo-others text-left">
-						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
 				</div>
@@ -93,6 +93,8 @@
 			                  <?php echo $this->session->userdata('error');?>
 			              </div>
 			            <?php }?>
+			            <div class="alert alert-danger" id="ajaxmsg" style="display: none;">
+			            </div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 float-left page-title-top mt-3">
@@ -163,19 +165,22 @@
       	  $('#btnForgot').on('click',function(){
         	var email = $('#txtAgencyemail').val();
 	        $.ajax({
-	          url  : "<?php echo base_url('login/viewforgetpassword');?>",
+	          url  : "<?php echo base_url('Forgotpassword/viewforgetpassword');?>",
 	          type : "post",
 	          data : {"txtEmail":email}, 
 	          success: function(result){
 	          			//alert(result);
 	          			if(result == 'error')
 	          			{
-	          				alert('Please provide a valid email..!!');
+	          				//alert('Please provide a valid email..!!');
+	          				$('#ajaxmsg').show('slow');
+	          				var msg = 'Please provide a valid email..!!';
+	          				$('#ajaxmsg').html(msg);
 	          				return false;
 	          			}
 	          			else
 	          			{
-	          				window.location.href = "<?php echo base_url('login/resetpassword');?>";	
+	          				window.location.href = "<?php echo base_url('Forgotpassword/resetpassword');?>";	
 	          			}
 	        }});
       });

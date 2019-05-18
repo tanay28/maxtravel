@@ -83,10 +83,6 @@
 					<div class="w-100 logo-home text-center">
 						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
-					<?php
-						//$checkuservars = $this->session->userdata;
-						//if(!isset($checkuservars['userid'])){
-					?>
 					<div class="w-100 text-center agent-login">
 						<div class="d-inline-block inter-form">
 							<input type="email" class="input-class" placeholder="Email" name="txtEmail" id="txtEmail" required="">
@@ -94,10 +90,11 @@
 							<button class="text-uppercase button-login" id="btnLogin">Login</button>
 						</div>
 						<div class="w-100 text-center register-area mt-3">
-							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('login/viewforgetpassword');?>" class="forgot">Forgot password?</a></p>
+							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('Forgotpassword/viewforgetpassword');?>" class="forgot">Forgot password?</a></p>
+							<div class="alert alert-danger" style="display: none" id="ajaxmsg"></div>
 						</div>
+						
 					</div>
-					<?php //}?>
 				</div>
 			</header>
 			<div>
@@ -422,7 +419,9 @@
 								}
 								else if(result == '')
 								{
-									alert('Enter Valid Email And Password!!');
+									$('#ajaxmsg').show('slow');
+									var msg = 'Enter Valid Email And Password!!'; 
+									$('#ajaxmsg').html(msg);
 								}
 								
 				}});

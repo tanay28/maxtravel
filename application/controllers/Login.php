@@ -65,7 +65,7 @@ class Login extends CI_Controller {
 		}
 		//$this->load->view('login');
 	}
-	public function viewforgetpassword()
+	/*public function viewforgetpassword()
 	{
 		$data = array();
 		//echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : '';
@@ -116,6 +116,6 @@ class Login extends CI_Controller {
 			}
 		}
 		$this->load->view('resetpassword');
-	}
+	}*/
 	
 }

@@ -75,7 +75,7 @@
 			<header class="home-header header-other-page w-100">
 				<div class="container position-relative">
 					<div class="w-100 logo-others text-left">
-						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
 				</div>
@@ -93,12 +93,14 @@
 			                  <?php echo $this->session->userdata('error');?>
 			              </div>
 			            <?php }?>
+			            <div class="alert alert-danger" id="ajaxmsg" style="display: none">
+			            </div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Reset Password</h1>
 						</div>
-						<form name="frmReset" method="post" action="<?php echo base_url('login/resetpassword');?>">
+						<form name="frmReset" method="post" action="<?php echo base_url('Forgotpassword/resetpassword');?>">
 							<div class="w-100 float-left wrap-section-sign account-sett mb-3 mt-3">
 								<div class="col-lg-12 mb-3">
 									<h3>Access Details</h3>
@@ -175,7 +177,9 @@
       	  $('#btnReset').on('click',function(){
           	if($('#txtNew').val() != $('#txtConfirm').val())
 		    {
-		        alert('Mismatch Password..!!');
+		    	var msg = 'Mismatch Password..!!';
+		    	$('#ajaxmsg').show('slow');
+		        $('#ajaxmsg').html(msg);
 		        return false;
 		    }
       });
