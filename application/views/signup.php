@@ -73,7 +73,7 @@
 			<header class="home-header header-other-page w-100 float-left">
 				<div class="container position-relative">
 					<div class="float-left logo-others text-left">
-						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
 					<!-- <div class="nav-afterlogin float-right">

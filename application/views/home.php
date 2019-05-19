@@ -86,7 +86,7 @@
 			<header class="home-header position-absolute w-100">
 				<div class="col-lg-12">
 					<div class="w-100 logo-home text-center">
-						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<?php
 						if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){

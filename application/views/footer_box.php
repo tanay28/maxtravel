@@ -1,7 +1,7 @@
 <footer class="w-100 float-left">
 	<div class="container">
 		<div class="w-100 float-left">
-			<div class="float-left left-foot-logo"><a href="#"><img src="<?php echo base_url('assets/images/logo-full.png')?>" alt=""></a>
+			<div class="float-left left-foot-logo"><a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/logo-full.png')?>" alt=""></a>
 			</div>
 			<div class="float-right right-footer">
 				<div class="foot-nav float-right">
