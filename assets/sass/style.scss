@@ -1256,6 +1256,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', end
     border-radius:12px;
     margin-top: 12px;
 		box-shadow: 0px 5px 20px #ccc;
+		left: inherit !important;
+		right: -26px;
 	}
 	.dropdown-item {
     padding: 5px 16px;
@@ -1518,4 +1520,21 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 			color: #fff;
 		}
 	}
+}
+.home-afterlogin {
+    position: absolute;
+    z-index: 9;
+    right: 58px;
+    top: 22px;
+}
+.alertbox-home {
+	position: relative;
+	z-index: 999999;
+	background: #dd0000;
+	border: $pix0;
+	font-size: 12px;
+	color: $white;
+	padding: 2px 30px 0;
+	margin-bottom: $pix0;
+	border-radius: $pix0;
 }

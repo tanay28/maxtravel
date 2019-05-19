@@ -1188,7 +1188,9 @@ footer {
     border-radius: 12px;
     margin-top: 12px;
     -webkit-box-shadow: 0px 5px 20px #ccc;
-    box-shadow: 0px 5px 20px #ccc; }
+    box-shadow: 0px 5px 20px #ccc;
+    left: inherit !important;
+    right: -26px; }
   .nav-afterlogin .dropdown-item {
     padding: 5px 16px;
     color: #212529;
@@ -1448,3 +1450,20 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   .dataTables_wrapper .current :hover {
     background: #3b3b3b !important;
     color: #fff; }
+
+.home-afterlogin {
+  position: absolute;
+  z-index: 9;
+  right: 58px;
+  top: 22px; }
+
+.alertbox-home {
+  position: relative;
+  z-index: 999999;
+  background: #dd0000;
+  border: 0px;
+  font-size: 12px;
+  color: #ffffff;
+  padding: 2px 30px 0;
+  margin-bottom: 0px;
+  border-radius: 0px; }

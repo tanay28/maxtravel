@@ -52,6 +52,7 @@
 	<div id="page">
 		<nav id="colorlib-main-nav" role="navigation">
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active"><i></i></a>
+			
 			<div class="colorlib-table">
 				<div class="colorlib-table-cell">
 					<!-- <div class="row">
@@ -82,6 +83,19 @@
 			</div>
 		</nav>
 
+		<div class="nav-afterlogin float-right home-afterlogin">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">My Account</a>
+							<a class="dropdown-item" href="<?php echo base_url('changepass');?>">Change Password</a>
+							<a class="dropdown-item" href="<?php echo base_url('login/logout');?>">Logout</a>
+						</div>
+					</div>
+					</div>
+
 		<div id="colorlib-page">
 			
 			<header class="home-header position-absolute w-100">
@@ -94,10 +108,11 @@
 							<input type="email" class="input-class" placeholder="Email" name="txtEmail" id="txtEmail" required="">
 							<input type="password" class="input-class noborder" placeholder="Password" name="txtPassword" id="txtPassword" required="">
 							<button class="text-uppercase button-login" id="btnLogin" onclick="login();">Login</button>
+							<div class="alert alert-danger alertbox-home" style="display: none" id="ajaxmsg"></div>
 						</div>
-						<div class="w-100 text-center register-area mt-3">
+						<div class="w-100 text-center register-area mt-2">
 							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('Forgotpassword/viewforgetpassword');?>" class="forgot">Forgot password?</a></p>
-							<div class="alert alert-danger" style="display: none" id="ajaxmsg"></div>
+							
 						</div>
 						
 					</div>
