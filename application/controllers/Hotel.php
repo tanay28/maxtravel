@@ -15,12 +15,12 @@
 		}
 		public function index()
 		{
-			$this->load->view('dashboardsa');
+			$this->load->view('listhotel');
 		}
 
 		public function lists()
 		{
-			$this->load->view('dashboardsa');
+			$this->load->view('listhotel');
 		}
 
 		public function add()
