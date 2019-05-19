@@ -20,6 +20,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 	<!-- Modernizr JS -->
 	<script src="<?php echo base_url('assets/js/modernizr-2.6.2.min.js');?>"></script>
+	<script type="text/javascript">
+      var base_url = '<?php echo base_url()?>';
+      //alert(base_url);
+  	</script>
+	<script src="<?php echo base_url('assets/js/common.js');?>"></script>
 	<!-- FOR IE9 below -->
 	<style>
 		#page {
@@ -78,6 +83,7 @@
 		</nav>
 
 		<div id="colorlib-page">
+			
 			<header class="home-header position-absolute w-100">
 				<div class="col-lg-12">
 					<div class="w-100 logo-home text-center">
@@ -87,7 +93,7 @@
 						<div class="d-inline-block inter-form">
 							<input type="email" class="input-class" placeholder="Email" name="txtEmail" id="txtEmail" required="">
 							<input type="password" class="input-class noborder" placeholder="Password" name="txtPassword" id="txtPassword" required="">
-							<button class="text-uppercase button-login" id="btnLogin">Login</button>
+							<button class="text-uppercase button-login" id="btnLogin" onclick="login();">Login</button>
 						</div>
 						<div class="w-100 text-center register-area mt-3">
 							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('Forgotpassword/viewforgetpassword');?>" class="forgot">Forgot password?</a></p>
@@ -327,7 +333,7 @@
 				</div>
 			</section>
 
-<section class="currency-convert-wrap">
+			<section class="currency-convert-wrap">
 				<div class="conver-inner w-100 float-left" style="background:url(<?php echo base_url('assets/images/video-bg.jpg');?>);">
 					<div class="inter-wrap-video w-100 float-left text-center">
 						<div class="container">
@@ -401,32 +407,7 @@
 			jQuery('#page').fadeIn(500);
 			jQuery('#loading').hide();
 		});
-		$('document').ready(function(){
-			$('#btnLogin').on('click',function(){
-				var email = $('#txtEmail').val();
-				var password = $('#txtPassword').val();
-
-				$.ajax({
-
-					url     : "<?php echo base_url('Login/index')?>",
-					type    : "post",
-					data    : {"txtEmail":email,"txtPassword":password},
-					success : function(result){
-								//alert(result);
-								if(result == 'AGENT')
-								{
-									window.location.href = "<?php echo base_url('Dashboard');?>";	
-								}
-								else if(result == '')
-								{
-									$('#ajaxmsg').show('slow');
-									var msg = 'Enter Valid Email And Password!!'; 
-									$('#ajaxmsg').html(msg);
-								}
-								
-				}});
-			});
-		});
+		
 	</script>
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>

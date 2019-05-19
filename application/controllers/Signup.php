@@ -8,6 +8,11 @@ class Signup extends CI_Controller {
 	{
 
 		parent::__construct();
+		$checkuservars = $this->session->userdata;
+		if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
+		{
+			redirect('home');
+		}
 
 		/*$checkuservars = $this->session->userdata;
                 

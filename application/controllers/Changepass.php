@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set("Asia/Kolkata");
-class Dashboard extends CI_Controller {
+class Changepass extends CI_Controller {
 
 	function __construct()
 	{
@@ -9,14 +9,10 @@ class Dashboard extends CI_Controller {
 		$checkuservars = $this->session->userdata;
 		if(!isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1)
 		{
-			redirect('home');
+			redirect('login/logout');
 		}
 	}
 	public function index()
-	{
-		$this->load->view('dashboard');
-	}
-	public function changePassword()
 	{
 		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']))
 		{

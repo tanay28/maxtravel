@@ -22,6 +22,11 @@
 	<!-- Modernizr JS -->
 	<script src="<?php echo base_url('assets/js/modernizr-2.6.2.min.js');?>"></script>
 	<!-- FOR IE9 below -->
+	<script type="text/javascript">
+      var base_url = '<?php echo base_url()?>';
+      //alert(base_url);
+  	</script>
+	<script src="<?php echo base_url('assets/js/common.js');?>"></script>
 	<style>
 		#page {
 			position: relative;

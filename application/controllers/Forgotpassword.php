@@ -8,6 +8,11 @@
 		public function __construct()
 		{
 			parent::__construct();
+			$checkuservars = $this->session->userdata;
+			if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
+			{
+				redirect('home');
+			}
 		}
 
 		public function viewforgetpassword()
