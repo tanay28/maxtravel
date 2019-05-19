@@ -62,14 +62,7 @@
 					</div> -->
 					<div class="row">
 						<div class="col-md-12">
-							<ul>
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Maxx Team</a></li>
-								<li><a href="#">Career</a></li>
-								<li><a href="#">Join Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul>
+							<?php include_once('before_login_menu.php');?>
 						</div>
 					</div>
 				</div>
@@ -83,17 +76,17 @@
 						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
-					<div class="nav-afterlogin float-right">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-user"></i>
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">My Account</a>
-							<a class="dropdown-item" href="#">Logout</a>
+					<!-- <div class="nav-afterlogin float-right">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-user"></i>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">My Account</a>
+								<a class="dropdown-item" href="#">Logout</a>
+							</div>
 						</div>
-					</div>
-					</div>
+					</div> -->
 				</div>
 			</header>
 
@@ -426,34 +419,7 @@
 			</section>
 
 
-			<footer class="w-100 float-left">
-				<div class="container">
-					<div class="w-100 float-left">
-						<div class="float-left left-foot-logo"><a href="#"><img src="<?php echo base_url('assets/images/logo-full.png')?>" alt=""></a>
-						</div>
-						<div class="float-right right-footer">
-							<div class="foot-nav float-right">
-								<ul>
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">maxx Team </a></li>
-									<li><a href="#">Careers </a></li>
-									<li><a href="#">Join Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-								</ul>
-							</div>
-							<div class="social float-right w-100">
-								<a href="#"><i class="fab fa-whatsapp whapp"></i></a>
-								<a href="#"><i class="fab fa-twitter tw"></i></a>
-								<a href="#"><i class="fab fa-facebook-f face"></i></a>
-							</div>
-						</div>
-						<div class="w-100 float-left copy mt-3">
-							<p>© 2019 maxxholidays.com All rights reserved </p>
-						</div>
-					</div>
-				</div>
-			</footer>
+			<?php include_once('footer_box.php');?>
 
 		</div>
 	</div>

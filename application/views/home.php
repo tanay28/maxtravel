@@ -62,21 +62,8 @@
 					</div> -->
 					<div class="row">
 						<div class="col-md-12">
-							<ul>
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Maxx Team</a></li>
-								<li><a href="#">Career</a></li>
-								<li><a href="#">Join Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<?php
-									//$checkuservars = $this->session->userdata;
-									//if(isset($checkuservars['userid'])){
-								?>
-								<!-- <li><a href="#">Change Password</a></li>
-								<li><a href="<?php //echo base_url('Login/logout');?>">Logout</a></li> -->
-							<?php //}?>
-							</ul>
+							<?php include_once('before_login_menu.php');?>
+							
 						</div>
 					</div>
 				</div>
@@ -84,17 +71,15 @@
 		</nav>
 
 		<div class="nav-afterlogin float-right home-afterlogin">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-user"></i>
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">My Account</a>
-							<a class="dropdown-item" href="<?php echo base_url('changepass');?>">Change Password</a>
-							<a class="dropdown-item" href="<?php echo base_url('login/logout');?>">Logout</a>
-						</div>
-					</div>
-					</div>
+
+			<?php 
+				$checkuservars = $this->session->userdata;
+				if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
+				{
+					include_once('profile_menu.php');
+				}
+			?>
+		</div>
 
 		<div id="colorlib-page">
 			
@@ -103,6 +88,11 @@
 					<div class="w-100 logo-home text-center">
 						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
+					<?php
+						if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){
+					?>
+
+					<?php }else{?>
 					<div class="w-100 text-center agent-login">
 						<div class="d-inline-block inter-form">
 							<input type="email" class="input-class" placeholder="Email" name="txtEmail" id="txtEmail" required="">
@@ -116,6 +106,7 @@
 						</div>
 						
 					</div>
+					<?php }?>
 				</div>
 			</header>
 			<div>
@@ -384,34 +375,7 @@
 				</div>
 			</section>
 
-			<footer class="w-100 float-left">
-				<div class="container">
-					<div class="w-100 float-left">
-						<div class="float-left left-foot-logo"><a href="#"><img src="<?php echo base_url('assets/images/logo-full.png');?>" alt=""></a>
-						</div>
-						<div class="float-right right-footer">
-							<div class="foot-nav float-right">
-								<ul>
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">maxx Team </a></li>
-									<li><a href="#">Careers </a></li>
-									<li><a href="#">Join Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-								</ul>
-							</div>
-							<div class="social float-right w-100">
-								<a href="#"><i class="fab fa-whatsapp whapp"></i></a>
-								<a href="#"><i class="fab fa-twitter tw"></i></a>
-								<a href="#"><i class="fab fa-facebook-f face"></i></a>
-							</div>
-						</div>
-						<div class="w-100 float-left copy mt-3">
-							<p>© 2019 maxxholidays.com All rights reserved </p>
-						</div>
-					</div>
-				</div>
-			</footer>
+			<?php include_once('footer_box.php');?>
 
 		</div>
 	</div>
