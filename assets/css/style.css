@@ -1370,3 +1370,81 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   padding-left: 28px; }
   .star-pad i {
     color: #666; }
+
+.dataTables_wrapper input[type="search"] {
+  border: 2px solid #a0a0a0;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 200px;
+  text-indent: 8px;
+  border-radius: 5px;
+  outline: none !important; }
+
+.dataTables_wrapper .dataTables_length {
+  float: left;
+  font-size: 13px; }
+
+.dataTables_wrapper .dataTables_info {
+  float: left;
+  font-size: 13px; }
+
+.dataTables_wrapper select {
+  border: 2px solid #a0a0a0;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 5px;
+  outline: none !important; }
+
+.dataTables_wrapper table th {
+  border: 0px;
+  background: #2d024f;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px; }
+
+.dataTables_wrapper table td {
+  font-size: 13px; }
+
+.dataTables_wrapper .paginate_button {
+  padding: 5px;
+  background: #b7c2c2;
+  color: #000;
+  font-size: 12px;
+  border-radius: 3px;
+  margin: 0 2px;
+  outline: none !important;
+  text-decoration: none;
+  cursor: pointer; }
+  .dataTables_wrapper .paginate_button :hover {
+    background: #3b3b3b !important;
+    color: #fff; }
+
+.dataTables_wrapper .previous, .dataTables_wrapper .next {
+  padding: 5px;
+  background: #2d024f;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  margin: 0 2px;
+  outline: none !important;
+  text-decoration: none;
+  cursor: pointer; }
+  .dataTables_wrapper .previous :hover, .dataTables_wrapper .next :hover {
+    background: #3b3b3b !important;
+    color: #fff; }
+
+.dataTables_wrapper .current {
+  padding: 5px;
+  background: #008aff;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  margin: 0 2px;
+  outline: none !important;
+  text-decoration: none;
+  cursor: pointer; }
+  .dataTables_wrapper .current :hover {
+    background: #3b3b3b !important;
+    color: #fff; }

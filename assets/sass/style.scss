@@ -1435,3 +1435,87 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 		color: #666;
 	}
 }
+.dataTables_wrapper {
+	input[type="search"]{
+		border: $pix2 solid #a0a0a0;
+		height: $pix40;
+		font-size: 13px;
+		font-weight: 700;
+		min-width: 200px;
+		text-indent: $pix8;
+		border-radius: $pix5;
+		outline: none !important;
+	}
+	.dataTables_length {
+		float: left;
+		font-size: 13px;
+	}
+	.dataTables_info {
+		float: left;
+		font-size: 13px;
+	}
+	select {
+		border: $pix2 solid #a0a0a0;
+		height: $pix40;
+		font-size: 13px;
+		font-weight: 700;
+		border-radius: $pix5;
+		outline: none !important;
+	}
+	table th {
+		border: $pix0;
+		background: $purple;
+		color: $white;
+		font-weight: 700;
+		font-size: 13px;
+	}
+	table td {
+		font-size: 13px;
+	}
+	.paginate_button  {
+		padding: 5px;
+    background: $brand-selection-color;
+    color: #000;
+    font-size: 12px;
+    border-radius: 3px;
+		margin: 0 2px;
+		outline: none !important;
+		text-decoration: none;
+		cursor: pointer;
+		:hover {
+			background: $gray !important;
+			color: #fff;
+		}
+	}
+	.previous, .next {
+		padding: 5px;
+    background: $purple;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+		margin: 0 2px;
+		outline: none !important;
+		text-decoration: none;
+		cursor: pointer;
+		:hover {
+			background: $gray !important;
+			color: #fff;
+		}
+	}
+	
+	.current {
+		padding: 5px;
+    background:$blue;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+		margin: 0 2px;
+		outline: none !important;
+		text-decoration: none;
+		cursor: pointer;
+		:hover {
+			background: $gray !important;
+			color: #fff;
+		}
+	}
+}

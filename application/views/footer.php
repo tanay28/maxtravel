@@ -42,7 +42,8 @@
 	<!-- Bootstrap -->
 	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-	
+	<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->
 	<script src="<?php echo base_url('assets/js/jquery.waypoints.min.js');?>"></script>
@@ -56,6 +57,11 @@
 			$('select:not(.ignore)').niceSelect();
 			FastClick.attach(document.body);
 		});*/    
+	</script>
+	<script>
+	$(document).ready(function() {
+		$('#example1').DataTable();
+	} );
 	</script>
 </body>
 

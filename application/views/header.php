@@ -14,6 +14,7 @@
 	<!-- <link rel="stylesheet" href="css/animate.css"> -->
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css');?>">
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/owl.carousel.min.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/owl.theme.default.min.css');?>">

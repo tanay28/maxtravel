@@ -7,7 +7,7 @@
 			<div class="col-lg-12 float-left page-title-top mt-3">
 				<h1>Hotel List</h1>
 			</div>
-			<div class="col-lg-12 float-left">
+			<div class="col-lg-12 float-left mt-4">
 				<div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -23,6 +23,168 @@
                   </thead>
                   <tbody>
                   	<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
+                  		<td>1</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Test</td>
+                  		<td>Edit | Delete</td>
+										</tr>
+										<tr>
                   		<td>1</td>
                   		<td>Test</td>
                   		<td>Test</td>
