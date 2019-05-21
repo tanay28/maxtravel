@@ -32,7 +32,7 @@ class Usermanagement extends CI_Model {
     public function validateUser($email)
     {
         $this->db->select("*");
-        $query = $this->db->get_where("users", array("email" => $email));
+        $query = $this->db->get_where("users", array("email" => $email,"userstype" => "AGENT"));
         $p = $query->row_array();
 
         if($query->num_rows() > 0){  
@@ -73,6 +73,25 @@ class Usermanagement extends CI_Model {
     {
         $this->db->insert($tbl_name,$Arr_users);
         return $this->db->insert_id();
+    }
+    public function is_account_activated($email,$code)
+    {
+        $sql = "SELECT * FROM users WHERE email = '".$email."' AND activation_code = '".$code."'";
+        $rs = $this->db->query($sql)->result_array();
+        return $rs;
+    }
+    public function activate_user_account($email)
+    {
+        $value=array('status'=> 'ACTIVE');
+        $this->db->where('email',$email);
+        if( $this->db->update('users',$value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 ?>

@@ -55,7 +55,14 @@ class Login extends CI_Controller {
 				// if($xx->userstype=='SUPERADMIN' || $xx->userstype=='AGENT' || $xx->userstype=='ADMIN' || $xx->userstype=='ACCOUNT'){
 				// 	redirect('dashboard');
 				// }
-				echo($xx->userstype);
+				if(isset($xx->status) && $xx->status == 'ACTIVE')
+				{
+					echo($xx->userstype);
+				}
+				if(isset($xx->status) && $xx->status == 'INACTIVE')
+				{
+					echo('inactive');
+				}
 
 			}else{
 				//$this->session->set_flashdata('error', 'Enter Valid Email And Password!!');

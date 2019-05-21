@@ -34,6 +34,12 @@ function login(){
 			{
 				window.location.href = base_url+'dashboardem';	
 			}
+			else if(result == 'inactive')
+			{
+				$('#ajaxmsg').show('slow');
+				var msg = 'Please activate your account before login..!!'; 
+				$('#ajaxmsg').html(msg);	
+			}
 			else if(result == '')
 			{
 				$('#ajaxmsg').show('slow');

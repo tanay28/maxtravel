@@ -136,16 +136,21 @@ class Signup extends CI_Controller {
 
 			$this->load->model('Usermanagement');
 			$chk = $this->Usermanagement->validateUser($_POST['txtAgencyemail']);
+
+			//----------------- Generate Activation code -------------------//
+			$activation_code = rand(0,99)."_mhd_".$_POST['txtPhone'];
+			//----------------------------- END ---------------------------//
 			// var_dump($chk);
 			// die;
 			if($chk == false)
 			{
 				$Arr_users = array(
-					'email'         => $_POST['txtAgencyemail'],
-					'password'      => md5($_POST['txtPassword']),
-					'userstype'     => 'AGENT',
-					'date_created'  => date('Y-m-d'),
-					'date_modified' => date('Y-m-d'),
+					'email'           => $_POST['txtAgencyemail'],
+					'password'        => md5($_POST['txtPassword']),
+					'userstype'       => 'AGENT',
+					'activation_code' => $activation_code,
+					'date_created'    => date('Y-m-d'),
+					'date_modified'   => date('Y-m-d'),
 				);
 				$user_insert_id = $this->Usermanagement->insert_user_data('users',$Arr_users);
 				
@@ -188,10 +193,42 @@ class Signup extends CI_Controller {
 					'date_created' => date('Y-m-d')
 				);
 				$insert_id = $this->Usermanagement->insert_user_data('agent_user_mapping',$arr_mapping);
+
 				if($insert_id >0)
 				{
-					$this->session->set_flashdata('success', 'Registration successful..');
-					redirect('home');	
+
+					//------------------ Email Functions -----------------//
+					$this->load->library('email');
+					$from_email = "tmtanay56@gmail.com"; 
+         			//$to_email = $_POST['txtAgencyemail']; 
+					$to_email = "sudiptagraphics@gmail.com";
+
+					$this->email->from($from_email, 'Tanay'); 
+         			$this->email->to($to_email);
+         			$this->email->subject('Account Activation Link'); 
+
+         			$this->load->library('Custom_email');
+         			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
+         			
+         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
+         			$this->email->message($msg);
+
+         			$chkk = $this->email->send();
+					//------------------------- END ---------------------//
+
+         			$this->session->set_flashdata('success', 'Registration successful..');
+					redirect('home');
+
+         			/*if($this->email->send())
+         			{
+         				$this->session->set_flashdata('success', 'Registration successful..');
+						redirect('home');	
+         			}
+         			else
+					{
+						$this->session->set_flashdata('error', 'Registration unsuccessful..');
+						redirect('home');	
+					}*/
 				}
 			}
 			else
@@ -205,6 +242,33 @@ class Signup extends CI_Controller {
 			// echo 'error';
 			// die;
 			$this->session->set_flashdata('success', 'Registration unsuccessful..');
+			redirect('home');
+		}
+	}
+
+	public function activate_account()
+	{
+		$email = base64_decode($this->uri->segment(3));
+		$code  = base64_decode($this->uri->segment(4));
+
+		// $email = $this->uri->segment(3);
+		// $code  = $this->uri->segment(4);
+
+		$this->load->model('Usermanagement');
+		$chk = $this->Usermanagement->is_account_activated($email,$code);
+
+		if(isset($chk[0]['status']) && $chk[0]['status'] != 'ACTIVE')
+		{
+			$up = $this->Usermanagement->activate_user_account($email);
+			if($up)
+			{
+				$this->session->set_flashdata('success', 'Your account has been activated');
+				redirect('home');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Your account has already been activated..!!');
 			redirect('home');
 		}
 	}

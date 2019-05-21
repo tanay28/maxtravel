@@ -1,6 +1,6 @@
 <?php
 
-/*CREATE TABLE `hotel` (
+CREATE TABLE `hotel` (
   `id` int(11) NOT NULL,
   `hotel_name` text NOT NULL,
   `hotel_address` text NOT NULL,
@@ -21,5 +21,7 @@ ALTER TABLE `hotel`
 
 ALTER TABLE `hotel` ADD `room_rate_exclude_breakfast` DOUBLE NOT NULL AFTER `room_rate_include_breakfast`;
 
-ALTER TABLE `hotel` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'ACTIVE';*/
+ALTER TABLE `hotel` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'ACTIVE';
+
+//----------------------------------------- DONE --------------------------------------------------//
 ?>
