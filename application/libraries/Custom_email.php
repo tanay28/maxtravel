@@ -4,16 +4,16 @@
 
 	class Custom_email
 	{
-        public function account_activation($code,$email,$name)
-        {
-        	$encrypted_code = base64_encode($code);
-        	$encrypted_email = base64_encode($email);
+                public function account_activation($code,$email,$name)
+                {
+                	$encrypted_code = base64_encode($code);
+                	$encrypted_email = base64_encode($email);
 
-        	//$link = "<a href='http://maxholidays.likesyou.org/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click Here</a>";
+                	//$link = "<a href='http://maxholidays.likesyou.org/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click Here</a>";
 
-        	$link = "<a href='http://localhost/maxtravel/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click here to your account</a>";
+                	$link = "<a href='http://localhost/maxtravel/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click here to your account</a>";
 
-        	$html = <<<EOF
+                	$html = <<<EOF
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@ $link
 </html>
 EOF;
 
-			return $html;
-        }
+        			return $html;
+                }
 	}
 ?>
