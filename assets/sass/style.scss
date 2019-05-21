@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
     bottom: 0;
     right: 0;
-	padding: 20px 40px 40px 20px;
+	padding: 20px 40px 120px 20px;
 	width: 360px;
 	background: #fff url(./../images/navbg.png) no-repeat bottom center;
 	z-index: 1002;
@@ -378,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 				padding: 10px 0;
 				text-transform: uppercase;
 				font-weight: 500;
-				border-bottom: 1px solid #ededed;
+				border-bottom: 1px solid rgba(0,0,0,0.12);
 
 				@media screen and (max-width: $screen-sm) {
 					font-size: 16px;
@@ -1537,4 +1537,16 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	padding: 2px 30px 0;
 	margin-bottom: $pix0;
 	border-radius: $pix0;
+}
+.sub-menu ul {
+	padding-left: $pix15 !important;
+	margin-bottom: $pix10 !important;
+	li a {
+		font-size: 12px !important;
+	}
+}
+.right-caret {
+	position: relative;
+	top: $pix5;
+	right: $pix7;
 }
