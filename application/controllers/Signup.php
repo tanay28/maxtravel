@@ -269,11 +269,11 @@ class Signup extends CI_Controller {
 
 	public function activate_account()
 	{
-		$email = base64_decode($this->uri->segment(3));
-		$code  = base64_decode($this->uri->segment(4));
+		//$email = base64_decode($this->uri->segment(3));
+		//$code  = base64_decode($this->uri->segment(4));
 
-		// $email = $this->uri->segment(3);
-		// $code  = $this->uri->segment(4);
+		$email = $this->uri->segment(3);
+		$code  = $this->uri->segment(4);
 
 		$this->load->model('Usermanagement');
 		$chk = $this->Usermanagement->is_account_activated($email,$code);
@@ -284,13 +284,15 @@ class Signup extends CI_Controller {
 			if($up)
 			{
 				$this->session->set_flashdata('success', 'Your account has been activated');
-				redirect('home');
+				//redirect('home');
+				$this->load->view('account_activation_page');
 			}
 		}
 		else
 		{
 			$this->session->set_flashdata('error', 'Your account has already been activated..!!');
-			redirect('home');
+			//redirect('home');
+			$this->load->view('account_activation_page');
 		}
 	}
 }
