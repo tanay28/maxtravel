@@ -104,6 +104,21 @@ class Signup extends CI_Controller {
 		}
 
 	}
+	private function remove_uploaded_doc($file)
+	{
+		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+		$target_file = $target_dir . basename($file["name"]);
+		
+		if(file_exists($target_file))
+		{
+			unlink($target_file);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	public function add()
 	{
 		// echo '<pre>';
@@ -233,6 +248,12 @@ class Signup extends CI_Controller {
 			}
 			else
 			{
+				$ck = false;
+				if(isset($file_name) && $file_name != '')
+				{
+					$ck = $this->remove_uploaded_doc($_FILES['fileGSTDoc']);
+				}
+				
 				$this->session->set_flashdata('error', 'This user already exists..!!');
 				redirect('signup');
 			}
