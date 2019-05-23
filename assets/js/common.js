@@ -13,7 +13,7 @@ function login(){
 	}else{
 		$.ajax({
 
-			url     : base_url+'login/index',
+			url     : base_url+'login/index', 
 			type    : "post",
 			data    : {"txtEmail":email,"txtPassword":password},
 			success : function(result){
@@ -49,4 +49,31 @@ function login(){
 						
 		}});
 	}
+}
+
+function forgotPassword()
+{
+	var email = $('#txtAgencyemail').val();
+    $.ajax({
+      url  : base_url+'Forgotpassword/viewforgetpassword',
+      type : "post",
+      data : {"txtEmail":email}, 
+      success: function(result){
+      			//alert(result);
+      			if(result == 'error')
+      			{
+      				//alert('Please provide a valid email..!!');
+      				$('#ajaxmsg').show('slow');
+      				var msg = 'Please provide a valid email..!!';
+      				$('#ajaxmsg').html(msg);
+      				return false;
+      			}
+      			else
+      			{
+      				window.location.href = base_url+'Forgotpassword/show_password_reset_confirmation';
+      				// $('#ajaxmsg').show('slow');
+      				// var msg = 'Please check your mail for reset password link';
+      				// $('#ajaxmsg').html(msg);	
+      			}
+    }});
 }

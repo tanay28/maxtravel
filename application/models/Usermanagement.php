@@ -34,9 +34,10 @@ class Usermanagement extends CI_Model {
         $this->db->select("*");
         $query = $this->db->get_where("users", array("email" => $email,"userstype" => "AGENT"));
         $p = $query->row_array();
-
-        if($query->num_rows() > 0){  
-            return true; 
+       
+        if($query->num_rows() > 0 && isset($p['id']) && $p['id'] != ''){  
+            //return true;
+            return $p['id'];
         }else{
             return false;
         }   
@@ -91,6 +92,42 @@ class Usermanagement extends CI_Model {
         else
         {
             return false;
+        }
+    }
+    public function get_firstName($id)
+    {
+        $sql = "SELECT ag.first_name FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id WHERE ag_map.agent_id = '".$id."'";
+        return $this->db->query($sql)->result_array();
+    }
+    public function log_forgot_password_details($arrData)
+    {
+        $this->db->insert('forgot_password_log',$arrData);
+        return $this->db->insert_id();
+    }
+    public function validate_urlData($code,$current_date)
+    {
+        $sql = "SELECT user_id FROM forgot_password_log WHERE user_code = '$code' AND status = 'ACTIVE' AND end_date > '".$current_date."' AND start_date < '".$current_date."'";
+        $rs = $this->db->query($sql)->result_array();
+        if(isset($rs[0]['user_id']) && count($rs)>0)
+        {
+            return $rs[0]['user_id'];
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function update_status($user_id,$status)
+    {
+        if($user_id != '')
+        {
+            $sql = "UPDATE forgot_password_log SET status = '".$status."' WHERE user_id = '".$user_id."'";
+            return $this->db-query($sql);
+        }
+        else
+        {
+            $sql = "UPDATE forgot_password_log SET status = '".$status."'";
+            return $this->db-query($sql);   
         }
     }
 }

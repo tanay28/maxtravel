@@ -22,6 +22,12 @@
 	<!-- Modernizr JS -->
 	<script src="<?php echo base_url('assets/js/modernizr-2.6.2.min.js');?>"></script>
 	<!-- FOR IE9 below -->
+	<!-- Common JS  -->
+	<script type="text/javascript">
+      var base_url = '<?php echo base_url()?>';
+      //alert(base_url);
+  	</script>
+	<script src="<?php echo base_url('assets/js/common.js');?>"></script>
 	<style>
 		#page {
 			position: relative;
@@ -116,7 +122,7 @@
 								</div>
 							</div>
 							<div class="w-100 float-left mt-4">
-							<input type="submit" value="Next" class="register-button-form float-left mr-3" id="btnForgot">
+							<input type="submit" value="Next" class="register-button-form float-left mr-3" id="btnForgot" onclick="forgotPassword();">
 							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
@@ -136,31 +142,6 @@
 			jQuery('#page').fadeIn(500);
 			jQuery('#loading').hide();
 		});
-		$(document).ready(function(){
-      	 
-      	  $('#btnForgot').on('click',function(){
-        	var email = $('#txtAgencyemail').val();
-	        $.ajax({
-	          url  : "<?php echo base_url('Forgotpassword/viewforgetpassword');?>",
-	          type : "post",
-	          data : {"txtEmail":email}, 
-	          success: function(result){
-	          			//alert(result);
-	          			if(result == 'error')
-	          			{
-	          				//alert('Please provide a valid email..!!');
-	          				$('#ajaxmsg').show('slow');
-	          				var msg = 'Please provide a valid email..!!';
-	          				$('#ajaxmsg').html(msg);
-	          				return false;
-	          			}
-	          			else
-	          			{
-	          				window.location.href = "<?php echo base_url('Forgotpassword/resetpassword');?>";	
-	          			}
-	        }});
-      });
-    });
 	</script>
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
