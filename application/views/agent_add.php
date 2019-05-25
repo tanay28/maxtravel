@@ -111,7 +111,7 @@
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Agent Registration</h1>
 						</div>
-						<form name="frmRegister" method="post" action="<?php echo base_url('signup/add');?>" enctype="multipart/form-data">
+						<form name="frmRegister" method="post" action="<?php echo base_url('agents/addagent');?>" enctype="multipart/form-data">
 						
 							<div class="w-100 float-left wrap-section-sign mb-3 mt-3">
 								<div class="col-lg-12 mb-4">
@@ -411,7 +411,7 @@
 							</div>
 							<div class="col-lg-12 float-left mt-4">
 							<input type="submit" value="Register Now" class="register-button-form float-left mr-3 ">
-							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
+							<a href="<?php echo base_url('dashboardsa');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
 					</div>
@@ -446,7 +446,7 @@
         	var con_name = $('#cmbCountry option:selected').text();
         	//alert(con_name);
 	        $.ajax({
-	          url  : "<?php echo base_url('signup/ajax_fetch_city');?>",
+	          url  : "<?php echo base_url('agents/ajax_fetch_city');?>",
 	          type : "post",
 	          data : {"key":con}, 
 	          success: function(result){ 
