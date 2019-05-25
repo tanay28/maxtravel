@@ -29,6 +29,7 @@
                               <tr>
                                     <th>SL No.</th>
                                     <th>Agency Name</th>
+                                    <th>Agency Email</th>
                                     <th>First Name</th>                    
                                     <th>Last Name</th>
                                     <th>Designation</th>
@@ -42,6 +43,7 @@
                                     <th>Phone</th>
                                     <th>Mobile</th>
                                     <th>City</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                               </tr>
                         </thead>
@@ -54,6 +56,9 @@
                               <tr>
                                     <td><?php echo $i;?></td>
                                     <td><?php echo isset($avalue['agency_name']) ? $avalue['agency_name'] : '';?></td>
+                                    
+                                     <td><?php echo isset($avalue['email']) ? $avalue['email'] : '';?></td>
+
                                     <td><?php echo isset($avalue['first_name']) ? $avalue['first_name'] : '';?></td>
                                     <td><?php echo isset($avalue['last_name']) ? $avalue['last_name'] : '';?></td>
                                     <td><?php echo isset($avalue['designation']) ? $avalue['designation'] : '';?></td>
@@ -67,6 +72,10 @@
                                     <td><?php echo isset($avalue['phone']) ? $avalue['phone'] : '';?></td>
                                     <td><?php echo isset($avalue['mobile']) ? $avalue['mobile'] : '';?></td>
                                     <td><?php echo isset($avalue['city']) ? $avalue['city'] : '';?></td>
+                                    
+                                    <td><a href="<?php echo base_url('agents/change_status/'.$avalue['user_id'].'/'.$avalue['status']);?>"><?php echo isset($avalue['status']) ? $avalue['status'] : '';?></a></td>
+                                    <input type="hidden" name="txtUserid" id="txtUserid" value="<?php echo isset($avalue['user_id']) ? $avalue['user_id'] : '';?>">
+                                   
                                     <td>
                                           <a href="<?php echo base_url('agents/edit/'.base64_encode($avalue['id']));?>"><i class="fa fa-fw fa-edit"></i></a>
                                     </td>

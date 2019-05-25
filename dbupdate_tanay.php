@@ -9,4 +9,28 @@
 //----------------------------------- 23.05.2019 -------------------------------------------//
 /*CREATE TABLE `maxtravel`.`forgot_password_log` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `user_code` TEXT NOT NULL , `status` ENUM('ACTIVE','INACTIVE','APPROVED','EXPIRED') NOT NULL , `start_date` DATETIME NOT NULL , `end_date` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 //-------------------------------------- END ---------------------------------------------//
+
 ?>
+
+
+
+
+//------------------------------------ 25.05.2019 ---------------------------------//
+CREATE TABLE `maxtravel`.`currency` ( `id` INT NOT NULL AUTO_INCREMENT , `currency_id` VARCHAR(100) NOT NULL , `currency_name` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+//----------------------------------------- END ----------------------------------//
+
+//------------------------------- 26.05.2019 ------------------------------------//
+INSERT into currency(currency_id,currency_name)values('USD','United States Dollars');
+INSERT into currency(currency_id,currency_name)values('EUR','Euro');
+INSERT into currency(currency_id,currency_name)values('THB','Thailand Baht');
+INSERT into currency(currency_id,currency_name)values('INR','Indian Rupees');
+
+ALTER TABLE `agents` CHANGE `country` `country` INT NOT NULL, CHANGE `city` `city` INT NOT NULL;
+
+CREATE TABLE `maxtravel`.`timezone` ( `id` INT NOT NULL AUTO_INCREMENT , `timezone` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+INSERT INTO timezone(timezone)values('KOLKATA')
+INSERT INTO timezone(timezone)values('DELHI')
+INSERT INTO timezone(timezone)values('SINGAPORE')
+//--------------------------------------- END ----------------------------------//
+

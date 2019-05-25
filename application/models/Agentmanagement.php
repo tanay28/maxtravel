@@ -47,11 +47,12 @@
         {
             if($id == '')
             {
-                $sql = "SELECT * FROm agents ORDER by id";    
+                //$sql = "SELECT * FROm agents ORDER by id";
+                $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id";
             }
             else
             {
-                $sql = "SELECT * FROM  agents WHERE id = '".$id."'";
+               $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id WHERE ag.id = '".$id."'";
             }
             return $this->db->query($sql)->result_array();
         }
@@ -66,6 +67,24 @@
             {
                 return false;
             }
+        }
+        public function getAgentstatus($id)
+        {
+            $sql = 'SELECT users.status,users.id FROM users LEFT join agent_user_mapping map ON map.user_id = users.id WHERE map.agent_id = "'.$id.'"';
+            return $this->db->query($sql);
+        }
+        public function change_agent_status($id,$status)
+        {
+            $sql = '';
+            if($status == 'ACTIVE') $sql = "UPDATE users SET status = 'INACTIVE' WHERE id='".$id."'";
+            if($status == 'INACTIVE') $sql = "UPDATE users SET status = 'ACTIVE' WHERE id='".$id."'";
+
+            $this->db->query($sql);
+        }
+        public function getcurrency()
+        {
+            $sql = "SELECT * FROM currency ORDER BY id";
+            return $this->db->query($sql)->result_array();
         }
     }
 ?>

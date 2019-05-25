@@ -44,3 +44,36 @@ function login(){
 		}});
 	}
 }
+
+function forgotPassword()
+{
+	var email = $('#txtAgencyemail').val();
+    $.ajax({
+      url  : base_url+'Forgotpassword/viewforgetpassword',
+      type : "post",
+      data : {"txtEmail":email}, 
+      success: function(result){
+      			//alert(result);
+      			if(result == 'error')
+      			{
+      				//alert('Please provide a valid email..!!');
+      				$('#ajaxmsg').show('slow');
+      				var msg = 'Please provide a valid email..!!';
+      				$('#ajaxmsg').html(msg);
+      				return false;
+      			}
+      			else
+      			{
+      				window.location.href = base_url+'Forgotpassword/show_password_reset_confirmation';
+      				// $('#ajaxmsg').show('slow');
+      				// var msg = 'Please check your mail for reset password link';
+      				// $('#ajaxmsg').html(msg);	
+      			}
+    }});
+}
+
+function changeStatus()
+{
+	$id = $('#txtUserid').val();
+	//alert($id);
+}

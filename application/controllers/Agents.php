@@ -5,6 +5,7 @@
 	class Agents extends CI_Controller
 	{
 		private $target_dir;
+		private $currency;
 
 		function __construct()
 		{
@@ -37,7 +38,8 @@
 		{
 			$data = array();
 			$data['country'] = $this->get_countries();
-			$this->load->view('agent_add',$data);
+			$data['currency'] = $this->get_currency();
+			$this->load->view('addagent',$data);
 		}
 		public function addagent()
 		{
@@ -47,7 +49,7 @@
 			// var_dump($_POST['txtGSTNO']);
 			// var_dump($_FILES['fileGSTDoc']);
 			// die;
-			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['txtAccountName']) && $_POST['txtAccountName'] != '' && isset($_POST['txtOperationName']) && $_POST['txtOperationName'] != '' && isset($_POST['txtManagementName']) && $_POST['txtManagementName'] != '' && isset($_POST['txtAccountEmail']) && $_POST['txtAccountEmail'] != '' && isset($_POST['txtOperationEmail']) && $_POST['txtOperationEmail'] != '' && isset($_POST['txtManagementEmail']) && $_POST['txtManagementEmail'] != '' && isset($_POST['txtAccountNo']) && $_POST['txtAccountNo'] != '' && isset($_POST['txtOperationNo']) && $_POST['txtOperationNo'] != '' && isset($_POST['txtManagementNo']) && $_POST['txtManagementNo'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
+			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 			{
 				
 				$file_name = '';
@@ -170,6 +172,23 @@
 			}
 			return $arr;
 		}
+		private function get_currency()
+		{
+			$arr = array();
+			$this->load->model('Agentmanagement');
+			$rs = $this->Agentmanagement->getcurrency();
+			if(isset($rs) && count($rs)>0)
+			{
+				foreach ($rs as $ikey => $ivalue)
+				{
+					$arr[] = array(
+						'currency_id'   => $ivalue['currency_id'],
+						'currency_name' => $ivalue['currency_name'],
+					);
+				}
+			}
+			return $arr;
+		}
 		public function ajax_fetch_city()
 		{
 			if(isset($_POST['key']))
@@ -187,8 +206,11 @@
 		}
 		private function Upload_Doc($file)
 		{
+
 			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
-			$target_dir = base_url().'assets/gstdoc/';
+			//$target_dir = base_url().'assets/gstdoc/';
+			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+
 			$target_file = $target_dir . basename($file["name"]);
 		
 			$uploadOk = 1;
@@ -250,6 +272,7 @@
 				$this->load->model('Agentmanagement');
 				$data['agents'] = $this->Agentmanagement->getAgents($agent_id);
 				$data['country'] = $this->get_countries();
+				$data['currency'] = $this->get_currency();
 				// echo '<pre>';
 				// var_dump($data);
 				// die;
@@ -264,7 +287,7 @@
 		public function editagent()
 		{
 			
-			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtAccountName']) && $_POST['txtAccountName'] != '' && isset($_POST['txtOperationName']) && $_POST['txtOperationName'] != '' && isset($_POST['txtManagementName']) && $_POST['txtManagementName'] != '' && isset($_POST['txtAccountEmail']) && $_POST['txtAccountEmail'] != '' && isset($_POST['txtOperationEmail']) && $_POST['txtOperationEmail'] != '' && isset($_POST['txtManagementEmail']) && $_POST['txtManagementEmail'] != '' && isset($_POST['txtAccountNo']) && $_POST['txtAccountNo'] != '' && isset($_POST['txtOperationNo']) && $_POST['txtOperationNo'] != '' && isset($_POST['txtManagementNo']) && $_POST['txtManagementNo'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
+			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 			{
 				$file_name = '';
 				
@@ -341,6 +364,15 @@
 				$this->session->set_flashdata('error', 'Something went wrong..!! Please try again later.');
 				redirect('agents');
 			}
+		}
+
+		public function change_status()
+		{
+			$id = $this->uri->segment(3);
+			$status = $this->uri->segment(4);
+			$this->load->model('Agentmanagement');
+			$chk = $this->Agentmanagement->change_agent_status($id,$status);
+			redirect('agents');
 		}
 	}
 ?>

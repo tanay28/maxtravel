@@ -73,6 +73,11 @@ class Usermanagement extends CI_Model {
         $sql = "SELECT * FROM country ORDER BY country_name";
         return $this->db->query($sql)->result_array();
     }
+    public function getcurrency()
+    {
+        $sql = "SELECT * FROM currency ORDER BY id";
+        return $this->db->query($sql)->result_array();
+    }
     public function getCities($con)
     {
         $sql = "SELECT * FROM city WHERE country_id = '".$con."'";
