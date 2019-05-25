@@ -398,7 +398,7 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDetails" style="display:none">
 										<label class="float-left">GST Number</label>
-										<input type="text" class="input-class-common float-left" name="txtGSTNO"  value="<?php echo isset($agents[0]['gstin_no']) ? $agents[0]['gstin_no'] : '';?>">
+										<input type="text" class="input-class-common float-left" name="txtGSTNO"  id="txtGSTNO" value="<?php echo isset($agents[0]['gstin_no']) ? $agents[0]['gstin_no'] : '';?>">
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDoc" style="display:none">
 										<label class="float-left">Upload Document</label>
@@ -547,7 +547,8 @@
 	        else
 	        {
 	          $('#gstDetails').hide('slow');
-	          $('#gstDoc').hide('slow'); 
+	          $('#gstDoc').hide('slow');
+	          $('#txtGSTNO').val('');
 	        }
       });
     });

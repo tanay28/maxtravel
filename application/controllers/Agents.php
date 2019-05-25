@@ -65,6 +65,7 @@
 					{
 						$msg = isset($arr_upload['msg']) ? $arr_upload['msg'] : '';
 						$this->session->set_flashdata('error', $msg);
+						redirect('agents');
 					}
 				}
 
@@ -261,18 +262,22 @@
 		}
 		public function editagent()
 		{
-				
+			
 			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtAccountName']) && $_POST['txtAccountName'] != '' && isset($_POST['txtOperationName']) && $_POST['txtOperationName'] != '' && isset($_POST['txtManagementName']) && $_POST['txtManagementName'] != '' && isset($_POST['txtAccountEmail']) && $_POST['txtAccountEmail'] != '' && isset($_POST['txtOperationEmail']) && $_POST['txtOperationEmail'] != '' && isset($_POST['txtManagementEmail']) && $_POST['txtManagementEmail'] != '' && isset($_POST['txtAccountNo']) && $_POST['txtAccountNo'] != '' && isset($_POST['txtOperationNo']) && $_POST['txtOperationNo'] != '' && isset($_POST['txtManagementNo']) && $_POST['txtManagementNo'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 			{
 				$file_name = '';
 				
-				if(isset($_POST['txtGSTNO']) && $_POST['txtGSTNO'] != '' && isset($_POST['gst_file_name']) && $_POST['gst_file_name']!='')
+				if(isset($_POST['gst_file_name']) && $_POST['gst_file_name']!='')
 				{
 					$target_file = $this->target_dir.$_POST['gst_file_name'];
 					if (file_exists($target_file))
 					{
+						$file_name = '';
 						unlink($target_file);
 					}
+				}
+				if(isset($_POST['txtGSTNO']) && $_POST['txtGSTNO'] != '')
+				{
 					$arr_upload = $this->Upload_Doc($_FILES['fileGSTDoc']);
 					// var_dump($arr_upload);
 					// die;
@@ -284,6 +289,7 @@
 					{
 						$msg = isset($arr_upload['msg']) ? $arr_upload['msg'] : '';
 						$this->session->set_flashdata('error', $msg);
+						redirect('agents');
 					}
 				}
 
