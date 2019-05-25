@@ -1,10 +1,12 @@
+<?php
 //------------------------------ 22.05.2019 -------------------------------------------------//
-ALTER TABLE `users` ADD `activation_code` VARCHAR(200) NOT NULL AFTER `status`;
-
-ALTER TABLE `users` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED','') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'INACTIVE';
+/*ALTER TABLE `users` ADD `activation_code` VARCHAR(200) NOT NULL AFTER `status`;
+*/
+/*ALTER TABLE `users` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED','') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'INACTIVE';*/
 //------------------------------------- END --------------------------------------------------//
 
 
 //----------------------------------- 23.05.2019 -------------------------------------------//
-CREATE TABLE `maxtravel`.`forgot_password_log` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `user_code` TEXT NOT NULL , `status` ENUM('ACTIVE','INACTIVE','APPROVED','EXPIRED') NOT NULL , `start_date` DATETIME NOT NULL , `end_date` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+/*CREATE TABLE `maxtravel`.`forgot_password_log` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `user_code` TEXT NOT NULL , `status` ENUM('ACTIVE','INACTIVE','APPROVED','EXPIRED') NOT NULL , `start_date` DATETIME NOT NULL , `end_date` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 //-------------------------------------- END ---------------------------------------------//
+?>
