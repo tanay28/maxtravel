@@ -16,8 +16,10 @@
 		public function index()
 		{
 			$data = array();
-			$data['page_access'] = 'ACTIVE';
-
+			$data['page_access'] = 'INACTIVE';
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+				$data['page_access'] = 'ACTIVE';
+			}
 			$this->load->model('hotelmanagement');
 			$data['hotel_list'] = $this->hotelmanagement->getHotelList();
 
@@ -27,7 +29,10 @@
 		public function lists()
 		{
 			$data = array();
-			$data['page_access'] = 'ACTIVE';
+			$data['page_access'] = 'INACTIVE';
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+				$data['page_access'] = 'ACTIVE';
+			}
 
 			$this->load->model('hotelmanagement');
 			$data['hotel_list'] = $this->hotelmanagement->getHotelList();

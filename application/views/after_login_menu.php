@@ -34,6 +34,11 @@
 				<li><a href='<?php echo base_url('agents/add')?>'>Add</a></li>
 				<li><a href='<?php echo base_url('agents/lists')?>'>List</a></li>
 			</ul>
+			<li class='sub-menu'><a href="#">Employee Management<div class='fa fa-caret-down right float-right right-caret'></div></a>
+			<ul>
+				<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
+				<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
+			</ul>
 		</li>
 		<?php
 			}

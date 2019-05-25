@@ -24,4 +24,35 @@ ALTER TABLE `hotel` ADD `room_rate_exclude_breakfast` DOUBLE NOT NULL AFTER `roo
 ALTER TABLE `hotel` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'ACTIVE';*/
 
 //----------------------------------------- DONE --------------------------------------------------//
+
+// 25.05.2019
+CREATE TABLE `users_admin` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phoneno` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `designation` enum('ADMIN') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `users_admin`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phoneno` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `designation` enum('ACCOUNTANT','SUPERVISOR') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ?>
