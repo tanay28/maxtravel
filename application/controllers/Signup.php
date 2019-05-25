@@ -65,7 +65,7 @@ class Signup extends CI_Controller {
 	private function Upload_Doc($file)
 	{
 		//$target_dir = base_url('assets/gstdoc/');
-		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+		$target_dir = base_url().'assets/gstdoc/';
 
 		$target_file = $target_dir . basename($file["name"]);
 	
@@ -106,7 +106,7 @@ class Signup extends CI_Controller {
 	}
 	private function remove_uploaded_doc($file)
 	{
-		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+		$target_dir = base_url().'assets/gstdoc/';
 		$target_file = $target_dir . basename($file["name"]);
 		
 		if(file_exists($target_file))
@@ -146,6 +146,7 @@ class Signup extends CI_Controller {
 				{
 					$msg = isset($arr_upload['msg']) ? $arr_upload['msg'] : '';
 					$this->session->set_flashdata('error', $msg);
+					redirect('signup');
 				}
 			}
 
@@ -214,18 +215,18 @@ class Signup extends CI_Controller {
 
 					//------------------ Email Functions -----------------//
 					$this->load->library('email');
-					$from_email = "tmtanay56@gmail.com"; 
+					$from_email = "strangertan1@gmail.com"; 
          			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
-					$to_email = "sudiptagraphics@gmail.com"; // this email for testing purpose
+					$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
 
 					$this->email->from($from_email, 'Tanay'); 
          			$this->email->to($to_email);
          			$this->email->subject('Account Activation Link'); 
 
          			$this->load->library('Custom_email');
-         			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
+         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
          			
-         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
+         			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
          			$this->email->message($msg);
 
          			$chkk = $this->email->send();

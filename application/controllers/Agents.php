@@ -9,7 +9,8 @@
 		function __construct()
 		{
 			parent::__construct();
-			$this->target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			//$this->target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			$this->target_dir = base_url().'assets/gstdoc/';
 			$checkuservars = $this->session->userdata;
 			if(!isset($checkuservars['is_logged_in']) || $checkuservars['is_logged_in'] != 1 || !isset($_SESSION['usertype']) || $_SESSION['usertype']!='SUPERADMIN')
 			{
@@ -186,9 +187,8 @@
 		}
 		private function Upload_Doc($file)
 		{
-			//$target_dir = base_url('assets/gstdoc/');
-			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
-
+			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			$target_dir = base_url().'assets/gstdoc/';
 			$target_file = $target_dir . basename($file["name"]);
 		
 			$uploadOk = 1;
@@ -228,7 +228,8 @@
 		}
 		private function remove_uploaded_doc($file)
 		{
-			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			$target_dir = base_url().'assets/gstdoc/';
 			$target_file = $target_dir . basename($file["name"]);
 			
 			if(file_exists($target_file))
