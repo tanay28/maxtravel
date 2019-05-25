@@ -41,6 +41,7 @@ $blue :#008aff;
 $purple :#2d024f;
 $deepblue :#043e5e;
 $pink :rgb(209, 19, 124);
+$orange : #ec7800;
 // Mixin
 @mixin transition($transition) {
     -moz-transition:    all $transition ease;
@@ -213,7 +214,6 @@ ul,ol{
 	margin-bottom: 1.5em;
 }
 span{
-	font-size: 18px;
 	color: rgba($brand-lighter,.8);
 }
 
@@ -1575,4 +1575,247 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	h3 {
 		color: $blue;
 	}
+}
+.page-title-others h1 {
+	font-size: 26px;
+	display: inline-block;
+	padding: 10px 0 10px 0;
+	color: $purple;
+	text-transform: uppercase;
+	text-align: left;
+}
+.hotel-list-wrap {
+	padding: $pix20;
+	background: $white;
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.10);
+	border-radius: $pix10;
+	transition: all 0.3s;
+	margin: $pix10 $pix0;
+	&:hover {
+		box-shadow: 0px 8px 28px rgba(0,0,0,0.15);
+		position: relative;
+		z-index: 9;
+		transition: all 0.3s;
+	}
+	.img-hotels {
+		width: 150px;
+		height: 100px;
+		border-radius: $pix10;
+		overflow: hidden;
+		margin-right: $pix20;
+		img {
+			width: 100%;
+		}
+	}
+	.hotel-name {
+		width: calc(100% - 400px);
+		h2 {
+			font-size: 21px;
+			color: $brand-black;
+			margin: $pix0;
+			font-family: $font-primary;
+			font-weight: 900;
+		}
+		h3 {
+			font-size: 14px;
+			margin: $pix0;
+			font-weight: 900;
+			font-family: $font-primary;
+			padding: $pix8 $pix7 $pix5 $pix7;
+			background: $pink;
+			border-radius: $pix2;
+			color: $white;
+		}
+		.star-ratings {
+			margin: $pix0 $pix0;
+			i {
+				font-size: 13px;
+				color: #ccc;
+				margin-right: $pix0;
+			}
+			i.fill-star {
+				color: $orange;
+			}
+			span {
+				font-size: 13px;
+				background: $blue;
+				color: $white;
+				padding: $pix3 $pix10;
+				font-weight: 400;
+				border-radius: $pix2;
+				position: relative;
+				margin:  0 $pix7;
+			}
+		}
+		.address-hotel {
+			margin-top: $pix10;
+			i {
+				position: relative;
+				top: $pix3;
+				color: $pink;
+			}
+			span {
+				font-size: 13px;
+				font-weight: 700;
+				width: calc(100% - 20px);
+				margin-bottom: $pix0;
+				line-height: $pix15
+			}
+		}
+		.facilities-single {
+			padding: $pix5 $pix7;
+		}
+	}
+	.hotel-price-wrap {
+		width: 220px;
+    background: rgba(237, 237, 237, 0.61);
+    padding: 6px 11px 8px;
+    border-radius: 10px;
+		h1 {
+			font-size: 32px;
+			margin: 0;
+		}
+		span {
+			font-size: 14px;
+			font-weight: 700;
+			color: $pink;
+			margin-bottom: $pix0;
+		}
+		.btn-booknow {
+			padding: $pix5 $pix15;
+    background: $orange;
+    color: $white;
+		font-size: 13px;
+		outline: none !important;
+		&:hover {
+			background: $blue;
+			color: $white;
+			text-decoration: none;
+		}
+		}
+	}
+}
+.bottom-hotels-pagi {
+	margin-top: $pix20;
+	p {
+		font-weight: 700;
+		font-size: 14px;
+		margin: $pix0;
+	}
+	.page-link {
+		color: $brand-black;
+		font-size: 13px;
+		padding: 10px $pix15 11px;
+	}
+	.p-n-but {
+		padding: 11px $pix15;
+    background: $orange;
+    color: $white;
+		font-size: 13px;
+		border: 0;
+		&:hover {
+			background: $purple;
+			color: $white;
+			text-decoration: none;
+		}
+	}
+}
+
+
+.search-hotels-bg {
+	background: url(../images/hotel-serchbg.jpg) no-repeat bottom center;
+	background-size: cover;
+	padding: $pix20;
+	border-radius: $pix3;
+	position: relative;
+	z-index: 99;
+	h3 {
+		color: $white;
+		font-size: 20px;
+		margin-bottom: $pix15;
+		text-transform: uppercase;
+		letter-spacing: $pix2;
+	}
+}
+.wrap-hotel-search {
+	label {
+		color: $white;
+		font-size: 13px;
+	}
+}
+.gj-calendar {
+	z-index: 99 !important;
+}
+.gj-textbox-md {
+	padding: $pix0;
+	border: $pix0;
+}
+.checkin-dates {
+	.form-inputs {
+		width: 100%;
+	}
+}
+.gj-datepicker [role=input] {
+	display: table-cell;
+	width: 100%;
+	background: #fff;
+	height: 44px;
+	border-radius: 5px;
+	font-family: "Roboto", sans-serif;
+	border: 0;
+	text-indent: 11px;
+	font-size: 14px;
+}
+.gj-datepicker-md [role=right-icon] {
+	cursor: pointer;
+	position: absolute;
+	right: 8px;
+	top: 12px;
+}
+.gj-datepicker {
+	width: 100%;
+}
+.rating-dates .nice-select {
+	height: 47px;
+	line-height: 45px;
+}
+.search-button-form {
+	font-size: 14px;
+	color: $white;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: $blue;
+	padding: 9px 18px;
+	border: $pix0;
+	border-radius: $pix5;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.35);
+	transition: all 0.3s;
+	&:hover{
+		background: $orange;
+		color: $white;
+		transition: all 0.3s;
+		cursor: pointer;
+	} 
+}
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+	position: absolute;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+	max-height: 300px;
+	overflow: auto;
+	.list-group-item {
+		font-size: 13px;
+	}
+}
+.hotel-sel .form-control {
+	height: 44px;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #888;
 }

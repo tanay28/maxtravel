@@ -17,6 +17,12 @@
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/bootstrap-select.js');?>"></script>
+	<script>
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
 	<!-- Owl Carousel -->
 	<!-- Waypoints -->
 	<script src="<?php echo base_url('assets/js/jquery.waypoints.min.js');?>"></script>
@@ -24,7 +30,7 @@
 	<script src="<?php echo base_url('assets/js/owl.carousel.min.js');?>"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="<?php echo base_url('assets/js/main.js');?>"></script>
-	<!-- <script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script> -->
+	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script>
 	<script>
 		/*$(document).ready(function () {
 			$('select:not(.ignore)').niceSelect();
@@ -43,6 +49,16 @@
 			$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
 		});
 	</script>
+	<script src="<?php echo base_url('assets/js/gijgo.min.js');?>" type="text/javascript"></script>
+	<script>
+		$('#datepicker').datepicker({
+			showOtherMonths: true
+		});
+		$('#datepicker1').datepicker({
+			showOtherMonths: true
+		});
+	</script>
+	<script src="<?php echo base_url('assets/js/destination-autocomplete.js');?>"></script>
 </body>
 
 </html>

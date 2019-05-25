@@ -40,6 +40,20 @@
 			$this->load->view('listhotel',$data);
 		}
 
+		public function book()
+		{
+			$data = array();
+			$data['page_access'] = 'INACTIVE';
+			if(isset($_SESSION['usertype']) && ($_SESSION['usertype']=='SUPERADMIN' || $_SESSION['usertype']=='ADMIN' || $_SESSION['usertype']=='AGENT')){
+				$data['page_access'] = 'ACTIVE';
+			}
+
+			$this->load->model('hotelmanagement');
+			$data['hotels'] = $this->hotelmanagement->getHotelList();
+
+			$this->load->view('bookhotel',$data);
+		}
+
 		public function add()
 		{
 

@@ -3,6 +3,18 @@
 
     class Agentmanagement extends CI_Model
     {
+
+        public function getAgentDetails($uId){
+
+            $sql = "SELECT A.*,AUM.user_id,AUM.agent_id FROM agent_user_mapping AS AUM
+                    JOIN agents AS A
+                    ON AUM.agent_id = A.id 
+                    WHERE AUM.user_id = '".$uId."'";
+            return $this->db->query($sql)->result_array();  
+
+
+        }
+
         public function validateUser($email)
         {
             $this->db->select("*");

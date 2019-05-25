@@ -168,52 +168,5 @@ class Employee extends CI_Controller {
 
 	}
 
-	public function view(){
-
-		$data = array();
-
-		if($this->uri->segment(3)!=''){
-
-			$decodeEmpId = base64_decode($this->uri->segment(3),true);
-			if($decodeEmpId!=''){				
-
-				$this->load->model('Employee_model');
-
-				$data['employeeDetails'] = $this->Employee_model->getEmployeeDetails($decodeEmpId);
-				/*echo "<pre>";
-				var_dump($data);
-				die;*/
-			}
-		}
-
-		$this->load->view('viewemployee',$data);
-
-	}
-
-
-	public function delete(){
-		
-		if($this->uri->segment('3')!=''){
-			$decodeEmpId = base64_decode($this->uri->segment('3'),true);
-			
-
-			$this->load->model('Employee_model');
-			$this->Employee_model->deleteTheEmployee($decodeEmpId);
-
-		}
-		
-		redirect('Employee/lists');
-	}
-	public function statuschange()
-	{
-		if($this->uri->segment(3)!='' && $this->uri->segment(4)!='')
-		{
-			$decodeEmpId = base64_decode($this->uri->segment(3),true);
-			$current_status = $this->uri->segment(4);
-			$this->load->model('Employee_model');
-			$this->Employee_model->statusToggle($decodeEmpId,$current_status);
-		}
-		redirect('Employee/lists');
-	}	
 	
 }

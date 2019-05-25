@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usermanagement extends CI_Model {
 
+    public function getMyprofileDetails_superadmin($userid){
+
+        $sql = "SELECT * FROM users 
+                WHERE userstype = 'SUPERADMIN'
+                AND id = '".$userid."'";
+        return $this->db->query($sql)->result_array();
+    }
+
     public function validateLogin($email, $password){
         $password = md5($password);
         $this->db->select("*");

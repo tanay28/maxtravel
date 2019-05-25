@@ -14,6 +14,7 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){
 		?>
 			<li class="active"><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
+			<li class="active"><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
 		<?php
 			}
 		?>
@@ -26,6 +27,7 @@
 				<ul>
 					<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
 					<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
+					<li class="active"><a href="<?php echo base_url('hotel/book');?>">Book Hotels</a></li>
 				</ul>
 			</li>
 
@@ -38,6 +40,11 @@
 			<ul>
 				<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
 				<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
+			</ul>
+			<li class='sub-menu'><a href="#">User Management<div class='fa fa-caret-down right float-right right-caret'></div></a>
+			<ul>
+				<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
+				<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 			</ul>
 		</li>
 		<?php
