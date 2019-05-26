@@ -78,6 +78,11 @@ class Usermanagement extends CI_Model {
         $sql = "SELECT * FROM currency ORDER BY id";
         return $this->db->query($sql)->result_array();
     }
+    public function gettimezone()
+    {
+         $sql = "SELECT * FROM timezone ORDER BY id";
+        return $this->db->query($sql)->result_array();
+    }
     public function getCities($con)
     {
         $sql = "SELECT * FROM city WHERE country_id = '".$con."'";

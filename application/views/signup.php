@@ -111,7 +111,7 @@
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Agent Registration</h1>
 						</div>
-						<form name="frmRegister" method="post" action="<?php echo base_url('signup/add');?>" enctype="multipart/form-data" onsubmit ="valid();">
+						<form name="frmRegister" method="post" action="<?php echo base_url('signup/add');?>" enctype="multipart/form-data" onsubmit ="return valid();">
 						
 							<div class="w-100 float-left wrap-section-sign mb-3 mt-3">
 								<div class="col-lg-12 mb-4">
@@ -151,10 +151,10 @@
 										<select class="input-class-common float-left select-box" name="cmbNatureofbusiness" required="">
 											<option value="none">Select</option>
 											<option value="destination_management_company">Destination Management Company</option>
-	              							<option value="tour_operator">Tour Operator</option>
-	              							<option value="travel_agent">Travel Agent</option>
-	              							<option value="wholesale_travel_company">Wholesale Travel Company</option>
-	              							<option value="corporate">Corporate</option>
+	              							<option value="Tour Operato">Tour Operator</option>
+	              							<option value="Travel Agent">Travel Agent</option>
+	              							<option value="Wholesale Travel Company">Wholesale Travel Company</option>
+	              							<option value="Corporate">Corporate</option>
 										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
@@ -173,12 +173,12 @@
 										</label>
 										<select class="input-class-common float-left select-box" name="cmbKnowfrom">
 										  	<option value="none">Select</option>
-	              							<option value="email_marketing">Email Marketing</option>
-							              	<option value="trade_show">Trade Show</option>
-							              	<option value="search_engine">Search Engine</option>
-							              	<option value="advertisement">Advertisement</option>
-							              	<option value="business_associate_refferal">Business Associate Refferal</option>
-							              	<option value="sales_person">Sales Person</option>
+	              							<option value="Email Marketing">Email Marketing</option>
+							              	<option value="Trade Show">Trade Show</option>
+							              	<option value="Search Engine">Search Engine</option>
+							              	<option value="Advertisement">Advertisement</option>
+							              	<option value="Business Associate Refferal">Business Associate Refferal</option>
+							              	<option value="Sales Person">Sales Person</option>
 										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
@@ -254,7 +254,20 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Time Zone <font class="mandetory-star">*</font></label>
-										<input type="text" class="input-class-common float-left" name="txtTimeZone" required="">
+										<select class="input-class-common float-left select-box" name="cmbTimezone" id="cmbTimezone" required="">
+											<option value="none">Select</option>
+								             <?php
+								              if(isset($timezone) && count($timezone)>0)
+								              {
+								                foreach ($timezone as $ikey => $ivalue)
+								                {
+								            ?>
+								             <option value="<?php echo $ivalue['id'];?>"><?php echo $ivalue['timezone'];?></option> 
+								            <?php
+								                }
+								              }
+								             ?>
+										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Website</label>
@@ -342,8 +355,8 @@
 
 							</div>
 							<div class="col-lg-12 float-left mt-4">
-							<input type="submit" value="Register Now" class="register-button-form float-left mr-3"  >
-							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
+							<input type="submit" value="Register Now" class="register-button-form float-left mr-3"  onclick="valid();">
+							<a href="<?php echo base_url('login/login_after_activation');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
 					</div>
@@ -360,13 +373,13 @@
 	<script>
 		function valid()
 		{
-		 if($('#txtPassword').val() != $('#txtConfirmPassword').val())
-	      {
-	      	$('#ajaxmsg').show('slow');
-	      	var msg = 'Mismatch Password..!!';
-	        $('#ajaxmsg').html(msg);
-	        return false;
-	      }
+			if($('#txtPassword').val() != $('#txtConfirmPassword').val())
+		    {
+		      	$('#ajaxmsg').show('slow');
+		      	var msg = 'Mismatch Password..!!';
+		        $('#ajaxmsg').html(msg);
+		        return false;
+		    }
 		}
 		$(window).load(function () {
 			jQuery('#page').fadeIn(500);
@@ -396,7 +409,7 @@
 	          $('#cmbCity').append('<option value="none">Select</option>');
 	          var opts = $.parseJSON(result);
 	          $.each(opts, function(i, d){
-	              $('#cmbCity').append('<option value="' + d.city_name + '">' + d.city_name + '</option>');
+	              $('#cmbCity').append('<option value="' + d.id + '">' + d.city_name + '</option>');
 	          });
 	        }});
 	        if(con_name == 'India')

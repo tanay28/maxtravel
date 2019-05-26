@@ -19,7 +19,7 @@
 			<div class="col-lg-12 float-left page-title-top mt-3">
 				<h1>Add Agent</h1>
 			</div>
-			<form name="frmRegister" method="post" action="<?php echo base_url('agents/addagent');?>" enctype="multipart/form-data" onsubmit="valid();">
+			<form name="frmRegister" method="post" action="<?php echo base_url('agents/addagent');?>" enctype="multipart/form-data" onsubmit="return valid();">
 						
 							<div class="w-100 float-left wrap-section-sign mb-3 mt-3">
 								<div class="col-lg-12 mb-4">
@@ -162,7 +162,20 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Time Zone <font class="mandetory-star">*</font></label>
-										<input type="text" class="input-class-common float-left" name="txtTimeZone" required="">
+										<select class="input-class-common float-left select-box" name="cmbTimezone" id="cmbTimezone" required="">
+											<option value="none">Select</option>
+								             <?php
+								              if(isset($timezone) && count($timezone)>0)
+								              {
+								                foreach ($timezone as $ikey => $ivalue)
+								                {
+								            ?>
+								             <option value="<?php echo $ivalue['id'];?>"><?php echo $ivalue['timezone'];?></option> 
+								            <?php
+								                }
+								              }
+								             ?>
+										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Website</label>

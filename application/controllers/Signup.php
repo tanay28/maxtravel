@@ -26,6 +26,7 @@ class Signup extends CI_Controller {
 		$data = array();
 		$data['country'] = $this->get_countries();
 		$data['currency'] = $this->get_currency();
+		$data['timezone'] = $this->get_timezone();
 		// echo '<pre>';
 		// var_dump($data);
 		// die;
@@ -49,22 +50,39 @@ class Signup extends CI_Controller {
 		return $arr;
 	}
 	private function get_currency()
+	{
+		$arr = array();
+		$this->load->model('Usermanagement');
+		$rs = $this->Usermanagement->getcurrency();
+		if(isset($rs) && count($rs)>0)
 		{
-			$arr = array();
-			$this->load->model('Agentmanagement');
-			$rs = $this->Agentmanagement->getcurrency();
-			if(isset($rs) && count($rs)>0)
+			foreach ($rs as $ikey => $ivalue)
 			{
-				foreach ($rs as $ikey => $ivalue)
-				{
-					$arr[] = array(
-						'currency_id'   => $ivalue['currency_id'],
-						'currency_name' => $ivalue['currency_name'],
-					);
-				}
+				$arr[] = array(
+					'currency_id'   => $ivalue['currency_id'],
+					'currency_name' => $ivalue['currency_name'],
+				);
 			}
-			return $arr;
 		}
+		return $arr;
+	}
+	private function get_timezone()
+	{
+		$arr = array();
+		$this->load->model('Usermanagement');
+		$rs = $this->Usermanagement->gettimezone();
+		if(isset($rs) && count($rs)>0)
+		{
+			foreach ($rs as $ikey => $ivalue)
+			{
+				$arr[] = array(
+					'id'       => $ivalue['id'],
+					'timezone' => $ivalue['timezone'],
+				);
+			}
+		}
+		return $arr;
+	}
 	public function ajax_fetch_city()
 	{
 		if(isset($_POST['key']))
@@ -82,9 +100,8 @@ class Signup extends CI_Controller {
 	}
 	private function Upload_Doc($file)
 	{
-		//$target_dir = base_url('assets/gstdoc/');
-		$target_dir = base_url().'assets/gstdoc/';
-
+		//$target_dir = base_url().'assets/gstdoc/';
+		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
 		$target_file = $target_dir . basename($file["name"]);
 	
 		$uploadOk = 1;
@@ -124,7 +141,8 @@ class Signup extends CI_Controller {
 	}
 	private function remove_uploaded_doc($file)
 	{
-		$target_dir = base_url().'assets/gstdoc/';
+		//$target_dir = base_url().'assets/gstdoc/';
+		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
 		$target_file = $target_dir . basename($file["name"]);
 		
 		if(file_exists($target_file))
@@ -139,7 +157,10 @@ class Signup extends CI_Controller {
 	}
 	public function add()
 	{
-		if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
+		// echo '<pre>';
+		// var_dump($_POST);
+		// die;
+		if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['cmbTimezone']) && $_POST['cmbTimezone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 		{
 			
 			$file_name = '';
@@ -199,7 +220,7 @@ class Signup extends CI_Controller {
 					'fax'                => $_POST['txtFax'],
 					'country'            => $_POST['cmbCountry'],
 					'city'               => $_POST['cmbCity'],
-					'time_zone'          => $_POST['txtTimeZone'],
+					'time_zone'          => $_POST['cmbTimezone'],
 					'website'            => $_POST['txtWebsite'],
 					'gstin_no'           => $_POST['txtGSTNO'],
 					'gst_file_name'      => $file_name,
@@ -226,22 +247,22 @@ class Signup extends CI_Controller {
 				{
 
 					//------------------ Email Functions -----------------//
-					$this->load->library('email');
-					$from_email = "strangertan1@gmail.com"; 
-         			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
-					$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
+					// $this->load->library('email');
+					// $from_email = "strangertan1@gmail.com"; 
+     //     			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
+					// $to_email = "tmtanay56@gmail.com"; // this email for testing purpose
 
-					$this->email->from($from_email, 'Tanay'); 
-         			$this->email->to($to_email);
-         			$this->email->subject('Account Activation Link'); 
+					// $this->email->from($from_email, 'Tanay'); 
+     //     			$this->email->to($to_email);
+     //     			$this->email->subject('Account Activation Link'); 
 
-         			$this->load->library('Custom_email');
-         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
+     //     			$this->load->library('Custom_email');
+     //     			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
          			
-         			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
-         			$this->email->message($msg);
+     //     			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
+     //     			$this->email->message($msg);
 
-         			$chkk = $this->email->send();
+     //     			$chkk = $this->email->send();
 					//------------------------- END ---------------------//
 
          			$this->session->set_flashdata('success', 'Registration successful..Please check your mail for account activation');
@@ -275,7 +296,7 @@ class Signup extends CI_Controller {
 		{
 			// echo 'error';
 			// die;
-			$this->session->set_flashdata('success', 'Registration unsuccessful..');
+			$this->session->set_flashdata('error', 'Registration unsuccessful..');
 			redirect('home');
 		}
 	}

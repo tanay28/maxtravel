@@ -39,6 +39,7 @@
 			$data = array();
 			$data['country'] = $this->get_countries();
 			$data['currency'] = $this->get_currency();
+			$data['timezone'] = $this->get_timezone();
 			$this->load->view('addagent',$data);
 		}
 		public function addagent()
@@ -49,7 +50,7 @@
 			// var_dump($_POST['txtGSTNO']);
 			// var_dump($_FILES['fileGSTDoc']);
 			// die;
-			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
+			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtAgencyemail']) && $_POST['txtAgencyemail'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtPassword']) && $_POST['txtPassword'] != '' && isset($_POST['cmbTimezone']) && $_POST['cmbTimezone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 			{
 				
 				$file_name = '';
@@ -109,7 +110,7 @@
 						'fax'                => $_POST['txtFax'],
 						'country'            => $_POST['cmbCountry'],
 						'city'               => $_POST['cmbCity'],
-						'time_zone'          => $_POST['txtTimeZone'],
+						'time_zone'          => $_POST['cmbTimezone'],
 						'website'            => $_POST['txtWebsite'],
 						'gstin_no'           => $_POST['txtGSTNO'],
 						'gst_file_name'      => $file_name,
@@ -184,6 +185,23 @@
 					$arr[] = array(
 						'currency_id'   => $ivalue['currency_id'],
 						'currency_name' => $ivalue['currency_name'],
+					);
+				}
+			}
+			return $arr;
+		}
+		private function get_timezone()
+		{
+			$arr = array();
+			$this->load->model('Usermanagement');
+			$rs = $this->Usermanagement->gettimezone();
+			if(isset($rs) && count($rs)>0)
+			{
+				foreach ($rs as $ikey => $ivalue)
+				{
+					$arr[] = array(
+						'id'       => $ivalue['id'],
+						'timezone' => $ivalue['timezone'],
 					);
 				}
 			}
@@ -273,6 +291,7 @@
 				$data['agents'] = $this->Agentmanagement->getAgents($agent_id);
 				$data['country'] = $this->get_countries();
 				$data['currency'] = $this->get_currency();
+				$data['timezone'] = $this->get_timezone();
 				// echo '<pre>';
 				// var_dump($data);
 				// die;
@@ -287,11 +306,11 @@
 		public function editagent()
 		{
 			
-			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['txtTimeZone']) && $_POST['txtTimeZone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
+			if(isset($_POST['txtAgencyname']) && $_POST['txtAgencyname'] != ''  && isset($_POST['txtFirstname']) && $_POST['txtFirstname'] != ''  && isset($_POST['txtLastname']) && $_POST['txtLastname'] != ''  && isset($_POST['txtDesignation']) && $_POST['txtDesignation'] != '' && isset($_POST['Rdoiatastatus']) && $_POST['Rdoiatastatus'] != '' && isset($_POST['cmbNatureofbusiness']) && $_POST['cmbNatureofbusiness'] != '' && isset($_POST['cmbBusinesstype']) && $_POST['cmbBusinesstype'] != '' && isset($_POST['cmbPrefferedcurrency']) && $_POST['cmbPrefferedcurrency'] != '' && isset($_POST['txtAddress']) && $_POST['txtAddress'] != '' && isset($_POST['txtPhone']) && $_POST['txtPhone'] != '' && isset($_POST['txtMobile']) && $_POST['txtMobile'] != '' && isset($_POST['cmbCountry']) && $_POST['cmbCountry'] != '' && isset($_POST['cmbCity']) && $_POST['cmbCity'] != '' && isset($_POST['cmbTimezone']) && $_POST['cmbTimezone'] != '' && isset($_POST['txtPin']) && $_POST['txtPin'] != '')
 			{
 				$file_name = '';
 				
-				if(isset($_POST['gst_file_name']) && $_POST['gst_file_name']!='')
+				if(isset($_FILES['fileGSTDoc']) && count($_FILES['fileGSTDoc'])>0 && $_FILES['fileGSTDoc']['name'] != '')
 				{
 					$target_file = $this->target_dir.$_POST['gst_file_name'];
 					if (file_exists($target_file))
@@ -299,9 +318,7 @@
 						$file_name = '';
 						unlink($target_file);
 					}
-				}
-				if(isset($_POST['txtGSTNO']) && $_POST['txtGSTNO'] != '')
-				{
+
 					$arr_upload = $this->Upload_Doc($_FILES['fileGSTDoc']);
 					// var_dump($arr_upload);
 					// die;
@@ -315,6 +332,10 @@
 						$this->session->set_flashdata('error', $msg);
 						redirect('agents');
 					}
+				}
+				else
+				{
+					$file_name = $_POST['gst_file_name'];
 				}
 
 				$this->load->model('Agentmanagement');
@@ -336,7 +357,7 @@
 					'fax'                => $_POST['txtFax'],
 					'country'            => $_POST['cmbCountry'],
 					'city'               => $_POST['cmbCity'],
-					'time_zone'          => $_POST['txtTimeZone'],
+					'time_zone'          => $_POST['cmbTimezone'],
 					'website'            => $_POST['txtWebsite'],
 					'gstin_no'           => $_POST['txtGSTNO'],
 					'gst_file_name'      => $file_name,
@@ -374,5 +395,6 @@
 			$chk = $this->Agentmanagement->change_agent_status($id,$status);
 			redirect('agents');
 		}
+
 	}
 ?>

@@ -48,11 +48,13 @@
             if($id == '')
             {
                 //$sql = "SELECT * FROm agents ORDER by id";
-                $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id";
+                $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email,city.city_name,tz.timezone FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id LEFT JOIN city ON city.id = ag.city LEFT JOIN timezone tz ON ag.time_zone = tz.id";
             }
             else
             {
-               $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id WHERE ag.id = '".$id."'";
+               //$sql = "SELECT ag.*, users.status, users.id AS user_id, users.email FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id WHERE ag.id = '".$id."'";
+
+               $sql = "SELECT ag.*, users.status, users.id AS user_id, users.email,city.city_name,tz.timezone FROM agents ag LEFT JOIN agent_user_mapping ag_map ON ag.id = ag_map.agent_id LEFT JOIN users ON users.id = ag_map.user_id LEFT JOIN city ON city.id = ag.city LEFT JOIN timezone tz ON ag.time_zone = tz.id WHERE ag.id = '".$id."'";
             }
             return $this->db->query($sql)->result_array();
         }
@@ -84,6 +86,11 @@
         public function getcurrency()
         {
             $sql = "SELECT * FROM currency ORDER BY id";
+            return $this->db->query($sql)->result_array();
+        }
+        public function gettimezone()
+        {
+             $sql = "SELECT * FROM timezone ORDER BY id";
             return $this->db->query($sql)->result_array();
         }
     }

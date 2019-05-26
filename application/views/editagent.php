@@ -177,7 +177,7 @@
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">City<font class="mandetory-star">*</font></label>
 										<select class="input-class-common float-left" name="cmbCity" id="cmbCity" required="">
-											<option><?php echo isset($agents[0]['city']) ? $agents[0]['city'] : '';?></option>
+											<option value="<?php echo isset($agents[0]['city']) ? $agents[0]['city'] : '';?>"><?php echo isset($agents[0]['city_name']) ? $agents[0]['city_name'] : '';?></option>
 										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="gstDetails" style="display:none">
@@ -192,7 +192,20 @@
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Time Zone <font class="mandetory-star">*</font></label>
-										<input type="text" class="input-class-common float-left" name="txtTimeZone" required="" value="<?php echo isset($agents[0]['time_zone']) ? $agents[0]['time_zone'] : '';?>">
+										<select class="input-class-common float-left select-box" name="cmbTimezone" id="cmbTimezone" required="">
+											<option value="none">Select</option>
+								             <?php
+								              if(isset($timezone) && count($timezone)>0)
+								              {
+								                foreach ($timezone as $ikey => $ivalue)
+								                {
+								            ?>
+								             <option value="<?php echo $ivalue['id'];?>" <?php echo (isset($agents[0]['time_zone']) && $agents[0]['time_zone'] == $ivalue['id']) ? 'selected' : ''?> ><?php echo $ivalue['timezone'];?></option> 
+								            <?php
+								                }
+								              }
+								             ?>
+										</select>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 										<label class="float-left">Website</label>

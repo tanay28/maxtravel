@@ -71,7 +71,7 @@
                                     <td><?php echo isset($avalue['pin']) ? $avalue['pin'] : '';?></td>
                                     <td><?php echo isset($avalue['phone']) ? $avalue['phone'] : '';?></td>
                                     <td><?php echo isset($avalue['mobile']) ? $avalue['mobile'] : '';?></td>
-                                    <td><?php echo isset($avalue['city']) ? $avalue['city'] : '';?></td>
+                                    <td><?php echo isset($avalue['city_name']) ? $avalue['city_name'] : '';?></td>
                                     
                                     <td><a href="<?php echo base_url('agents/change_status/'.$avalue['user_id'].'/'.$avalue['status']);?>"><?php echo isset($avalue['status']) ? $avalue['status'] : '';?></a></td>
                                     <input type="hidden" name="txtUserid" id="txtUserid" value="<?php echo isset($avalue['user_id']) ? $avalue['user_id'] : '';?>">

@@ -138,7 +138,7 @@
 							</div>
 							<div class="w-100 float-left mt-4">
 							<input type="submit" value="Reset Now" class="register-button-form float-left mr-3" id="btnReset">
-							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>
+							<a href="<?php echo base_url('login/login_after_activation');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
 					</div>

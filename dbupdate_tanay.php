@@ -32,5 +32,7 @@ CREATE TABLE `maxtravel`.`timezone` ( `id` INT NOT NULL AUTO_INCREMENT , `timezo
 INSERT INTO timezone(timezone)values('KOLKATA')
 INSERT INTO timezone(timezone)values('DELHI')
 INSERT INTO timezone(timezone)values('SINGAPORE')
+
+ALTER TABLE `agents` CHANGE `time_zone` `time_zone` INT NOT NULL;
 //--------------------------------------- END ----------------------------------//
 
