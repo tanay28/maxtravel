@@ -164,24 +164,21 @@ class Signup extends CI_Controller {
 		{
 			
 			$file_name = '';
-			// var_dump($_POST['txtGSTNO']);
-			// die;
-			if(isset($_POST['txtGSTNO']) && $_POST['txtGSTNO'] != '')
-			{
-				$arr_upload = $this->Upload_Doc($_FILES['fileGSTDoc']);
-				// var_dump($arr_upload);
-				// die;
-				if(isset($arr_upload['status']) && $arr_upload['status'] == 'success')
-				{
-					$file_name = $arr_upload['file_name']; 
-				}
-				else
-				{
-					$msg = isset($arr_upload['msg']) ? $arr_upload['msg'] : '';
-					$this->session->set_flashdata('error', $msg);
-					redirect('signup');
-				}
-			}
+			// if(isset($_POST['txtGSTNO']) && $_POST['txtGSTNO'] != '')
+			// {
+			// 	$arr_upload = $this->Upload_Doc($_FILES['fileGSTDoc']);
+				
+			// 	if(isset($arr_upload['status']) && $arr_upload['status'] == 'success')
+			// 	{
+			// 		$file_name = $arr_upload['file_name']; 
+			// 	}
+			// 	else
+			// 	{
+			// 		$msg = isset($arr_upload['msg']) ? $arr_upload['msg'] : '';
+			// 		$this->session->set_flashdata('error', $msg);
+			// 		redirect('signup');
+			// 	}
+			// }
 
 			$this->load->model('Usermanagement');
 			$chk = $this->Usermanagement->validateUser($_POST['txtAgencyemail']);
