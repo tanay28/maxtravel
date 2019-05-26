@@ -15,11 +15,13 @@
 <!-- Bootstrap  -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css');?>">
+<link rel="stylesheet" type="text/css"  href="<?php echo base_url('assets/css/gijgo.min.css');?>">
 <!-- Owl Carousel -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/owl.carousel.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/owl.theme.default.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
 <!-- Modernizr JS -->
 <script src="<?php echo base_url('assets/js/modernizr-2.6.2.min.js');?>"></script>
 <!-- FOR IE9 below -->

@@ -13,7 +13,7 @@
 			        <?php echo $this->session->userdata('error');?>
 			    </div>
 			  <?php }?>
-			<p>
+			<p class="w-100 text-center">
 				<?php
 					$checkuservars = $this->session->userdata;
 					if(isset($checkuservars['useremail'])) echo 'Welcome ' . $checkuservars['useremail'];  

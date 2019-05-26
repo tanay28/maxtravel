@@ -17,7 +17,6 @@
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js');?>"></script>
-	<script src="<?php echo base_url('assets/js/bootstrap-select.js');?>"></script>
 	<script>
 		$(document).ready(function () {
 			$('[data-toggle="tooltip"]').tooltip();
@@ -32,10 +31,10 @@
 	<script src="<?php echo base_url('assets/js/main.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script>
 	<script>
-		/*$(document).ready(function () {
-			$('select:not(.ignore)').niceSelect();
-			FastClick.attach(document.body);
-		});*/    
+		// $(document).ready(function () {
+		// 	$('.selectbox:not(.ignore)').niceSelect();
+		// 	FastClick.attach(document.body);
+		// });   
 	</script>
 	<script>
 	$(document).ready(function() {

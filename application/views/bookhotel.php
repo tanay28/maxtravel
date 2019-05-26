@@ -472,6 +472,12 @@
       </div>
 </section>
 <?php include_once('footer.php');?>
+<script>
+$(document).ready(function () {
+      $('.selectbox:not(.ignore)').niceSelect();
+      FastClick.attach(document.body);
+});   
+</script>
 
 
 			
