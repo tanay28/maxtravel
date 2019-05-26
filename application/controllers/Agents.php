@@ -237,8 +237,6 @@
 		}
 		private function Upload_Doc($file)
 		{
-
-			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
 			//$target_dir = base_url().'assets/gstdoc/';
 			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
 
@@ -281,8 +279,8 @@
 		}
 		private function remove_uploaded_doc($file)
 		{
-			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
-			$target_dir = base_url().'assets/gstdoc/';
+			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
+			//$target_dir = base_url().'assets/gstdoc/';
 			$target_file = $target_dir . basename($file["name"]);
 			
 			if(file_exists($target_file))
