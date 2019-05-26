@@ -256,8 +256,8 @@ class Signup extends CI_Controller {
          			$this->email->to($to_email);
          			$this->email->subject('Account Activation Link'); 
 
-         			$this->load->library('Custom_email');
-         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
+         			$this->load->library('custom_email');
+         			$msg = $this->custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
          			
          			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
          			$this->email->message($msg);
