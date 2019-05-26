@@ -248,9 +248,9 @@ class Signup extends CI_Controller {
 
 					//------------------ Email Functions -----------------//
 					$this->load->library('email');
-					$from_email = "strangertan1@gmail.com"; 
-         			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
-					$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
+					$from_email = "tmtanay56@gmail.com"; 
+         			$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
+					//$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
 
 					$this->email->from($from_email, 'Tanay'); 
          			$this->email->to($to_email);
@@ -267,17 +267,6 @@ class Signup extends CI_Controller {
 
          			$this->session->set_flashdata('success', 'Registration successful..Please check your mail for account activation');
 					redirect('home');
-
-         			/*if($this->email->send())
-         			{
-         				$this->session->set_flashdata('success', 'Registration successful..');
-						redirect('home');	
-         			}
-         			else
-					{
-						$this->session->set_flashdata('error', 'Registration unsuccessful..');
-						redirect('home');	
-					}*/
 				}
 			}
 			else
@@ -303,11 +292,11 @@ class Signup extends CI_Controller {
 
 	public function activate_account()
 	{
-		//$email = base64_decode($this->uri->segment(3)); // actual data for activation
-		//$code  = base64_decode($this->uri->segment(4)); // actual data for activation
+		$email = base64_decode($this->uri->segment(3)); // actual data for activation
+		$code  = base64_decode($this->uri->segment(4)); // actual data for activation
 
-		$email = $this->uri->segment(3); // testing data
-		$code  = $this->uri->segment(4); // testing data
+		//$email = $this->uri->segment(3); // testing data
+		//$code  = $this->uri->segment(4); // testing data
 
 		$this->load->model('Usermanagement');
 		$chk = $this->Usermanagement->is_account_activated($email,$code);

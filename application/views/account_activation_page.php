@@ -16,7 +16,7 @@
     <?php }?>
     <?php if ($this->session->userdata('error')) { ?>
        <h1 class="display-3">Error!!</h1>
-       <p class="alert alert-danger alertbox-home">Your account has aleady been activated.</p>
+       <p class="alert alert-danger alertbox-home">Your account has already been activated.</p>
 	  <hr>
 	  <p>
 	    Having trouble? <a href="">Contact us</a>
