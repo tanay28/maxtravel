@@ -10,17 +10,24 @@
 		function __construct()
 		{
 			parent::__construct();
-			//$this->target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
-			$this->target_dir = base_url().'assets/gstdoc/';
+			$this->target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/gstdoc/';
 			$checkuservars = $this->session->userdata;
-			if(!isset($checkuservars['is_logged_in']) || $checkuservars['is_logged_in'] != 1 || !isset($_SESSION['usertype']) || $_SESSION['usertype']!='SUPERADMIN')
+			
+			// if(!isset($checkuservars['is_logged_in']) || $checkuservars['is_logged_in'] != 1 || !isset($_SESSION['usertype']) || $_SESSION['usertype']!='SUPERADMIN')
+			// {
+			// 	redirect('login/logout');
+			// }
+			if(!isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1)
 			{
 				redirect('login/logout');
 			}
 		}
 		public function index()
 		{
-			$data['page_access'] = 'ACTIVE';
+			$data['page_access'] = 'INACTIVE';
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+				$data['page_access'] = 'ACTIVE';
+			}
 			$data['agents'] = $this->getAllagents();
 			$this->load->view('listagent',$data);
 		}
@@ -37,9 +44,15 @@
 		public function add()
 		{
 			$data = array();
+			$data['page_access'] = 'ACTIVE';
 			$data['country'] = $this->get_countries();
 			$data['currency'] = $this->get_currency();
 			$data['timezone'] = $this->get_timezone();
+			if(!isset($_SESSION['usertype']) || $_SESSION['usertype']!='SUPERADMIN')
+			{
+				$data['page_access'] = 'INACTIVE';
+			}
+			
 			$this->load->view('addagent',$data);
 		}
 		public function addagent()
@@ -284,6 +297,10 @@
 		}
 		public function edit()
 		{
+			$data['page_access'] = 'INACTIVE';
+			if(isset($_SESSION['usertype']) && ($_SESSION['usertype']=='SUPERADMIN' || $_SESSION['usertype']=='ADMIN')){
+				$data['page_access'] = 'ACTIVE';
+			}
 			$agent_id = base64_decode($this->uri->segment(3));
 			if($agent_id != '')
 			{

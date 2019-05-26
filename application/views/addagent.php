@@ -1,6 +1,9 @@
 <?php include_once('header.php');?>
 <section class="w-100 float-left wrap-signup pt-3 pb-5">
 	<div class="container">
+		<?php
+			if(isset($page_access) && $page_access=='ACTIVE'){
+		?>
 		<div>
 			<?php if ($this->session->userdata('success')) { ?>
           	<div class="alert alert-success">
@@ -266,6 +269,7 @@
 							</div>
 						</form>
 		</div>
+		<?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
 	</div>
 </section>
 <?php include_once('footer.php');?>
