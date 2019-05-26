@@ -247,22 +247,22 @@ class Signup extends CI_Controller {
 				{
 
 					//------------------ Email Functions -----------------//
-					// $this->load->library('email');
-					// $from_email = "strangertan1@gmail.com"; 
-     //     			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
-					// $to_email = "tmtanay56@gmail.com"; // this email for testing purpose
+					$this->load->library('email');
+					$from_email = "strangertan1@gmail.com"; 
+         			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
+					$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
 
-					// $this->email->from($from_email, 'Tanay'); 
-     //     			$this->email->to($to_email);
-     //     			$this->email->subject('Account Activation Link'); 
+					$this->email->from($from_email, 'Tanay'); 
+         			$this->email->to($to_email);
+         			$this->email->subject('Account Activation Link'); 
 
-     //     			$this->load->library('Custom_email');
-     //     			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
+         			$this->load->library('Custom_email');
+         			$msg = $this->Custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
          			
-     //     			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
-     //     			$this->email->message($msg);
+         			//$msg = $this->Custom_email->account_activation($activation_code,$to_email,'Sudipta');
+         			$this->email->message($msg);
 
-     //     			$chkk = $this->email->send();
+         			$chkk = $this->email->send();
 					//------------------------- END ---------------------//
 
          			$this->session->set_flashdata('success', 'Registration successful..Please check your mail for account activation');
