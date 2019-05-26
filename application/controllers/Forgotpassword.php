@@ -32,6 +32,7 @@
 		{
 			$data = array();
 			//echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : '';
+			$user_first_name = '';
 			if(isset($_POST['txtEmail']))	
 			{
 				$this->load->model('Usermanagement');
@@ -63,13 +64,13 @@
 						//------------ Email function --------------//
 						$this->load->library('email');
 						$from_email = "tmtanay56@gmail.com";
-						$to_email = "sudiptagraphics@gmail.com"; // this email for testing purpose
-						//$to_email = $_POST['txtEmail']; // this is the actual email to send mail
+						//$to_email = "sudiptagraphics@gmail.com"; // this email for testing purpose
+						$to_email = $_POST['txtEmail']; // this is the actual email to send mail
 						$this->email->from($from_email, 'Tanay'); 
 	         			$this->email->to($to_email);
-	         			$this->email->subject('Account Activation Link');
-	         			$this->load->library('Custom_email');
-	         			$msg = $this->Custom_email->forgot_password($code,$to_email,'Sudipta');
+	         			$this->email->subject('Password reset Link');
+	         			$this->load->library('custom_email');
+	         			$msg = $this->custom_email->forgot_password($code,$to_email,$user_first_name);
 						//----------------- END -------------------//
 					}
 					echo 'success';
