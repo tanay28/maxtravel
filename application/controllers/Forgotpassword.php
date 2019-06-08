@@ -69,8 +69,12 @@
 						$this->email->from($from_email, 'Tanay'); 
 	         			$this->email->to($to_email);
 	         			$this->email->subject('Password reset Link');
+	         			//$this->email->set_mailtype("html");
+	         			$this->email->set_header('Content-type', 'text/html');
 	         			$this->load->library('custom_email');
 	         			$msg = $this->custom_email->forgot_password($code,$to_email,$user_first_name);
+	         			$this->email->message($msg);
+	         			$chkk = $this->email->send();
 						//----------------- END -------------------//
 					}
 					echo 'success';

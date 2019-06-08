@@ -9,20 +9,20 @@
                 	$encrypted_code = base64_encode($code);
                 	$encrypted_email = base64_encode($email);
 
-                	//$link = "<a href='http://maxholidays.likesyou.org/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click Here</a>"; // server url
+                	$link = "<a href='http://maxholidays.likesyou.org/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click Here</a>"; // server url
 
-                	$link = "<a href='http://localhost/maxtravel/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click here to your account</a>"; // local url
+                	//$link = "<a href='http://localhost/maxtravel/signup/activate_account/".$encrypted_email."/".$encrypted_code."'>Click here to your account</a>"; // local url
 
                 	$html = <<<EOF
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+    <head>
 	<title>Account Activation</title>
-</head>
-<body>
-<p>Welcome Mr./Ms. $name</p><br>
-$link
-</body>
+    </head>
+  <body>
+        <p>Welcome Mr./Ms. $name</p><br>
+        $link
+  </body>
 </html>
 EOF;
 
@@ -39,7 +39,7 @@ EOF;
                         $link = "<a href='http://localhost/maxtravel/forgotpassword/viewresetpassword/".$encrypted_email."/".$encrypted_code."'>Click here to reset your account password</a>"; // local url
 
                         $html = <<<EOF
-<!DOCTYPE html>
+<!doctype>
 <html>
 <head>
         <title>Reset Account Password</title>

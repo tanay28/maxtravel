@@ -251,8 +251,9 @@ class Signup extends CI_Controller {
 
 					$this->email->from($from_email, 'Tanay'); 
          			$this->email->to($to_email);
-         			$this->email->subject('Account Activation Link'); 
-
+         			$this->email->subject('Max Travel Account Activation Link'); 
+         			//$this->email->set_mailtype("html");
+         			$this->email->set_header('Content-type', 'text/html');
          			$this->load->library('custom_email');
          			$msg = $this->custom_email->account_activation($activation_code,$to_email,$_POST['txtFirstname']);
          			
