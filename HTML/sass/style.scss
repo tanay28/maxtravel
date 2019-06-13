@@ -209,6 +209,9 @@ p, span {
 	font-weight: 400;
 	font-family: $font-primary;
 }
+p{
+	line-height: 23px;
+}
 ul,ol{
 	display: block;
 	margin-bottom: 1.5em;
@@ -1818,4 +1821,187 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	border-radius: 5px;
 	font-size: 14px;
 	color: #888;
+}
+.page-title-inner-pages {
+	h2 {
+		font-size: 34px;
+		text-transform: uppercase;
+		color: $white;
+		letter-spacing: $pix3;
+	}
+}
+.inner-header {
+	background-position: top center !important;
+	background-size: cover !important;
+	padding: $pix0;
+	.inner-header-bg-two {
+		background: rgba(0,0,0,0.5);
+		padding: $pix15 $pix0;
+	}
+}
+.img-abt {
+	img {
+	border-radius: $pix20;
+	position: relative;
+	z-index: 2;
+	}
+	&:after {
+		background: #efefef;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		content: '';
+		z-index:1;
+		top: $pix20;
+		left: -$pix20;
+		border-radius: $pix15;
+	}
+}
+.blockform label {
+	float: left !important;
+	margin-right: 25px;
+}
+.blockform select {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 40px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	border-radius: 3px;
+}
+.blockform input[type="text"] {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 40px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	float: left;
+	border-radius: 3px;
+}
+.blockform input[type="password"] {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 40px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	float: left;
+	border-radius: 3px;
+}
+.blockform input[type="email"] {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 40px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	float: left;
+	border-radius: 3px;
+}
+.blockform textarea {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 120px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	float: left;
+	border-radius: 3px;
+}
+.blockform td {
+	padding: 5px;
+}
+.blockform span {
+	width: 33.3%;
+	float: left;
+	padding-right: 20px;
+	margin-bottom: 15px;
+}
+.blockform input[type="checkbox"] {
+	float: left;
+	margin-right: 5px;
+}
+.contact_form {
+	margin-top: 40px;
+}
+.contact_form textarea {
+	width: 100%;
+	float: left;
+	border: 2px solid #ccc;
+	height: 120px;
+	padding: 7px;
+	font-size: 13px;
+	outline: none;
+	float: left;
+	border-radius: 3px;
+}
+.input-contact {
+	transition: all 0.3s;
+	min-height: $pix45;
+	&:focus {
+		box-shadow: $pix0 $pix0 $pix10 rgba(0,0,0,0.15);
+		transition: all 0.3s;
+		border: 2px solid #fff !important;
+	}
+}
+.contact-info {
+	h5 {
+		font-family: $font-primary;
+		font-size: 20px;
+		i{
+			color: $blue;
+			font-size: $pix30;
+			position: relative;
+			top:$pix7;
+			margin-right: $pix10;
+			min-width: $pix35;
+			text-align: center;
+		}
+	}
+}
+.wrap-join {
+	background: url(../images/man-join.png) no-repeat bottom right;
+	padding-bottom: 200px;
+}
+.join-us-offers{
+	background: -moz-linear-gradient(337deg, rgba(1,82,233,0.85) 0%, rgba(111,0,135,0.92) 76%, rgba(111,0,135,0.95) 100%); /* ff3.6+ */
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(1,82,233,0.85)), color-stop(76%, rgba(111,0,135,0.92)), color-stop(100%, rgba(111,0,135,0.95))); /* safari4+,chrome */
+		background: -webkit-linear-gradient(337deg, rgba(1,82,233,0.85) 0%, rgba(111,0,135,0.92) 76%, rgba(111,0,135,0.95) 100%); /* safari5.1+,chrome10+ */
+		background: -o-linear-gradient(337deg, rgba(1,82,233,0.85) 0%, rgba(111,0,135,0.92) 76%, rgba(111,0,135,0.95) 100%); /* opera 11.10+ */
+		background: -ms-linear-gradient(337deg, rgba(1,82,233,0.85) 0%, rgba(111,0,135,0.92) 76%, rgba(111,0,135,0.95) 100%); /* ie10+ */
+		background: linear-gradient(113deg, rgba(1,82,233,0.85) 0%, rgba(111,0,135,0.92) 76%, rgba(111,0,135,0.95) 100%); /* w3c */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0152e9', endColorstr='#6f0087',GradientType=1 ); /* ie6-9 */
+		padding: $pix30;
+		border-radius: $pix25;
+		box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+		h4 {
+			color: $white;
+			letter-spacing: $pix1;
+		}
+		ul {
+			margin: $pix0;
+			padding-left: 18px;
+			width: 100%;
+			float: left;
+		}
+		li {
+			list-style: inherit;
+			color: $white;
+			font-size: $pix15;
+			width: 100%;
+			float: left;
+			padding: $pix8;
+			line-height: $pix20;
+		}
+}
+.img-join-wrap {
+	border-radius: $pix20;
+	overflow: hidden;
 }
