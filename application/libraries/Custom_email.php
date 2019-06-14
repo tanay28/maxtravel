@@ -53,5 +53,26 @@ EOF;
 
                                 return $html;
                 }
+
+                public function contact_info($name,$email,$phone,$msg)
+                {
+                    $html = <<<EOF
+<!doctype>
+<html>
+<head>
+        <title>New User Contact Details</title>
+</head>
+<body>
+<p>Welcome Mr./Ms. $name</p><br>
+<p>Name    : $name</p>
+<p>Email   : $email</p>
+<p>Phone   : $phone</p>
+<p>Message : $msg</p>
+</body>
+</html>
+EOF;
+
+                                return $html;
+                }
 	}
 ?>

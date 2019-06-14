@@ -16,7 +16,7 @@
 
 
 //------------------------------------ 25.05.2019 ---------------------------------//
-/*CREATE TABLE `maxtravel`.`currency` ( `id` INT NOT NULL AUTO_INCREMENT , `currency_id` VARCHAR(100) NOT NULL , `currency_name` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
+// CREATE TABLE `maxtravel`.`currency` ( `id` INT NOT NULL AUTO_INCREMENT , `currency_id` VARCHAR(100) NOT NULL , `currency_name` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 //----------------------------------------- END ----------------------------------//
 
 //------------------------------- 26.05.2019 ------------------------------------//
@@ -36,4 +36,8 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 ALTER TABLE `agents` CHANGE `time_zone` `time_zone` INT NOT NULL;
 //--------------------------------------- END ----------------------------------//
 
+
+//---------------------- 14.06.2019 -----------------------//
+
+CREATE TABLE `maxtravel`.`contact_info` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(200) NOT NULL , `email` VARCHAR(100) NOT NULL , `phone` TEXT NOT NULL , `msg` TEXT NOT NULL , `mail_status` ENUM('SENT','FAILED','','') NOT NULL , `created_at` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ?>
