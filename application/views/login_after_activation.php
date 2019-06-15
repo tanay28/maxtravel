@@ -107,28 +107,29 @@
 			            <?php }?>
 			            <div class="alert alert-danger" id="ajaxmsg" style="display: none"></div>
 					</div>
-					<div class="row">
+					<div class="w-100">
 						<div class="col-lg-12 float-left page-title-top mt-3">
 							<h1>Login</h1>
 						</div>
 						<form name="frm" method="post" action="javascript:void()">
-						
-							<div class="w-100 float-left wrap-section-sign account-sett mb-3 mt-3">
+						<div class="col-lg-12 float-left">
+							<div class="col-lg-6 col-md-12 col-12 p-0 float-left wrap-section-sign account-sett mb-3 mt-3">
 								<div class="col-lg-12 mb-3">
 									<h3>Login Details</h3>
 								</div>
 
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-6 col-md-6 col-12 float-left wrap-sign-main">
 									<label class="float-left w-100">Email<font class="mandetory-star">*</font>
 									</label>
 									<input type="text" class="input-class-common  w-100 float-left" name="txtEmail" id="txtEmail" required="">
 								</div>
-								<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
+								<div class="col-lg-6 col-md-6 col-12 float-left wrap-sign-main">
 									<label class="float-left  w-100">Password<font class="mandetory-star">*</font>
 									</label>
 									<input type="password" class="input-class-common  w-100 float-left" name="txtPassword" id="txtPassword" required="">
 								</div>
 							</div>
+						</div>
 							<div class="col-lg-12 float-left mt-4">
 							<input type="submit" value="Login" class="register-button-form float-left mr-3" id="btnLogin" onclick="login();">
 							<a href="<?php echo base_url('home');?>" class="cancel-button-form float-left">Cancel</a>

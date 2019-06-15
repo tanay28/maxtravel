@@ -1910,3 +1910,35 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .img-join-wrap {
   border-radius: 20px;
   overflow: hidden; }
+
+.selecy-full ul {
+  width: 100%; }
+
+.wrap-peroson {
+  padding-right: 10px;
+  width: 50%;
+  float: left; }
+  .wrap-peroson i {
+    position: absolute;
+    right: 15px;
+    color: #008aff;
+    font-size: 16px;
+    top: 17px;
+    z-index: 9;
+    cursor: pointer; }
+  .wrap-peroson input {
+    height: 46px;
+    width: 100% !important;
+    font-size: 12px;
+    margin-top: 2px;
+    text-indent: 0;
+    padding-left: 7px; }
+
+.no-perso i {
+  position: absolute;
+  right: 27px;
+  color: #008aff;
+  font-size: 16px;
+  top: 52px;
+  z-index: 9;
+  cursor: pointer; }

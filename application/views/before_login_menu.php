@@ -2,7 +2,7 @@
 	<li class="active"><a href="<?php echo base_url('home');?>">Home</a></li>
 	<li><a href="<?php echo base_url('login/login_after_activation');?>">Login</a></li>
 	<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
-	<li><a href="#">Maxx Team</a></li>
+	<!-- <li><a href="#">Maxx Team</a></li> -->
 	<!-- <li><a href="#">Career</a></li> -->
 	<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
 	<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>

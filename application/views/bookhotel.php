@@ -21,7 +21,7 @@
                                           <div action='' autocomplete='off' class="w-100">
                                                 <div class='input-group w-100 float-left'>
                                                   <!-- <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-100 float-left' id='myInput' name='myCountry' placeholder='Select Hotel Destination' type='text'> -->
-                                                  <select class='form-control select2' name="searchbycity">
+                                                  <select class='w-100 float-left select2 selectbox selecy-full' name="searchbycity" >
                                                       <option value="">Select Destination</option>
                                                       <?php
                                                         if(isset($city_list) && count($city_list)>0){
@@ -34,23 +34,28 @@
                                                 </div>
                                           </div>
                                     </div>
-                                    <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
+                                    <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
                                           <label>Select Check In </label>
                                           <input id="datepicker" name="searchbycheckin" value="<?php echo (isset($_POST['searchbycheckin'])) ? $_POST['searchbycheckin'] : '';?>" /></div>
 
 
-                                    <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
+                                    <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
                                           <label>Select Check Out </label>
                                           <input id="datepicker1" name="searchbycheckout" value="<?php echo (isset($_POST['searchbycheckout'])) ? $_POST['searchbycheckout'] : '';?>" />
                                     </div>
 
 
-                                    <div class="col-12 col-md-12 col-lg-2 float-right rating-dates pr-0">
+                                    <div class="col-12 col-md-12 col-lg-4 float-right rating-dates pr-0">
                                           <label class="w-100 float-left">Select Person </label>
-
+                                          
+                                          <div class="wrap-peroson position-relative">
+                                          <i class="far fa-plus-square"></i>
                                           <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofadults' placeholder='Adults' type='text' value="<?php echo (isset($_POST['searchnoofadults'])) ? $_POST['searchnoofadults'] : '';?>">
-
+                                          </div>
+                                    <div class="wrap-peroson position-relative">
+                                    <i class="far fa-plus-square"></i>
                                           <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofchild' placeholder='Child' type='text' value="<?php echo (isset($_POST['searchnoofchild'])) ? $_POST['searchnoofchild'] : '';?>">
+                                          </div>
                                     </div>
                                     <div class="w-100 float-left mt-4">
                                           <input type="submit" value="Search Hotel" name="btnSearchhotel" 
@@ -168,6 +173,20 @@
                   </div>
 
             </div>
+
+            <div class="w-100 float-left bottom-hotels-pagi">
+								<p class="w-100 float-left">Showing result 10 of 100</p>
+								<nav class="w-100 float-left pagination-hotels mt-2">
+									<ul class="pagination mb-0">
+										<li class="page-item"><a class="page-link p-n-but" href="#">Previous</a></li>
+										<li class="page-item"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item"><a class="page-link p-n-but" href="#">Next</a></li>
+									</ul>
+								</nav>
+                                          </div>
+                                          
             <?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
       </div>
 </section>

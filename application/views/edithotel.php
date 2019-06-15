@@ -42,7 +42,7 @@
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Country *
 									</label>
-									<select class="input-class-common float-left select-box" name="country_id" id="cmbCountry" required="">
+									<select class="input-class-common float-left select-box selectbox" name="country_id" id="cmbCountry" required="">
 										<option value="none">Select</option>
 							             <?php
 							              if(isset($country) && count($country)>0)
@@ -60,7 +60,7 @@
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">City *
 									</label>
-									<select class="input-class-common float-left" name="city_id" id="cmbCity" required=""></select>
+									<select class="input-class-common float-left selectbox" name="city_id" id="cmbCity" required=""></select>
 								</div>
 							</div>
 						</div>
@@ -146,42 +146,40 @@
 							<div class="col-lg-12 mb-1">
 								<h3>Room Type</h3>
 							</div>
-							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 								<label class="float-left w-100">Select Type</label>
-								<select class="input-class-common w-100 float-left" name="room_type">
+								<select class="input-class-common w-100 float-left selectbox" name="room_type">
 									<option value="">Select</option>
 									<option value="Delux" <?php echo (isset($hotel_details[0]['room_type']) && $hotel_details[0]['room_type']=='Delux') ? 'selected' : '';?>>Delux</option>
 									<option value="Super Delux" <?php echo (isset($hotel_details[0]['room_type']) && $hotel_details[0]['room_type']=='Super Delux') ? 'selected' : '';?>>Super Delux</option>
 								</select>
 							</div>
-							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 								<label class="w-100 float-left">Room Rate</label>
 								<input type="text" name="room_rate_include_breakfast" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['room_rate_include_breakfast']) ? $hotel_details[0]['room_rate_include_breakfast'] : '';?>">
 								<span class="font-included">Included Breakfast</span>
 							</div>
-						</div>
-						<div class="w-100 float-left mt-2">
-							
-							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+					
+						<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 								<label class="w-100 float-left">Room Rate</label>
 								<input type="text" name="room_rate_exclude_breakfast" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['room_rate_exclude_breakfast']) ? $hotel_details[0]['room_rate_exclude_breakfast'] : '';?>">
 								<span class="font-included">Exclude Breakfast</span>
 							</div>
-						</div>
+							</div>
 						<div class="w-100 float-left mt-2">
 							
-							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main position-relative no-perso">
 								<label class="w-100 float-left">No. of Adults</label>
+								<i class="far fa-plus-square"></i>
 								<input type="text" name="no_of_adult" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_adult']) ? $hotel_details[0]['no_of_adult'] : 0;?>">
 							</div>
-						</div>
-						<div class="w-100 float-left mt-2">
-							
-							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main position-relative no-perso">
 								<label class="w-100 float-left">No. of Child</label>
+								<i class="far fa-plus-square"></i>
 								<input type="text" name="no_of_child" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_child']) ? $hotel_details[0]['no_of_child'] : 0;?>">
 							</div>
 						</div>
+					
 					</div>
 				</div>	
 
@@ -217,6 +215,13 @@
 	        }});
       });
 	});
+
+</script>
+<script>
+$(document).ready(function () {
+      $('.selectbox:not(.ignore)').niceSelect();
+      FastClick.attach(document.body);
+});  
 
 </script>
 

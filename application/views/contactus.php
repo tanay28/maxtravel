@@ -88,8 +88,9 @@
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
 				<div class="container">
 					<div class="row">
+					<div class="col-lg-8 col-md-12 col-12 float-left blockform contact_form mb-3 p-0 mt-4">
 						<form name="frmContact" method="post" action="<?php echo base_url('Contactus/savecontact');?>">
-							<div class="col-lg-8 col-md-12 col-12 float-left blockform contact_form mb-3 p-0 mt-4">
+							
 								<div class="col-lg-12 float-left mb-3">
 								<h4>GET IN TOUCH</h4>
 								</div>
@@ -108,8 +109,8 @@
 								<div class="col-lg-12 float-left mt-4">
 										<input type="submit" value="Submit" class="register-button-form float-left">
 								</div>	
-							</div>
-						</form>
+							
+						</form></div>
 
 						  <div class="col-lg-4 col-md-12 col-12 float-left blockform contact-info mb-4 mt-4">
 								<div class="w-100 float-left mb-3">
