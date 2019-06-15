@@ -39,6 +39,29 @@
 									</label>
 									<textarea name="hotel_address" class="input-class-common float-left text-area"><?php echo isset($hotel_details[0]['hotel_address']) ? $hotel_details[0]['hotel_address'] : '';?></textarea>
 								</div>
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<label class="float-left">Country *
+									</label>
+									<select class="input-class-common float-left select-box" name="country_id" id="cmbCountry" required="">
+										<option value="none">Select</option>
+							             <?php
+							              if(isset($country) && count($country)>0)
+							              {
+							                foreach ($country as $ikey => $ivalue)
+							                {
+							            ?>
+							             <option value="<?php echo $ivalue['id'];?>" <?php echo (isset($hotel_details[0]['country_id']) && $hotel_details[0]['country_id']==$ivalue['id']) ? 'selected' : '';?>><?php echo $ivalue['country_name'];?></option> 
+							            <?php
+							                }
+							              }
+							             ?>
+									</select>
+								</div>
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<label class="float-left">City *
+									</label>
+									<select class="input-class-common float-left" name="city_id" id="cmbCity" required=""></select>
+								</div>
 							</div>
 						</div>
 						<div class="w-100 float-left mt-4">
@@ -145,6 +168,20 @@
 								<span class="font-included">Exclude Breakfast</span>
 							</div>
 						</div>
+						<div class="w-100 float-left mt-2">
+							
+							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+								<label class="w-100 float-left">No. of Adults</label>
+								<input type="text" name="no_of_adult" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_adult']) ? $hotel_details[0]['no_of_adult'] : 0;?>">
+							</div>
+						</div>
+						<div class="w-100 float-left mt-2">
+							
+							<div class="col-lg-5 col-md-6 col-12 float-left wrap-sign-main">
+								<label class="w-100 float-left">No. of Child</label>
+								<input type="text" name="no_of_child" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_child']) ? $hotel_details[0]['no_of_child'] : 0;?>">
+							</div>
+						</div>
 					</div>
 				</div>	
 
@@ -158,6 +195,30 @@
 	</div>
 </section>
 <?php include_once('footer.php');?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#cmbCountry').on('change',function(){
+          	$('#cmbCity').empty();
+        	var con = $(this).val();
+        	var con_name = $('#cmbCountry option:selected').text();
+        	//alert(con_name);
+	        $.ajax({
+	          url  : "<?php echo base_url('hotel/ajax_fetch_city');?>",
+	          type : "post",
+	          data : {"key":con}, 
+	          success: function(result){ 
+	          //console.log(result);
+	          //$("#cmbCity").html(result);
+	          $('#cmbCity').append('<option value="none">Select</option>');
+	          var opts = $.parseJSON(result);
+	          $.each(opts, function(i, d){
+	              $('#cmbCity').append('<option value="' + d.id + '">' + d.city_name + '</option>');
+	          });
+	        }});
+      });
+	});
+
+</script>
 
 
 			

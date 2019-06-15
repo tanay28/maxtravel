@@ -26,7 +26,7 @@ ALTER TABLE `hotel` CHANGE `status` `status` ENUM('ACTIVE','INACTIVE','DELETED')
 //----------------------------------------- DONE --------------------------------------------------//
 
 // 25.05.2019
-CREATE TABLE `users_admin` (
+/*CREATE TABLE `users_admin` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -54,5 +54,15 @@ ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+
+/********************* 15.06.2019 ************************/
+ALTER TABLE  `hotel` ADD  `city_id` INT( 11 ) NOT NULL AFTER  `hotel_address` ,
+ADD  `country_id` INT( 11 ) NOT NULL AFTER  `city_id`;
+
+ALTER TABLE  `hotel` ADD  `no_of_adult` INT( 11 ) NOT NULL AFTER  `room_rate_exclude_breakfast` ,
+ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;
+
+
 ?>

@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
+<link rel="stylesheet" href="<?php echo base_url('assets/css/select2/dist/css/select2.min.css');?>">
+
 <!-- Modernizr JS -->
 <script src="<?php echo base_url('assets/js/modernizr-2.6.2.min.js');?>"></script>
 <!-- FOR IE9 below -->
@@ -29,6 +31,13 @@
   var base_url = '<?php echo base_url()?>';
   //alert(base_url);
 	</script>
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+
+
 <script src="<?php echo base_url('assets/js/common.js');?>"></script>
 <style>
 	#page {

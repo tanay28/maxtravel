@@ -12,73 +12,122 @@
                   </div>
 
                   <div class="col-lg-12 float-left wrap-hotel-search">
-                        <div class="w-100 float-left search-hotels-bg">
-                              <h3 class="w-100 float-left">Search Hotel</h3>
-                              <div class="col-12 col-md-12 col-lg-4 float-left hotel-sel pl-0">
-                                    <label>Select Hotel</label>
-                                    
-                                    <div action='' autocomplete='off' class="w-100">
+                        <form name="advancedsearchbookhotel" action="" method="post">
+                              <div class="w-100 float-left search-hotels-bg">
+                                    <h3 class="w-100 float-left">Search Hotel</h3>
+                                    <div class="col-12 col-md-12 col-lg-4 float-left hotel-sel pl-0">
+                                          <label>Select Hotel</label>
+                                          
+                                          <div action='' autocomplete='off' class="w-100">
                                                 <div class='input-group w-100 float-left'>
-                                                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-100 float-left' id='myInput' name='myCountry' placeholder='Select Hotel Destination' type='text'>
-                                                  
+                                                  <!-- <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-100 float-left' id='myInput' name='myCountry' placeholder='Select Hotel Destination' type='text'> -->
+                                                  <select class='form-control select2' name="searchbycity">
+                                                      <option value="">Select Destination</option>
+                                                      <?php
+                                                        if(isset($city_list) && count($city_list)>0){
+                                                          foreach ($city_list as $citykey => $cityvalue) {
+                                                          
+                                                      ?>
+                                                        <option value="<?php echo $cityvalue['id'];?>" <?php echo (isset($_POST['searchbycity']) && $_POST['searchbycity']==$cityvalue['id']) ? 'selected' : '';?>><?php echo $cityvalue['city_name'];?></option>
+                                                      <?php }}?>
+                                                    </select>
                                                 </div>
                                           </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
+                                          <label>Select Check In </label>
+                                          <input id="datepicker" name="searchbycheckin" value="<?php echo (isset($_POST['searchbycheckin'])) ? $_POST['searchbycheckin'] : '';?>" /></div>
+
+
+                                    <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
+                                          <label>Select Check Out </label>
+                                          <input id="datepicker1" name="searchbycheckout" value="<?php echo (isset($_POST['searchbycheckout'])) ? $_POST['searchbycheckout'] : '';?>" />
+                                    </div>
+
+
+                                    <div class="col-12 col-md-12 col-lg-2 float-right rating-dates pr-0">
+                                          <label class="w-100 float-left">Select Person </label>
+
+                                          <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofadults' placeholder='Adults' type='text' value="<?php echo (isset($_POST['searchnoofadults'])) ? $_POST['searchnoofadults'] : '';?>">
+
+                                          <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofchild' placeholder='Child' type='text' value="<?php echo (isset($_POST['searchnoofchild'])) ? $_POST['searchnoofchild'] : '';?>">
+                                    </div>
+                                    <div class="w-100 float-left mt-4">
+                                          <input type="submit" value="Search Hotel" name="btnSearchhotel" 
+                                                class="search-button-form float-left mr-3 ">
+
+                                    </div>
                               </div>
-                              <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
-                                    <label>Select Check In </label>
-                                    <input id="datepicker" /></div>
-
-
-                              <div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
-                                    <label>Select Check Out </label>
-                                    <input id="datepicker1" />
-                              </div>
-
-
-                              <div class="col-12 col-md-12 col-lg-2 float-right rating-dates pr-0">
-                                    <label class="w-100 float-left">Select Hotel Rating </label>
-                                    <select class="selectbox w-100 float-left">
-                                          <option>Select Rating</option>
-                                          <option>1 Star Hotel</option>
-                                          <option>2 Star Hotel</option>
-                                          <option>3 Star Hotel</option>
-                                          <option>4 Star Hotel</option>
-                                          <option>5 Star Hotel</option>
-                                    </select>
-                              </div>
-                              <div class="w-100 float-left mt-4">
-                                    <input type="submit" value="Search Hotel"
-                                          class="search-button-form float-left mr-3 ">
-
-                              </div>
-                        </div>
+                        </form>
                   </div>
 
 
                   <div class="col-lg-12 float-left wrap-hotel-list-agent mt-4 mb-4">
-
+                        <?php
+                              if(isset($hotels) && count($hotels)>0){
+                                    foreach ($hotels as $hkey => $hvalue) {
+                              
+                        ?>
                         <div class="w-100 float-left hotel-list-wrap">
                               <div class="img-hotels float-left">
                                     <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
                               </div>
                               <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
+                                    <h2 class="w-100 float-left"><?php echo isset($hvalue['hotel_name']) ? $hvalue['hotel_name'] : 'NA';?></h2>
                                     <div class="star-ratings float-left w-100">
                                           <div class="float-left starts-all">
+                                                <?php 
+                                                      if(isset($hvalue['hotel_category']) && $hvalue['hotel_category']==1){
+                                                ?>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <?php }else if(isset($hvalue['hotel_category']) && $hvalue['hotel_category']==2){
+                                                ?>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <?php }else if(isset($hvalue['hotel_category']) && $hvalue['hotel_category']==3){
+                                                ?>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <?php }else if(isset($hvalue['hotel_category']) && $hvalue['hotel_category']==4){
+                                                ?>
                                                 <i class="fas fa-star fill-star"></i>
                                                 <i class="fas fa-star fill-star"></i>
                                                 <i class="fas fa-star fill-star"></i>
                                                 <i class="fas fa-star fill-star"></i>
                                                 <i class="fas fa-star"></i>
+                                                <?php }else if(isset($hvalue['hotel_category']) && $hvalue['hotel_category']==5){
+                                                ?>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <i class="fas fa-star fill-star"></i>
+                                                <?php }else{?>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <?php }?>
+                                                
                                           </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
+                                          <span class="float-left"><?php echo isset($hvalue['hotel_category']) ? $hvalue['hotel_category'] : 0;?> star</span>
+                                          <h3 class="room-type-hotel float-left"><?php echo isset($hvalue['room_type']) ? $hvalue['room_type'] : 'NA';?></h3>
                                     </div>
                                     <div class="w-100 float-left bottom-info-hotels">
                                           <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
                                                 <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
+                                                <span class="float-left address-wrap-hotel"><?php echo isset($hvalue['hotel_address']) ? $hvalue['hotel_address'] : 'NA';?>,<?php echo isset($hvalue['city_name']) ? $hvalue['city_name'] : 'NA';?>,<?php echo isset($hvalue['country_name']) ? $hvalue['country_name'] : 'NA';?></span>
                                           </div>
                                           <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
                                                 <div class="facilities-single float-left position-relative"
@@ -109,361 +158,12 @@
                                     </div>
                               </div>
                               <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
+                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> <?php echo isset($hvalue['room_rate_include_breakfast']) ? number_format($hvalue['room_rate_include_breakfast'],2) : 'NA';?></h1>
                                     <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
+                                    <a href="#" class="btn btn-booknow">Add to cart</a>
                               </div>
                         </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        <div class="w-100 float-left hotel-list-wrap">
-                              <div class="img-hotels float-left">
-                                    <img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
-                              </div>
-                              <div class="hotel-name float-left">
-                                    <h2 class="w-100 float-left">Hotel Taj Kolkata</h2>
-                                    <div class="star-ratings float-left w-100">
-                                          <div class="float-left starts-all">
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star fill-star"></i>
-                                                <i class="fas fa-star"></i>
-                                          </div>
-                                          <span class="float-left">4 star</span>
-                                          <h3 class="room-type-hotel float-left">Dulux Room</h3>
-                                    </div>
-                                    <div class="w-100 float-left bottom-info-hotels">
-                                          <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
-                                                <i class="fas fa-map-marker-alt float-left mr-2"></i>
-                                                <span class="float-left address-wrap-hotel">5A/2, AV Avenue, CC Bose Street,
-                                                      Kolkata 700 005, WB, India</span>
-                                          </div>
-                                          <div class="col-12 col-md-6 col-lg-6 float-left facilities-hotel">
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Swmming Pool">
-                                                      <i class="fas fa-swimmer"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Restaurants">
-                                                      <i class="fas fa-utensils"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Gym">
-                                                      <i class="fas fa-dumbbell"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Bar">
-                                                      <i class="fas fa-glass-cheers"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Car Parking">
-                                                      <i class="fas fa-shuttle-van"></i>
-                                                </div>
-                                                <div class="facilities-single float-left position-relative"
-                                                      data-toggle="tooltip" data-placement="top" title="Wi-Fi">
-                                                      <i class="fas fa-wifi"></i>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
-                                    <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">BooK Now</a>
-                              </div>
-                        </div>
-
-                        
+                        <?php }}else{ echo 'No Records !!';}?>
 
                   </div>
 
@@ -476,7 +176,11 @@
 $(document).ready(function () {
       $('.selectbox:not(.ignore)').niceSelect();
       FastClick.attach(document.body);
-});   
+});  
+$(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2();
+}); 
 </script>
 
 

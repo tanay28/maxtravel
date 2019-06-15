@@ -39,11 +39,11 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
 //---------------------- 14.06.2019 -----------------------//
 
-CREATE TABLE `maxtravel`.`contact_info` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(200) NOT NULL , `email` VARCHAR(100) NOT NULL , `phone` TEXT NOT NULL , `msg` TEXT NOT NULL , `mail_status` ENUM('SENT','FAILED','','') NOT NULL , `created_at` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+/*CREATE TABLE `maxtravel`.`contact_info` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(200) NOT NULL , `email` VARCHAR(100) NOT NULL , `phone` TEXT NOT NULL , `msg` TEXT NOT NULL , `mail_status` ENUM('SENT','FAILED','','') NOT NULL , `created_at` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 
 
 //------------------------- 15.06.2019 ---------------------//
-CREATE TABLE `maxtravel`.`website_settings` ( `id` INT NOT NULL AUTO_INCREMENT , `contact_email` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+/*CREATE TABLE `maxtravel`.`website_settings` ( `id` INT NOT NULL AUTO_INCREMENT , `contact_email` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 
-INSERT INTO `website_settings` (`id`, `contact_email`) VALUES (1, 'tmtanay56@gmail.com');
+/*INSERT INTO `website_settings` (`id`, `contact_email`) VALUES (1, 'tmtanay56@gmail.com');*/
 ?>

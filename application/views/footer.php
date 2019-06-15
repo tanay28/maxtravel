@@ -10,6 +10,7 @@
 			jQuery('#loading').hide();
 		});
 	</script>
+
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
@@ -58,6 +59,8 @@
 		});
 	</script>
 	<script src="<?php echo base_url('assets/js/destination-autocomplete.js');?>"></script>
+
+	<script type="text/javascript" src="<?php echo base_url('assets/css/select2/dist/js/select2.full.min.js');?>"></script>
 </body>
 
 </html>
