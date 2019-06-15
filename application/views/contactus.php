@@ -53,30 +53,12 @@
 					
 					<div class="row">
 						<div class="col-md-12">
-							<!-- <ul>
-								<li class="active"><a href="index.html">Home</a></li>
-								<li class='sub-menu'><a href="#">About Us <div class='fa fa-caret-down right float-right right-caret'></div></a>
-									<ul>
-											<li><a href='#settings'>Account</a></li>
-											<li><a href='#settings'>Profile</a></li>
-											<li><a href='#settings'>Secruity &amp; Privacy</a></li>
-											<li><a href='#settings'>Password</a></li>
-											<li><a href='#settings'>Notification</a></li>
-										</ul></li>
-								<li class='sub-menu'><a href="#">Maxx Team <div class='fa fa-caret-down right float-right right-caret'></div></a>
-									<ul>
-											<li><a href='#settings'>Account</a></li>
-											<li><a href='#settings'>Profile</a></li>
-											<li><a href='#settings'>Secruity &amp; Privacy</a></li>
-											<li><a href='#settings'>Password</a></li>
-											<li><a href='#settings'>Notification</a></li>
-										</ul>
-								</li>
-								<li><a href="#">Career</a></li>
-								<li><a href="#">Join Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul> -->
-							<?php include_once('before_login_menu.php');?>
+							<?php if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1){
+									include_once('before_login_menu.php');
+								  }else{
+								  	include_once('after_login_menu.php');
+								  }
+							?>
 						</div>
 					</div>
 				</div>

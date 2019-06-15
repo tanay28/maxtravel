@@ -22,7 +22,6 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 		?>
 			<li class="active"><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
-
 			<li class='sub-menu'><a href="#">Hotel Management<div class='fa fa-caret-down right float-right right-caret'></div></a>
 				<ul>
 					<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
@@ -46,7 +45,8 @@
 				<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
 				<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 			</ul>
-		</li>
+			</li>
+			<li class="active"><a href="<?php echo base_url('Contactinfo');?>">Contact Details</a></li>
 		<?php
 			}
 		?>

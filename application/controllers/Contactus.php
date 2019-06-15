@@ -21,11 +21,12 @@
 			$status = 'SENT';
 
 			//------------------ Email Functions -----------------//
+			$this->load->model('Contactus');
+			$contactemail = $this->Contactus->get_email_contact();
+			if($contactemail != '') $from_email = $contactemail;
 			$this->load->library('email');
-			$from_email = "tmtanay56@gmail.com"; 
- 			//$to_email = $_POST['txtAgencyemail']; // this is the actual email to send mail
+			$from_email = "tmtanay56@gmail.com";
 			$to_email = "tmtanay56@gmail.com"; // this email for testing purpose
-
 			$this->email->from($from_email, 'Tanay'); 
  			$this->email->to($to_email);
  			$this->email->subject('New User Contact Details'); 
@@ -43,9 +44,9 @@
 				'email'       => $email,
 				'phone'       => $phone,
 				'msg'         => $msg
-				'mail_status' => $status
+				'mail_status' => $status,
+				'created_at'  => date('Y-m-d H:i:s')
 			);
-			$this->load->model('Contactus');
 			$chk = $this->Contactus->savecontactdetails($arr);
 
 			if($chk)
