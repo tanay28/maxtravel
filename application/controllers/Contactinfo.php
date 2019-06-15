@@ -12,8 +12,8 @@
 		{
 			$data['page_access'] = 'INACTIVE';
 			$arr = array();
-			$this->load->model('Contactus');
-			$rs = $this->Contactus->get_contact_details();
+			$this->load->model('Contact_us');
+			$rs = $this->Contact_us->get_contact_details();
 			if(isset($rs) && count($rs)>0)
 			{
 				foreach ($rs as $ikey => $ivalue)

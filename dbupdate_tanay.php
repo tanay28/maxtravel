@@ -43,7 +43,7 @@ CREATE TABLE `maxtravel`.`contact_info` ( `id` INT NOT NULL AUTO_INCREMENT , `na
 
 
 //------------------------- 15.06.2019 ---------------------//
-CREATE TABLE `maxtravel`.`website_settings` ( `id` INT NOT NULL AUTO_INCREMENT , `contact_email` VARCHAR(200) NOT NULL NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `maxtravel`.`website_settings` ( `id` INT NOT NULL AUTO_INCREMENT , `contact_email` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 INSERT INTO `website_settings` (`id`, `contact_email`) VALUES (1, 'tmtanay56@gmail.com');
 ?>

@@ -46,7 +46,7 @@
 				<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 			</ul>
 			</li>
-			<li class="active"><a href="<?php echo base_url('Contactinfo');?>">Contact Details</a></li>
+			<li class="active"><a href="<?php echo base_url('Contactinfo');?>">View Contact Details</a></li>
 		<?php
 			}
 		?>

@@ -53,11 +53,15 @@
 					
 					<div class="row">
 						<div class="col-md-12">
-							<?php if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1){
+
+							<?php
+								/*$checkuservars = $this->session->userdata; 
+								if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1){
 									include_once('before_login_menu.php');
 								  }else{
 								  	include_once('after_login_menu.php');
-								  }
+								  }*/
+								  include_once('before_login_menu.php');
 							?>
 						</div>
 					</div>
@@ -70,7 +74,7 @@
 				<div class="w-100 float-left inner-header-bg-two">
 				<div class="container position-relative">
 					<div class="w-100 logo-others text-center mt-2">
-						<a href="#"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 					</div>
 					<div class="w-100 float-left text-center page-title-inner-pages mt-5">
 						<h2>Join Us</h2>

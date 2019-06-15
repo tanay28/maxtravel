@@ -33,7 +33,6 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo isset($uvalue['name']) ? $uvalue['name'] : '';?></td>
                                                 <td><?php echo isset($uvalue['email']) ? $uvalue['email'] : '';?></td>
-
                                                 <td><?php echo isset($uvalue['phone']) ? $uvalue['phone'] : '';?></td>
                                                 <td><?php echo isset($uvalue['msg']) ? $uvalue['msg'] : '';?></td>
                                                 <td><?php echo isset($uvalue['mail_status']) ? $uvalue['mail_status'] : '';?></td>
