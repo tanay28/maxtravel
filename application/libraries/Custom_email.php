@@ -34,9 +34,9 @@ EOF;
                         $encrypted_code = md5($code);
                         $encrypted_email = base64_encode($email);
 
-                        //$link = "<a href='http://maxholidays.likesyou.org/forgotpassword/viewresetpassword/".$encrypted_email."/".$encrypted_code."'>Click Here</a>"; // server url
+                        $link = "<a href='http://maxholidays.likesyou.org/forgotpassword/viewresetpassword/".$encrypted_email."/".$encrypted_code."'>Click Here</a>"; // server url
 
-                        $link = "<a href='http://localhost/maxtravel/forgotpassword/viewresetpassword/".$encrypted_email."/".$encrypted_code."'>Click here to reset your account password</a>"; // local url
+                        //$link = "<a href='http://localhost/maxtravel/forgotpassword/viewresetpassword/".$encrypted_email."/".$encrypted_code."'>Click here to reset your account password</a>"; // local url
 
                         $html = <<<EOF
 <!doctype>

@@ -124,7 +124,7 @@ class Usermanagement extends CI_Model {
     }
     public function validate_urlData($code,$current_date)
     {
-        $sql = "SELECT user_id FROM forgot_password_log WHERE user_code = '$code' AND status = 'ACTIVE' AND end_date > '".$current_date."' AND start_date < '".$current_date."'";
+        $sql = "SELECT user_id FROM forgot_password_log WHERE user_code = '".md5($code)."' AND status = 'ACTIVE' AND end_date > '".$current_date."' AND start_date < '".$current_date."'";
         $rs = $this->db->query($sql)->result_array();
         if(isset($rs[0]['user_id']) && count($rs)>0)
         {
@@ -140,12 +140,12 @@ class Usermanagement extends CI_Model {
         if($user_id != '')
         {
             $sql = "UPDATE forgot_password_log SET status = '".$status."' WHERE user_id = '".$user_id."'";
-            return $this->db-query($sql);
+            return $this->db->query($sql);
         }
         else
         {
             $sql = "UPDATE forgot_password_log SET status = '".$status."'";
-            return $this->db-query($sql);   
+            return $this->db->query($sql);   
         }
     }
 }

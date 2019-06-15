@@ -106,16 +106,22 @@
 		}
 		public function viewresetpassword()
 		{
-			//$email = base64_decode($this->uri->segment(3)); // actual data for activation
-			//$code  = $this->uri->segment(4); // actual data for activation
+			$email = base64_decode($this->uri->segment(3)); // actual data for activation
+			$code  = ($this->uri->segment(4)); // actual data for activation
 
-			$email = $this->uri->segment(3); // testing data
-			$code  = $this->uri->segment(4); // testing data
+
+			// var_dump($email);
+			// var_dump($code);
+			// die;
+			// $email = $this->uri->segment(3); // testing data
+			// $code  = $this->uri->segment(4); // testing data
 			//$this->session->set_userdata('email',$email);
 			$this->load->model('Usermanagement');
 			$current_date = date('Y-m-d H:i:s');
 			//------------ Validate URL data ------------//
 			$chk = $this->Usermanagement->validate_urlData($code,$current_date);
+			// var_dump($chk);
+			// die;
 			//------------------- END ------------------//
 			if($chk != false)
 			{
