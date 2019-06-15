@@ -33,7 +33,7 @@ INSERT into currency(currency_id,currency_name)values('INR','Indian Rupees');*/
 INSERT INTO timezone(timezone)values('DELHI');
 INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
-ALTER TABLE `agents` CHANGE `time_zone` `time_zone` INT NOT NULL;
+/*ALTER TABLE `agents` CHANGE `time_zone` `time_zone` INT NOT NULL;*/
 //--------------------------------------- END ----------------------------------//
 
 
