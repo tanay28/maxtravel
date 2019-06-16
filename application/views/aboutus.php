@@ -107,7 +107,7 @@
 			</section>
 
 
-			<footer class="w-100 float-left">
+		<!-- 	<footer class="w-100 float-left">
 				<div class="container">
 					<div class="w-100 float-left">
 						<div class="float-left left-foot-logo"><a href="#"><img src="<?php echo base_url('assets/images/logo-full.png');?>" alt=""></a>
@@ -118,7 +118,7 @@
 									<li><a href="#">Home</a></li>
 									<li><a href="#">About Us</a></li>
 									<li><a href="#">maxx Team </a></li>
-									<!-- <li><a href="#">Careers </a></li> -->
+									<li><a href="#">Careers </a></li>
 									<li><a href="#">Join Us</a></li>
 									<li><a href="#">Contact Us</a></li>
 								</ul>
@@ -134,7 +134,8 @@
 						</div>
 					</div>
 				</div>
-			</footer>
+			</footer> -->
+			<?php include_once('footer_box.php');?>
 
 		</div>
 	</div>

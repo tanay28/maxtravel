@@ -6,12 +6,12 @@
 			<div class="float-right right-footer">
 				<div class="foot-nav float-right">
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">maxx Team </a></li>
-						<li><a href="#">Careers </a></li>
-						<li><a href="#">Join Us</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="<?php echo base_url('home');?>">Home</a></li>
+						<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
+						<!-- <li><a href="#">maxx Team </a></li>
+						<li><a href="#">Careers </a></li> -->
+						<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
+						<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
 					</ul>
 				</div>
 				<div class="social float-right w-100">
