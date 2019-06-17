@@ -136,6 +136,10 @@
 							<div class="alert alert-danger alertbox-home" style="display: none" id="ajaxmsg"></div>
 							</div>
 						</form>
+						<div class="w-100 text-center register-area mt-2">
+							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('Forgotpassword');?>" class="forgot">Forgot password?</a></p>
+							
+						</div>
 					</div>
 				</div>
 			</section>

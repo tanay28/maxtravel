@@ -13,7 +13,7 @@ function login(){
 	}else{
 		$.ajax({
 
-			url     : base_url+'login/index',
+			url     : base_url+'login/login',
 			type    : "post",
 			data    : {"txtEmail":email,"txtPassword":password},
 			success : function(result){

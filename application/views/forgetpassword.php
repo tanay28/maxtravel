@@ -123,9 +123,13 @@
 							</div>
 							<div class="w-100 float-left mt-4">
 							<input type="submit" value="Next" class="register-button-form float-left mr-3" id="btnForgot" onclick="forgotPassword();">
-							<a href="<?php echo base_url('login/login_after_activation');?>" class="cancel-button-form float-left">Cancel</a>
+							<a href="<?php echo base_url('login');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
+						<div class="w-100 text-center register-area mt-2">
+							<p class="text-uppercase">Already registered..?? <a href="<?php echo base_url('login')?>">Login</a></p>
+							
+						</div>
 					</div>
 				</div>
 			</section>

@@ -356,7 +356,7 @@
 							</div>
 							<div class="col-lg-12 float-left mt-4">
 							<input type="submit" value="Register Now" class="register-button-form float-left mr-3"  onclick="valid();">
-							<a href="<?php echo base_url('login/login_after_activation');?>" class="cancel-button-form float-left">Cancel</a>
+							<a href="<?php echo base_url('login');?>" class="cancel-button-form float-left">Cancel</a>
 							</div>
 						</form>
 					</div>

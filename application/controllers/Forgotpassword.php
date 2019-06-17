@@ -15,6 +15,10 @@
 				redirect('home');
 			}
 		}
+		public function index()
+		{
+			$this->load->view('forgetpassword');
+		}
 		private function get_user_first_name($id)
 		{
 			$this->load->model('Usermanagement');
@@ -31,7 +35,6 @@
 		public function viewforgetpassword()
 		{
 			$data = array();
-			//echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : '';
 			$user_first_name = '';
 			if(isset($_POST['txtEmail']))	
 			{
@@ -89,7 +92,7 @@
 					return;
 				}
 			}
-			$this->load->view('forgetpassword');
+			//$this->load->view('forgetpassword');
 		}
 		private function status_update($status)
 		{
