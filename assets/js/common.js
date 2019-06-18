@@ -77,3 +77,18 @@ function changeStatus()
 	$id = $('#txtUserid').val();
 	//alert($id);
 }
+
+function currency_converter()
+{
+	var amount = $('#txtAmount').val();
+	var from_currency = $('#cmbFromCurrency').val();
+	var to_currency = $('#cmbToCurrency').val();
+	if(from_currency != 'none' || to_currency != 'none')
+	{
+		$.ajax({
+	      url  : base_url+'Currency_converter/index',
+	      type : "post",
+	      data : {"txtamount":amount,"txtfromcurrency":from_currency,"txttocurrency":to_currency}, 
+	      success: function(result){$('#covertedval').html(result);}});
+	}
+}

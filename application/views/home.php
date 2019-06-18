@@ -264,28 +264,32 @@
 									<div class="w-100 float-left text-left">
 										<div class="d-inline-block fields-converter text-left">
 											<label class="w-100 float-left">Amount</label>
-											<input type="text" class="input-class" placeholder="0">
+											<input type="text" class="input-class" placeholder="0" name="txtAmount" id="txtAmount">
 										</div>
 										<div class="d-inline-block fields-converter text-left autoselect-select">
 											<label class="w-100 float-left">From</label>
 
-											<select class="input-class wide">
-												<option>Select Currency</option>
-												<option>Dollar</option>
-												<option>Thai</option>
+											<select class="input-class wide" name="cmbFromCurrency" id="cmbFromCurrency" onchange="currency_converter();">
+												<option value="none">Select Currency</option>
+												<option value="USD">Dollar</option>
+												<option value="THB">Thai</option>
+												<option value="EUR">Euro</option>
+												<option value="INR">Indian Rupees</option>
 											</select>
 										</div>
 										<div class="d-inline-block fields-converter text-left autoselect-select">
 											<label class="w-100 float-left">To</label>
-											<select class="input-class wide">
-												<option>Select Currency</option>
-												<option>Dollar</option>
-												<option>Thai</option>
+											<select class="input-class wide" name="cmbToCurrency" id="cmbToCurrency" onchange="currency_converter();">
+												<option value="none">Select Currency</option>
+												<option value="USD">Dollar</option>
+												<option value="THB">Thai</option>
+												<option value="EUR">Euro</option>
+												<option value="INR">Indian Rupees</option>
 											</select>
 										</div>
 									</div>
 									<div class="w-100 float-left text-center mt-2 mb-3 total-coverted-amount">
-										<span class="float-left">1.7611</span>
+										<span class="float-left" id="covertedval">0</span>
 									</div>
 									<div class="w-100 float-left note-converter pl-0 pr-0 text-left">
 										<p class="mb-0">Note: The Currency Converter on the website is offered purely as
