@@ -46,4 +46,8 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 /*CREATE TABLE `maxtravel`.`website_settings` ( `id` INT NOT NULL AUTO_INCREMENT , `contact_email` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 
 /*INSERT INTO `website_settings` (`id`, `contact_email`) VALUES (1, 'tmtanay56@gmail.com');*/
+
+
+//-------------------- 19.06.2019 -------------------//
+CREATE TABLE `maxtravel`.`api_log` ( `id` INT NOT NULL AUTO_INCREMENT , `api_name` VARCHAR(100) NOT NULL , `user_id` VARCHAR(100) NOT NULL , `called_at` DATETIME NOT NULL , `api_res` TEXT NOT NULL , `status` ENUM('success','error','','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ?>

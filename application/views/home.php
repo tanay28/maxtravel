@@ -313,7 +313,7 @@
 										</div>
 										<div class="timezone-right float-left">
 											<h4>Thailand</h4>
-											<h3>10:30am</h3>
+											<h3><?php echo isset($thailand) ? $thailand : ''; ?></h3>
 										</div>
 									</div>
 
@@ -323,7 +323,7 @@
 										</div>
 										<div class="timezone-right float-left">
 											<h4>singapore</h4>
-											<h3>8:15am</h3>
+											<h3><?php echo isset($singapore) ? $singapore : ''; ?></h3>
 										</div>
 									</div>
 
@@ -333,7 +333,7 @@
 										</div>
 										<div class="timezone-right float-left">
 											<h4>malaysia</h4>
-											<h3>7:30am</h3>
+											<h3><?php echo isset($malaysia) ? $malaysia : ''; ?></h3>
 										</div>
 									</div>
 								</div>
