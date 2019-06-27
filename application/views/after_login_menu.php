@@ -15,6 +15,7 @@
 		?>
 			<li class="active"><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 			<li class="active"><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
+			<li class="active"><a href="<?php echo base_url('query');?>">Add query</a></li>
 		<?php
 			}
 		?>
@@ -47,6 +48,7 @@
 			</ul>
 			</li>
 			<li class="active"><a href="<?php echo base_url('Contactinfo');?>">View Contact Details</a></li>
+			<li class="active"><a href="<?php echo base_url('notification');?>">View Query Details</a></li>
 		<?php
 			}
 		?>
