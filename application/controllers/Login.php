@@ -32,8 +32,8 @@ class Login extends CI_Controller {
 		{
 			$this->load->model('Usermanagement');
 			$xx = $this->Usermanagement->validateLogin($_POST['txtEmail'],$_POST['txtPassword']);
-		
-			if(count($xx)>0)
+			/*if(count($xx)>0)*/
+			if(is_object($xx))
 			{
 				$data123 = array(
 					'userid' => $xx->id,

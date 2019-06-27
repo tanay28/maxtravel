@@ -10,7 +10,7 @@
 		}
 		public function index()
 		{
-			$sql = "CREATE TABLE api_log ( id INT NOT NULL AUTO_INCREMENT ,api_name VARCHAR(100) NOT NULL ,user_id VARCHAR(100) NOT NULL ,called_at DATETIME NOT NULL ,api_res TEXT NOT NULL ,status ENUM('success','error','','') NOT NULL , PRIMARY KEY (id))";
+			$sql = "CREATE TABLE `maxtravel`.`notification` ( `id` INT NOT NULL AUTO_INCREMENT , `key_id` INT NOT NULL , `key_type` VARCHAR(200) NOT NULL , `title` TEXT NOT NULL , `sender_id` INT NOT NULL , `receiver_id` INT NOT NULL , `status` ENUM('UNREAD','READ','DELETED','') NOT NULL , `date_created` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB";
 			$this->load->model("Tan_model");
 			$this->Tan_model->run_sql($sql);
 			

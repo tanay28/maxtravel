@@ -49,10 +49,10 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
 
 //-------------------- 19.06.2019 -------------------//
-CREATE TABLE `maxtravel`.`api_log` ( `id` INT NOT NULL AUTO_INCREMENT , `api_name` VARCHAR(100) NOT NULL , `user_id` VARCHAR(100) NOT NULL , `called_at` DATETIME NOT NULL , `api_res` TEXT NOT NULL , `status` ENUM('success','error','','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+// CREATE TABLE `maxtravel`.`api_log` ( `id` INT NOT NULL AUTO_INCREMENT , `api_name` VARCHAR(100) NOT NULL , `user_id` VARCHAR(100) NOT NULL , `called_at` DATETIME NOT NULL , `api_res` TEXT NOT NULL , `status` ENUM('success','error','','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 //---------------------- 27.06.19 -------------------------//
-CREATE TABLE `maxtravel`.`query` ( `id` INT NOT NULL AUTO_INCREMENT , `agent_id` INT NOT NULL , `title` TEXT NOT NULL , `date_created` DATETIME NOT NULL , `status` ENUM('OPEN','RESOLVED','CLOSED','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+// CREATE TABLE `maxtravel`.`query` ( `id` INT NOT NULL AUTO_INCREMENT , `agent_id` INT NOT NULL , `title` TEXT NOT NULL , `date_created` DATETIME NOT NULL , `status` ENUM('OPEN','RESOLVED','CLOSED','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-CREATE TABLE `maxtravel`.`notification` ( `id` INT NOT NULL AUTO_INCREMENT , `key_id` INT NOT NULL , `key_type` VARCHAR(200) NOT NULL , `title` TEXT NOT NULL , `sender_id` INT NOT NULL , `receiver_id` INT NOT NULL , `status` ENUM('UNREAD','READ','DELETED','') NOT NULL , `date_created` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+// CREATE TABLE `maxtravel`.`notification` ( `id` INT NOT NULL AUTO_INCREMENT , `key_id` INT NOT NULL , `key_type` VARCHAR(200) NOT NULL , `title` TEXT NOT NULL , `sender_id` INT NOT NULL , `receiver_id` INT NOT NULL , `status` ENUM('UNREAD','READ','DELETED','') NOT NULL , `date_created` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ?>

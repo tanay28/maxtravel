@@ -16,7 +16,6 @@ class Usermanagement extends CI_Model {
         $this->db->select("*");
         $query = $this->db->get_where("users", array("email" => $email));
         $p = $query->row_array();
-
         if($query->num_rows() == 1 && $password == $p['password']){
             return $query->row();
         }else{
