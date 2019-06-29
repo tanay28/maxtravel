@@ -2105,22 +2105,32 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	border: 0;
 	border-radius:12px;
 	margin-top: 12px;
-	box-shadow: 0px 5px 20px #ccc;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.27);
 	left: inherit !important;
-	right: -50px;
-	max-height: 200px;
-	overflow: auto;
-	width: 300px;
+    right: 0;
+    max-height: 300px;
+    overflow: auto;
+    width: 300px;
+    transform: none !important;
+    top: 37px !important;
+
 	span {
 		font-size: 13px;
 		color: #333;
 		padding: 5px;
 		border-bottom: 1px solid #ededed;
-		line-height: 14px;
+		line-height: 13px;
+		margin: 0;
+		padding: 13px 13px;
+		margin-bottom: 5px;
+		a {
+			color: #666;
+		}
 	}
 	font {
 		font-weight: 700;
-		text-transform: uppercase;
+		color: $purple;
+
 	}
 }
 .dropdown-item {
