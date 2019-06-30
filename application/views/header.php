@@ -82,12 +82,43 @@
 	<div id="colorlib-page" class="float-left w-100">
 		<header class="home-header header-other-page w-100 float-left">
 			<div class="container position-relative">
+
+
 				<div class="float-left logo-others text-left">
 					<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
 				</div>
 				<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
+
+				
+				
+
 				<div class="nav-afterlogin float-right">
 					<?php include_once('profile_menu.php');?>
 				</div>
+
+				<div class="wrap-cart-all-nav">
+					<div class="dropdown drop-notifications">
+						
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-lightbulb"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+						
+							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span>
+						</div>
+					</div>
+
+
+					<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
+					<span>2</span></a>
+					
+				</div>
+
+				
+
+
 			</div>
 		</header>

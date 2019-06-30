@@ -10,7 +10,8 @@
 			jQuery('#loading').hide();
 		});
 	</script>
-
+	<script src="<?php echo base_url('assets/js/cart.js');?>"></script>
+	
 	<!-- jQuery Easing -->
 	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
 	<!-- Bootstrap -->
