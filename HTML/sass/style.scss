@@ -2043,7 +2043,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 .wrap-cart-all-nav {
 	position: absolute;
-    right: 62px;
+    right: 110px;
     width: auto;
     text-align: center;
     top: 17px;
@@ -2462,4 +2462,45 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 .total-priceshow {
 	padding-right: 0px !important;
+}
+.agent-trans-chart {
+	width: 100%;
+	height: 300px;
+	font-size: 13px
+  }
+
+.last-five-orders tbody {
+    display:block;
+    height:250px;
+    overflow:auto;
+}
+.last-five-orders thead, .last-five-orders tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.last-five-orders thead {
+	// width: calc( 100% - 1em );
+	width: 100%;
+}
+.wrap-inner-amount {
+    background: #d1137c;
+    color: #ffffff;
+    margin-top: 60px;
+    height: 279px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;
+	h5 {
+		color: $white;
+		text-transform: uppercase;
+	}
+	h2{
+		color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+}
 }
