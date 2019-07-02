@@ -98,16 +98,31 @@
 
 				<div class="wrap-cart-all-nav">
 					<div class="dropdown drop-notifications">
-						
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<button class="cart-main btn btn-secondary dropdown-toggle position-relative" type="button" id="btnNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
 							<i class="fas fa-lightbulb"></i>
+							<?php if(isset($nofication_count) && $nofication_count>0){?>
+								<span id="show_ct"><?php echo $nofication_count;?></span>
+								<input type="hidden" name="hid" id="ct_notification" value="<?php echo $nofication_count;?>">
+								<input type="hidden" name="hid" id="user_id" value="<?php echo $user_id;?>">
+							<?php }?>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+							<?php
+								if(isset($notifications) && count($notifications)>0)
+								{
+									foreach ($notifications as $ikey => $ivalue)
+									{
+							?>
+							<span class="w-100 float-left"><a href="#"><?php echo isset($ivalue['title']) ? $ivalue['title'] : '';?></a></span>	
+							<?php			
+									}
+								}
+							?>
+							<!-- <span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
 						
 							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
 							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
-							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span>
+							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span> -->
 						</div>
 					</div>
 

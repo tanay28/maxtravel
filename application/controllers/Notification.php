@@ -27,5 +27,19 @@
 			$data['queries'] = $this->Notification_model->get_all_queries($user_id);
 			$this->load->view('listquery',$data);
 		}
+		public function notification_reset()
+		{
+			if(isset($_POST['user_id']) && isset($_POST['ct']))
+			{
+				$this->load->model('Notification_model');
+				$rs = $this->Notification_model->reset_all($_POST['user_id']);
+				if($rs){
+					echo 'ok';
+				}else{
+					echo 'error';	
+				}
+				
+			}
+		}
 	}
 ?>

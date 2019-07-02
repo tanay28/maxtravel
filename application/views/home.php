@@ -62,7 +62,17 @@
 					</div> -->
 					<div class="row">
 						<div class="col-md-12">
-							<?php include_once('before_login_menu.php');?>
+							<?php //include_once('before_login_menu.php');?>
+
+							<?php 
+								$checkuservars = $this->session->userdata;
+								if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
+								{
+									include_once('after_login_menu.php');
+								}else{
+									include_once('before_login_menu.php');
+								}
+							?>
 							
 						</div>
 					</div>
@@ -379,38 +389,4 @@
 				</div>
 			</section>
 
-			<?php include_once('footer_box.php');?>
-
-		</div>
-	</div>
-	<!-- jQuery -->
-	<script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
-	<script>
-		$(window).load(function () {
-			jQuery('#page').fadeIn(500);
-			jQuery('#loading').hide();
-		});
-		
-	</script>
-	<!-- jQuery Easing -->
-	<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
-	<!-- Bootstrap -->
-	<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
-	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-	<!-- Owl Carousel -->
-	<!-- Waypoints -->
-	<script src="<?php echo base_url('assets/js/jquery.waypoints.min.js');?>"></script>
-
-	<script src="<?php echo base_url('assets/js/owl.carousel.min.js');?>"></script>
-	<!-- Main JS (Do not remove) -->
-	<script src="<?php echo base_url('assets/js/main.js');?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script>
-	<script>
-		$(document).ready(function () {
-			$('select:not(.ignore)').niceSelect();
-			FastClick.attach(document.body);
-		});    
-	</script>
-</body>
-
-</html>
+		<?php include_once('footer.php');?>

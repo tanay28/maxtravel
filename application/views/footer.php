@@ -62,6 +62,13 @@
 	<script src="<?php echo base_url('assets/js/destination-autocomplete.js');?>"></script>
 
 	<script type="text/javascript" src="<?php echo base_url('assets/css/select2/dist/js/select2.full.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/jquery.nice-select.min.js');?>"></script>
+	<script>
+		$(document).ready(function () {
+			$('select:not(.ignore)').niceSelect();
+			FastClick.attach(document.body);
+		});    
+	</script>
 </body>
 
 </html>
