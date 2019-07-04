@@ -116,6 +116,10 @@
 							<span class="w-100 float-left"><a href="#"><?php echo isset($ivalue['title']) ? $ivalue['title'] : '';?></a></span>	
 							<?php			
 									}
+								}else{
+							?>
+							<span class="w-100 float-left">No new Notifications</span>
+							<?php
 								}
 							?>
 							<!-- <span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
