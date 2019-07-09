@@ -14,6 +14,18 @@
 
                   <div class="col-lg-12 float-left">
                         <div class="w-100 float-left wrap-section-sign account-sett my-account-details mb-3 mt-3">
+
+                              <div class="w-100 float-left mt-3">
+                                    <div class="col-lg-12 m1-3  float-left">
+                                          <h3>My Wallet</h3>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-12 float-left wrap-sign-main">
+                                          <label class="float-left  text-uppercase">Available Point</label>
+                                          <h4 class="w-100 float-left">500</h4>
+                                    </div>
+
+                              </div>
+
                               <div class="col-lg-12 mb-3">
                                     <h3>Personal Details</h3>
                               </div>

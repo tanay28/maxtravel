@@ -7,6 +7,7 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){
 		?>
 		<a class="dropdown-item" href="<?php echo base_url('myaccountag');?>">My Account</a>
+		<a class="dropdown-item" href="<?php echo base_url('myaccountag');?>">Request For Point</a>
 		<?php
 			}
 		?>
@@ -14,6 +15,7 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 		?>
 		<a class="dropdown-item" href="<?php echo base_url('myaccountsu');?>">My Account</a>
+		<a class="dropdown-item" href="<?php echo base_url('myaccountag');?>">Point Request</a>
 		<?php
 			}
 		?>
