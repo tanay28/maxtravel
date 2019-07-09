@@ -132,7 +132,7 @@
 
 
 					<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-					<span>2</span></a>
+					<span>3</span></a>
 					
 				</div>
 
