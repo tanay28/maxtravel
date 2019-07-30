@@ -46,55 +46,59 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<nav id="colorlib-main-nav" role="navigation">
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
-			<div class="colorlib-table">
-				<div class="colorlib-table-cell">
-					<div class="row">
-						<div class="col-md-12 logonav mb-4 text-left">
-							<img src="images/logo-full.png" alt="">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<ul>
-								<li class="active"><a href="index.html">Home</a></li>
-								<li class='sub-menu'><a href="#">About Us <div class='fa fa-caret-down right float-right right-caret'></div></a>
-									<ul>
-											<li><a href='#settings'>Account</a></li>
-											<li><a href='#settings'>Profile</a></li>
-											<li><a href='#settings'>Secruity &amp; Privacy</a></li>
-											<li><a href='#settings'>Password</a></li>
-											<li><a href='#settings'>Notification</a></li>
-										</ul></li>
-								<li class='sub-menu'><a href="#">Maxx Team <div class='fa fa-caret-down right float-right right-caret'></div></a>
-									<ul>
-											<li><a href='#settings'>Account</a></li>
-											<li><a href='#settings'>Profile</a></li>
-											<li><a href='#settings'>Secruity &amp; Privacy</a></li>
-											<li><a href='#settings'>Password</a></li>
-											<li><a href='#settings'>Notification</a></li>
-										</ul>
-								</li>
-								<li><a href="#">Career</a></li>
-								<li><a href="#">Join Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-
+		
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100">
-				<div class="container position-relative">
-					<div class="w-100 logo-others text-left">
-						<a href="#"><img src="images/logo-mh.png" alt=""></a>
+			<div class="header-other-page col-lg-12 position-relative float-left">
+				<header class="w-100 float-left position-relative">
+					<div class="logo-home float-left">
+						<a href="#"><img src="images/mh-white.png" alt=""></a>
 					</div>
-					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
-				</div>
-			</header>
+					<div class="wrap-cart-all-nav float-right position-relative">
+						<div class="dropdown drop-notifications">
+							
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-lightbulb"></i>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+							
+								<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+								<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
+								<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span>	</a></div>
+							</div>
+		
+		
+							<a href="#" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
+							<span>2</span></a>
+						
+						</div>
+					<div class="float-right nav-menu-right" id="cssmenu">
+						<div id="head-mobile"></div>
+						<div class="button"></div>
+						<ul>
+							<li class='active'><a href='#'>HOME</a></li>
+							<li><a href='#'>EXCURSIONS</a>
+								<ul>
+									<li><a href='#'>Product</a></li>
+									<li><a href='#'>Sightseeing</a></li>
+									<li><a href='#'>Adventure</a></li>
+									<li><a href='#'>Cruise</a></li>
+									<li><a href='#'>Beach Breaks</a></li>
+									<li><a href='#'>Show and Entertain</a></li>
+									<li><a href='#'>Spa</a></li>
+									<li><a href='#'>Snorkeling</a></li>
+		
+								</ul>
+							</li>
+							<li><a href='#'>PACKAGE TOURS</a></li>
+							<li><a href='#'>HOTELS</a></li>
+							<li><a href='#'>MARRAGE EVENTS</a></li>
+							<li><a href='#'>M.I.C.S.</a></li>
+						</ul>
+					</div>
+					
+				</header>	
+			</div>
 
 			
 
@@ -285,13 +289,7 @@
 			FastClick.attach(document.body);
 		});    
 	</script>
-	<script>
-		$('.sub-menu ul').hide();
-		$(".sub-menu a").click(function () {
-			$(this).parent(".sub-menu").children("ul").slideToggle("100");
-			$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-		});
-	</script>
+
 </body>
 
 </html>

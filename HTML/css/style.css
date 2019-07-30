@@ -1056,7 +1056,8 @@ footer {
   background-image: -webkit-linear-gradient(left, #043e5e, #003460, #00295f, #1a1a5a, #2d024f);
   background-image: -o-linear-gradient(left, #043e5e, #003460, #00295f, #1a1a5a, #2d024f);
   background-image: linear-gradient(to right, #043e5e, #003460, #00295f, #1a1a5a, #2d024f);
-  padding: 15px 0px; }
+  padding: 15px;
+  z-index: 999; }
 
 .header-other-page .logo-others img {
   width: 125px; }
@@ -1945,7 +1946,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .wrap-cart-all-nav {
   position: absolute;
-  right: 110px;
   width: auto;
   text-align: center;
   top: 17px;
@@ -2737,3 +2737,17 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .nav-menu-right {
   margin-top: 20px; }
+
+.page-title-ins {
+  margin-top: 130px; }
+
+.iti-margin {
+  margin-top: 250px; }
+
+.iti-left i {
+  min-width: 20px; }
+
+.iti-left .tour-shot-des {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px; }
