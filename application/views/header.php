@@ -58,86 +58,16 @@
 </style>
 </head>
 
+
 <body>
-<div id="loading">
-	<div class="page-loader"></div>
-</div>
-<div id="page">
-	<nav id="colorlib-main-nav" role="navigation">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
-		<div class="colorlib-table">
-			<div class="colorlib-table-cell">
-				<!-- <div class="row">
-					<div class="col-md-12 logonav mb-4 text-left">
-						<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
-					</div>
-				</div> -->
-				<div class="row">
-					<?php include_once('after_login_menu.php');?>
-				</div>
+	<div id="loading">
+		<div class="page-loader"></div>
+	</div>
+	<div id="page">
+		
+		<div id="colorlib-page" class="float-left w-100">
+			<div class="header-other-page col-lg-12 position-relative float-left">
+				<?php include_once('after_login_menu.php');?>	
 			</div>
-		</div>
-	</nav>
 
-	<div id="colorlib-page" class="float-left w-100">
-		<header class="home-header header-other-page w-100 float-left">
-			<div class="container position-relative">
-
-
-				<div class="float-left logo-others text-left">
-					<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
-				</div>
-				<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
-
-				
-				
-
-				<div class="nav-afterlogin float-right">
-					<?php include_once('profile_menu.php');?>
-				</div>
-
-				<div class="wrap-cart-all-nav">
-					<div class="dropdown drop-notifications">
-						<button class="cart-main btn btn-secondary dropdown-toggle position-relative" type="button" id="btnNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
-							<i class="fas fa-lightbulb"></i>
-							<?php if(isset($nofication_count) && $nofication_count>0){?>
-								<span id="show_ct"><?php echo $nofication_count;?></span>
-								<input type="hidden" name="hid" id="ct_notification" value="<?php echo $nofication_count;?>">
-								<input type="hidden" name="hid" id="user_id" value="<?php echo $user_id;?>">
-							<?php }?>
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<?php
-								if(isset($notifications) && count($notifications)>0)
-								{
-									foreach ($notifications as $ikey => $ivalue)
-									{
-							?>
-							<span class="w-100 float-left"><a href="#"><?php echo isset($ivalue['title']) ? $ivalue['title'] : '';?></a></span>	
-							<?php			
-									}
-								}else{
-							?>
-							<span class="w-100 float-left">No new Notifications</span>
-							<?php
-								}
-							?>
-							<!-- <span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
-						
-							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
-							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </a></span>
-							<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span> -->
-						</div>
-					</div>
-
-
-					<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-					<span>3</span></a>
-					
-				</div>
-
-				
-
-
-			</div>
-		</header>
+			

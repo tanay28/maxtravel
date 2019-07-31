@@ -50,58 +50,19 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<nav id="colorlib-main-nav" role="navigation">
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active"><i></i></a>
-			
-			<div class="colorlib-table">
-				<div class="colorlib-table-cell">
-					<!-- <div class="row">
-						<div class="col-md-12 logonav mb-4 text-left">
-							<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
-						</div>
-					</div> -->
-					<div class="row">
-						<div class="col-md-12">
-							<?php //include_once('before_login_menu.php');?>
-
-							<?php 
-								$checkuservars = $this->session->userdata;
-								if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
-								{
-									include_once('after_login_menu.php');
-								}else{
-									include_once('before_login_menu.php');
-								}
-							?>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-
-		<div class="nav-afterlogin float-right home-afterlogin">
-
-			<?php 
-				$checkuservars = $this->session->userdata;
-				if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
-				{
-					include_once('profile_menu.php');
-				}
-			?>
-		</div>
-
+		<?php 
+			$checkuservars = $this->session->userdata;
+			if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
+			{
+				include_once('after_login_menu.php');
+			}else{
+				include_once('before_login_menu.php');
+			}
+		?>
 		<div id="colorlib-page">
-			
-			<header class="home-header position-absolute w-100">
+			<div class="home-header position-absolute w-100 loginsec-home">
 				<div class="col-lg-12">
-					<div class="w-100 logo-home text-center">
-						<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
-					</div>
-					<?php
-						if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){
-					?>
-
+					<?php if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){?>
 					<?php }else{?>
 					<div class="w-100 text-center agent-login">
 						<div class="d-inline-block inter-form">
@@ -110,15 +71,13 @@
 							<button class="text-uppercase button-login" id="btnLogin" onclick="login();">Login</button>
 							<div class="alert alert-danger alertbox-home" style="display: none" id="ajaxmsg"></div>
 						</div>
-						<div class="w-100 text-center register-area mt-2">
+						<div class="w-100 text-center register-area mt-3">
 							<p class="text-uppercase">Not a Agent? Register here <a href="<?php echo base_url('signup')?>">Register</a><a href="<?php echo base_url('Forgotpassword');?>" class="forgot">Forgot password?</a></p>
-							
 						</div>
-						
 					</div>
 					<?php }?>
 				</div>
-			</header>
+			</div>
 			<div>
 				<?php if ($this->session->userdata('success')) { ?>
 	              <div class="alert alert-success">
@@ -131,7 +90,6 @@
 	              </div>
 	            <?php }?>
 			</div>
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 			<section id="colorlib-about">
 				<div class="owl-carousel">
 					<div class="item">
