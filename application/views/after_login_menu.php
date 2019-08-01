@@ -3,6 +3,8 @@
 	$is_home = true;
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
 	$name = isset($ex[2]) ? $ex[2] : '';
+	//$name = isset($ex[1]) ? $ex[1] : '';
+	// var_dump($ex);
 	if($name!='home') $is_home = false;
 	if($is_home){
 ?>

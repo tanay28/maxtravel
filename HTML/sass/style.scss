@@ -669,7 +669,7 @@ h1, h2, h3, h4, h5, h6 {
 	transition: all 0.6s;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
 	&:hover {
-		box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.52);
+		box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 		transition: all 0.6s;
 	}
 	img {
@@ -1083,7 +1083,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', end
 	background: rgba(239,1,124,0.75) !important;
 }
 .marrage-div {
-	box-shadow: 0px 0px 24px rgba(239,1,124,1);
+	box-shadow: 0px 10px 15px rgba(239,1,124,0.5);
 }
 .bottom-bridal {
 	  position: absolute;
@@ -2082,7 +2082,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	width: $pix40;
 	height: $pix40;
 	border-radius: 50%;
-	padding-top: $pix6;
+	padding-top: $pix3;
 	display: inline-block;
 	margin-right: 6px;
 	button{
@@ -2580,7 +2580,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 #cssmenu:after,#cssmenu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
 #cssmenu #head-mobile{display:none}
 #cssmenu > ul > li{float:left}
-#cssmenu > ul > li > a{padding:7px 17px 6px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#fff;font-weight:700;border-radius: 20px;
+#cssmenu > ul > li > a{padding:7px 7px 6px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#fff;font-weight:700;border-radius: 20px;
     margin-right: 5px;}
 #cssmenu > ul > li:hover > a,#cssmenu ul li.active a{color:#333; background: rgba(255, 255, 255, 0.83);}
 #cssmenu > ul > li:hover,#cssmenu ul li.active:hover,#cssmenu ul li.active,#cssmenu ul li.has-sub.active:hover{-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
@@ -2588,7 +2588,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 #cssmenu > ul > li.has-sub > a:after{position:absolute;top:11px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
 #cssmenu > ul > li.has-sub > a:before{position:absolute;top:8px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
 #cssmenu > ul > li.has-sub:hover > a:before{top:23px;height:0}
-#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0;   }
+#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0; }
 #cssmenu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
 #cssmenu li:hover > ul{left:auto}
 #cssmenu li:hover > ul > li{height:35px}
@@ -2668,4 +2668,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	text-transform: uppercase;
 	font-size: 14px;
 }
+}
+.packs-wrap {
+	padding: 25px 20px 45px;
 }
