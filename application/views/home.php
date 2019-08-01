@@ -220,7 +220,134 @@
 				</div>
 			</section>
 
-			
+			<section class="w-100 float-left top-destination-wwrap">
+				<div class="w-100 float-left inner-rap-des position-relative pt-5 pb-5">
+					<div class="container">
+						<div class="w-100 float-left wraper-slider-des">
+							<h2><i class="fas fa-map-marker-alt"></i> Popular Destinations</h2>
+
+
+							<div class="destination-slider w-100 float-left mt-4">
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative">
+										<a href="#" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative mb-3">
+										<a href="#" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative mb-3">
+										<a href="#" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative mb-3">
+										<a href="#" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative mb-3">
+										<a href="#" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section class="currency-convert-wrap">
 				<div class="conver-inner w-100 float-left" style="background:url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
