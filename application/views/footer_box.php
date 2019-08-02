@@ -10,7 +10,15 @@
 						<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
 						<!-- <li><a href="#">maxx Team </a></li>
 						<li><a href="#">Careers </a></li> -->
+						<?php 
+							$checkuservars = $this->session->userdata;
+							if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){
+							}else{
+						?>
 						<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
+						<?php
+							}
+						?>
 						<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
 					</ul>
 				</div>

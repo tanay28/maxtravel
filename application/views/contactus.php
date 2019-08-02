@@ -46,39 +46,17 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<nav id="colorlib-main-nav" role="navigation">
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
-			<div class="colorlib-table">
-				<div class="colorlib-table-cell">
-					
-					<div class="row">
-						<div class="col-md-12">
-							<?php
-								/*$checkuservars = $this->session->userdata; 
-								if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] != 1){
-									include_once('before_login_menu.php');
-								  }else{
-								  	include_once('after_login_menu.php');
-								  }*/
-								  include_once('before_login_menu.php');
-							?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-
+		<?php include_once('before_login_menu.php'); ?>
 		<div id="colorlib-page" class="float-left w-100">
 			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
 				<div class="w-100 float-left inner-header-bg-two">
 				<div class="container position-relative">
 					<div class="w-100 logo-others text-center mt-2">
-						<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
+						
 					</div>
 					<div class="w-100 float-left text-center page-title-inner-pages mt-5">
 						<h2>Contact Us</h2>
 					</div>
-					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
 				</div>
 			</div>
 			</header>

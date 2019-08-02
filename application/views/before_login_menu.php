@@ -23,7 +23,7 @@
 		<div id="head-mobile"></div>
 		<div class="button"></div>
 		<ul>
-			<li class='active'><a href='#'>HOME</a></li>
+			<li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li>
 			<li><a href='#'>EXCURSIONS</a>
 				<ul>
 					<li><a href='#'>Product</a></li>
