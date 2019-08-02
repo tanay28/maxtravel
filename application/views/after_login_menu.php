@@ -111,6 +111,11 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
+				<li><a href='#'>Content</a>
+					<ul>
+						<li><a href='<?php echo base_url('content_management')?>'>Manage Home Page</a></li>
+					</ul>
+				</li>
 				<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
 				<li><a href="<?php echo base_url('notification');?>">VIEW QUERY DETAILS</a></li>
 				<li><a href='#'>SETTINGS</a>
@@ -253,6 +258,7 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
+				<li><a href='<?php echo base_url('content_management')?>'>MANAGE CONTENT</a></li>
 				<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
 				<li><a href="<?php echo base_url('notification');?>">VIEW QUERY DETAILS</a></li>
 				<li><a href='#'>SETTINGS</a>

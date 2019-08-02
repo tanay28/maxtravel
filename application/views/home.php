@@ -168,57 +168,57 @@
 					<div class="row">
 						<div class="w-100 float-left pt-5 pb-5 inner-wrap-packs destination-slider">
 							<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative">
-									<img src="<?php echo base_url('assets/images/promotion-01.jpg');?>" alt="">
-									<div class="overlay-content position-absolute text-center">
-										<h2 class="text-uppercase">Happy Holidays</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
+								<div class="w-100 float-left packs-wrap animate-box">
+									<div class="inner-pack-main w-100 float-left position-relative">
+										<img src="<?php echo base_url('assets/images/promotion-01.jpg');?>" alt="">
+										<div class="overlay-content position-absolute text-center">
+											<h2 class="text-uppercase">Happy Holidays</h2>
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+												turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
+												eget
+												dictum sit amet, laoreet vitae leo.</p>
+											<div class="w-100 float-left text-center">
+												<a href="#" class="btn button-01">More</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative">
-									<img src="<?php echo base_url('assets/images/promotion-02.jpg');?>" alt="">
-									<div class="overlay-content position-absolute text-center">
-										<h2 class="text-uppercase">Group Tour</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
-										</div>
-									</div>
-								</div>
-							</div>
 							</div>
 							<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative marrage-div">
-									<img src="<?php echo base_url('assets/images/promotion-03.jpg')?>" alt="">
-									<img src="<?php echo base_url('assets/images/bridal.png')?>" alt="" class="bottom-bridal">
-									<div class="overlay-content position-absolute text-center marraig-eve">
-										<h2 class="text-uppercase">marriage Events</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
+								<div class="w-100 float-left packs-wrap animate-box">
+									<div class="inner-pack-main w-100 float-left position-relative">
+										<img src="<?php echo base_url('assets/images/promotion-02.jpg');?>" alt="">
+										<div class="overlay-content position-absolute text-center">
+											<h2 class="text-uppercase">Group Tour</h2>
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+												turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
+												eget
+												dictum sit amet, laoreet vitae leo.</p>
+											<div class="w-100 float-left text-center">
+												<a href="#" class="btn button-01">More</a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+							<div class="item">
+								<div class="w-100 float-left packs-wrap animate-box">
+									<div class="inner-pack-main w-100 float-left position-relative marrage-div">
+										<img src="<?php echo base_url('assets/images/promotion-03.jpg')?>" alt="">
+										<img src="<?php echo base_url('assets/images/bridal.png')?>" alt="" class="bottom-bridal">
+										<div class="overlay-content position-absolute text-center marraig-eve">
+											<h2 class="text-uppercase">marriage Events</h2>
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+												turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
+												eget
+												dictum sit amet, laoreet vitae leo.</p>
+											<div class="w-100 float-left text-center">
+												<a href="#" class="btn button-01">More</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
