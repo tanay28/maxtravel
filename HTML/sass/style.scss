@@ -2657,7 +2657,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	margin-top: 130px;
 }
 .iti-margin {
-	margin-top: 250px;
+	margin-top: 230px;
+	margin-bottom: 180px;
 }
 .iti-left{
 	i {
@@ -2671,4 +2672,143 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 .packs-wrap {
 	padding: 25px 20px 45px;
+}
+.nav-iti {
+	background: #ededed;
+	margin-top: $pix30;
+	position: static;
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			float: left;
+			list-style: none;
+			a {
+				float: left;
+				padding: 20px 45px;
+				font-size: 18px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				color: $gray;
+			}
+		}
+	}
+}
+.wrap-detais-iti h4 {
+	font-family: $font-primary;
+	font-weight: 700;
+	font-size: 24px;
+	color: $pink;
+}
+.wrap-sections-iti {
+	border-top: 2px solid $gray-light;
+	padding: 25px 0;
+}
+.left-iti-title h3 {
+	font-family: $font-primary;
+	font-weight: 700;
+	font-size: 16px;
+	color: $blue;
+	span {
+		color: $gray;
+		font-weight: 800;
+		margin-right: 15px;
+		font-size: 20px;
+	}
+}
+.right-content-iti span {
+	width: 100%;
+	float: left;
+	padding: 2px 0;
+	font-size: 16px;
+	color: $gray;
+	margin: 5px 0;
+}
+.right-content-iti span i{
+	color: $blue;
+}
+
+.images-gal-iti {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			
+			width: 33%;
+			float: left;
+			overflow: hidden;
+			padding: 5px 15px 10px 0;
+			a {
+				width: 100%;
+				float: left;
+				
+				overflow: hidden;
+			}
+			a img {
+				max-height: 200px;
+				min-height: 200px;
+			}
+		}
+	}
+	  .hiddens {
+		overflow: hidden;
+		display: none;
+		visibility: hidden;
+	  }
+}
+.why-book-maxx {
+	margin-top: -100px;
+	position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+	h1 {
+		background: $orange;
+		float: left;
+		padding: 30px 15px;
+		font-size: 20px;
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		color:#fff;
+		margin: 0;
+	}
+	span {
+		width: 100%;
+		float: left;
+		padding: 15px ;
+		font-size: 16px;
+		background: $gray-light;
+		border-bottom: 1px solid #ededed;
+		border-top: 1px solid #fff;
+		margin: 0;
+		color: #333;
+		font {
+			width: calc(100% - 30px);
+			float: right;
+		}
+	}
+	.book-iti-button {
+		background: $pink;
+		color: $white;
+		font-size: 18px;
+		font-weight: 700;
+		padding: 20px;
+		text-align: center;
+		letter-spacing: 2px;
+		&:hover {
+			background: $gray;
+			color: $white;
+			text-decoration: none;
+		}
+	}
+}
+.navbar-fixed {
+	position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }

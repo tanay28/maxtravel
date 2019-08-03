@@ -2742,7 +2742,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-top: 130px; }
 
 .iti-margin {
-  margin-top: 250px; }
+  margin-top: 230px;
+  margin-bottom: 180px; }
 
 .iti-left i {
   min-width: 20px; }
@@ -2754,3 +2755,127 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .packs-wrap {
   padding: 25px 20px 45px; }
+
+.nav-iti {
+  background: #ededed;
+  margin-top: 30px;
+  position: static; }
+  .nav-iti ul {
+    margin: 0;
+    padding: 0; }
+    .nav-iti ul li {
+      float: left;
+      list-style: none; }
+      .nav-iti ul li a {
+        float: left;
+        padding: 20px 45px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #3b3b3b; }
+
+.wrap-detais-iti h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #d1137c; }
+
+.wrap-sections-iti {
+  border-top: 2px solid #eaeaea;
+  padding: 25px 0; }
+
+.left-iti-title h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #008aff; }
+  .left-iti-title h3 span {
+    color: #3b3b3b;
+    font-weight: 800;
+    margin-right: 15px;
+    font-size: 20px; }
+
+.right-content-iti span {
+  width: 100%;
+  float: left;
+  padding: 2px 0;
+  font-size: 16px;
+  color: #3b3b3b;
+  margin: 5px 0; }
+
+.right-content-iti span i {
+  color: #008aff; }
+
+.images-gal-iti ul {
+  margin: 0;
+  padding: 0; }
+  .images-gal-iti ul li {
+    list-style: none;
+    width: 33%;
+    float: left;
+    overflow: hidden;
+    padding: 5px 15px 10px 0; }
+    .images-gal-iti ul li a {
+      width: 100%;
+      float: left;
+      overflow: hidden; }
+    .images-gal-iti ul li a img {
+      max-height: 200px;
+      min-height: 200px; }
+
+.images-gal-iti .hiddens {
+  overflow: hidden;
+  display: none;
+  visibility: hidden; }
+
+.why-book-maxx {
+  margin-top: -100px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; }
+  .why-book-maxx h1 {
+    background: #ec7800;
+    float: left;
+    padding: 30px 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    margin: 0; }
+  .why-book-maxx span {
+    width: 100%;
+    float: left;
+    padding: 15px;
+    font-size: 16px;
+    background: #eaeaea;
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #fff;
+    margin: 0;
+    color: #333; }
+    .why-book-maxx span font {
+      width: calc(100% - 30px);
+      float: right; }
+  .why-book-maxx .book-iti-button {
+    background: #d1137c;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 2px; }
+    .why-book-maxx .book-iti-button:hover {
+      background: #3b3b3b;
+      color: #ffffff;
+      text-decoration: none; }
+
+.navbar-fixed {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; }
