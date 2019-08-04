@@ -14,14 +14,25 @@
 			$data['thailand'] = $this->get_local_time('Asia/Bangkok');
 			$data['singapore'] = $this->get_local_time('Asia/Singapore');
 			$data['malaysia'] = $this->get_local_time('Asia/Bangkok');
+			$data['header_content'] = $this->get_content('header');
+			$data['event_content'] = $this->get_content('event');
+			$data['destination_content'] = $this->get_content('destination');
+			
 			$this->load->view('home',$data);
-
 		}
 
 		private function get_local_time($timezone)
 		{
 			date_default_timezone_set($timezone);
 			return date('H:i:s');
+		}
+
+		private function get_content($type)
+		{
+			$arr = array();
+			$this->load->model('Contentmanagement');
+			$rs = $this->Contentmanagement->get_slider_details($type);
+			return $rs;
 		}
 	}
 

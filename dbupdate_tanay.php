@@ -55,4 +55,10 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 // CREATE TABLE `maxtravel`.`query` ( `id` INT NOT NULL AUTO_INCREMENT , `agent_id` INT NOT NULL , `title` TEXT NOT NULL , `date_created` DATETIME NOT NULL , `status` ENUM('OPEN','RESOLVED','CLOSED','') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 // CREATE TABLE `maxtravel`.`notification` ( `id` INT NOT NULL AUTO_INCREMENT , `key_id` INT NOT NULL , `key_type` VARCHAR(200) NOT NULL , `title` TEXT NOT NULL , `sender_id` INT NOT NULL , `receiver_id` INT NOT NULL , `status` ENUM('UNREAD','READ','DELETED','') NOT NULL , `date_created` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+//----------------------- 03-08-2019 ----------------------//
+CREATE TABLE `maxtravel`.`contents` ( `id` INT NOT NULL AUTO_INCREMENT , `slider_name` VARCHAR(200) NOT NULL , `tag_name` VARCHAR(200) NOT NULL , `slider_details` VARCHAR(200) NOT NULL , `image_name` VARCHAR(200) NOT NULL , `date_created` DATETIME NOT NULL , `last_modified` DATETIME NOT NULL , `status` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `contents` ADD `slider_for` VARCHAR(200) NOT NULL AFTER `image_name`;
 ?>

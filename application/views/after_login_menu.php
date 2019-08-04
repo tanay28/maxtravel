@@ -6,7 +6,7 @@
 	//$name = isset($ex[1]) ? $ex[1] : '';
 	// var_dump($ex);
 	if($name!='home') $is_home = false;
-	if($is_home){
+	if($is_home || $name == ''){
 ?>
 <header class="header-home w-100 float-left position-absolute">
 	<div class="logo-home float-left">
@@ -111,9 +111,12 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
-				<li><a href='#'>Content</a>
+				<li><a href='#'>MANAGE CONTENT</a>
 					<ul>
-						<li><a href='<?php echo base_url('content_management')?>'>Manage Home Page</a></li>
+						<li><a href='<?php echo base_url('content_management/header')?>'>Header content</a></li>
+						<li><a href='<?php echo base_url('content_management/events')?>'>Event content</a></li>
+						<li><a href='<?php echo base_url('content_management/destinations')?>'>popular destination content</a></li>
+						<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
 					</ul>
 				</li>
 				<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
@@ -258,7 +261,14 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
-				<li><a href='<?php echo base_url('content_management')?>'>MANAGE CONTENT</a></li>
+				<li><a href='#'>MANAGE CONTENT</a>
+					<ul>
+						<li><a href='<?php echo base_url('content_management/header')?>'>Header content</a></li>
+						<li><a href='<?php echo base_url('content_management/events')?>'>Event content</a></li>
+						<li><a href='<?php echo base_url('content_management/destinations')?>'>popular destination content</a></li>
+						<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
+					</ul>
+				</li>
 				<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
 				<li><a href="<?php echo base_url('notification');?>">VIEW QUERY DETAILS</a></li>
 				<li><a href='#'>SETTINGS</a>
