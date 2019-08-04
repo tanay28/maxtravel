@@ -58,7 +58,7 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
 
 //----------------------- 03-08-2019 ----------------------//
-CREATE TABLE `maxtravel`.`contents` ( `id` INT NOT NULL AUTO_INCREMENT , `slider_name` VARCHAR(200) NOT NULL , `tag_name` VARCHAR(200) NOT NULL , `slider_details` VARCHAR(200) NOT NULL , `image_name` VARCHAR(200) NOT NULL , `date_created` DATETIME NOT NULL , `last_modified` DATETIME NOT NULL , `status` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+/*CREATE TABLE `maxtravel`.`contents` ( `id` INT NOT NULL AUTO_INCREMENT , `slider_name` VARCHAR(200) NOT NULL , `tag_name` VARCHAR(200) NOT NULL , `slider_details` VARCHAR(200) NOT NULL , `image_name` VARCHAR(200) NOT NULL , `date_created` DATETIME NOT NULL , `last_modified` DATETIME NOT NULL , `status` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 
-ALTER TABLE `contents` ADD `slider_for` VARCHAR(200) NOT NULL AFTER `image_name`;
+/*ALTER TABLE `contents` ADD `slider_for` VARCHAR(200) NOT NULL AFTER `image_name`;*/
 ?>

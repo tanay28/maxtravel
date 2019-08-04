@@ -113,7 +113,8 @@
 											<div class="w-100 cost-bg">
 												<h5 class="text-uppercase w-100">
 													<?php
-														if(isset($ivalue['slider_details']) && count($ivalue['slider_details'])>0){
+														//var_dump($ivalue['slider_details']);
+														if(isset($ivalue['slider_details'])){
 															$arr = array();
 															$arr = json_decode($ivalue['slider_details'],true);
 															if(isset($arr['duration'])) echo $arr['duration']; 
@@ -122,7 +123,7 @@
 												</h5>
 												<h2 class="text-uppercase w-100">$
 													<?php
-														if(isset($ivalue['slider_details']) && count($ivalue['slider_details'])>0){
+														if(isset($ivalue['slider_details'])){
 															$arr = array();
 															$arr = json_decode($ivalue['slider_details'],true);
 															if(isset($arr['cost'])) echo $arr['cost']; 
@@ -235,7 +236,7 @@
 													$arr = array();
 													if(isset($ivalue['slider_details'])) $arr = json_decode($ivalue['slider_details'],true);
 												?>
-												<a href="<?php echo base_url('assets/content/'.$arr['pdf_name']);?>" class="btn button-01">More</a>
+												<a href="<?php echo base_url('assets/content/'.$arr['pdf_name']);?>" class="btn button-01" target="_blank">More</a>
 											</div>
 										</div>
 									</div>
@@ -408,7 +409,7 @@
 								?>
 									<div class="item">
 										<div class="w-100 float-left block-destination-indi position-relative mb-3">
-											<a href="#" class="w-100 float-left">
+											<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
 												<div class="w-100 float-left img-destination">
 													<img src="<?php echo base_url('assets/content/'.$ivalue['image_name']);?>" alt="<?php echo isset($ivalue['image_name']) ? $ivalue['image_name'] : 'NA';?>">
 												</div>
@@ -441,7 +442,7 @@
 							?>
 								<div class="item">
 									<div class="w-100 float-left block-destination-indi position-relative">
-										<a href="#" class="w-100 float-left">
+										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
 											<div class="w-100 float-left img-destination">
 												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
 											</div>
@@ -463,30 +464,7 @@
 								</div>
 								<div class="item">
 									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="#" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="#" class="w-100 float-left">
+										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
 											<div class="w-100 float-left img-destination">
 												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
 											</div>
@@ -509,7 +487,7 @@
 
 								<div class="item">
 									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="#" class="w-100 float-left">
+										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
 											<div class="w-100 float-left img-destination">
 												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
 											</div>
@@ -532,7 +510,30 @@
 
 								<div class="item">
 									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="#" class="w-100 float-left">
+										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
+											<div class="w-100 float-left img-destination">
+												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
+											</div>
+											<div class="content-destination w-100 float-left">
+												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
+												</h4>
+												<h3>$ 253.50</h3>
+											</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
+												Tour Code : TTCRBR0807</div>
+											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
+												Package Type : Cruise</div>
+											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
+												Half Day (Evening)</div>
+											<div class="w-100 float-left tour-shot-des"><i
+													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="w-100 float-left block-destination-indi position-relative mb-3">
+										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
 											<div class="w-100 float-left img-destination">
 												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
 											</div>
