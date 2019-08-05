@@ -525,15 +525,15 @@ h1, h2, h3, h4, h5, h6 {
 	 z-index: 999;
 }
 .img-top-slider {
-	background-size: cover;
+	background-size: cover !important;
 	background-repeat: no-repeat;
 	float: left;
 	text-decoration: none !important;
 	h1 {
 		font-family: $font-secondary;
 		color: $white;
-		font-size:90px;
-		letter-spacing: 14px;
+		font-size:70px;
+		letter-spacing: 2px;
 	}
 	h2 {
 		font-family: $font-secondary;
@@ -1837,7 +1837,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	padding: $pix0;
 	.inner-header-bg-two {
 		background: rgba(0,0,0,0.5);
-		padding: $pix15 $pix0;
+		padding: 100px $pix0 30px;
 	}
 }
 .img-abt {
@@ -2053,13 +2053,16 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     font-size: 17px;
 }
 .cart-main {
-	color: $blue;
-	background: $white;
-	width: $pix40;
-	height: $pix40;
-	border-radius: 50%;
-	padding-top: $pix6;
-	display: inline-block;
+	color: #008aff;
+    background: #ffffff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding-top: 4px;
+    display: inline-block;
+    font-size: 12px;
+	vertical-align: middle;
+	margin-top: 8px;
 	span {
 		position: absolute;
     right: -7px;
@@ -2077,20 +2080,24 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 }
 .drop-notifications {
-	color: $blue;
-	background: $white;
-	width: $pix40;
-	height: $pix40;
-	border-radius: 50%;
-	padding-top: $pix3;
-	display: inline-block;
-	margin-right: 6px;
+	color: #008aff;
+    background: #ffffff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding-top: 0;
+    display: inline-block;
+    margin-right: 6px;
+    line-height: 25px;
+    vertical-align: top;
+    margin-top: 8px;
 	button{
 		background: transparent !important;
     border: 0;
-    color: $orange !important;
+	color: $orange !important;
+	margin-top: 0;
     padding: 0;
-		font-size: 18px;
+		font-size: 13px;
 		box-shadow: none !important;
 		&:hover {
 			background: transparent !important;
@@ -2524,6 +2531,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	h4 {
 		font-size: 16px;
 		color: $gray;
+		min-height: 50px;
 	}
 	h3 {
 		font-size: 20px;
@@ -2580,20 +2588,35 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 #cssmenu:after,#cssmenu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
 #cssmenu #head-mobile{display:none}
 #cssmenu > ul > li{float:left}
-#cssmenu > ul > li > a{padding:7px 7px 6px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#fff;font-weight:700;border-radius: 20px;
-    margin-right: 5px;}
+#cssmenu > ul > li > a{    
+	padding: 4px 7px 3px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 5px;
+    text-transform: uppercase;
+}
 #cssmenu > ul > li:hover > a,#cssmenu ul li.active a{color:#333; background: rgba(255, 255, 255, 0.83);}
 #cssmenu > ul > li:hover,#cssmenu ul li.active:hover,#cssmenu ul li.active,#cssmenu ul li.has-sub.active:hover{-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
-#cssmenu > ul > li.has-sub > a{padding-right:30px}
-#cssmenu > ul > li.has-sub > a:after{position:absolute;top:11px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
-#cssmenu > ul > li.has-sub > a:before{position:absolute;top:8px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
+// #cssmenu > ul > li.has-sub > a{padding-right:0}
+#cssmenu > ul > li.has-sub > a:after{display: none;position:absolute;top:7px;right:6px;width:8px;height:2px;background:#ddd;content:''}
+#cssmenu > ul > li.has-sub > a:before{
+	position:absolute;
+	top:4px; 
+	right:9px;
+	display: none;
+	 width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
 #cssmenu > ul > li.has-sub:hover > a:before{top:23px;height:0}
-#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0; }
+#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0; width: 170px; }
 #cssmenu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
-#cssmenu li:hover > ul{left:auto}
+#cssmenu li:hover > ul{left: inherit;
+    right: 0;}
 #cssmenu li:hover > ul > li{height:35px}
 #cssmenu ul ul ul{margin-left:100%;top:0}
-#cssmenu ul ul li a{border-bottom:1px solid rgba(150,150,150,0.15);padding:11px 15px;width:170px;font-size:12px;text-decoration:none;color:#fff;font-weight:400;}
+#cssmenu ul ul li a{border-bottom:1px solid rgba(150,150,150,0.15);padding:11px 15px;width:100%;font-size:12px;text-decoration:none;color:#fff;font-weight:400;}
 #cssmenu ul ul li:last-child > a,#cssmenu ul ul li.last-item > a{border-bottom:0}
 #cssmenu ul ul li:hover > a,#cssmenu ul ul li a:hover{color: #f53903;
     font-weight: 700;}
@@ -2651,7 +2674,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	top: 140px;
 }
 .nav-menu-right {
-	margin-top: 20px;
+	margin-top: 31px;
 }
 .page-title-ins {
 	margin-top: 130px;

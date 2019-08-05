@@ -69,7 +69,7 @@
 							
 						</tbody>
 					</table>
-				   <a href="#" class="morebut-dash register-button-form float-left mt-1">See All</a>
+				   <a href="<?php echo base_url('orderag/');?>" class="morebut-dash register-button-form float-left mt-1">See All</a>
 				</div>
 				</div>
 				
@@ -119,7 +119,7 @@
 								
 							</tbody>
 						</table>
-					   <a href="#" class="morebut-dash register-button-form float-left mt-1">See All</a>
+					   <a href="<?php echo base_url('trnscag/');?>" class="morebut-dash register-button-form float-left mt-1">See All</a>
 					</div>
 					</div>
 

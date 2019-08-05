@@ -4,13 +4,12 @@
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
 	$name = isset($ex[2]) ? $ex[2] : '';
 	//$name = isset($ex[1]) ? $ex[1] : '';
-	// var_dump($ex);
 	if($name!='home') $is_home = false;
 	if($is_home || $name == ''){
 ?>
 <header class="header-home w-100 float-left position-absolute">
 	<div class="logo-home float-left">
-		<a href="#"><img src="<?php echo base_url('assets/images/mh-white.png');?>" alt=""></a>
+		<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/mh-white.png');?>" alt=""></a>
 	</div>
 	<div class="wrap-cart-all-nav float-right position-relative">
 		<div class="dropdown drop-notifications">
@@ -45,8 +44,8 @@
 				<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span> -->
 			</div>
 		</div>
-		<a href="#" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-		<span>2</span></a>
+		<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
+		<span>3</span></a>
 	</div>
 	<div class="float-right nav-menu-right" id="cssmenu">
 		<div id="head-mobile"></div>
@@ -111,11 +110,11 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
-				<li><a href='#'>MANAGE CONTENT</a>
+				<li><a href='#'>PAGE CONTENT</a>
 					<ul>
-						<li><a href='<?php echo base_url('content_management/header')?>'>Header content</a></li>
-						<li><a href='<?php echo base_url('content_management/events')?>'>Event content</a></li>
-						<li><a href='<?php echo base_url('content_management/destinations')?>'>popular destination content</a></li>
+						<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
+						<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
+						<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>
 						<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
 					</ul>
 				</li>
@@ -161,7 +160,7 @@
 ?>
 <header class="header-home w-100 float-left position-relative">
 	<div class="logo-home float-left">
-		<a href="#"><img src="<?php echo base_url('assets/images/mh-white.png');?>" alt=""></a>
+		<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/mh-white.png');?>" alt=""></a>
 	</div>
 	<div class="wrap-cart-all-nav float-right position-relative">
 		<div class="dropdown drop-notifications">
@@ -196,14 +195,14 @@
 				<span class="w-100 float-left"><a href="#"><font class="w-100 float-left">Title</font>tempor eget dictum sit amet, laoreet vitae leo. </span> -->
 			</div>
 		</div>
-		<a href="#" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-		<span>2</span></a>
+		<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
+		<span>3</span></a>
 	</div>
 	<div class="float-right nav-menu-right" id="cssmenu">
 		<div id="head-mobile"></div>
 		<div class="button"></div>
 		<ul>
-			<li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li>
+			<!-- <li class='active'><a href='<?php //echo base_url('home');?>'>HOME</a></li> -->
 			<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>
 
 				<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
@@ -261,16 +260,16 @@
 						<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 					</ul>
 				</li>
-				<li><a href='#'>MANAGE CONTENT</a>
+				<li><a href='#'>PAGE CONTENT</a>
 					<ul>
-						<li><a href='<?php echo base_url('content_management/header')?>'>Header content</a></li>
-						<li><a href='<?php echo base_url('content_management/events')?>'>Event content</a></li>
-						<li><a href='<?php echo base_url('content_management/destinations')?>'>popular destination content</a></li>
+						<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
+						<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
+						<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>
 						<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
 					</ul>
 				</li>
-				<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
-				<li><a href="<?php echo base_url('notification');?>">VIEW QUERY DETAILS</a></li>
+				<li><a href="<?php echo base_url('Contactinfo');?>">CONTACT DETAILS</a></li>
+				<li><a href="<?php echo base_url('notification');?>">QUERY DETAILS</a></li>
 				<li><a href='#'>SETTINGS</a>
 					<ul>
 						<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>

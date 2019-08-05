@@ -93,8 +93,13 @@
                                     <h4 class="w-100 float-left"><?php echo isset($profiledetails[0]['fax']) ? $profiledetails[0]['fax'] : '';?></h4>
                               </div>
                               <?php
-                                    $sqlcountry = "SELECT * FROM country WHERE id = '".$profiledetails[0]['country']."'";
-                                    $country = $this->db->query($sqlcountry)->result_array();  
+                                    $country = array();
+                                    if(isset($profiledetails[0]['country'])){
+
+                                          $sqlcountry = "SELECT * FROM country WHERE id = '".$profiledetails[0]['country']."'";
+                                          $country = $this->db->query($sqlcountry)->result_array();      
+                                    }
+                                      
 
                               ?>
                               <div class="col-lg-4 col-md-6 col-12 float-left wrap-sign-main">
@@ -127,8 +132,13 @@
                                           <h3>Account Details</h3>
                                     </div>
                                     <?php
-                                          $sqlusersdetails = "SELECT * FROM users WHERE id = '".$profiledetails[0]['user_id']."'";
-                                          $usersdetails = $this->db->query($sqlusersdetails)->result_array();  
+                                          $usersdetails = array();
+                                          if(isset($profiledetails[0]['user_id'])){
+
+                                                $sqlusersdetails = "SELECT * FROM users WHERE id = '".$profiledetails[0]['user_id']."'";
+                                                $usersdetails = $this->db->query($sqlusersdetails)->result_array();       
+                                          }
+                                           
 
                                     ?>
                                     <div class="col-lg-4 col-md-6 col-12 float-left wrap-sign-main">

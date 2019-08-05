@@ -18,7 +18,8 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/owl.carousel.min.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/owl.theme.default.min.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'>
 	<!-- Modernizr JS -->
 	<script src="assets/js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -54,7 +55,7 @@
 					<div class="w-100 logo-others text-center mt-2">
 						
 					</div>
-					<div class="w-100 float-left text-center page-title-inner-pages mt-5">
+					<div class="w-100 float-left text-center page-title-inner-pages iti-margin">
 						<h2>Itirnerary</h2>
 					</div>
 				</div>
@@ -270,5 +271,31 @@
                </div>
             </section>
 			
+           
 
 <?php include_once('footer.php');?>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+	<script  src="<?php echo base_url('assets/js/image-gallery.js');?>"></script>
+<script>
+	 $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      console.log($(window).scrollTop())
+    if ($(window).scrollTop() > 500) {
+      $('#naviti').addClass('navbar-fixed');
+    }
+    if ($(window).scrollTop() < 501) {
+      $('#naviti').removeClass('navbar-fixed');
+    }
+  });
+
+  $(document).on('click', '.nav-iti li a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top  - 100
+    }, 500);
+});
+
+	</script>
