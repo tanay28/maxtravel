@@ -51,47 +51,10 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<nav id="colorlib-main-nav" role="navigation">
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle buttonnavs active "><i></i></a>
-			<div class="colorlib-table">
-				<div class="colorlib-table-cell">
-					<!-- <div class="row">
-						<div class="col-md-12 logonav mb-4 text-left">
-							<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">
-						</div>
-					</div> -->
-					<div class="row">
-						<div class="col-md-12">
-							<?php include_once('before_login_menu.php');?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-
 		<div id="colorlib-page" class="float-left w-100">
 			<header class="home-header header-other-page w-100 float-left">
-				<div class="container position-relative">
-					<div class="float-left logo-others text-left">
-						<a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/images/logo-mh.png');?>" alt=""></a>
-					</div>
-					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-toggle-other-pages"><i></i></a>
-					<!-- <div class="nav-afterlogin float-right">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-user"></i>
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">My Account</a>
-								<a class="dropdown-item" href="#">Logout</a>
-							</div>
-						</div>
-					</div> -->
-				</div>
-			</header>
-
-			
-
+			<?php include_once('main_menu.php');?>
+			</header>	
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
 				<div class="container">
 					<div>

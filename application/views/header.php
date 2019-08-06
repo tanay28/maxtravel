@@ -67,7 +67,7 @@
 		
 		<div id="colorlib-page" class="float-left w-100">
 			<div class="header-other-page col-lg-12 position-relative float-left">
-				<?php include_once('after_login_menu.php');?>	
+				<?php include_once('main_menu.php');?>	
 			</div>
 
 			

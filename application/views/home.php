@@ -50,15 +50,7 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<?php 
-			$checkuservars = $this->session->userdata;
-			if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1)
-			{
-				include_once('after_login_menu.php');
-			}else{
-				include_once('before_login_menu.php');
-			}
-		?>
+		<?php include_once('main_menu.php');?>
 		<div id="colorlib-page">
 			<div class="home-header position-absolute w-100 loginsec-home">
 				<div class="col-lg-12">
@@ -140,76 +132,8 @@
 					</div>
 					<?php			
 							}
-						}else{
+						}
 					?>
-					<div class="item">
-						<a href="#" class="w-100 img-top-slider position-relative"
-							style="background:url(<?php echo base_url('assets/images/ban-01.jpg');?>);">
-							<div class="inner-slider-wrap w-100 text-center">
-								<div class="container">
-									<div class="row">
-										<div class="col-12 col-md-8 col-lg-8 float-left left-title-slider">
-											<h1 class="text-uppercase">thailand</h1>
-											<h4 class="text-uppercase">Build your Next Holiday Trip with Us</h4>
-										</div>
-										<div class="col-12 col-md-4 col-lg-4 float-left right-cost-slider text-left">
-											<div class="w-100 cost-bg">
-												<h5 class="text-uppercase w-100">6 days 5 nights</h5>
-												<h2 class="text-uppercase w-100">$625</h2>
-												<h6 class="text-uppercase w-100">per person</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="item">
-						<a href="#" class="w-100 img-top-slider position-relative"
-							style="background:url(<?php echo base_url('assets/images/ban-02.jpg');?>);">
-							<div class="inner-slider-wrap w-100 text-center inner-slider-wrap2">
-								<div class="container">
-									<div class="row">
-										<div class="col-12 col-md-8 col-lg-8 float-left left-title-slider">
-											<h1 class="text-uppercase">bangkok</h1>
-											<h4 class="text-uppercase">bangkok Trip with MaxxHolidays</h4>
-										</div>
-										<div class="col-12 col-md-4 col-lg-4 float-left right-cost-slider text-left">
-											<div class="w-100 cost-bg">
-												<h5 class="text-uppercase w-100">9 days 8 nights</h5>
-												<h2 class="text-uppercase w-100">$784</h2>
-												<h6 class="text-uppercase w-100">per person</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="item">
-						<a href="#" class="w-100 img-top-slider position-relative"
-							style="background:url(<?php echo base_url('assets/images/ban-3.jpg');?>);">
-							<div class="inner-slider-wrap w-100 text-center inner-slider-wrap3">
-								<div class="container">
-									<div class="row">
-										<div class="col-12 col-md-8 col-lg-8 float-left left-title-slider">
-											<h1 class="text-uppercase">phuket</h1>
-											<h4 class="text-uppercase">MaxxHolidays phuket trip.</h4>
-										</div>
-										<div class="col-12 col-md-4 col-lg-4 float-left right-cost-slider text-left">
-											<div class="w-100 cost-bg">
-												<h5 class="text-uppercase w-100">5 days 4 nights</h5>
-												<h2 class="text-uppercase w-100">$425</h2>
-												<h6 class="text-uppercase w-100">per person</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-
-				<?php }?>
 				</div>
 			</section>
 
@@ -244,63 +168,8 @@
 							</div>
 							<?php			
 									}
-								}else{
+								}
 							?>
-
-						<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative">
-									<img src="<?php echo base_url('assets/images/promotion-01.jpg');?>" alt="">
-									<div class="overlay-content position-absolute text-center">
-										<h2 class="text-uppercase">Happy Holidays</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative">
-									<img src="<?php echo base_url('assets/images/promotion-02.jpg');?>" alt="">
-									<div class="overlay-content position-absolute text-center">
-										<h2 class="text-uppercase">Group Tour</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="w-100 float-left packs-wrap animate-box">
-								<div class="inner-pack-main w-100 float-left position-relative marrage-div">
-									<img src="<?php echo base_url('assets/images/promotion-03.jpg')?>" alt="">
-									<img src="<?php echo base_url('assets/images/bridal.png')?>" alt="" class="bottom-bridal">
-									<div class="overlay-content position-absolute text-center marraig-eve">
-										<h2 class="text-uppercase">marriage Events</h2>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-											turpis egestas. In hac habitasse platea dictumst. Nullam neque erat, tempor
-											eget
-											dictum sit amet, laoreet vitae leo.</p>
-										<div class="w-100 float-left text-center">
-											<a href="#" class="btn button-01">More</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<?php }?>
 						</div>
 					</div>
 				</div>
@@ -438,125 +307,8 @@
 									</div>
 								<?php			
 									}
-								}else{
-							?>
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative">
-										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="w-100 float-left block-destination-indi position-relative mb-3">
-										<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
-											<div class="w-100 float-left img-destination">
-												<img src="<?php echo base_url('assets/images/desimg.jpg');?>" alt="">
-											</div>
-											<div class="content-destination w-100 float-left">
-												<h4>The Bangkok River Cruise / Discover Mon Culture on Koh Kret Island
-												</h4>
-												<h3>$ 253.50</h3>
-											</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-qrcode"></i>
-												Tour Code : TTCRBR0807</div>
-											<div class="w-100 float-left tour-shot-des"><i class="fas fa-umbrella"></i>
-												Package Type : Cruise</div>
-											<div class="w-100 float-left tour-shot-des"><i class="far fa-clock"></i>
-												Half Day (Evening)</div>
-											<div class="w-100 float-left tour-shot-des"><i
-													class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-										</a>
-									</div>
-								</div>
-							<?php
 								}
 							?>
-
 							</div>
 						</div>
 					</div>
@@ -578,7 +330,8 @@
 												<iframe width="650" height="400"
 													src="https://www.youtube.com/embed/Y-M9Z2RJIUE" frameborder="0"
 													allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-													allowfullscreen></iframe>
+													allowfullscreen>
+												</iframe>
 											</div>
 										</div>
 										<div class="item">
@@ -586,7 +339,8 @@
 												<iframe width="650" height="400"
 													src="https://www.youtube.com/embed/gmpHIXcWlDE" frameborder="0"
 													allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-													allowfullscreen></iframe>
+													allowfullscreen>
+												</iframe>
 											</div>
 										</div>
 									</div>
