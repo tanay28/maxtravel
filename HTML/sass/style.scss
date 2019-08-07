@@ -2680,8 +2680,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	margin-top: 130px;
 }
 .iti-margin {
-	margin-top: 230px;
-	margin-bottom: 180px;
+	margin-top: 200px;
+	margin-bottom: 200px;
 }
 .iti-left{
 	i {
@@ -2834,4 +2834,42 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     left: 0;
     right: 0;
     z-index: 999;
+}
+
+.search-top-section-all label {
+	color: $white;
+}
+.datepp i {
+	right: $pix10 !important;
+	top: 13px !important;
+}
+.search-top-section-all .search-button-form {
+	border-radius: $pix0;
+	background: $pink;
+	padding: $pix15 $pix50 14px;
+	box-shadow: none;
+	&:hover {
+		background: $orange;
+	}
+	
+}
+.tur-details-page-lists {
+	.btn-booknow {
+		padding: $pix5 $pix15;
+		background: $orange;
+		color: $white;
+		font-size: 13px;
+		outline: none !important;
+		&:hover {
+		background: $blue;
+		color: $white;
+		text-decoration: none;
+	}
+	}
+	
+}
+.inner-tour-blocks {
+	.hotel-name {
+		width: calc(100% - 185px);
+	}
 }
