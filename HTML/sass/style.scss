@@ -2614,12 +2614,32 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 #cssmenu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
 #cssmenu li:hover > ul{left: inherit;
     right: 0;}
-#cssmenu li:hover > ul > li{height:35px}
-#cssmenu ul ul ul{margin-left:100%;top:0}
-#cssmenu ul ul li a{border-bottom:1px solid rgba(150,150,150,0.15);padding:11px 15px;width:100%;font-size:12px;text-decoration:none;color:#fff;font-weight:400;}
+#cssmenu li:hover > ul > li{height:auto}
+#cssmenu ul ul ul{
+	margin-left:0%;
+	top:0;     
+	
+}
+#cssmenu ul ul li:hover .s-menu{
+	position: absolute;
+    left: 170px;
+	top: -11px;
+	width: 140px;
+}
+#cssmenu ul ul li a{    
+	border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+    padding: 11px 15px;
+    width: 100%;
+    font-size: 11px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 #cssmenu ul ul li:last-child > a,#cssmenu ul ul li.last-item > a{border-bottom:0}
 #cssmenu ul ul li:hover > a,#cssmenu ul ul li a:hover{color: #f53903;
-    font-weight: 700;}
+    font-weight: 600;}
 #cssmenu ul ul li.has-sub > a:after{position:absolute;top:16px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
 #cssmenu ul ul li.has-sub > a:before{position:absolute;top:13px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
 #cssmenu ul ul > li.has-sub:hover > a:before{top:17px;height:0}
@@ -2680,8 +2700,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	margin-top: 130px;
 }
 .iti-margin {
-	margin-top: 230px;
-	margin-bottom: 180px;
+	margin-top: 200px;
+	margin-bottom: 200px;
 }
 .iti-left{
 	i {
@@ -2834,4 +2854,42 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     left: 0;
     right: 0;
     z-index: 999;
+}
+
+.search-top-section-all label {
+	color: $white;
+}
+.datepp i {
+	right: $pix10 !important;
+	top: 13px !important;
+}
+.search-top-section-all .search-button-form {
+	border-radius: $pix0;
+	background: $pink;
+	padding: $pix15 $pix50 14px;
+	box-shadow: none;
+	&:hover {
+		background: $orange;
+	}
+	
+}
+.tur-details-page-lists {
+	.btn-booknow {
+		padding: $pix5 $pix15;
+		background: $orange;
+		color: $white;
+		font-size: 13px;
+		outline: none !important;
+		&:hover {
+		background: $blue;
+		color: $white;
+		text-decoration: none;
+	}
+	}
+	
+}
+.inner-tour-blocks {
+	.hotel-name {
+		width: calc(100% - 185px);
+	}
 }
