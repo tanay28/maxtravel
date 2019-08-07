@@ -17,7 +17,10 @@
 			$data['header_content'] = $this->get_content('header');
 			$data['event_content'] = $this->get_content('event');
 			$data['destination_content'] = $this->get_content('destination');
-			
+			$data['feedback_content'] = $this->get_content('feedback');
+			// echo '<pre>';
+			// var_dump($data);
+			// die;
 			$this->load->view('home',$data);
 		}
 

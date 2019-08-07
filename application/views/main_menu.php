@@ -3,11 +3,11 @@
 	$is_home = true;
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
 	//var_dump($ex);
-	$name = isset($ex[2]) ? $ex[2] : '';
-	//$name = isset($ex[1]) ? $ex[1] : '';
+	$name = isset($ex[2]) ? $ex[2] : ''; // For Local
+	//$name = isset($ex[1]) ? $ex[1] : ''; // For Server
 	//var_dump($name);
 	if($name!='home') $is_home = false;
-	if($is_home || $name == ''){
+	if($is_home || $name == ''){ //|| $name == '/?i=1'
 ?>
 <header class="header-home w-100 float-left position-absolute">
 	<div class="logo-home float-left">
@@ -104,32 +104,32 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href='javascript:void()'>HOTELS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
 									<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
 									<li><a href="<?php echo base_url('hotel/book');?>">Book Hotels</a></li>
 								</ul>
 							</li>
 							<li><a href='#'>AGENTS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('agents/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('agents/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='#'>EMPLOYEES</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='#'>USERS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='#'>PAGE CONTENT</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
 									<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
 									<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>
@@ -279,32 +279,32 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href='javascript:void()'>HOTELS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
 									<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
 									<li><a href="<?php echo base_url('hotel/book');?>">Book Hotels</a></li>
 								</ul>
 							</li>
 							<li><a href='javascript:void()'>AGENTS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('agents/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('agents/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='javascript:void()'>EMPLOYEES</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='javascript:void()'>USERS</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
 									<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
 								</ul>
 							</li>
 							<li><a href='javascript:void()'>PAGE CONTENT</a>
-								<ul>
+								<ul class="s-menu">
 									<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
 									<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
 									<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>

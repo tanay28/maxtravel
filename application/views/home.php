@@ -323,28 +323,27 @@
 								<h1 class="title-section-white w-100 text-center">What our client's says</h1>
 
 								<div class="w-100 text-center video-gallery">
-
 									<div class="owl-carousel1">
-										<div class="item">
-											<div class="col-md-12">
-												<iframe width="650" height="400"
-													src="https://www.youtube.com/embed/Y-M9Z2RJIUE" frameborder="0"
-													allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-													allowfullscreen>
-												</iframe>
+									<?php
+										if(isset($feedback_content) && count($feedback_content)>0)
+										{
+											foreach ($feedback_content as $ikey => $ivalue)
+											{
+										?>
+											<div class="item">
+												<div class="col-md-12">
+													<iframe width="650" height="400"
+														src="<?php echo isset($ivalue['image_name']) ? $ivalue['image_name'] : '';?>" frameborder="0"
+														allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+														allowfullscreen>
+													</iframe>
+												</div>
 											</div>
-										</div>
-										<div class="item">
-											<div class="col-md-12">
-												<iframe width="650" height="400"
-													src="https://www.youtube.com/embed/gmpHIXcWlDE" frameborder="0"
-													allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-													allowfullscreen>
-												</iframe>
-											</div>
-										</div>
+										<?php			
+											}
+										}
+									?>	
 									</div>
-
 								</div>
 
 							</div>

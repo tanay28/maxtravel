@@ -135,7 +135,11 @@
                                                       
                                                 </td>
                                                 <td>
-                                                      <?php echo isset($uvalue['image_name']) ? $uvalue['image_name'] : 'NA';?>
+                                                <iframe width="200" height="100"
+                                                      src="<?php echo isset($uvalue['image_name']) ? $uvalue['image_name'] : 'NA';?>" frameborder="0"
+                                                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                      allowfullscreen>
+                                                </iframe>
                                                 </td>
                                                 <td>
                                                       <a href="<?php echo base_url('content_management/remove_feedback_content/'.base64_encode($uvalue['id']));?>"><i class="fa fa-trash" style="font-size:12px;color:red"></i></a>                                                      
