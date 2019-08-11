@@ -8,9 +8,22 @@
 		{
 			parent::__construct();
 		}
-		public function index()
+		public function show_itinerary()
 		{
-			$this->load->view('itinerary');
+			$data = array();
+			if($this->uri->segment('3')!='')
+			{
+				$id = base64_decode($this->uri->segment('3'));
+				$this->load->model('Contentmanagement');
+				$rs = $this->Contentmanagement->get_itinerary_details($id,'destination');
+
+				// echo '<pre>';
+				// var_dump($rs);
+				// die;
+				$data['itinerary_details'] = $rs;
+				$this->load->view('itinerary',$data);
+			}
+			
 		}
 	}
 ?>

@@ -6,9 +6,9 @@
         {
             parent::__construct();
         }
-		public function insert_data($arr)
+		public function insert_data($arr,$tab)
 		{
-			$this->db->insert('contents',$arr);
+			$this->db->insert($tab,$arr);
 			return $this->db->insert_id();
 		}
 		public function get_slider_details($slider_for)
@@ -46,6 +46,11 @@
 				$flag = true;
 			}
 			return $flag;
+		}
+		public function get_itinerary_details($id,$type)
+		{
+			$sql = "SELECT CON.*,dy_con.* FROM contents CON LEFT JOIN dynamic_content DY_CON ON CON.id = DY_CON.content_id WHERE CON.id = '".$id."' AND CON.slider_for = '".$type."'";
+			return $this->db->query($sql)->result_array();
 		}
 	}
 ?>

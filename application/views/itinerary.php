@@ -47,9 +47,15 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<?php include_once('before_login_menu.php'); ?>
+		<?php include_once('main_menu.php'); ?>
+      <?php
+         $arr = array();
+         if(isset($itinerary_details[0]['slider_details'])){
+            $arr = json_decode($itinerary_details[0]['slider_details'],true);
+         }
+      ?>
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
+			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/content/'.$itinerary_details[0]['image_name']);?>);">
 				<div class="w-100 float-left inner-header-bg-two">
 				<div class="container position-relative">
 					<div class="w-100 logo-others text-center mt-2">
@@ -68,20 +74,25 @@
                         <div class="w-100 float-left wrap-iti">
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-qrcode"></i>
-                              Tour Code : TTCRBR0807
+                             
+                              Tour Code :<?php echo isset($arr['code']) ? $arr['code'] : '';?>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-umbrella"></i>
-                              Package Type : Cruise
+                              Package Type : <?php echo isset($arr['type']) ? $arr['type'] : '';?>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="far fa-clock"></i>
-                              Half Day (Evening)
+                              <?php echo isset($arr['duration']) ? $arr['duration'] : '';?>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
-                              class="fas fa-calendar-alt"></i> Now - 31 Dec 2019</div>
-                           <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
-                              class="fas fa-map-marker-alt"></i> Pattaya</div>
+                              class="fas fa-calendar-alt"></i> Now - <?php echo isset($arr['date']) ? $arr['date'] : '';?></div>
+                           <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des">
+                           <i class="fas fa-map-marker-alt"></i> 
+                              <?php
+                                 if(isset($itinerary_details[0]['slider_name'])) echo $itinerary_details[0]['slider_name']; 
+                              ?>
+                           </div>
                         </div>
                         <div class="w-100 float-left nav-iti" id="naviti">
                            <ul>
@@ -91,7 +102,8 @@
                               <li><a href="#section4">Photos</a></li>
                            </ul>
                         </div>
-                        <div class="wrap-detais-iti w-100 float-left mt-5" id="section1">
+                        <!--------------- CONTENT FROM EDITOR ---------------->
+                        <!-- <div class="wrap-detais-iti w-100 float-left mt-5" id="section1">
                            <h4>Tour Details</h4>
                            <p>A family day out to have fun and create unforgettable memories at Damnoen Saduak
                               Floating Market, here you can see one of Thailand’s unique floating markets from
@@ -197,23 +209,37 @@
                                  <p class="mb-0">Welcome to “Wow Andaman” to check in and have breakfast with coffee and tea. An after withdrawal snorkeling equipment. Then e tour guide will brief today’s tour program before we depart to Similan Island National Park</p>
                               </div>
                            </div>
-                        </div>
+                        </div> -->
+                        <?php echo isset($itinerary_details[0]['content']) ? $itinerary_details[0]['content'] : '';?>
+                        <!------------------------------------------------------>
+
+                        <!----------------- MAP & IMAGE GALLERY --------------->
                         <div class="wrap-detais-iti w-100 float-left mt-5" id="section3">
                            <h4>Map</h4>
                            <div class="map-iti w-100 float-left mt-3">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d471218.38560188503!2d88.04952746944409!3d22.676385755547646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1564683240799!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d471218.38560188503!2d88.04952746944409!3d22.676385755547646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1564683240799!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+                              <iframe src="<?php echo isset($itinerary_details[0]['map_location']) ? $itinerary_details[0]['map_location'] : '';?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                              
                            </div>
                         </div>
                         <div class="wrap-detais-iti w-100 float-left mt-5" id="section4">
                            <h4>Images</h4>
                            <div class="images-gal-iti w-100 float-left mt-3">
                               <ul>
+                                 <?php
+                                    if(isset($itinerary_details[0]['image_gallery']) && $itinerary_details[0]['image_gallery']!= '')
+                                    {
+                                       $gall = json_decode($itinerary_details[0]['image_gallery'],true);
+                                       foreach($gall AS $ikey => $ivalue){
+                                 ?>
                                  <li>
-                                    <a href="#gallery-1" class="btn-gallery">
-                                    <img src="<?php echo base_url('assets/images/thai-imf01.jpg');?>" alt="" />
+                                    <a href="#gallery-<?php echo $ikey;?>" class="btn-gallery">
+                                    <img src="<?php echo base_url('assets/content/gallery/'.$ivalue);?>" alt="" />
                                     </a>
                                  </li>
-                                 <li>
+
+                                 <!-- <li>
                                     <a href="#gallery-2" class="btn-gallery">
                                     <img src="<?php echo base_url('assets/images/thai-imf02.jpg');?>" alt="" />
                                     </a>
@@ -227,14 +253,20 @@
                                     <a href="#gallery-4" class="btn-gallery">
                                     <img src="<?php echo base_url('assets/images/thai-imf01.jpg');?>" alt="" />
                                     </a>
-                                 </li>
+                                 </li> -->
+
+                                 <?php
+                                    }
+                                 } 
+                                 ?>
                               </ul>
-                              <div id="gallery-1" class="hiddens">
+                              <!-- <div id="gallery-1" class="hiddens">
                                  <a href="<?php echo base_url('assets/images/thai-imf01.jpg');?>">Image 1</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf02.jpg');?>">Image 2</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf03.jpg');?>">Image 3</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf01.jpg');?>">Image 4</a>
                               </div>
+
                               <div id="gallery-2" class="hiddens">
                                  <a href="<?php echo base_url('assets/images/thai-imf01.jpg');?>">Image 1</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf02.jpg');?>">Image 2</a>
@@ -252,9 +284,10 @@
                                  <a href="<?php echo base_url('assets/images/thai-imf02.jpg');?>">Image 2</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf03.jpg');?>">Image 3</a>
                                  <a href="<?php echo base_url('assets/images/thai-imf01.jpg');?>">Image 4</a>
-                              </div>
+                              </div> -->
                            </div>
                         </div>
+                        <!-------------------------- END ----------------------->
                      </div>
                      <div class="col-lg-4 col-md-12 col-12 float-left iti-right">
                         <div class="w-100 float-left why-book-maxx">
@@ -267,6 +300,7 @@
                            <a href="#" class="w-100 float-left mt-5 book-iti-button text-uppercase">Book Now</a>
                         </div>
                      </div>
+
                   </div>
                </div>
             </section>

@@ -6,8 +6,12 @@
 	$name = isset($ex[2]) ? $ex[2] : ''; // For Local
 	//$name = isset($ex[1]) ? $ex[1] : ''; // For Server
 	//var_dump($name);
-	if($name!='home') $is_home = false;
-	if($is_home || $name == ''){ //|| $name == '/?i=1'
+	if($name!='home'){
+		$is_home = false;
+	}
+	
+	//var_dump($is_home);
+	if($is_home || $name == 'itinerary' || $name == ''){ //|| $name == '/?i=1'
 ?>
 <header class="header-home w-100 float-left position-absolute">
 	<div class="logo-home float-left">

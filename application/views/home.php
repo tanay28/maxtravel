@@ -278,7 +278,7 @@
 								?>
 									<div class="item">
 										<div class="w-100 float-left block-destination-indi position-relative mb-3">
-											<a href="<?php echo base_url('itinerary')?>" class="w-100 float-left">
+											<a href="<?php echo base_url('itinerary/show_itinerary/'.base64_encode($ivalue['id']));?>" class="w-100 float-left">
 												<div class="w-100 float-left img-destination">
 													<img src="<?php echo base_url('assets/content/'.$ivalue['image_name']);?>" alt="<?php echo isset($ivalue['image_name']) ? $ivalue['image_name'] : 'NA';?>">
 												</div>

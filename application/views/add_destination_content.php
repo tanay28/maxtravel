@@ -56,12 +56,29 @@
 
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Date of Tour</label>
-									<input id="datepicker" name="txttourdate" required=""/ class="input-class-common float-left">
+									<input id="datepicker" name="txttourdate" required="" class="input-class-common float-left">
 								</div>
 
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<?php 
+										echo $this->ckeditor->editor("txtCk",$html);
+									?>
+								</div>
+
+								
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Image</label>
 									<input type="file" class=" float-left file-input" name="filePic" required>
+								</div>
+
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<label class="float-left">Insert Map</label>
+									<input type="text" name="txtMap" required="" class="input-class-common float-left">
+								</div>
+
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<label class="float-left">Image Gallery</label>
+									<input type="file" class=" float-left file-input" name="filePicGall[]" required multiple>
 								</div>
 							</div>
 						</div>

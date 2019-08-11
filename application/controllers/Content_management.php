@@ -14,13 +14,17 @@
 				redirect('login/logout');
 			}
 		}
-		private function image_upload($file)
+		private function image_upload($file,$flag)
 		{
-			//$target_dir = base_url().'assets/gstdoc/';
-			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/';
-
+			
+			if($flag == 1){
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/';
+			}else{
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/';
+			}
+			
 			$target_file = $target_dir . basename($file["name"]);
-		
+			
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			
@@ -501,14 +505,161 @@
 		//--------------------- END -------------------------//
 
 		//------------ Destination Management --------------------//
+		private function load_html()
+		{
+			$html = <<<EOF
+			<div class="wrap-detais-iti w-100 float-left mt-5" id="section1">
+			<h4>Tour Details</h4>
+			<p>A family day out to have fun and create unforgettable memories at Damnoen Saduak
+			   Floating Market, here you can see one of Thailand’s unique floating markets from
+			   which the traders sell all types of produce on small boats along the river such as
+			   fruits, local foods, vegetables, and you can enjoy taking a boat trip to see
+			   traditional Thai houses, also along the boat trip you can see the orchards that grow
+			   several different kinds of fruit and vegetables for example bananas, rose apples,
+			   papayas, guava, coconut etc.
+			   <br><br>
+			   There are more than 200 small canals that were originally dug by local people to
+			   connect with each other and to share water and irrigate their land. In the
+			   afternoon, Lets have fun with a lovely show of clever elephants and the heart
+			   stopping danger of the Crocodile show at Samphran Elephant Ground and Zoo.
+			</p>
+			<div class="w-100 float-left wrap-sections-iti">
+			   <div class="col-lg-5 col-md-12 col-12 float-left left-iti-title">
+				  <h3>Price Includes</h3>
+			   </div>
+			   <div class="col-lg-7 col-md-12 col-12 float-left right-content-iti">
+				  <span><i class="far fa-check-circle"></i>Meals mentioned in the program</span>
+				  <span><i class="far fa-check-circle"></i>Entrance Fees</span>
+				  <span><i class="far fa-check-circle"></i>English Speaking Guide</span>
+				  <span><i class="far fa-check-circle"></i>All transportation to destination
+				  location</span>
+				  <span><i class="far fa-check-circle"></i>Hotel transfer</span>
+				  <span><i class="far fa-check-circle"></i>Insurance</span>
+				  <span><i class="far fa-check-circle"></i>Snorkeling equipment</span>
+			   </div>
+			</div>
+			<div class="w-100 float-left wrap-sections-iti">
+			   <div class="col-lg-5 col-md-12 col-12 float-left left-iti-title">
+				  <h3>Price Excludes</h3>
+			   </div>
+			   <div class="col-lg-7 col-md-12 col-12 float-left right-content-iti">
+				  <span><i class="far fa-times-circle"></i>Meals mentioned in the program</span>
+				  <span><i class="far fa-times-circle"></i>Entrance Fees</span>
+				  <span><i class="far fa-times-circle"></i>English Speaking Guide</span>
+				  <span><i class="far fa-times-circle"></i>All transportation to destination
+				  location</span>
+				  <span><i class="far fa-times-circle"></i>Hotel transfer</span>
+				  <span><i class="far fa-times-circle"></i>Insurance</span>
+				  <span><i class="far fa-times-circle"></i>Snorkeling equipment</span>
+			   </div>
+			</div>
+			<div class="w-100 float-left wrap-sections-iti">
+			   <div class="col-lg-5 col-md-12 col-12 float-left left-iti-title">
+				  <h3>Pick - up point</h3>
+			   </div>
+			   <div class="col-lg-7 col-md-12 col-12 float-left right-content-iti">
+				  <span><i class="fas fa-car"></i>Pick up from hotels in Khaolak area</span>
+				  <span><i class="fas fa-car"></i>Pick up from hotels in Khaolak area Fees</span>
+			   </div>
+			</div>
+			<div class="w-100 float-left wrap-sections-iti">
+			   <div class="col-lg-5 col-md-12 col-12 float-left left-iti-title">
+				  <h3>Additional Information</h3>
+			   </div>
+			   <div class="col-lg-7 col-md-12 col-12 float-left right-content-iti">
+				  <span><i class="fas fa-star"></i>Program is subjected to change depends on
+				  weather and sea conditions</span>
+				  <span><i class="fas fa-star"></i>Program is subjected to change depends on
+				  weather and sea conditions</span>
+				  <span><i class="fas fa-star"></i>Program is subjected to change depends on
+				  weather and sea conditions</span>
+				  <span><i class="fas fa-star"></i>Program is subjected to change depends on
+				  weather and sea conditions</span>
+				  <span><i class="fas fa-star"></i>Program is subjected to change depends on
+				  weather and sea conditions</span>
+			   </div>
+			</div>
+			</div>
+			<div class="wrap-detais-iti w-100 float-left mt-5" id="section2">
+				<h4>Itinerary</h4>
+				<div class="w-100 float-left wrap-sections-iti">
+				<div class="w-100 float-left left-iti-title">
+					<h3 class="text-uppercase"><span>8 AM</span> Departure</h3>
+				</div>
+				<div class="w-100 float-left right-content-iti">
+					<p class="mb-0">Welcome to “Wow Andaman” to check in and have breakfast with coffee and tea. An after withdrawal snorkeling equipment. Then e tour guide will brief today’s tour program before we depart to Similan Island National Park</p>
+				</div>
+				</div>
+				<div class="w-100 float-left wrap-sections-iti">
+				<div class="w-100 float-left left-iti-title">
+					<h3 class="text-uppercase"><span>8 AM</span> Departure</h3>
+				</div>
+				<div class="w-100 float-left right-content-iti">
+					<p class="mb-0">Welcome to “Wow Andaman” to check in and have breakfast with coffee and tea. An after withdrawal snorkeling equipment. Then e tour guide will brief today’s tour program before we depart to Similan Island National Park</p>
+				</div>
+				</div>
+				<div class="w-100 float-left wrap-sections-iti">
+				<div class="w-100 float-left left-iti-title">
+					<h3 class="text-uppercase"><span>8 AM</span> Departure</h3>
+				</div>
+				<div class="w-100 float-left right-content-iti">
+					<p class="mb-0">Welcome to “Wow Andaman” to check in and have breakfast with coffee and tea. An after withdrawal snorkeling equipment. Then e tour guide will brief today’s tour program before we depart to Similan Island National Park</p>
+				</div>
+				</div>
+				<div class="w-100 float-left wrap-sections-iti">
+				<div class="w-100 float-left left-iti-title">
+					<h3 class="text-uppercase"><span>8 AM</span> Departure</h3>
+				</div>
+				<div class="w-100 float-left right-content-iti">
+					<p class="mb-0">Welcome to “Wow Andaman” to check in and have breakfast with coffee and tea. An after withdrawal snorkeling equipment. Then e tour guide will brief today’s tour program before we depart to Similan Island National Park</p>
+				</div>
+				</div>
+			</div>
+EOF;
+			return $html;
+		}
+		private function config_ckeditor()
+		{
+			$arr = array();
+			$arr = array(
+				array( 'Source', '-', 'Bold', 'Italic', 'Underline', '-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo','-','NumberedList','BulletedList' ),
+				array('name' => 'document','groups' => array('mode','document','doctools'),'items'=>array('Source','-','Save','NewPage','Preview','Print','-','Templates')),
+				array('name' => 'clipboard','groups' => array('clipboard','undo'),'items'=>array('Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo')),
+				array('name' => 'editing','groups' => array('find', 'selection', 'spellchecker'),'items'=>array('Find', 'Replace', '-', 'SelectAll', '-', 'Scayt')),
+				array('name' => 'forms','items'=>array('Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField')),
+				array('name' => 'basicstyles','groups' => array('basicstyles', 'cleanup'),'items'=>array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat')),
+				array('name' => 'paragraph','groups' => array('list', 'indent', 'blocks', 'align', 'bidi'),'items'=>array('NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language')),
+				array('name' => 'links','items'=>array('Link', 'Unlink', 'Anchor')),
+				array('name' => 'insert','items'=>array('Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe')),
+				array('name' => 'styles','items'=>array('Styles', 'Format', 'Font', 'FontSize')),
+				array('name' => 'colors','items'=>array('TextColor', 'BGColor')),
+				array('name' => 'tools','items'=>array('Maximize', 'ShowBlocks')),
+				array('name' => 'others','items'=>array('-')),
+			);
+			return $arr;
+
+		}
+	
 		public function destinations()
 		{
+			$this->load->library('ckeditor');
+			$this->load->library('ckfinder');
+			$html = $this->load_html();
+			$this->ckeditor->basePath = base_url().'assets/ckeditor/';
+			$this->ckeditor->config['toolbar'] = $this->config_ckeditor();
+			$this->ckeditor->config['language'] = 'english';
+			$this->ckeditor->config['width'] = '930px';
+			$this->ckeditor->config['height'] = '600px';            
+
+			//Add Ckfinder to Ckeditor
+			$this->ckfinder->SetupCKEditor($this->ckeditor,base_url('../../assets/ckfinder/'));
+			$data['html'] = $html;
 			$data['page_access'] = 'INACTIVE';
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
 
-			if(isset($_POST['txtdestination_name']) && $_POST['txtdestination_name']!='' && isset($_POST['txtcost']) && $_POST['txtcost']!='' && isset($_POST['txtdestinationcode']) && $_POST['txtdestinationcode']!='' && isset($_POST['txtpackagetype']) && $_POST['txtpackagetype']!='' && isset($_POST['txtduration']) && $_POST['txtduration']!='' && isset($_POST['txttourdate']) && $_POST['txttourdate']!='')
+			if(isset($_POST['txtdestination_name']) && $_POST['txtdestination_name']!='' && isset($_POST['txtcost']) && $_POST['txtcost']!='' && isset($_POST['txtdestinationcode']) && $_POST['txtdestinationcode']!='' && isset($_POST['txtpackagetype']) && $_POST['txtpackagetype']!='' && isset($_POST['txtduration']) && $_POST['txtduration']!='' && isset($_POST['txttourdate']) && $_POST['txttourdate']!='' && isset($_POST['txtCk']) && $_POST['txtCk']!='' && isset($_POST['txtMap']) && $_POST['txtMap']!='')
 			{
 				$destination_name = $_POST['txtdestination_name'];
 				$tag_name = $_POST['txtdestination_name'];
@@ -519,9 +670,28 @@
 				$duration = $_POST['txtduration'];
 				$date = $_POST['txttourdate'];
 
-				$filePic = $_FILES['filePic'];
-				$arrPic = $this->image_upload($filePic);
+				$filePicGall = $_FILES['filePicGall'];
+				$ArrPicName = array();
+				if(isset($filePicGall) && count($filePicGall)>0)
+				{
+					foreach($filePicGall['name'] AS $ikey => $ivalue){
 
+						$arr_pic['name'] = $ivalue;
+						$arr_pic['type'] = isset($filePicGall['type'][$ikey]) ? $filePicGall['type'][$ikey] : '';
+						$arr_pic['tmp_name'] = isset($filePicGall['tmp_name'][$ikey]) ? $filePicGall['tmp_name'][$ikey] : '';
+						$arr_pic['error'] = isset($filePicGall['error'][$ikey]) ? $filePicGall['error'][$ikey] : '';
+						$arr_pic['size'] = isset($filePicGall['size'][$ikey]) ? $filePicGall['size'][$ikey] : '';
+						$arr_pic['size'] = isset($filePicGall['size'][$ikey]) ? $filePicGall['size'][$ikey] : '';
+						$Pic_name = $this->image_upload($arr_pic,1);
+						array_push($ArrPicName,$ivalue);
+						
+					}
+				}
+				
+				$filePic = $_FILES['filePic'];
+				
+				$arrPic = $this->image_upload($filePic,0);
+				
 				if(isset($arrPic['status']) && $arrPic['status'] == 'success')
 				{
 					$image_name = isset($arrPic['file_name']) ? $arrPic['file_name'] : ''; 
@@ -539,7 +709,17 @@
 					);
 
 					$this->load->model('Contentmanagement');
-					$id = $this->Contentmanagement->insert_data($Arr);
+					$id = $this->Contentmanagement->insert_data($Arr,'contents');
+
+					$Arr = array(
+						'content_id'      => $id,
+						'content'        => $_POST['txtCk'],
+						'image_gallery'  => json_encode($ArrPicName),
+						'map_location'   => $_POST['txtMap'],
+						'date_created'   => date('Y-m-d H:i:s'),
+						'date_modified'  => date('Y-m-d H:i:s')
+					);
+					$id = $this->Contentmanagement->insert_data($Arr,'dynamic_content');
 					$this->session->set_flashdata('success', 'Content creation successful..');
 					redirect('content_management/view_destinations');
 				}

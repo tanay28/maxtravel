@@ -61,4 +61,21 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 /*CREATE TABLE `maxtravel`.`contents` ( `id` INT NOT NULL AUTO_INCREMENT , `slider_name` VARCHAR(200) NOT NULL , `tag_name` VARCHAR(200) NOT NULL , `slider_details` VARCHAR(200) NOT NULL , `image_name` VARCHAR(200) NOT NULL , `date_created` DATETIME NOT NULL , `last_modified` DATETIME NOT NULL , `status` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;*/
 
 /*ALTER TABLE `contents` ADD `slider_for` VARCHAR(200) NOT NULL AFTER `image_name`;*/
+
+
+//--------------------------------- 11.08.2019 ---------------------------//
+
+CREATE TABLE `dynamic_content` (
+    `id` int(11) NOT NULL,
+    `content_id` int(11) NOT NULL,
+    `content` longblob NOT NULL,
+    `image_gallery` varchar(200) NOT NULL,
+    `map_location` varchar(200) NOT NULL,
+    `date_created` datetime NOT NULL,
+    `date_modified` datetime NOT NULL
+  )
+  ALTER TABLE `dynamic_content`
+  ADD PRIMARY KEY (`id`);
+  ALTER TABLE `dynamic_content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ?>
