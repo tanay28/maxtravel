@@ -60,7 +60,7 @@
 		<div id="head-mobile"></div>
 		<div class="button"></div>
 		<ul>
-			<!----------------------- Common Menu --------------------------->
+			<!--Common Menu-->
 			<!-- <li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li> -->
 			<li><a href='javascript:void()'>EXCURSIONS</a>
 				<ul>
@@ -78,13 +78,13 @@
 			<li><a href='javascript:void()'>HOTELS</a></li>
 			<li><a href='javascript:void()'>MARRAGE EVENTS</a></li>
 			<li><a href='javascript:void()'>M.I.C.S.</a></li>
-			<!---------------------------- END ------------------------------->
+			<!-- END -->
 			<?php
 				$checkuservars = $this->session->userdata;
 				if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){
 			?>
 
-				<!---------------------------- Agent -------------------------------------->
+				<!-- Agent -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>
 					
 					<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
@@ -100,9 +100,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!----------------------------- END -------------------------------------->
+				<!-- END -->
 
-				<!-------------------------- Superadmin -------------------------------->
+				<!-- Superadmin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){?>
 					<li><a href='javascript:void()'>Admin</a>
 						<ul>
@@ -153,9 +153,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!----------------------------- END -------------------------------------->
+				<!-- END -->
 
-				<!------------------------------ Admin ----------------------------------->
+				<!-- Admin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='ADMIN'){?>
 					<li><a href="<?php echo base_url('dashboardad');?>">DASHBOARD</a></li>
 					<li><a href='javascript:void()'>SETTINGS</a>
@@ -166,9 +166,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!----------------------------- END -------------------------------------->
+				<!-- END -->
 
-				<!---------------------------- Employee ----------------------------------->
+				<!-- Employee -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='EMPLOYEE'){?>
 					<li><a href="<?php echo base_url('dashboardem');?>">DASHBOARD</a></li>
 					<li><a href='javascript:void()'>SETTINGS</a>
@@ -179,7 +179,7 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!------------------------------ END -------------------------------------->
+				<!-- END -->
 			<?php }?>
 			
 		</ul>
@@ -236,7 +236,7 @@
 		<div id="head-mobile"></div>
 		<div class="button"></div>
 		<ul>
-			<!----------------------- Common Menu --------------------------->
+			<!-- Common Menu -->
 			<!-- <li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li> -->
 			<li><a href='javascript:void()'>EXCURSIONS</a>
 				<ul>
@@ -255,12 +255,12 @@
 			<li><a href='javascript:void()'>HOTELS</a></li>
 			<li><a href='javascript:void()'>MARRAGE EVENTS</a></li>
 			<li><a href='javascript:void()'>M.I.C.S.</a></li>
-			<!---------------------------- END ------------------------------->
+			<!-- END -->
 			<?php
 				$checkuservars = $this->session->userdata;
 				if(isset($checkuservars['is_logged_in']) && $checkuservars['is_logged_in'] == 1){
 			?>
-				<!---------------------------- Agent -------------------------------------->
+				<!-- Agent -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>
 
 					<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
@@ -275,9 +275,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!----------------------------- END --------------------------------------->
+				<!-- END -->
 
-				<!---------------------------- Superadmin --------------------------------->
+				<!-- Superadmin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){?>
 					<li><a href='javascript:void()'>Admin</a>
 						<ul>
@@ -328,9 +328,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!-------------------------------- END ------------------------------------>
+				<!-- END -->
 
-				<!------------------------------ Admin ---------------------------------->
+				<!-- Admin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='ADMIN'){?>
 					<li><a href="<?php echo base_url('dashboardad');?>">DASHBOARD</a></li>
 					<li><a href='javascript:void()'>SETTINGS</a>
@@ -341,9 +341,9 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!-------------------------------- END ------------------------------------>
+				<!-- END -->
 
-				<!------------------------------ Employee --------------------------------->
+				<!-- Employee -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='EMPLOYEE'){?>
 					<li><a href="<?php echo base_url('dashboardem');?>">DASHBOARD</a></li>
 					<li><a href='javascript:void()'>SETTINGS</a>
@@ -354,7 +354,7 @@
 						</ul>
 					</li>
 				<?php } ?>
-				<!-------------------------------- END ------------------------------------>
+				<!-- END -->
 			<?php }?>
 		</ul>
 	</div>
