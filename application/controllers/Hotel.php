@@ -112,7 +112,9 @@
 		}
 
 		public function savecart(){
-			
+
+			var_dump($_POST);
+
 		}
 
 		public function ajax_fetch_city()

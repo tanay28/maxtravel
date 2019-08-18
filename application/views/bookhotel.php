@@ -218,13 +218,13 @@ function savecart(){
       var adult = $('#modelcartadults').val();
       var child = $('#modelcartchild').val();
 
-      if(hotelid!=0){
+      if(hotelid==0){
             alert('Select Hotel.');
             return false;
-      }else if(checkin!=''){
+      }else if(checkin==''){
             alert('Select Check In Time.');
             return false;
-      }else if(checkout!=''){
+      }else if(checkout==''){
             alert('Select Check Out Time.');
             return false;
       }else{
@@ -232,31 +232,10 @@ function savecart(){
 
                   url     : base_url+'hotel/savecart',
                   type    : "post",
-                  data    : {"hotelid":hotelid,"checkin":checkin,"checkin":checkin,"checkin":checkin,"checkin":checkin,"checkin":checkin},
+                  data    : {"hotelid":hotelid,"checkin":checkin,"checkout":checkout,"room":room,"adult":adult,"child":child},
                   success : function(result){
-                                    //alert(result);
-                  if(result == 'AGENT')
-                  {
-                        window.location.href = base_url+'dashboardag';  
-                  }
-                  if(result == 'SUPERADMIN')
-                  {
-                        window.location.href = base_url+'dashboardsa';
-                  }
-                  if(result == 'ADMIN')
-                  {
-                        window.location.href = base_url+'dashboardad';
-                  }
-                  if(result == 'EMPLOYEE')
-                  {
-                        window.location.href = base_url+'dashboardem';  
-                  }
-                  else if(result == '')
-                  {
-                        $('#ajaxmsg').show('slow');
-                        var msg = 'Enter Valid Email And Password!!'; 
-                        $('#ajaxmsg').html(msg);
-                  }
+                        console.log(result);
+                  
                                     
             }});
       }
