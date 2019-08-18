@@ -65,7 +65,7 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
 //--------------------------------- 11.08.2019 ---------------------------//
 
-CREATE TABLE `dynamic_content` (
+/*CREATE TABLE `dynamic_content` (
     `id` int(11) NOT NULL,
     `content_id` int(11) NOT NULL,
     `content` longblob NOT NULL,
@@ -73,9 +73,9 @@ CREATE TABLE `dynamic_content` (
     `map_location` varchar(200) NOT NULL,
     `date_created` datetime NOT NULL,
     `date_modified` datetime NOT NULL
-  )
+  );
   ALTER TABLE `dynamic_content`
   ADD PRIMARY KEY (`id`);
   ALTER TABLE `dynamic_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
 ?>
