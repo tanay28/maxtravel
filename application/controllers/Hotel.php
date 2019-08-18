@@ -111,6 +111,10 @@
 			$this->load->view('addhotel',$data);
 		}
 
+		public function savecart(){
+			
+		}
+
 		public function ajax_fetch_city()
 		{
 			if(isset($_POST['key']))

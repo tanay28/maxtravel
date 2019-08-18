@@ -208,6 +208,60 @@ function addtocart(hotelid,hotelname){
       $('#cartmodeltitle').html(hotelname);
       $('#modelhotelid').val(hotelid);
 }
+
+function savecart(){
+
+      var hotelid = $('#modelhotelid').val();
+      var checkin = $('#modelcartcheckin').val();
+      var checkout = $('#modelcartcheckout').val();
+      var room = $('#modelcartroom').val();
+      var adult = $('#modelcartadults').val();
+      var child = $('#modelcartchild').val();
+
+      if(hotelid!=0){
+            alert('Select Hotel.');
+            return false;
+      }else if(checkin!=''){
+            alert('Select Check In Time.');
+            return false;
+      }else if(checkout!=''){
+            alert('Select Check Out Time.');
+            return false;
+      }else{
+            $.ajax({
+
+                  url     : base_url+'hotel/savecart',
+                  type    : "post",
+                  data    : {"hotelid":hotelid,"checkin":checkin,"checkin":checkin,"checkin":checkin,"checkin":checkin,"checkin":checkin},
+                  success : function(result){
+                                    //alert(result);
+                  if(result == 'AGENT')
+                  {
+                        window.location.href = base_url+'dashboardag';  
+                  }
+                  if(result == 'SUPERADMIN')
+                  {
+                        window.location.href = base_url+'dashboardsa';
+                  }
+                  if(result == 'ADMIN')
+                  {
+                        window.location.href = base_url+'dashboardad';
+                  }
+                  if(result == 'EMPLOYEE')
+                  {
+                        window.location.href = base_url+'dashboardem';  
+                  }
+                  else if(result == '')
+                  {
+                        $('#ajaxmsg').show('slow');
+                        var msg = 'Enter Valid Email And Password!!'; 
+                        $('#ajaxmsg').html(msg);
+                  }
+                                    
+            }});
+      }
+
+}
 </script>
 
 <!-- Modal -->
@@ -255,7 +309,7 @@ function addtocart(hotelid,hotelname){
         <!-- -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" onclick="savecart()">Save Cart</button>
       </div>
     </div>
 
