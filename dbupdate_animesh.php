@@ -64,5 +64,21 @@ ADD  `country_id` INT( 11 ) NOT NULL AFTER  `city_id`;
 ALTER TABLE  `hotel` ADD  `no_of_adult` INT( 11 ) NOT NULL AFTER  `room_rate_exclude_breakfast` ,
 ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;
 
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `key_id` int(11) NOT NULL,
+  `key_type` enum('HOTEL') NOT NULL,
+  `counts` int(11) NOT NULL,
+  `amount` double NOT NULL,
+  `status` enum('ACTIVE','MOVE','INACTIVE','DELETED') NOT NULL DEFAULT 'ACTIVE',
+  `posted_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `cart` ADD `key_description` BLOB NOT NULL AFTER `key_type`;
 ?>

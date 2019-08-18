@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 	$is_home = true;
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
 	//var_dump($ex);
@@ -62,7 +61,7 @@
 		<ul>
 			<!--Common Menu-->
 			<!-- <li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li> -->
-			<li><a href='javascript:void()'>EXCURSIONS</a>
+			<!-- <li><a href='javascript:void()'>EXCURSIONS</a>
 				<ul>
 					<li><a href='javascript:void()'>Product</a></li>
 					<li><a href='javascript:void()'>Sightseeing</a></li>
@@ -74,10 +73,13 @@
 					<li><a href='javascript:void()'>Snorkeling</a></li>
 				</ul>
 			</li>
-			<li><a href='javascript:void()'>PACKAGE TOURS</a></li>
-			<li><a href='javascript:void()'>HOTELS</a></li>
-			<li><a href='javascript:void()'>MARRAGE EVENTS</a></li>
-			<li><a href='javascript:void()'>M.I.C.S.</a></li>
+			<li><a href='javascript:void()'>PACKAGE TOURS</a></li> -->
+			<li><a href="<?php echo base_url('hotel/book');?>">HOTELS</a></li>
+			<li><a href="<?php echo base_url('aboutus');?>">About</a></li>
+			<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
+			<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
+			<!-- <li><a href='javascript:void()'>MARRAGE EVENTS</a></li> -->
+			<!-- <li><a href='javascript:void()'>M.I.C.S.</a></li> -->
 			<!-- END -->
 			<?php
 				$checkuservars = $this->session->userdata;
@@ -238,7 +240,7 @@
 		<ul>
 			<!-- Common Menu -->
 			<!-- <li class='active'><a href='<?php echo base_url('home');?>'>HOME</a></li> -->
-			<li><a href='javascript:void()'>EXCURSIONS</a>
+			<!-- <li><a href='javascript:void()'>EXCURSIONS</a>
 				<ul>
 					<li><a href='javascript:void()'>Product</a></li>
 					<li><a href='javascript:void()'>Sightseeing</a></li>
@@ -251,10 +253,13 @@
 
 				</ul>
 			</li>
-			<li><a href='javascript:void()'>PACKAGE TOURS</a></li>
-			<li><a href='javascript:void()'>HOTELS</a></li>
-			<li><a href='javascript:void()'>MARRAGE EVENTS</a></li>
-			<li><a href='javascript:void()'>M.I.C.S.</a></li>
+			<li><a href='javascript:void()'>PACKAGE TOURS</a></li> -->
+			<li><a href="<?php echo base_url('hotel/book');?>">HOTELS</a></li>
+			<li><a href="<?php echo base_url('aboutus');?>">About</a></li>
+			<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
+			<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
+			<!-- <li><a href='javascript:void()'>MARRAGE EVENTS</a></li> -->
+			<!-- <li><a href='javascript:void()'>M.I.C.S.</a></li> -->
 			<!-- END -->
 			<?php
 				$checkuservars = $this->session->userdata;
@@ -361,6 +366,5 @@
 </header>
 <?php		
 	}
-	
 ?>
 

@@ -165,7 +165,7 @@
                               <div class="hotel-price-wrap float-right position-relative">
                                     <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> <?php echo isset($hvalue['room_rate_include_breakfast']) ? number_format($hvalue['room_rate_include_breakfast'],2) : 'NA';?></h1>
                                     <span class="w-100 float-left">Per Night</span>
-                                    <a href="#" class="btn btn-booknow">Add to cart</a>
+                                    <a href="javascript:void(0);" class="btn btn-booknow" data-toggle="modal" data-target="#myModal">Add to cart</a>
                               </div>
                         </div>
                         <?php }}else{ echo 'No Records !!';}?>
@@ -175,17 +175,17 @@
             </div>
 
             <div class="w-100 float-left bottom-hotels-pagi">
-								<p class="w-100 float-left">Showing result 10 of 100</p>
-								<nav class="w-100 float-left pagination-hotels mt-2">
-									<ul class="pagination mb-0">
-										<li class="page-item"><a class="page-link p-n-but" href="#">Previous</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link p-n-but" href="#">Next</a></li>
-									</ul>
-								</nav>
-                                          </div>
+			<p class="w-100 float-left">Showing result 10 of 100</p>
+			<nav class="w-100 float-left pagination-hotels mt-2">
+				<ul class="pagination mb-0">
+					<li class="page-item"><a class="page-link p-n-but" href="#">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link p-n-but" href="#">Next</a></li>
+				</ul>
+			</nav>
+            </div>
                                           
             <?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
       </div>
@@ -202,5 +202,51 @@ $(function () {
 }); 
 </script>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- -->
+      <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+                  <label>Select Check In </label>
+                  <input id="datepicker" name="searchbycheckin" value="<?php echo (isset($_POST['searchbycheckin'])) ? $_POST['searchbycheckin'] : '';?>" /></div>
+
+
+            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+                  <label>Select Check Out </label>
+                  <input id="datepicker1" name="searchbycheckout" value="<?php echo (isset($_POST['searchbycheckout'])) ? $_POST['searchbycheckout'] : '';?>" />
+            </div>
+
+
+            <div class="col-12 col-md-12 col-lg-4 float-right rating-dates pr-0">
+                  <label class="w-100 float-left">Select Person </label>
+                  
+                  <div class="wrap-peroson position-relative">
+                  <i class="far fa-plus-square"></i>
+                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofadults' placeholder='Adults' type='text' value="<?php echo (isset($_POST['searchnoofadults'])) ? $_POST['searchnoofadults'] : '';?>">
+                  </div>
+            <div class="wrap-peroson position-relative">
+            <i class="far fa-plus-square"></i>
+                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofchild' placeholder='Child' type='text' value="<?php echo (isset($_POST['searchnoofchild'])) ? $_POST['searchnoofchild'] : '';?>">
+                  </div>
+            </div>
+      
+        <!-- -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 			

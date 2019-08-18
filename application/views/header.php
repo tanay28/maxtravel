@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,17 +59,12 @@
 	}
 </style>
 </head>
-
-
 <body>
 	<div id="loading">
 		<div class="page-loader"></div>
 	</div>
-	<div id="page">
-		
+	<div id="page">		
 		<div id="colorlib-page" class="float-left w-100">
 			<div class="header-other-page col-lg-12 position-relative float-left">
 				<?php include_once('main_menu.php');?>	
 			</div>
-
-			
