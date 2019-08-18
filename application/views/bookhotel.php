@@ -165,7 +165,7 @@
                               <div class="hotel-price-wrap float-right position-relative">
                                     <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> <?php echo isset($hvalue['room_rate_include_breakfast']) ? number_format($hvalue['room_rate_include_breakfast'],2) : 'NA';?></h1>
                                     <span class="w-100 float-left">Per Night</span>
-                                    <a href="javascript:void(0);" class="btn btn-booknow" data-toggle="modal" data-target="#myModal">Add to cart</a>
+                                    <a href="javascript:void(0);" class="btn btn-booknow" data-toggle="modal" data-target="#myCartModel" onclick="addtocart('<?php echo $hvalue['id']?>','<?php echo $hvalue['hotel_name']?>');">Add to cart</a>
                               </div>
                         </div>
                         <?php }}else{ echo 'No Records !!';}?>
@@ -200,42 +200,55 @@ $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
 }); 
+
+function addtocart(hotelid,hotelname){
+
+      //alert(hotelid);
+      //alert(hotelname);
+      $('#cartmodeltitle').html(hotelname);
+      $('#modelhotelid').val(hotelid);
+}
 </script>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myCartModel" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title" id="cartmodeltitle">Modal Header</h4>
+        <input type="hidden" name="modelhotelid" id="modelhotelid" value="0">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         
         <!-- -->
-      <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
                   <label>Select Check In </label>
-                  <input id="datepicker" name="searchbycheckin" value="<?php echo (isset($_POST['searchbycheckin'])) ? $_POST['searchbycheckin'] : '';?>" /></div>
+                  <input type="text" name="modelcartcheckin" id="modelcartcheckin" value="" />
+            </div>
 
 
             <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
                   <label>Select Check Out </label>
-                  <input id="datepicker1" name="searchbycheckout" value="<?php echo (isset($_POST['searchbycheckout'])) ? $_POST['searchbycheckout'] : '';?>" />
+                  <input type="text" name="modelcartcheckout" id="modelcartcheckout" value="" />
             </div>
-
+            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+                  <label>Room</label>
+                  <input type="text" name="modelcartroom" id="modelcartroom" value="" />
+            </div>
 
             <div class="col-12 col-md-12 col-lg-4 float-right rating-dates pr-0">
                   <label class="w-100 float-left">Select Person </label>
                   
                   <div class="wrap-peroson position-relative">
                   <i class="far fa-plus-square"></i>
-                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofadults' placeholder='Adults' type='text' value="<?php echo (isset($_POST['searchnoofadults'])) ? $_POST['searchnoofadults'] : '';?>">
+                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' name='modelcartadults' id="modelcartadults" placeholder='Adults' type='text' value="">
                   </div>
             <div class="wrap-peroson position-relative">
             <i class="far fa-plus-square"></i>
-                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' id='myInput' name='searchnoofchild' placeholder='Child' type='text' value="<?php echo (isset($_POST['searchnoofchild'])) ? $_POST['searchnoofchild'] : '';?>">
+                  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' name='modelcartchild' id="modelcartchild" placeholder='Child' type='text' value="">
                   </div>
             </div>
       
