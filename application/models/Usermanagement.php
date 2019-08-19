@@ -3,6 +3,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usermanagement extends CI_Model {
 
+    public function getUserWalletPoint($userid){
+
+        $sql = "SELECT wallet FROM users 
+                WHERE id = '".$userid."'";
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function updateUserWallet($uid,$wallet){
+
+        $value = array(
+            'wallet' => $wallet
+        );
+        
+        $this->db->where(array('id'=>$uid));
+        if( $this->db->update('users',$value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function getMyprofileDetails_superadmin($userid){
 
         $sql = "SELECT * FROM users 

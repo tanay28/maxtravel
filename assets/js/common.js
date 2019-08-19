@@ -92,3 +92,21 @@ function currency_converter()
 	      success: function(result){$('#covertedval').html(result);}});
 	}
 }
+
+function notifications()
+{
+	
+	var ct = $('#ct_notification').val();
+	var user_id = $('#user_id').val();
+	$.ajax({
+	      url  : base_url+'Notification/notification_reset',
+	      type : "post",
+	      data : {"user_id":user_id,"ct":ct}, 
+	      success: function(result){
+	      	console.log(result);
+	      	if(result == 'ok')
+	      	{
+	      		$('#show_ct').hide('slow');
+	      	}
+	      }});
+}

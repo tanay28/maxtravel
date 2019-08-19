@@ -28,6 +28,17 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
+
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+
 			$data['agents'] = $this->getAllagents();
 			$this->load->view('listagent',$data);
 		}
@@ -53,6 +64,16 @@
 				$data['page_access'] = 'INACTIVE';
 			}
 			
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+
 			$this->load->view('addagent',$data);
 		}
 		public function addagent()
@@ -296,6 +317,16 @@
 			if(isset($_SESSION['usertype']) && ($_SESSION['usertype']=='SUPERADMIN' || $_SESSION['usertype']=='ADMIN')){
 				$data['page_access'] = 'ACTIVE';
 			}
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+			
 			$agent_id = base64_decode($this->uri->segment(3));
 			if($agent_id != '')
 			{

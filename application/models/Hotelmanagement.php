@@ -53,7 +53,9 @@ class Hotelmanagement extends CI_Model {
         return $r;
     }
 
-    public function insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$room_rate_include_breakfast,$room_rate_exclude_breakfast,$no_of_adult,$no_of_child,$created_by,$created_on,$status){
+    
+
+    public function insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$created_by,$created_on,$status){
 
         $now = date("Y-m-d H:i:s");
 
@@ -65,8 +67,8 @@ class Hotelmanagement extends CI_Model {
             'facilities' => $facilities,
             'hotel_category' => $hotel_category,
             'room_type' => $room_type,
-            'room_rate_include_breakfast' => $room_rate_include_breakfast,
-            'room_rate_exclude_breakfast' => $room_rate_exclude_breakfast,
+            'breakfast' => $breakfast,
+            'pernight_room_rate' => $pernight_room_rate,
             'no_of_adult' => $no_of_adult,
             'no_of_child' => $no_of_child,
             'created_by' => $created_by,
@@ -83,7 +85,31 @@ class Hotelmanagement extends CI_Model {
         }
     }
 
-    public function updateHotel($hotelid,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$room_rate_include_breakfast,$room_rate_exclude_breakfast,$no_of_adult,$no_of_child){
+    public function savecart($user_id,$key_id,$key_type,$key_description,$counts,$amount,$status){
+
+        $now = date("Y-m-d H:i:s");
+
+        $data = array(
+            'user_id' => $user_id,
+            'key_id' => $key_id,
+            'key_type' => $key_type,
+            'key_description' => $key_description,
+            'counts' => $counts,
+            'amount' => $amount,
+            'status' => $status,
+            'posted_on' => $now
+        );
+
+        $this->db->insert('cart', $data);
+
+        if($this->db->insert_id()>0){
+            return $this->db->insert_id();
+        }else{
+            return false;
+        }
+    }
+
+    public function updateHotel($hotelid,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child){
 
         $value = array(
             'hotel_name' => $hotel_name,
@@ -93,8 +119,8 @@ class Hotelmanagement extends CI_Model {
             'facilities' => $facilities,
             'hotel_category' => $hotel_category,
             'room_type' => $room_type,
-            'room_rate_include_breakfast' => $room_rate_include_breakfast,
-            'room_rate_exclude_breakfast' => $room_rate_exclude_breakfast,
+            'breakfast' => $breakfast,
+            'pernight_room_rate' => $pernight_room_rate,
             'no_of_adult' => $no_of_adult,
             'no_of_child' => $no_of_child
         );

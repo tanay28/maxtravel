@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -46,18 +46,9 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<?php include_once('before_login_menu.php'); ?>
 		<div id="colorlib-page" class="float-left w-100">
 			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
-				<div class="w-100 float-left inner-header-bg-two">
-				<div class="container position-relative">
-					<div class="w-100 logo-others text-center mt-2">
-						
-					</div>
-					<div class="w-100 float-left text-center page-title-inner-pages mt-5">
-						<h2>Contact Us</h2>
-					</div>
-				</div>
+				<?php include_once('main_menu.php');?>
 			</div>
 			</header>
 
@@ -73,13 +64,13 @@
 								<h4>GET IN TOUCH</h4>
 								</div>
 								<div class="col-lg-4 col-md-4 col-12 float-left mb-3">
-									<input name="txtName" type="text" class="input-contact" placeholder="Enter Your Name">
+									<input name="txtName" type="text" class="input-contact" placeholder="Enter Your Name" required="">
 								</div>
 								<div class="col-lg-4 col-md-4 col-12 float-left mb-3">
-									<input name="txtEmail" type="email" placeholder="Enter Email" class="input-contact">
+									<input name="txtEmail" type="email" placeholder="Enter Email" class="input-contact" required="">
 								</div>
 								<div class="col-lg-4 col-md-4 col-12 float-left mb-3">
-									<input name="txtPhone" type="text" placeholder="Enter Phone No" class="input-contact">
+									<input name="txtPhone" type="text" placeholder="Enter Phone No" class="input-contact"  required="">
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 float-left">
 									<textarea name="txtMsg" cols="" rows="" placeholder="Enter Message" class="input-contact"></textarea>

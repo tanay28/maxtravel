@@ -9,10 +9,30 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('dashboard');
+		$data = array();
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
+		$this->load->view('dashboard',$data);
 	}
 	public function changePassword()
 	{
+		$data = array();
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
 		if(isset($_POST['txtNew']) && isset($_POST['txtConfirm']))
 		{
 			$this->load->model('Usermanagement');
@@ -36,6 +56,6 @@ class Dashboard extends CI_Controller {
 				
 			}
 		}
-		$this->load->view('changepassword');
+		$this->load->view('changepassword',$data);
 	}
 }

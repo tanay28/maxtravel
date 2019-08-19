@@ -1,4 +1,4 @@
-var check = false;
+/*var check = false;
 
 function changeVal(el) {
   var qt = parseFloat(el.parent().children(".qt").html());
@@ -82,4 +82,4 @@ $(document).ready(function(){
     check = true;
     $(".remove").click();
   });
-});
+});*/

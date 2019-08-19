@@ -11,6 +11,16 @@
 		public function index()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+			
 			$arr = array();
 			$this->load->model('Contact_us');
 			$rs = $this->Contact_us->get_contact_details();

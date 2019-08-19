@@ -19,8 +19,8 @@
                                                 <th>Facilities</th>                    
                                                 <th>Category</th>
                                                 <th>Room Type</th>
-                                                <th>Room Rate(Include Breakfast)</th>
-                                                <th>Room Rate(Exclude Breakfast)</th>
+                                                <th>Breakfast</th>
+                                                <th>Room Rate</th>
                                                 <th>Action</th>
                                           </tr>
                                     </thead>
@@ -53,8 +53,8 @@
 
                                                 </td>
                                                 <td><?php echo isset($hvalue['room_type']) ? $hvalue['room_type'] : '';?></td>
-                                                <td><?php echo isset($hvalue['room_rate_include_breakfast']) ? $hvalue['room_rate_include_breakfast'] : '';?></td>
-                                                <td><?php echo isset($hvalue['room_rate_exclude_breakfast']) ? $hvalue['room_rate_exclude_breakfast'] : '';?></td>
+                                                <td><?php echo isset($hvalue['breakfast']) ? $hvalue['breakfast'] : '';?></td>
+                                                <td><?php echo isset($hvalue['pernight_room_rate']) ? $hvalue['pernight_room_rate'] : '';?></td>
                                                 <td>
                                                       <a href="<?php echo base_url('hotel/edit/'.base64_encode($hvalue['id']));?>"><i class="fa fa-fw fa-edit"></i></a></td>
                                           </tr>

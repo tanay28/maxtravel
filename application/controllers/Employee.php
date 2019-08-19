@@ -39,6 +39,15 @@ class Employee extends CI_Controller {
 
 		$data = array();
 		$data['page_access'] = 'INACTIVE';
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
 		if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 			$data['page_access'] = 'ACTIVE';
 		}
@@ -54,6 +63,15 @@ class Employee extends CI_Controller {
 
 		$data = array();
 		$data['page_access'] = 'INACTIVE';
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
 		if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 			$data['page_access'] = 'ACTIVE';
 		}
@@ -69,7 +87,15 @@ class Employee extends CI_Controller {
 
 		$data = array();
 		$data['page_access'] = 'INACTIVE';
-
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
 		if(isset($_POST['name']) && $_POST['name']!='' && isset($_POST['email']) && $_POST['email']!='' && isset($_POST['password']) && $_POST['password']!='' && isset($_POST['phoneno']) && $_POST['phoneno']!='' && isset($_POST['designation']) && $_POST['designation']!=''){
 			
 			$this->load->model('Employeemanagement');
@@ -116,7 +142,15 @@ class Employee extends CI_Controller {
 
 		$data = array();
 		$data['page_access'] = 'INACTIVE';
-
+		/////////// Notification and Order
+		$checkuservars = $this->session->userdata;
+		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+		$this->load->model('Notification_model');
+		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+		$data['user_id'] = $user_id;
+		$data['notifications'] = $rs;
+		/////////// Notification and Order
 		if($this->uri->segment('3')!='')
 		{
 

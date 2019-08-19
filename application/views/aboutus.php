@@ -46,22 +46,14 @@
 		<div class="page-loader"></div>
 	</div>
 	<div id="page">
-		<?php include_once('before_login_menu.php'); ?>
+		
 		<div id="colorlib-page" class="float-left w-100">
-			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
-				<div class="w-100 float-left inner-header-bg-two">
-				<div class="container position-relative">
-					<div class="w-100 logo-others text-center mt-2">
-						
-					</div>
-					<div class="w-100 float-left text-center page-title-inner-pages mt-5">
-						<h2>About Us</h2>
-					</div>
-				</div>
-			</div>
-			</header>
 
-			
+			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/images/calculator-bg.jpg');?>);">
+
+				
+			<?php include_once('main_menu.php');?>
+			</header>
 
 			<section class="w-100 float-left wrap-signup pt-3 pb-5">
 				<div class="container">

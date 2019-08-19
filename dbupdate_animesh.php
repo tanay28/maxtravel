@@ -58,13 +58,13 @@ ALTER TABLE `employee`
 
 
 /********************* 15.06.2019 ************************/
-ALTER TABLE  `hotel` ADD  `city_id` INT( 11 ) NOT NULL AFTER  `hotel_address` ,
-ADD  `country_id` INT( 11 ) NOT NULL AFTER  `city_id`;
+/*ALTER TABLE  `hotel` ADD  `city_id` INT( 11 ) NOT NULL AFTER  `hotel_address` ,
+ADD  `country_id` INT( 11 ) NOT NULL AFTER  `city_id`;*/
 
-ALTER TABLE  `hotel` ADD  `no_of_adult` INT( 11 ) NOT NULL AFTER  `room_rate_exclude_breakfast` ,
-ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;
+/*ALTER TABLE  `hotel` ADD  `no_of_adult` INT( 11 ) NOT NULL AFTER  `room_rate_exclude_breakfast` ,
+ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;*/
 
-CREATE TABLE `cart` (
+/*CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `key_id` int(11) NOT NULL,
   `key_type` enum('HOTEL') NOT NULL,
@@ -72,13 +72,41 @@ CREATE TABLE `cart` (
   `amount` double NOT NULL,
   `status` enum('ACTIVE','MOVE','INACTIVE','DELETED') NOT NULL DEFAULT 'ACTIVE',
   `posted_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
+/*ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);*/
+
+/*ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+/*ALTER TABLE `cart` ADD `key_description` BLOB NOT NULL AFTER `key_type`;*/
+
+/*ALTER TABLE `hotel` CHANGE `room_rate_include_breakfast` `breakfast` ENUM('YES','NO') NOT NULL DEFAULT 'YES';*/
+
+/*ALTER TABLE `hotel` ADD `pernight_room_rate` DOUBLE NOT NULL AFTER `no_of_child`;*/
+
+/*ALTER TABLE `hotel` CHANGE `breakfast` `breakfast` ENUM('include','exclude') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'include';*/
+
+/*ALTER TABLE `cart` ADD `user_id` INT(11) NOT NULL AFTER `id`;*/
+
+ALTER TABLE `users` ADD `wallet` DOUBLE NOT NULL AFTER `userstype`;
+
+CREATE TABLE `wallet` (
+  `id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `request_point` double NOT NULL,
+  `reciever_id` int(11) NOT NULL,
+  `approved_point` double NOT NULL,
+  `request_date` datetime NOT NULL,
+  `approve_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `cart`
+ALTER TABLE `wallet`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `cart`
+ALTER TABLE `wallet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `cart` ADD `key_description` BLOB NOT NULL AFTER `key_type`;
+  ALTER TABLE `wallet` ADD `status` ENUM('REQUEST','APPROVED','DELETED') NOT NULL DEFAULT 'REQUEST' AFTER `approve_date`;
 ?>

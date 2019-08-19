@@ -18,6 +18,16 @@
 			$data['event_content'] = $this->get_content('event');
 			$data['destination_content'] = $this->get_content('destination');
 			$data['feedback_content'] = $this->get_content('feedback');
+
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			// echo '<pre>';
 			// var_dump($data);
 			// die;

@@ -21,6 +21,15 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			$checkuservars = $this->session->userdata;
 			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
 			$this->load->model('Notification_model');

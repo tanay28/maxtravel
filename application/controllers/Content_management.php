@@ -108,6 +108,16 @@
 		public function header()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
@@ -153,6 +163,16 @@
 		public function view_header()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
@@ -184,6 +204,15 @@
 		{
 			$data = array();
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 
 			if($this->uri->segment('3')!='')
 			{
@@ -287,6 +316,15 @@
 		public function events()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
@@ -338,7 +376,15 @@
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
-
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			$this->load->model('Contentmanagement');
 			$rs = $this->Contentmanagement->get_slider_details('event');
 			$Dataarr = array();
@@ -366,7 +412,15 @@
 		{
 			$data = array();
 			$data['page_access'] = 'INACTIVE';
-
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if($this->uri->segment('3')!='')
 			{
 				$decodeId = base64_decode($this->uri->segment('3'),true);
@@ -658,7 +712,15 @@ EOF;
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
-
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if(isset($_POST['txtdestination_name']) && $_POST['txtdestination_name']!='' && isset($_POST['txtcost']) && $_POST['txtcost']!='' && isset($_POST['txtdestinationcode']) && $_POST['txtdestinationcode']!='' && isset($_POST['txtpackagetype']) && $_POST['txtpackagetype']!='' && isset($_POST['txtduration']) && $_POST['txtduration']!='' && isset($_POST['txttourdate']) && $_POST['txttourdate']!='' && isset($_POST['txtCk']) && $_POST['txtCk']!='' && isset($_POST['txtMap']) && $_POST['txtMap']!='')
 			{
 				$destination_name = $_POST['txtdestination_name'];
@@ -738,7 +800,15 @@ EOF;
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
-
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			$this->load->model('Contentmanagement');
 			$rs = $this->Contentmanagement->get_slider_details('destination');
 			$Dataarr = array();
@@ -766,7 +836,15 @@ EOF;
 		{
 			$data = array();
 			$data['page_access'] = 'INACTIVE';
-
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if($this->uri->segment('3')!='')
 			{
 				$decodeId = base64_decode($this->uri->segment('3'),true);
@@ -874,6 +952,15 @@ EOF;
 		public function feedback()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}
@@ -906,6 +993,15 @@ EOF;
 		public function view_feedbacks()
 		{
 			$data['page_access'] = 'INACTIVE';
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
 			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
 				$data['page_access'] = 'ACTIVE';
 			}

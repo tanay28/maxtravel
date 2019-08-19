@@ -156,26 +156,46 @@
 							</div>
 							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
 								<label class="w-100 float-left">Room Rate</label>
-								<input type="text" name="room_rate_include_breakfast" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['room_rate_include_breakfast']) ? $hotel_details[0]['room_rate_include_breakfast'] : '';?>">
-								<span class="font-included">Included Breakfast</span>
+								<input type="text" name="pernight_room_rate" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['pernight_room_rate']) ? $hotel_details[0]['pernight_room_rate'] : '';?>">
+								<!-- <span class="font-included">Included Breakfast</span> -->
 							</div>
 					
 						<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main">
-								<label class="w-100 float-left">Room Rate</label>
-								<input type="text" name="room_rate_exclude_breakfast" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['room_rate_exclude_breakfast']) ? $hotel_details[0]['room_rate_exclude_breakfast'] : '';?>">
-								<span class="font-included">Exclude Breakfast</span>
+								<label class="w-100 float-left">Breakfast</label>
+								
+
+								<div class="form-group float-left radio-star">
+									<input class="custom-radio" type="radio" id="breakfast_include" name="breakfast" value="include" <?php echo (isset($hotel_details[0]['breakfast']) && $hotel_details[0]['breakfast']=='include') ? 'checked' : '';?>>
+									<label for="breakfast_include">
+										<span></span> Included Breakfast
+										<!-- <div class="w-100 float-left star-pad">
+												<i class="fas fa-star"></i>
+										</div> -->
+							  		</label>
+							  	</div>
+							  	<div class="form-group float-left radio-star">
+									<input class="custom-radio" type="radio" id="breakfast_exclude" name="breakfast" value="exclude" <?php echo (isset($hotel_details[0]['breakfast']) && $hotel_details[0]['breakfast']=='exclude') ? 'checked' : '';?>>
+									<label for="breakfast_exclude">
+										<span></span> Exclude Breakfast
+										<!-- <div class="w-100 float-left star-pad">
+												<i class="fas fa-star"></i> <i class="fas fa-star"></i>
+										</div> -->
+								  	</label>
+								</div>
+
+
 							</div>
 							</div>
 						<div class="w-100 float-left mt-2">
 							
 							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main position-relative no-perso">
 								<label class="w-100 float-left">No. of Adults</label>
-								<i class="far fa-plus-square"></i>
+								<!-- <i class="far fa-plus-square"></i> -->
 								<input type="text" name="no_of_adult" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_adult']) ? $hotel_details[0]['no_of_adult'] : 0;?>">
 							</div>
 							<div class="col-lg-4 col-md-4 col-12 float-left wrap-sign-main position-relative no-perso">
 								<label class="w-100 float-left">No. of Child</label>
-								<i class="far fa-plus-square"></i>
+								<!-- <i class="far fa-plus-square"></i> -->
 								<input type="text" name="no_of_child" class="input-class-common w-100 float-left" value="<?php echo isset($hotel_details[0]['no_of_child']) ? $hotel_details[0]['no_of_child'] : 0;?>">
 							</div>
 						</div>
@@ -218,10 +238,10 @@
 
 </script>
 <script>
-$(document).ready(function () {
+/*$(document).ready(function () {
       $('.selectbox:not(.ignore)').niceSelect();
       FastClick.attach(document.body);
-});  
+}); */ 
 
 </script>
 

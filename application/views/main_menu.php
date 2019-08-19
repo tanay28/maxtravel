@@ -22,14 +22,16 @@
 	?>
 			<div class="wrap-cart-all-nav float-right position-relative">
 				<div class="dropdown drop-notifications">
-					<button class="cart-main btn btn-secondary dropdown-toggle position-relative" type="button" id="btnNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
+					<!-- <button class="cart-main btn btn-secondary dropdown-toggle position-relative" type="button" id="btnNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();"> -->
+					<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
 						<i class="fas fa-lightbulb"></i>
 						<?php if(isset($nofication_count) && $nofication_count>0){?>
 							<span id="show_ct"><?php echo $nofication_count;?></span>
 							<input type="hidden" name="hid" id="ct_notification" value="<?php echo $nofication_count;?>">
 							<input type="hidden" name="hid" id="user_id" value="<?php echo $user_id;?>">
 						<?php }?>
-					</button>
+					<!-- </button> -->
+					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<?php
 							if(isset($notifications) && count($notifications)>0)
@@ -74,8 +76,9 @@
 				</ul>
 			</li>
 			<li><a href='javascript:void()'>PACKAGE TOURS</a></li> -->
-			<li><a href="<?php echo base_url('hotel/book');?>">HOTELS</a></li>
-			<li><a href="<?php echo base_url('aboutus');?>">About</a></li>
+			
+			<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
+			<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
 			<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
 			<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
 			<!-- <li><a href='javascript:void()'>MARRAGE EVENTS</a></li> -->
@@ -87,17 +90,14 @@
 			?>
 
 				<!-- Agent -->
-				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>
-					
-					<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
-					<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
-					<li><a href="<?php echo base_url('query');?>">Add query</a></li>
-					
+				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>				
 					<li><a href='#'>SETTINGS</a>
 						<ul>
+							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
-							<li><a href="<?php echo base_url('myaccountag');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
+							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
+							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
 					</li>
@@ -106,7 +106,7 @@
 
 				<!-- Superadmin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){?>
-					<li><a href='javascript:void()'>Admin</a>
+					<!-- <li><a href='javascript:void()'>Admin</a>
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href='javascript:void()'>HOTELS</a>
@@ -145,13 +145,60 @@
 							<li><a href="<?php echo base_url('Contactinfo');?>">VIEW CONTACT DETAILS</a></li>
 							<li><a href="<?php echo base_url('notification');?>">VIEW QUERY DETAILS</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href='#'>SETTINGS</a>
 						<ul>
+							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
-							<li><a href="<?php echo base_url('myaccountag');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
+							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
+							<li>
+								<li><a href='javascript:void()'>Hotel Management</a>
+									<ul class="s-menu">
+										<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
+										<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Agent Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('agents/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('agents/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Employee Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>User Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Page Content</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
+										<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
+										<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>
+										<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
+									</ul>
+								</li>
+							</li>
+							<li><a href="<?php echo base_url('Contactinfo');?>">Contacts</a></li>
+							<li><a href="<?php echo base_url('notification');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>
+
+
 						</ul>
 					</li>
 				<?php } ?>
@@ -201,14 +248,16 @@
 	?>
 			<div class="wrap-cart-all-nav float-right position-relative">
 				<div class="dropdown drop-notifications">
-					<button class="cart-main btn btn-secondary dropdown-toggle position-relative" type="button" id="btnNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
+					<!-- <button type="button" id="btnNotification" class="cart-main btn btn-secondary dropdown-toggle position-relative"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();"> -->
+					<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="notifications();">
 						<i class="fas fa-lightbulb"></i>
 						<?php if(isset($nofication_count) && $nofication_count>0){?>
 							<span id="show_ct"><?php echo $nofication_count;?></span>
 							<input type="hidden" name="hid" id="ct_notification" value="<?php echo $nofication_count;?>">
 							<input type="hidden" name="hid" id="user_id" value="<?php echo $user_id;?>">
 						<?php }?>
-					</button>
+					<!-- </button> -->
+					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<?php
 							if(isset($notifications) && count($notifications)>0)
@@ -254,8 +303,8 @@
 				</ul>
 			</li>
 			<li><a href='javascript:void()'>PACKAGE TOURS</a></li> -->
-			<li><a href="<?php echo base_url('hotel/book');?>">HOTELS</a></li>
-			<li><a href="<?php echo base_url('aboutus');?>">About</a></li>
+			<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
+			<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
 			<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
 			<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
 			<!-- <li><a href='javascript:void()'>MARRAGE EVENTS</a></li> -->
@@ -268,14 +317,13 @@
 				<!-- Agent -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){?>
 
-					<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
-					<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
-					<li><a href="<?php echo base_url('query');?>">Add query</a></li>
 					<li><a href='#'>Settings</a>
 						<ul>
+							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
-							<li><a href="<?php echo base_url('myaccountag');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
+							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
+							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
 					</li>
@@ -284,7 +332,7 @@
 
 				<!-- Superadmin -->
 				<?php if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){?>
-					<li><a href='javascript:void()'>Admin</a>
+					<!-- <li><a href='javascript:void()'>Admin</a>
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href='javascript:void()'>HOTELS</a>
@@ -323,13 +371,59 @@
 							<li><a href="<?php echo base_url('Contactinfo');?>">CONTACT DETAILS</a></li>
 							<li><a href="<?php echo base_url('notification');?>">QUERY DETAILS</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href='javascript:void()'>SETTINGS</a>
 						<ul>
+							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
-							<li><a href="<?php echo base_url('myaccountag');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
+							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
+							<li>
+								<li><a href='javascript:void()'>Hotel Management</a>
+									<ul class="s-menu">
+										<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
+										<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Agent Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('agents/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('agents/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Employee Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('employee/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('employee/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>User Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Page Content</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
+										<li><a href='<?php echo base_url('content_management/events')?>'>Home Page Event</a></li>
+										<li><a href='<?php echo base_url('content_management/destinations')?>'>Home Page Popular Destination</a></li>
+										<li><a href='<?php echo base_url('content_management/feedback')?>'>Feedback content</a></li>
+									</ul>
+								</li>
+							</li>
+							<li><a href="<?php echo base_url('Contactinfo');?>">Contacts</a></li>
+							<li><a href="<?php echo base_url('notification');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>
+							
 						</ul>
 					</li>
 				<?php } ?>
