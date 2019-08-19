@@ -254,33 +254,34 @@ function savecart(){
         <input type="hidden" name="modelhotelid" id="modelhotelid" value="0">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body blockform ">
         
         <!-- -->
-            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+            <div class="col-12 col-md-12 col-lg-4 float-left checkin-dates">
                   <label>Select Check In </label>
                   <input type="text" name="modelcartcheckin" id="modelcartcheckin" value="" />
+                  <!-- <input id="datepicker3" /></div> -->
             </div>
 
 
-            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
+            <div class="col-12 col-md-12 col-lg-4 float-left checkin-dates">
                   <label>Select Check Out </label>
                   <input type="text" name="modelcartcheckout" id="modelcartcheckout" value="" />
             </div>
-            <div class="col-12 col-md-12 col-lg-2 float-left checkin-dates">
-                  <label>Room</label>
+            <div class="col-12 col-md-12 col-lg-4 float-left checkin-dates">
+                  <label>No. of Rooms</label>
                   <input type="text" name="modelcartroom" id="modelcartroom" value="" />
             </div>
 
-            <div class="col-12 col-md-12 col-lg-4 float-right rating-dates pr-0">
-                  <label class="w-100 float-left">Select Person </label>
+            <div class="col-12 col-md-12 col-lg-6 float-left rating-dates pr-0 mt-3">
+                  <label class="w-100 float-left">No of Guest </label>
                   
                   <div class="wrap-peroson position-relative">
-                  <i class="far fa-plus-square"></i>
+                  <!-- <i class="far fa-plus-square"></i> -->
                   <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' name='modelcartadults' id="modelcartadults" placeholder='Adults' type='text' value="">
                   </div>
             <div class="wrap-peroson position-relative">
-            <i class="far fa-plus-square"></i>
+            <!-- <i class="far fa-plus-square"></i> -->
                   <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-50 float-left' name='modelcartchild' id="modelcartchild" placeholder='Child' type='text' value="">
                   </div>
             </div>
@@ -288,11 +289,24 @@ function savecart(){
         <!-- -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="savecart()">Save Cart</button>
+        <button type="button" class="btn btn-success" onclick="savecart()">Add to Cart</button>
       </div>
     </div>
 
   </div>
 </div>
 
-			
+<script>
+		$('#modelcartcheckin').datepicker({
+                  showOtherMonths: true,
+                  container: '#myCartModel modal-body',
+		});
+		$('#modelcartcheckout').datepicker({
+			showOtherMonths: true
+		});
+      </script>
+      <style>
+      .gj-calendar {
+            z-index:99999 !important;
+      }
+<style>

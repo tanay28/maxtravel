@@ -113,7 +113,10 @@
 
 		public function savecart(){
 
-			var_dump($_POST);
+			var_dump('hello');
+			if(isset($_POST['hotelid'])){
+				var_dump($_POST);
+			}
 
 		}
 
