@@ -1,6 +1,6 @@
 <?php include_once('header.php');?>
 
-<section class="w-100 float-left wrap-signup pt-3 pb-5" id="cart">
+<section class="w-100 float-left wrap-signup pt-3 pb-5 list-carts" id="cart">
 	<div class="container">
 		<div class="row">
 			<form name="cart" method="post" action="">
@@ -143,7 +143,7 @@
 										<h2 class="float-left room-tate-text">Room rate per night <i
 												class="fas fa-rupee-sign"></i> </h2>
 
-										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][productamount]" id="productamount_<?php echo $i;?>" value="<?php echo $productAmount;?>" class="price float-left price-rate-night" readonly>
+										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][productamount]" id="productamount_<?php echo $i;?>" value="<?php echo $productAmount;?>" class="price float-left price-rate-night invisible-input iput-1" readonly>
 										<!-- <h2 class="price float-left price-rate-night">
 											34.99
 										</h2> -->
@@ -169,14 +169,14 @@
 						</h2>
 						<h3 class="tax w-100 float-right text-right">Taxes (0%): <!-- <span class="will-price">8.2</span> -->
 
-						<input type="text" name="tax" id="taxid" value="0" class="will-price" readonly>
+						<input type="text" name="tax" id="taxid" value="0" class="will-price invisible-input iput-2" readonly>
 						</h3>
 						<!-- <h3 class="shipping w-100 float-right text-right">Shipping: <span class="will-price">5.00</span></h3> -->
 					</div>
 
 					<div class="right w-100 float-right">
 						<h1 class="total w-100 float-right text-right total-priceshow">Total <!-- <span class="will-price">177.16</span> -->
-						<input type="text" name="total" id="totalid" value="<?php echo $sumTotal;?>" class="will-price" readonly>
+						<input type="text" name="total" id="totalid" value="<?php echo $sumTotal;?>" class="will-price invisible-input iput-3" readonly>
 						</h1>
 					
 					</div>

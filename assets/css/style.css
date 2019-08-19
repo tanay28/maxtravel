@@ -2201,9 +2201,11 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .qt {
   font-size: 19px;
-  line-height: 50px;
+  line-height: 44px;
   width: 70px;
-  text-align: center; }
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #ccc; }
 
 .qt-plus, .qt-minus {
   background: #fcfcfc;
@@ -2537,18 +2539,19 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   position: absolute;
   left: 170px;
   top: -11px;
-  width: 140px; }
+  width: 120px; }
 
 #cssmenu ul ul li a {
   border-bottom: 1px solid rgba(150, 150, 150, 0.15);
   padding: 11px 15px;
   width: 100%;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px; }
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  line-height: 16px; }
 
 #cssmenu ul ul li:last-child > a, #cssmenu ul ul li.last-item > a {
   border-bottom: 0; }
@@ -2752,7 +2755,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   top: 140px; }
 
 .nav-menu-right {
-  margin-top: 31px; }
+  margin-top: 31px;
+  margin-right: 40px; }
 
 .page-title-ins {
   margin-top: 130px; }
@@ -2925,3 +2929,44 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .inner-tour-blocks .hotel-name {
   width: calc(100% - 185px); }
+
+.invisible-input {
+  background: transparent !important;
+  border: 0 !important;
+  height: 50px !important;
+  padding: 0 !important;
+  outline: none !important;
+  width: 160px; }
+
+.iput-1 {
+  position: relative;
+  font-weight: 700;
+  font-size: 26px;
+  top: -1px;
+  width: 200px; }
+
+input.totprice {
+  background: transparent !important;
+  border: 0 !important;
+  height: 50px !important;
+  padding: 0 !important;
+  outline: none !important;
+  position: relative;
+  font-weight: 700;
+  font-size: 26px;
+  top: -3px;
+  max-width: 160px;
+  text-align: center; }
+
+.subtotal input.will-price {
+  background: transparent !important;
+  border: 0 !important;
+  height: 50px !important;
+  padding: 0 !important;
+  outline: none !important;
+  position: relative;
+  font-weight: 700;
+  font-size: 26px;
+  top: -3px;
+  max-width: 160px;
+  text-align: right; }

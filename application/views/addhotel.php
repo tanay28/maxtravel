@@ -153,8 +153,14 @@
 								<input type="text" name="pernight_room_rate" class="input-class-common w-100 float-left">
 								<!-- <span class="font-included">Included Breakfast</span> -->
 							</div>
-							<div class="col-lg-4 col-md-6 col-12 float-left wrap-sign-main">
-								<label class="w-100 float-left">Breakfast</label>
+							
+						</div>
+
+						<div class="w-100 float-left wrap-sign-main">
+								
+								<div class="col-lg-12 mb-1">
+								<h3>Breakfast</h3>
+							</div>
 
 								<div class="form-group float-left radio-star">
 									<input class="custom-radio" type="radio" id="breakfast_include" name="breakfast" value="include" checked>
@@ -177,7 +183,6 @@
 
 
 							</div>
-						</div>
 						
 						<div class="w-100 float-left mt-2">
 							

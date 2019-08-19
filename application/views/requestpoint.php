@@ -25,14 +25,13 @@
 				<div class="col-lg-12 float-left">
 					<div class="w-100 float-left wrap-section-sign account-sett  mb-3 mt-3">
 						<div class="w-100 float-left">
-							<div class="col-lg-12 mb-4">
+							<!-- <div class="col-lg-12 mb-2">
 								<h3>Point</h3>
-							</div>
-							<div class="col-12 col-md-12 col-lg-6 float-left wr-form p-0">
+							</div> -->
+							<div class="col-12 col-md-12 col-lg-12 float-left wr-form p-0">
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
-									<label class="float-left">Point 
-									</label>
-									<input type="text" name="request_point" required="" class="input-class-common float-left">
+									<label class="float-left w-100">Enter Request Points</label>
+									<input type="text" name="request_point" required="" class="input-class-common float-left w-100">
 								</div>
 								
 							</div>
