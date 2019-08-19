@@ -27,6 +27,18 @@ class Transactionmanagement extends CI_Model {
             return false;
         }
     }
+
+    public function getTransactionList($userid){
+
+        $query = "SELECT * FROM transaction
+                  WHERE user_id = '".$userid."' 
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
     
 }
 ?>

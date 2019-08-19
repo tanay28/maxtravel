@@ -46,6 +46,18 @@ class Ordermanagement extends CI_Model {
         }
     }
 
+    public function getOrderList($userid){
+
+        $query = "SELECT * FROM orders
+                  WHERE user_id = '".$userid."' 
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
+
     
 }
 ?>
