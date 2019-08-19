@@ -25,12 +25,13 @@
              <?php echo $this->session->flashdata('error'); ?>
            </div>
           <?php } ?>
-
-			<div class="col-lg-12 float-left">
-				<?php
+          	<?php
 					$sumSubTotal = 0;
 					$sumTotal = 0;
 					if(isset($cart_details) && count($cart_details)>0){
+			?>
+			<div class="col-lg-12 float-left">
+					<?php
 						$i=1;
 						foreach ($cart_details as $cartkey => $cartvalue) {
 						
@@ -152,7 +153,7 @@
 						</div>
 					</div>
 				</article>
-				<?php $i++;}}
+				<?php $i++;}
 
 					$sumTotal = $sumSubTotal;
 				?>
@@ -186,14 +187,29 @@
 
 
 			<div class="col-lg-12 float-left mt-0">
-				<input type="submit" value="Place Order" class="register-button-form float-right mr-3 " >
+				<input type="submit" value="Place Order" class="register-button-form float-right mr-3 " onclick="return myFunction()">
 
 			</div>
+			<?php }else{?>
+				<?php echo 'Your Cart is Empty';?>
+			<?php }?>
 			</form>
 		</div>
 	</div>
 </section>
 <?php include_once('footer.php');?>
+<script>
+function myFunction() {
+  var txt;
+  var r = confirm("Press a button!\nEither OK or Cancel.");
+  if (r == true) {
+   	return true;
+  } else {
+    return false;
+  }
+  
+}
+</script>
 <script type="text/javascript">
 	function addroom(id){
 

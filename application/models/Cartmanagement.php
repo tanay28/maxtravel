@@ -25,6 +25,45 @@ class Cartmanagement extends CI_Model {
 
         return $r;
     }
+
+    public function updateCart($counts,$amount,$cartid){
+
+        $now = date("Y-m-d H:i:s");
+        
+        $value = array(
+            'counts' => $counts,
+            'amount' => $amount
+        );
+        
+        $this->db->where(array('id'=>$cartid));
+        if( $this->db->update('cart',$value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function updateCartStatus($status,$cartid){
+
+        $now = date("Y-m-d H:i:s");
+        
+        $value = array(
+            'status' => $status
+        );
+        
+        $this->db->where(array('id'=>$cartid));
+        if( $this->db->update('cart',$value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     ///////////////////////////////////////////////////////////////////
     
 

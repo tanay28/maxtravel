@@ -90,9 +90,9 @@ ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;*/
 
 /*ALTER TABLE `cart` ADD `user_id` INT(11) NOT NULL AFTER `id`;*/
 
-ALTER TABLE `users` ADD `wallet` DOUBLE NOT NULL AFTER `userstype`;
+/*ALTER TABLE `users` ADD `wallet` DOUBLE NOT NULL AFTER `userstype`;*/
 
-CREATE TABLE `wallet` (
+/*CREATE TABLE `wallet` (
   `id` int(11) NOT NULL,
   `sender_id` int(11) NOT NULL,
   `request_point` double NOT NULL,
@@ -100,13 +100,62 @@ CREATE TABLE `wallet` (
   `approved_point` double NOT NULL,
   `request_date` datetime NOT NULL,
   `approve_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
-ALTER TABLE `wallet`
-  ADD PRIMARY KEY (`id`);
+/*ALTER TABLE `wallet`
+  ADD PRIMARY KEY (`id`);*/
 
-ALTER TABLE `wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+/*ALTER TABLE `wallet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
 
-  ALTER TABLE `wallet` ADD `status` ENUM('REQUEST','APPROVED','DELETED') NOT NULL DEFAULT 'REQUEST' AFTER `approve_date`;
+  /*ALTER TABLE `wallet` ADD `status` ENUM('REQUEST','APPROVED','DELETED') NOT NULL DEFAULT 'REQUEST' AFTER `approve_date`;*/
+
+/*CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `orderno` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `subtotal` double NOT NULL,
+  `tax` double NOT NULL,
+  `totalamount` double NOT NULL,
+  `orderstatus` enum('PENDING','CONFIRMED','CANCELED') NOT NULL DEFAULT 'CONFIRMED',
+  `ordermessage` text NOT NULL,
+  `posted_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
+/*ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);*/
+
+/*ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+/*CREATE TABLE `order_details` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
+/*ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);*/
+
+/*ALTER TABLE `order_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+/*CREATE TABLE `transaction` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `available_point` double NOT NULL,
+  `purchase_amount` double NOT NULL,
+  `after_deduction_point` double NOT NULL,
+  `status` enum('CONFIRMED','PENDING','CANCEL') NOT NULL DEFAULT 'CONFIRMED',
+  `message` text NOT NULL,
+  `posted_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
+/*ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);*/
+
+/*ALTER TABLE `transaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+/*ALTER TABLE `transaction` ADD `user_id` INT(11) NOT NULL AFTER `id`;*/
 ?>

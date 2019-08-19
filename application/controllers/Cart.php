@@ -27,15 +27,66 @@ class Cart extends CI_Controller {
 		/////////// Notification and Order
 		if(isset($_POST) && count($_POST)>0 && isset($_POST['total']) && $_POST['total']!=''){
 			
-			$this->load->model('Usermanagement');
-			$walletPoint = $this->Usermanagement->getUserWalletPoint($user_id);
-			if(isset($walletPoint[0]['wallet']) && ($walletPoint[0]['wallet']>=$_POST['total'])){
-				echo "<pre>";
-				var_dump($_POST);
-				die();
+			if(isset($_POST['cart']) && count($_POST['cart'])>0){
+				// Update Cart Table
+				$this->load->model('Cartmanagement');
+				foreach ($_POST['cart'] as $ckey => $cvalue) {
+					$counts = $cvalue['quantity'];
+					$amount = $cvalue['producttotamount'];
+					$cartid = $ckey;
+					$this->Cartmanagement->updateCart($counts,$amount,$cartid);
+				}
+				$this->load->model('Usermanagement');
+				$walletPoint = $this->Usermanagement->getUserWalletPoint($user_id);
+				if(isset($walletPoint[0]['wallet']) && ($walletPoint[0]['wallet']>=$_POST['total'])){
+					
+					// Insert Order Table
+					$orderno = rand(999,99999);
+					$user_id = $user_id;
+					$subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : 0;
+					$tax = isset($_POST['tax']) ? $_POST['tax'] : 0;
+					$totalamount = isset($_POST['total']) ? $_POST['total'] : 0;
+					$orderstatus = 'CONFIRMED';
+					$ordermessage = 'Confirmed Order';
+					$this->load->model('Ordermanagement');
+					$orderid = $this->Ordermanagement->insertOrder($orderno,$user_id,$subtotal,$tax,$totalamount,$orderstatus,$ordermessage);
+
+					if($orderid>0){
+						// Insert Order Details
+						foreach ($_POST['cart'] as $ckey1 => $cvalue1) {
+
+							$orderdetailsid = $this->Ordermanagement->insertOrderDetails($orderid,$ckey1);
+
+							// Update Cart Status Table
+							$this->Cartmanagement->updateCartStatus('MOVE',$ckey1);
+
+						}
+						// Deducted The Wallet Amount
+						$deductedWallet = ($walletPoint[0]['wallet'] - $totalamount);
+
+						// Insert Transaction Table
+						$this->load->model('Transactionmanagement');
+						$available_point = isset($walletPoint[0]['wallet']) ? $walletPoint[0]['wallet'] : 0;
+						$status = 'CONFIRMED';
+						$message = 'Confirmed Order';
+						$this->Transactionmanagement->insertTransaction($user_id,$orderid,$available_point,$totalamount,$deductedWallet,$status,$message);
+
+						// Update User Wallet			
+						$this->Usermanagement->updateUserWallet($user_id,$deductedWallet);
+
+						
+
+						$this->session->set_flashdata('success', 'Thank you!! Your oredr has been placed successfully. Point has been deducted from your wallet. <a href="order/orderlist">Click here to see you orders</a>.');
+
+					}else{
+						$this->session->set_flashdata('error', 'We could not placed the order. Please try again after sometime.');
+					}					
+				}else{
+					
+					$this->session->set_flashdata('error', 'Insufficient Balance. <a href="point/requestpoint">Click here for request point</a>.');
+				}
 			}else{
-				
-				$this->session->set_flashdata('error', 'Insufficient Balance. <a href="point/requestpoint">Click here for request point</a>.');
+				$this->session->set_flashdata('error', 'Item not found in your cart');
 			}
 		}
 
