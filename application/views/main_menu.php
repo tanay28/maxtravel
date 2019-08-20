@@ -2,8 +2,8 @@
 	$is_home = true;
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
 	//var_dump($ex);
-	$name = isset($ex[2]) ? $ex[2] : ''; // For Local
-	//$name = isset($ex[1]) ? $ex[1] : ''; // For Server
+	//$name = isset($ex[2]) ? $ex[2] : ''; // For Local
+	$name = isset($ex[1]) ? $ex[1] : ''; // For Server
 	//var_dump($name);
 	if($name!='home'){
 		$is_home = false;

@@ -35,10 +35,10 @@
 
 
 
-                  <div class="col-lg-12 float-left mt-4">
+                  <!-- <div class="col-lg-12 float-left mt-4">
                         <input type="submit" value="Edit Profile" class="register-button-form float-left mr-3 ">
 
-                  </div>
+                  </div> -->
             </div>
             <?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
       </div>
