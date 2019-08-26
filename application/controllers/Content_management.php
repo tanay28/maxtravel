@@ -18,9 +18,11 @@
 		{
 			
 			if($flag == 1){
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/';
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
 			}else{
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/';
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
 			}
 			
 			$target_file = $target_dir . basename($file["name"]);
@@ -64,8 +66,8 @@
 		private function pdf_upload($file)
 		{
 			//$target_dir = base_url().'assets/gstdoc/';
-			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/';
-
+			$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+			//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
 			$target_file = $target_dir . basename($file["name"]);
 		
 			$uploadOk = 1;
