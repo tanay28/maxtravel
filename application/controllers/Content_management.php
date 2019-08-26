@@ -14,7 +14,7 @@
 				redirect('login/logout');
 			}
 		}
-		private function image_upload($file,$flag)
+		private function image_upload($file,$flag=0)
 		{
 			
 			if($flag == 1){

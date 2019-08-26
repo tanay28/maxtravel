@@ -49,7 +49,7 @@
 		}
 		public function get_itinerary_details($id,$type)
 		{
-			$sql = "SELECT CON.*,dy_con.* FROM contents CON LEFT JOIN dynamic_content DY_CON ON CON.id = DY_CON.content_id WHERE CON.id = '".$id."' AND CON.slider_for = '".$type."'";
+			$sql = "SELECT CON.*,DY_CON.* FROM contents CON LEFT JOIN dynamic_content DY_CON ON CON.id = DY_CON.content_id WHERE CON.id = '".$id."' AND CON.slider_for = '".$type."'";
 			return $this->db->query($sql)->result_array();
 		}
 	}
