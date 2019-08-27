@@ -584,7 +584,12 @@
 				  <h3>Price Includes</h3>
 			   </div>
 			   <div class="col-lg-7 col-md-12 col-12 float-left right-content-iti">
-				  <span><i class="far fa-check-circle"></i>Meals mentioned in the program</span>
+			   	  <ul>
+			   	  	<li>
+			   	  		<i class="far fa-check-circle"></i>Meals mentioned in the program
+			   	  	</li>
+			   	  </ul>
+				  <P><i class="far fa-check-circle"></i>Meals mentioned in the program</P>
 				  <span><i class="far fa-check-circle"></i>Entrance Fees</span>
 				  <span><i class="far fa-check-circle"></i>English Speaking Guide</span>
 				  <span><i class="far fa-check-circle"></i>All transportation to destination

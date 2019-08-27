@@ -62,7 +62,7 @@
 						
 					</div>
 					<div class="w-100 float-left text-center page-title-inner-pages iti-margin">
-						<h2>Itirnerary</h2>
+						<h2><?php echo $itinerary_details[0]['tag_name'];?></h2>
 					</div>
 				</div>
 			</div>
@@ -72,9 +72,11 @@
                   <div class="row">
                      <div class="col-lg-8 col-md-12 col-12 float-left iti-left mt-3">
                         <div class="w-100 float-left wrap-iti">
+                           <div class="w-100 float-left tour-shot-des">
+                              <h1><i class="fas fa-rupee-sign mr-1"></i> <?php echo isset($arr['cost']) ? $arr['cost'] : '';?></h1>
+                           </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-qrcode"></i>
-                             
                               Tour Code :<?php echo isset($arr['code']) ? $arr['code'] : '';?>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
@@ -85,6 +87,7 @@
                               class="far fa-clock"></i>
                               <?php echo isset($arr['duration']) ? $arr['duration'] : '';?>
                            </div>
+                           
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-calendar-alt"></i> Now - <?php echo isset($arr['date']) ? $arr['date'] : '';?></div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des">

@@ -213,7 +213,7 @@ class CKEditor
 	 * $CKEditor->replaceAll( 'myClassName' );
 	 * @endcode
 	 */
-	public function replaceAll($className = null)
+	/*public function replaceAll($className = null)
 	{
 		$out = "";
 		if (!$this->initialized) {
@@ -233,6 +233,8 @@ class CKEditor
 		}
 		else {
 			$classDetection = "";
+			$js .= "CKEDITOR.replace( 'editor' ).config.allowedContent = true";
+			$js .= "CKEDITOR.replace('ckeditor', {extraAllowedContent: 'a span',});";
 			$js .= "CKEDITOR.replaceAll( function(textarea, config) {\n";
 			if (!empty($className)) {
 				$js .= "	var classRegex = new RegExp('(?:^| )' + '". $className ."' + '(?:$| )');\n";
@@ -252,7 +254,7 @@ class CKEditor
 		}
 
 		return $out;
-	}
+	}*/
 
 	/**
 	 * Adds event listener.
