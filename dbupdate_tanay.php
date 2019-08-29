@@ -78,4 +78,8 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
   ADD PRIMARY KEY (`id`);
   ALTER TABLE `dynamic_content`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
+
+
+//---------------------------- 30.08.2019 ---------------------//
+ALTER TABLE `hotel` ADD `subcategories` TEXT NOT NULL AFTER `no_of_child`;
 ?>

@@ -138,6 +138,17 @@
 						</div>
 						<div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
+								<h3>Sub Category</h3>
+								<label class="float-left w-100">Enter No of sub categories</label>
+								<input type="text" name="txtscatNo" class="input-class-common w-30 float-left" id="txtscatNo">
+							</div>
+							<div class="w-100 float-left mb-1" style="display: none" id="dy_div">
+								
+							</div>
+						</div>
+						
+						<div class="w-100 float-left mt-2">
+							<div class="col-lg-12 mb-1">
 								<h3>Room Type</h3>
 							</div>
 							<div class="col-lg-4 col-md-6 col-12 float-left wrap-sign-main">
@@ -231,7 +242,27 @@
 	              $('#cmbCity').append('<option value="' + d.id + '">' + d.city_name + '</option>');
 	          });
 	        }});
-      });
+      	});
+
+		$('#txtscatNo').on('focus',function(){
+			//$('#dy_div').empty();
+		});
+		$('#txtscatNo').on('blur',function(){
+			var no_of_cat = $(this).val();
+			if(no_of_cat>0)
+			{
+				$('#dy_div').empty();
+				$('#dy_div').append('<label class="float-left col-lg-12 mt-3">Enter sub categories below</label><br>');
+				for(var i=0;i<no_of_cat;i++)
+				{
+					$('#dy_div').append('<div class="col-12 col-md-3 col-lg-3 float-left manual_category mb-3"><input type="text" value="" placeholder="Sub-Category '+(i+1)+'" class="input-class-common w-100 float-left" name="txtsubCat[]"></div>');
+				}
+				$('#dy_div').show('slow');
+			}
+			else{
+				$('#dy_div').hide('slow');	
+			}
+		});
 	});
 
 </script>

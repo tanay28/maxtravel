@@ -55,7 +55,7 @@ class Hotelmanagement extends CI_Model {
 
     
 
-    public function insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$created_by,$created_on,$status){
+    public function insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$subCategories,$created_by,$created_on,$status){
 
         $now = date("Y-m-d H:i:s");
 
@@ -71,11 +71,14 @@ class Hotelmanagement extends CI_Model {
             'pernight_room_rate' => $pernight_room_rate,
             'no_of_adult' => $no_of_adult,
             'no_of_child' => $no_of_child,
+            'subcategories' => $subCategories,
             'created_by' => $created_by,
             'created_on' => $created_on,
             'status' => $status
         );
-
+        /*echo "<pre>";
+        var_dump($data);
+        die;*/
         $this->db->insert('hotel', $data);
 
         if($this->db->insert_id()>0){

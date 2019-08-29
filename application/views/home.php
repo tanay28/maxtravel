@@ -113,7 +113,7 @@
 														}
 													?>
 												</h5>
-												<h2 class="text-uppercase w-100">$
+												<h2 class="text-uppercase w-100"><i class="fas fa-rupee-sign"></i>
 													<?php
 														if(isset($ivalue['slider_details'])){
 															$arr = array();
@@ -285,7 +285,7 @@
 												<div class="content-destination w-100 float-left">
 													<h4><?php echo isset($ivalue['slider_name']) ? $ivalue['slider_name'] : '';?>
 													</h4>
-													<h3>$ 
+													<h3><i class="fas fa-rupee-sign"></i>
 														<?php
 															$arr = array();
 															if(isset($ivalue['slider_details'])) $arr = json_decode($ivalue['slider_details'],true);

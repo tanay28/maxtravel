@@ -112,6 +112,8 @@
 
 			if(isset($_POST['hotel_name']) && $_POST['hotel_name']!=''){
 
+				
+
 				$hotel_name = isset($_POST['hotel_name']) ? $_POST['hotel_name'] : '';
 				$hotel_address = isset($_POST['hotel_address']) ? $_POST['hotel_name'] : '';
 				$country_id = isset($_POST['country_id']) ? $_POST['country_id'] : 0;
@@ -130,13 +132,13 @@
 				$pernight_room_rate = isset($_POST['pernight_room_rate']) ? $_POST['pernight_room_rate'] : 0;
 				$no_of_adult = isset($_POST['no_of_adult']) ? $_POST['no_of_adult'] : 0;
 				$no_of_child = isset($_POST['no_of_child']) ? $_POST['no_of_child'] : 0;
-
+				$subCategories = json_encode($_POST['txtsubCat']);
 				$created_by = isset($_SESSION['userid']) ? $_SESSION['userid'] : 0;
 				$created_on = date('Y-m-d H:i:s');
 				$status = 'ACTIVE';
 				
 
-				$xx = $this->hotelmanagement->insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$created_by,$created_on,$status);
+				$xx = $this->hotelmanagement->insertHotel($hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$subCategories,$created_by,$created_on,$status);
 				if($xx>0){
 					$this->session->set_flashdata('success', 'Successfully Added The Hotel.');
 				}else{
