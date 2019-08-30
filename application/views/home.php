@@ -85,6 +85,7 @@
 			<section id="colorlib-about">
 				<div class="owl-carousel">
 					<?php
+						
 
 						if(isset($header_content) && count($header_content)>0)
 						{

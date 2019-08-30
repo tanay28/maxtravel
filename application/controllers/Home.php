@@ -28,9 +28,9 @@
 			$data['user_id'] = $user_id;
 			$data['notifications'] = $rs;
 			/////////// Notification and Order
-			// echo '<pre>';
-			// var_dump($data);
-			// die;
+			/*echo '<pre>';
+			var_dump($data);
+			die;*/
 			$this->load->view('home',$data);
 		}
 
@@ -45,6 +45,13 @@
 			$arr = array();
 			$this->load->model('Contentmanagement');
 			$rs = $this->Contentmanagement->get_slider_details($type);
+			if(isset($rs) && count($rs)==1)
+			{
+				$arr[0] = $rs[0];
+				$arr[1] = $rs[0];
+				//$arr[1] = $rs;
+				return $arr; 
+			}
 			return $rs;
 		}
 	}

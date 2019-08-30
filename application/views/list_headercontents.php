@@ -138,8 +138,9 @@
                                                 <td><img src="<?php echo base_url('assets/content/'.$uvalue['image_name'])?>" class="myImg" alt="<?php echo $uvalue['image_name'];?>" style="width:100px;max-width:120px"></td>
                                                 <td>
                                                       <a href="<?php echo base_url('content_management/edit_header/'.base64_encode($uvalue['id']));?>"><i class="fa fa-edit" style="font-size:12px;color:green"></i></a>
-
-                                                      <a href="<?php echo base_url('content_management/remove_header_content/'.base64_encode($uvalue['id']));?>"><i class="fa fa-trash" style="font-size:12px;color:red"></i></a>                                                      
+                                                      <?php if(count($datas) !=1){ ?>
+                                                      <a href="<?php echo base_url('content_management/remove_header_content/'.base64_encode($uvalue['id']));?>"><i class="fa fa-trash" style="font-size:12px;color:red"></i></a>
+                                                      <?php }?>                                                      
                                                 </td>
                                           </tr>
                                           <?php $i++;}}else{?>
