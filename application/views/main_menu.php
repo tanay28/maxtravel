@@ -85,6 +85,7 @@
 				if(!isset($checkuservars['is_logged_in']) || $checkuservars['is_logged_in'] != 1){
 			?>
 			<li><a href="<?php echo base_url('joinus');?>">Join Us</a></li>
+			
 			<?php }?>
 			<li><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
 			<!-- <li><a href='javascript:void()'>MARRAGE EVENTS</a></li> -->

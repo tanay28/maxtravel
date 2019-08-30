@@ -150,7 +150,7 @@
 					);
 
 					$this->load->model('Contentmanagement');
-					$id = $this->Contentmanagement->insert_data($Arr);
+					$id = $this->Contentmanagement->insert_data($Arr,'contents');
 					$this->session->set_flashdata('success', 'Content creation successful..');
 					redirect('content_management/view_header');
 				}
@@ -359,7 +359,7 @@
 					);
 
 					$this->load->model('Contentmanagement');
-					$id = $this->Contentmanagement->insert_data($Arr);
+					$id = $this->Contentmanagement->insert_data($Arr,'contents');
 					$this->session->set_flashdata('success', 'Content creation successful..');
 					redirect('content_management/view_event');
 				}
@@ -990,7 +990,7 @@ EOF;
 				);
 
 				$this->load->model('Contentmanagement');
-				$id = $this->Contentmanagement->insert_data($Arr);
+				$id = $this->Contentmanagement->insert_data($Arr,'contents');
 				$this->session->set_flashdata('success', 'Content creation successful..');
 				redirect('content_management/view_Feedbacks');
 			}
