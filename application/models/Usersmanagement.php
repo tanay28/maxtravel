@@ -121,7 +121,6 @@ class Usersmanagement extends CI_Model {
         {
             return false;
         }
-
     }
 
 }

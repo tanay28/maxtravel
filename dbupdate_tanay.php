@@ -82,4 +82,8 @@ INSERT INTO timezone(timezone)values('SINGAPORE');*/
 
 //---------------------------- 30.08.2019 ---------------------//
 ALTER TABLE `hotel` ADD `subcategories` TEXT NOT NULL AFTER `no_of_child`;
+
+//----------------------- 03.09.2019 ---------------//
+
+CREATE TABLE `maxtravel`.`agent_package_mapping` ( `id` INT NOT NULL AUTO_INCREMENT , `content_id` INT NOT NULL , `agent_id` INT NOT NULL , `date_created` DATETIME NOT NULL , `date_modified` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ?>

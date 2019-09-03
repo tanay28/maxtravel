@@ -192,6 +192,14 @@
 								</li>
 							</li>
 							<li>
+								<li><a href='#'>Package Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('package_management/packages')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('package_management/view_packages')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
 								<li><a href='#'>Page Content</a>
 									<ul class="s-menu">
 										<li><a href='<?php echo base_url('content_management/header')?>'>Home Page Slider</a></li>
@@ -419,6 +427,14 @@
 									<ul class="s-menu">
 										<li><a href='<?php echo base_url('users/add')?>'>Add</a></li>
 										<li><a href='<?php echo base_url('users/lists')?>'>List</a></li>
+									</ul>
+								</li>
+							</li>
+							<li>
+								<li><a href='#'>Package Management</a>
+									<ul class="s-menu">
+										<li><a href='<?php echo base_url('package_management/packages')?>'>Add</a></li>
+										<li><a href='<?php echo base_url('package_management/view_packages')?>'>List</a></li>
 									</ul>
 								</li>
 							</li>
