@@ -47,7 +47,7 @@
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Query details 
 									</label>
-									<textarea name="txtQuery" class="input-class-common float-left text-area"></textarea>
+									<textarea name="txtQuery" class="input-class-common float-left text-area" required=""></textarea>
 								</div>
 							</div>
 						</div>

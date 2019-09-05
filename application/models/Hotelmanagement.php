@@ -112,7 +112,7 @@ class Hotelmanagement extends CI_Model {
         }
     }
 
-    public function updateHotel($hotelid,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child){
+    public function updateHotel($hotelid,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$ArrSubCat){
 
         $value = array(
             'hotel_name' => $hotel_name,
@@ -125,7 +125,8 @@ class Hotelmanagement extends CI_Model {
             'breakfast' => $breakfast,
             'pernight_room_rate' => $pernight_room_rate,
             'no_of_adult' => $no_of_adult,
-            'no_of_child' => $no_of_child
+            'no_of_child' => $no_of_child,
+            'subcategories' => $ArrSubCat
         );
         
         $this->db->where(array('id'=>$hotelid));

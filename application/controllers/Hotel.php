@@ -272,6 +272,9 @@
 
 				if(isset($_POST['hotel_name']) && $_POST['hotel_name']!=''){
 
+					$old = isset($_POST['txtOldsubCat']) ? $_POST['txtOldsubCat'] : array();
+					$new = isset($_POST['txtsubCat']) ? $_POST['txtsubCat'] : array(); 
+					$ArrSubCat =  json_encode(array_merge($old,$new));
 					$hotel_name = isset($_POST['hotel_name']) ? $_POST['hotel_name'] : '';
 					$hotel_address = isset($_POST['hotel_address']) ? $_POST['hotel_name'] : '';
 					$country_id = isset($_POST['country_id']) ? $_POST['country_id'] : 0;
@@ -296,7 +299,7 @@
 					//$status = 'ACTIVE';
 					
 
-					$xx = $this->hotelmanagement->updateHotel($hotelId,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child);
+					$xx = $this->hotelmanagement->updateHotel($hotelId,$hotel_name,$hotel_address,$country_id,$city_id,$facilities,$hotel_category,$room_type,$breakfast,$pernight_room_rate,$no_of_adult,$no_of_child,$ArrSubCat);
 					if($xx==true){
 						$this->session->set_flashdata('success', 'Successfully Updated The Hotel.');
 					}else{

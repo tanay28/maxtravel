@@ -47,7 +47,7 @@
 				</div>
 				<div class="col-lg-12 float-left mt-4">
 					<input type="submit" value="Add Content" class="register-button-form float-left mr-3">
-					<a href="<?php echo base_url('content_management/view_feedback');?>" class="register-button-form float-left mr-3">View Content</a>
+					<a href="<?php echo base_url('content_management/view_feedbacks');?>" class="register-button-form float-left mr-3">View Content</a>
 					<a href="#" class="cancel-button-form float-left">Cancel</a>
 				</div>
 			</form>

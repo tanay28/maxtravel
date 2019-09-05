@@ -58,12 +58,14 @@
                                                             if(isset($hvalue['subcategories']))
                                                             {
                                                                   $arr = json_decode($hvalue['subcategories'],true);
+                                                                  if(isset($arr) && count($arr)>0){
                                                                   foreach ($arr as $ikey => $subcat)
                                                                   {
                                                       ?>
                                                                         <span class="h-subcat"><?php echo $subcat;?></span>
                                                       <?php
                                                                   }
+                                                            }
                                                             }
                                                       ?>
                                                 </td>

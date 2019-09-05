@@ -28,11 +28,10 @@
 							<div class="col-lg-12 mb-4">
 								<h3>Point</h3>
 							</div>
-							<div class="col-12 col-md-12 col-lg-6 float-left wr-form p-0">
+							<div class="col-12 col-md-12 col-lg-12 float-left wr-form p-0">
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
-									<label class="float-left">Point 
-									</label>
-									<input type="text" name="request_point" required="" class="input-class-common float-left">
+								
+									<input type="text" name="request_point" required="" class="input-class-common w-100 float-left">
 								</div>
 								
 							</div>
@@ -41,7 +40,7 @@
 				</div>	
 
 				<div class="col-lg-12 float-left mt-4">
-					<input type="submit" value="Request" class="register-button-form float-left mr-3 ">
+					<input type="submit" value="Approve" class="register-button-form float-left mr-3 ">
 					
 				</div>
 			</form>
