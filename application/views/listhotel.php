@@ -18,6 +18,7 @@
                                                 <th>Name</th>
                                                 <th>Facilities</th>                    
                                                 <th>Category</th>
+                                                <th>Sub Category</th>
                                                 <th>Room Type</th>
                                                 <th>Breakfast</th>
                                                 <th>Room Rate</th>
@@ -51,6 +52,20 @@
                                                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                                       <?php }?>
 
+                                                </td>
+                                                <td>
+                                                      <?php
+                                                            if(isset($hvalue['subcategories']))
+                                                            {
+                                                                  $arr = json_decode($hvalue['subcategories'],true);
+                                                                  foreach ($arr as $ikey => $subcat)
+                                                                  {
+                                                      ?>
+                                                                        <span class="h-subcat"><?php echo $subcat;?></span>
+                                                      <?php
+                                                                  }
+                                                            }
+                                                      ?>
                                                 </td>
                                                 <td><?php echo isset($hvalue['room_type']) ? $hvalue['room_type'] : '';?></td>
                                                 <td><?php echo isset($hvalue['breakfast']) ? $hvalue['breakfast'] : '';?></td>

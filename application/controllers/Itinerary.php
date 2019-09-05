@@ -24,11 +24,14 @@
 			{
 				$id = base64_decode($this->uri->segment('3'));
 				$this->load->model('Contentmanagement');
-				$rs = $this->Contentmanagement->get_itinerary_details($id,'destination');
-
-				// echo '<pre>';
-				// var_dump($rs);
-				// die;
+				if($this->uri->segment('4')=='package')
+				{
+					$rs = $this->Contentmanagement->get_itinerary_details($id,'package');
+				}
+				else
+				{
+					$rs = $this->Contentmanagement->get_itinerary_details($id,'destination');	
+				}
 				$data['itinerary_details'] = $rs;
 				$this->load->view('itinerary',$data);
 			}

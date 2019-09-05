@@ -104,6 +104,7 @@
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
+							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
 							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
@@ -343,6 +344,7 @@
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
+							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
 							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
@@ -485,6 +487,7 @@
 			<?php }?>
 		</ul>
 	</div>
+	
 </header>
 <?php		
 	}

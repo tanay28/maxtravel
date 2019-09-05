@@ -12,9 +12,13 @@
 			return $this->db->query($sql)->result_array();
 		}
 
-		public function get_packages()
+		public function get_packages($agent_id='')
 		{
-			$sql = "SELECT CON.*,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package'";
+			$sql = "SELECT CON.*,CON.id AS cont_id,MAP,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package'";
+			if($agent_id != '')
+			{
+				$sql = "SELECT CON.*,CON.id AS cont_id,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package' AND MAP.agent_id='".$agent_id."'";
+			}
 			return $this->db->query($sql)->result_array();
 		}
 	}

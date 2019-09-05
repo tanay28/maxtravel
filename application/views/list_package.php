@@ -125,8 +125,14 @@
 
                                           <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo isset($uvalue['name']) ? $uvalue['name'] : '';?></td>
-                                                <td><?php echo isset($uvalue['slider_name']) ? $uvalue['slider_name'] : '';?></td>
+                                                <td>
+                                                  <?php echo isset($uvalue['name']) ? $uvalue['name'] : '';?>
+                                                  </td>
+                                                <td>
+                                                  <a href="<?php echo base_url('itinerary/show_itinerary/'.base64_encode($uvalue['id']).'/package');?>">
+                                                    <?php echo isset($uvalue['slider_name']) ? $uvalue['slider_name'] : '';?>  
+                                                  </a>
+                                                  </td>
                                                 <td><?php echo isset($uvalue['tag_name']) ? $uvalue['tag_name'] : '';?></td>
                                                 <td>
                                                   <?php 

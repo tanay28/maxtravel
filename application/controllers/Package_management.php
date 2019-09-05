@@ -324,7 +324,7 @@ EOF;
 		public function view_packages()
 		{
 			$data['page_access'] = 'INACTIVE';
-			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN' || isset($_SESSION['usertype']) && $_SESSION['usertype']=='AGENT'){
 				$data['page_access'] = 'ACTIVE';
 			}
 			/////////// Notification and Order
@@ -337,8 +337,14 @@ EOF;
 			$data['notifications'] = $rs;
 			/////////// Notification and Order
 			$this->load->model('Packagemanagement');
-			$rs = $this->Packagemanagement->get_packages('package');
+			$agent_id = '';
+			if(isset($checkuservars['usertype']) && $checkuservars['usertype'] == 'AGENT')
+			{
+				$agent_id = $checkuservars['userid'];
+			}
+			$rs = $this->Packagemanagement->get_packages($agent_id);
 			$Dataarr = array();
+			
 			if(isset($rs) && count($rs)>0)
 			{
 				foreach ($rs as $ikey => $ivalue)
@@ -347,7 +353,7 @@ EOF;
 					if(isset($ivalue['slider_details'])) $Arr_details = json_decode($ivalue['slider_details'],true);
 					
 					$Dataarr[] = array(
-						'id' => $ivalue['id'],
+						'id' => $ivalue['cont_id'],
 						'name' => $ivalue['first_name'],
 						'slider_name' => $ivalue['slider_name'],
 						'tag_name' => $ivalue['tag_name'],
@@ -359,7 +365,16 @@ EOF;
 			$data['datas'] = $Dataarr;
 			$this->load->view('list_package',$data);
 		}
-
+		/*public function show_package()
+		{
+			$decodeId = 0;
+			if($this->uri->segment('3')!='')
+			{
+				$decodeId = base64_decode($this->uri->segment('3'),true);
+			}
+			var_dump($decodeId);
+			die;
+		}*/
 		// public function edit_destination()
 		// {
 		// 	$data = array();

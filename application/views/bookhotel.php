@@ -160,6 +160,23 @@
                                                       <i class="fas fa-wifi"></i>
                                                 </div>
                                           </div>
+                                          <div class="col-12 col-md-12 col-lg-12 float-left subcat-hotel">
+                                                <?php
+                                                      if(isset($hvalue['subcategories']))
+                                                      {
+                                                            $str = '';
+                                                            $arr = json_decode($hvalue['subcategories'],true);
+                                                            if(isset($arr) && count($arr)>0)
+                                                            {
+                                                                  foreach ($arr as $ikey => $subcat){
+                                                ?>
+                                                                  <span class="h-subcat"><?php echo $subcat;?></span>
+                                                <?php
+                                                                  }
+                                                            }
+                                                      }
+                                                ?>
+                                          </div>
                                     </div>
                               </div>
                               <div class="hotel-price-wrap float-right position-relative">

@@ -1,6 +1,10 @@
 <?php include_once('header.php');?>
 			
-
+<span class="col-lg-12 float-left text-right user-info p-3 bg-primary" style="color: #FFF;">
+		<?php
+			$checkuservars = $this->session->userdata; echo isset($checkuservars['useremail']) ? 'Wecome, '.$checkuservars['useremail'] : '';   
+		?>
+</span>
 
 <section class="w-100 float-left wrap-signup pt-3 pb-5">
 	<div class="col-lg-12">
