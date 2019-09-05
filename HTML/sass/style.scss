@@ -1,3 +1,4 @@
+
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Conv_ufonts.com_gotham-black';
 
@@ -250,6 +251,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #colorlib-page {
 	position: relative;
+	z-index:9;
 	-webkit-transition: all .4s cubic-bezier(.175, .885, .32, 1.0);
 	-moz-transition: all .4s cubic-bezier(.175, .885, .32, 1.0);
 	-ms-transition: all .4s cubic-bezier(.175, .885, .32, 1.0);
@@ -577,13 +579,14 @@ h1, h2, h3, h4, h5, h6 {
     	border-radius: $pix20;
 	}
 	.inner-slider-wrap2 {
-		background: -moz-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); /* ff3.6+ */
-		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(241,145,0,0.60)), color-stop(76%, rgba(244,3,17,0.9602)), color-stop(100%, rgba(244,3,17,0.60))); /* safari4+,chrome */
-		background: -webkit-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); /* safari5.1+,chrome10+ */
-		background: -o-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); /* opera 11.10+ */
-		background: -ms-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); /* ie10+ */
-		background: linear-gradient(113deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); /* w3c */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F19100', endColorstr='#F40311',GradientType=1 ); /* ie6-9 */
+		background: rgba(0, 0, 0, 0.12)
+		// background: -moz-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%);
+		// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(241,145,0,0.60)), color-stop(76%, rgba(244,3,17,0.9602)), color-stop(100%, rgba(244,3,17,0.60)));
+		// background: -webkit-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); 
+		// background: -o-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); 
+		// background: -ms-linear-gradient(337deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); 
+		// background: linear-gradient(113deg, rgba(241,145,0,0.60) 0%, rgba(244,3,17,0.60) 76%, rgba(244,3,17,0.60) 100%); 
+		// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F19100', endColorstr='#F40311',GradientType=1 );
 		}
 	.inner-slider-wrap3 {
 		background: -moz-linear-gradient(337deg, rgba(244,3,17,0.60) 0%, rgba(244,3,17,0.60) 3%, rgba(5,25,55,0.60) 95%, rgba(5,25,55,0.60) 100%); /* ff3.6+ */
@@ -675,11 +678,16 @@ h1, h2, h3, h4, h5, h6 {
 	img {
 		min-width: 100%;
 	}
+	p {
+		line-height: 20px;
+			font-size: 13px;
+	}
 	.overlay-content {
-		top: calc(100% - 180px);
+		top: calc(100% - 200px);
 		padding:$pix30;
 		padding-top:70px;
 		transition: all 0.6s;
+		width: 100%;
 		background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 57%, rgba(0,0,0,0.59) 75%, rgba(0,128,128,0) 100%); /* ff3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,128,128,0)), color-stop(25%, rgba(0,0,0,0.59)), color-stop(43%, rgba(0,0,0,1))); /* safari4+,chrome */
 background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 57%, rgba(0,0,0,0.59) 75%, rgba(0,128,128,0) 100%); /* safari5.1+,chrome10+ */
@@ -689,15 +697,17 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 57%, rgba(0,0,0,0.59) 75%, rgba(
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#000000',GradientType=0 ); /* ie6-9 */
 		h2 {
 			font-family: $font-secondary;
-			font-size: 35px;
+			font-size: 28px;
 			color: $white;
 			letter-spacing: $pix2;
 			margin-bottom: 80px;
 			transition: all 0.6s;
+			line-height: 25px;
 		}
 		p {
 			color: $gray;
 			transition: all 0.6s;
+			
 		}
 	}
 }
@@ -705,6 +715,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', end
 	top:$pix0;
 	padding-top: $pix30;
 	height: 100%;
+	width:100%;
 	transition: all 0.6s;
 	background: -moz-linear-gradient(91deg, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.85) 1%, rgba(62,0,110,0.9) 100%); /* ff3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(62,0,110,0.9)), color-stop(99%, rgba(5,5,5,0.85)), color-stop(100%, rgba(5,5,5,0.85))); /* safari4+,chrome */
@@ -985,7 +996,7 @@ border-radius: $pix50;
 }
 
 .inter-wrap-video {
-	background: rgba(0,0,0,0.85);
+	background: rgba(56, 56, 56, 0.6);
 	padding: $pix50 $pix0;
 	.owl-controls {
     margin-top: 0;
@@ -2339,9 +2350,11 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .qt {
 	font-size: 19px;
-	line-height: 50px;
-	width: 70px;
-	text-align: center;
+    line-height: 44px;
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #ccc;
 }
 
 .qt-plus, .qt-minus {
@@ -2524,12 +2537,13 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	height: 200px;
 	img {
 		width: 100%;
+		min-height: 100%;
 	}
 }
 .content-destination {
 	padding: 20px;
 	h4 {
-		font-size: 16px;
+		font-size: 24px;
 		color: $gray;
 		min-height: 50px;
 	}
@@ -2610,10 +2624,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	display: none;
 	 width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
 #cssmenu > ul > li.has-sub:hover > a:before{top:23px;height:0}
-#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0; width: 170px; }
+#cssmenu ul ul{position:absolute;left:-9999px; padding:10px 0 0 0; width: 150px; }
 #cssmenu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
 #cssmenu li:hover > ul{left: inherit;
-    right: 0;}
+    right: 6px;}
 #cssmenu li:hover > ul > li{height:auto}
 #cssmenu ul ul ul{
 	margin-left:0%;
@@ -2622,20 +2636,22 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 #cssmenu ul ul li:hover .s-menu{
 	position: absolute;
-    left: 170px;
+    left: 150px;
 	top: -11px;
-	width: 140px;
+	width: 110px;
 }
-#cssmenu ul ul li a{    
-	border-bottom: 1px solid rgba(150, 150, 150, 0.15);
-    padding: 11px 15px;
+#cssmenu ul ul li a {
+    /* border-bottom: 1px solid rgba(150, 150, 150, 0.15); */
+    padding: 8px 10px;
     width: 100%;
-    font-size: 11px;
+    font-size: 12px;
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    letter-spacing: 0;
+    line-height: 14px;
+    font-weight: 400 !important;
 }
 #cssmenu ul ul li:last-child > a,#cssmenu ul ul li.last-item > a{border-bottom:0}
 #cssmenu ul ul li:hover > a,#cssmenu ul ul li a:hover{color: #f53903;
@@ -2695,6 +2711,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 .nav-menu-right {
 	margin-top: 31px;
+	margin-right: 40px;
 }
 .page-title-ins {
 	margin-top: 130px;
@@ -2892,4 +2909,59 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 	.hotel-name {
 		width: calc(100% - 185px);
 	}
+}
+.invisible-input {
+	background: transparent !important;
+    border: 0 !important;
+    height: 50px !important;
+    padding: 0 !important;
+	outline: none !important;
+	width: 160px;
+}
+.iput-1 {
+	position: relative;
+    font-weight: 700;
+    font-size: 26px;
+    top: -1px;
+    width: 200px;
+}
+input.totprice {
+	background: transparent !important;
+    border: 0 !important;
+    height: 50px !important;
+    padding: 0 !important;
+	outline: none !important;
+	position: relative;
+  font-weight: 700;
+  font-size: 26px;
+  top: -3px;
+  max-width: 160px;
+  text-align: center;
+}
+.subtotal input.will-price {
+	background: transparent !important;
+    border: 0 !important;
+    height: 50px !important;
+    padding: 0 !important;
+	outline: none !important;
+	position: relative;
+  font-weight: 700;
+  font-size: 26px;
+  top: -3px;
+  max-width: 160px;
+  text-align: right;
+}
+
+/*****ledger******/
+.button-ledger {
+	margin-top: 34px;
+}
+table a {
+	color: $blue;
+	text-decoration: underline;
+}
+.blocks-details-leg-dip {
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 600;
 }

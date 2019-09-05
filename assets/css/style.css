@@ -6,7 +6,6 @@
   font-weight: normal;
   font-style: normal; }
 
-
 .page-loader {
   -webkit-animation-name: pageloader;
   animation-name: pageloader;
@@ -2967,3 +2966,16 @@ input.totprice {
   top: -3px;
   max-width: 160px;
   text-align: right; }
+
+/*****ledger******/
+.button-ledger {
+  margin-top: 34px; }
+
+table a {
+  color: #008aff;
+  text-decoration: underline; }
+
+.blocks-details-leg-dip {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600; }
