@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usersmanagement extends CI_Model {   
 
+    public function getUserWallet($id){
+
+        $sql = "SELECT wallet FROM users WHERE id = '".$id."'";
+        return $this->db->query($sql)->result_array();        
+
+    }
 
     public function getUsers($status=NULL){
 
@@ -121,6 +127,7 @@ class Usersmanagement extends CI_Model {
         {
             return false;
         }
+
     }
 
 }

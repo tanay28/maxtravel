@@ -14,14 +14,15 @@
 			<div class="col-lg-4 col-md-12 col-12 float-left wrap-tot-wall-amount">
 				<div class="w-100 float-left wrap-inner-amount">
 				<h5>Total Points Available</h5>
-				<h2><!-- <i class="fas fa-rupee-sign"></i> --> 500</h2>
+				<h2><!-- <i class="fas fa-rupee-sign"></i> --> <?php echo $wallet_amount;?></h2>
 				</div>
 				</div>
 				
 				<div class="col-lg-8 col-md-12 col-12 float-left wrap-transaction-graph mt-4">
 				<div class="w-100 float-left wrap-inner-graph">
 				<h4>Transactions</h4>
-				<div id="chartdiv" class="agent-trans-chart mt-4"></div>
+				<!-- <div id="chartdiv" class="agent-trans-chart mt-4"></div> -->
+				No Transaction Found
 				</div>
 				</div>
 			</div>
@@ -33,43 +34,32 @@
 				<table class="table table-striped dataTable no-footer">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>phone</th>
-								<th>Name</th>
-								<th>phone</th>
+								<th>Order Type</th>
+								<th>Order No.</th>
+								<th>Date</th>
+								<th>Amount</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>AAAA</td>
+								<td>Hotel</td>
 								<td>323232</td>
-								<td>BBBBB</td>
-								<td>323232</td>
+								<td>20 August 2019</td>
+								<td>700</td>
 							</tr>
 							<tr>
-								<td>CCCCC</td>
-								<td>3435656</td>
-								<td>BBBBB</td>
-								<td>323232</td>
+								<td>Hotel</td>
+								<td>45596</td>
+								<td>22 August 2019</td>
+								<td>900</td>
 							</tr>
 							<tr>
-								<td>BBBBB</td>
-								<td>323232</td>
-								<td>BBBBB</td>
-								<td>323232</td>
+								<td>Hotel</td>
+								<td>69789</td>
+								<td>29 August 2019</td>
+								<td>1700</td>
 							</tr>
-							<tr>
-								<td>CCCCC</td>
-								<td>3435656</td>
-								<td>BBBBB</td>
-								<td>323232</td>
-							</tr>
-							<tr>
-								<td>CCCCC</td>
-								<td>3435656</td>
-								<td>BBBBB</td>
-								<td>323232</td>
-							</tr>
+							
 							
 						</tbody>
 					</table>
@@ -83,42 +73,15 @@
 					<table class="table table-striped dataTable no-footer">
 							<thead>
 								<tr>
-									<th>Name</th>
-									<th>phone</th>
-									<th>Name</th>
-									<th>phone</th>
+									<th>Order Type</th>
+									<th>Order No.</th>
+									<th>Date</th>
+									<th>Amount</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>AAAA</td>
-									<td>323232</td>
-									<td>BBBBB</td>
-									<td>323232</td>
-								</tr>
-								<tr>
-									<td>CCCCC</td>
-									<td>3435656</td>
-									<td>BBBBB</td>
-									<td>323232</td>
-								</tr>
-								<tr>
-									<td>BBBBB</td>
-									<td>323232</td>
-									<td>BBBBB</td>
-									<td>323232</td>
-								</tr>
-								<tr>
-									<td>CCCCC</td>
-									<td>3435656</td>
-									<td>BBBBB</td>
-									<td>323232</td>
-								</tr>
-								<tr>
-									<td>CCCCC</td>
-									<td>3435656</td>
-									<td>BBBBB</td>
-									<td>323232</td>
+									<td colspan="4">No Record Found!</td>
 								</tr>
 								
 							</tbody>
@@ -149,7 +112,7 @@
 		
 		var data = [];
 		
-		chart.data = [{
+		chart.data = [/*{
 		  "year": "2014",
 		  "income": 23.5,
 		  "expenses": 21.1,
@@ -196,7 +159,7 @@
 		  "year": "2024",
 		  "income": 34.1,
 		  "expenses": 31.9
-		}];
+		}*/];
 		
 		var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 		categoryAxis.renderer.grid.template.location = 0;

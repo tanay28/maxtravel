@@ -102,6 +102,7 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
+							<li><a href="<?php echo base_url('agentledger');?>">Ledger</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
@@ -158,6 +159,7 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
+							<li><a href="<?php echo base_url('adminledger');?>">Ledger</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
 							<li>
@@ -342,6 +344,7 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
+							<li><a href="<?php echo base_url('agentledger');?>">Ledger</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
 							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
@@ -398,6 +401,7 @@
 						<ul>
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
+							<li><a href="<?php echo base_url('adminledger');?>">Ledger</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
 							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
 							<li>

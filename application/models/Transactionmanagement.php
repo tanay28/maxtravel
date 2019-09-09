@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Transactionmanagement extends CI_Model {
 
 
-    public function insertTransaction($user_id,$order_id,$available_point,$purchase_amount,$after_deduction_point,$status,$message){
+    public function insertTransaction($user_id,$order_id,$available_point,$purchase_amount,$credit_amount,$after_deduction_point,$status,$transactionstatus,$message,$description){
 
         $now = date("Y-m-d H:i:s");
 
@@ -13,9 +13,12 @@ class Transactionmanagement extends CI_Model {
             'order_id' => $order_id,
             'available_point' => $available_point,
             'purchase_amount' => $purchase_amount,
+            'credit_amount' => $credit_amount,
             'after_deduction_point' => $after_deduction_point,
             'status' => $status,
+            'transactionstatus' => $transactionstatus,
             'message' => $message,
+            'description' => $description,
             'posted_on' => $now
         );
 

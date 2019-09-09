@@ -104,6 +104,8 @@ class Point extends CI_Controller {
 			
 
 			$this->load->model('Usermanagement');
+			$this->load->model('Transactionmanagement');
+
 			$walletPoint = $this->Usermanagement->getUserWalletPoint($getPointsDetails[0]['sender_id']);
 			$walletPoint = isset($walletPoint[0]['wallet']) ? $walletPoint[0]['wallet'] : 0;
 
@@ -111,6 +113,12 @@ class Point extends CI_Controller {
 			$this->Usermanagement->updateUserWallet($getPointsDetails[0]['sender_id'],$totPoint);
 
 			$xx = $this->Pointmanagement->approvedPoint($requestedId,$reciever_id,$approved_point);
+
+			$message = 'Successfully Addes';
+			$description = 'Requested point has been credited.';
+
+			$yy = $this->Transactionmanagement->insertTransaction($getPointsDetails[0]['sender_id'],'0',$walletPoint,'0',$approved_point,$totPoint,'CONFIRMED','CREDIT',$message,$description);
+
 			if($xx>0){
 
 				$this->session->set_flashdata('success', 'Approved The Point');

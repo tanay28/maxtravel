@@ -112,7 +112,6 @@
                                                 <th>Tag Name</th>
                                                 <th>Details</th>
                                                 <th>Package Image</th>
-                                                <th>Action</th>
                                           </tr>
                                     </thead>
                                     <tbody>
@@ -146,11 +145,6 @@
                                                   ?>   
                                                 </td>
                                                 <td><img src="<?php echo base_url('assets/content/'.$uvalue['image_name'])?>" class="myImg" alt="<?php echo $uvalue['image_name'];?>" style="width:100px;max-width:120px"></td>
-                                                <td>
-                                                      <!-- <a href="<?php echo base_url('content_management/edit_destination/'.base64_encode($uvalue['id']));?>"><i class="fa fa-edit" style="font-size:12px;color:green"></i></a> -->
-
-                                                      <a href="<?php echo base_url('package_management/remove_package/'.base64_encode($uvalue['id']));?>"><i class="fa fa-trash" style="font-size:12px;color:red"></i></a>                                                      
-                                                </td>
                                           </tr>
                                           <?php $i++;}}else{?>
                                           <tr><td colspan="7">No Record !!</td></tr>

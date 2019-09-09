@@ -42,6 +42,7 @@
 							$productTotAmount = '0';
 							$productAmount = '0';
 							$quantity = 1;
+							$subtitle = '';
 
 							if(isset($cartvalue['key_type']) && $cartvalue['key_type']=='HOTEL'){
 
@@ -56,7 +57,22 @@
         						$productStart = isset($hotelDetails[0]['hotel_category']) ? $hotelDetails[0]['hotel_category'] : '0';
         						$productType = isset($hotelDetails[0]['room_type']) ? $hotelDetails[0]['room_type'] : 'NA';
         						$productAmount = isset($hotelDetails[0]['pernight_room_rate']) ? $hotelDetails[0]['pernight_room_rate'] : '0';
+        						$subtitle = 'Room rate per night';
 
+							}elseif(isset($cartvalue['key_type']) && $cartvalue['key_type']=='PACKAGE'){
+								$query = "SELECT * FROM contents
+                  						WHERE id = '".$cartvalue['key_id']."'
+                  						AND status = '0' AND slider_for = 'package'
+                  						ORDER BY id DESC";
+        
+
+        						$packageDetails = $this->db->query($query)->result_array();
+        						$productName = isset($packageDetails[0]['slider_name']) ? $packageDetails[0]['slider_name'] : 'NA';
+        						$productStart = isset($packageDetails[0]['tag_name']) ? $packageDetails[0]['tag_name'] : '0';
+        						$productType = isset($packageDetails[0]['room_type']) ? $packageDetails[0]['room_type'] : 'NA';
+        						$arr = isset($packageDetails[0]['slider_details']) ? json_decode($packageDetails[0]['slider_details'],true) : array();
+        						$productAmount = isset($arr['cost']) ? $arr['cost'] : 0; 
+        						$subtitle = '';
 							}
 
 							$productTotAmount = isset($cartvalue['amount']) ? $cartvalue['amount'] : 0;
@@ -77,7 +93,9 @@
 								<img src="<?php echo base_url('assets/images/hotels.png');?>" alt="hotel-img">
 							</div>
 							<div class="hotel-name float-left">
-								<h2 class="w-100 float-left"><?php echo $productName;?></h2>
+								<h2 class="w-100 float-left"><?php echo $productName;?>
+									<input type="hidden" name="cart[<?php echo $cartvalue['id'];?>][productname]" value="<?php echo $productName;?>">
+								</h2>
 								<div class="star-ratings float-left w-100">
 									<div class="float-left starts-all">
 										<?php 
@@ -118,16 +136,26 @@
 										<i class="fas fa-star"></i>
 										<?php }else{
 										?>
+										<!-- <i class="fas fa-star"></i>
 										<i class="fas fa-star"></i>
 										<i class="fas fa-star"></i>
 										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i> -->
 										<?php }?>
 										
 									</div>
+									<?php
+										if(isset($productStart) && $productStart>0){
+									?>
 									<span class="float-left"><?php echo $productStart;?> star</span>
+									<?php 
+										}?>
+									<?php 
+
+										if(isset($productType) && $productType!='NA'){
+									?>
 									<h3 class="room-type-hotel float-left"><?php echo $productType;?> Room</h3>
+									<?php }?>
 								</div>
 								<div class="w-100 float-left bottom-info-hotels mt-2">
 									<div
@@ -140,7 +168,7 @@
 										<!-- <span class="qt  float-right">2</span> -->
 										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][quantity]" id="quantity_<?php echo $i;?>" value="<?php echo $quantity;?>" class="qt  float-right" readonly>
 										<span class="qt-minus float-right" onclick="subroom(<?php echo $i;?>);">-</span>
-										<h2 class="float-left room-tate-text">Room rate per night <i
+										<h2 class="float-left room-tate-text"><?php echo $subtitle;?> <i
 												class="fas fa-rupee-sign"></i> </h2>
 
 										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][productamount]" id="productamount_<?php echo $i;?>" value="<?php echo $productAmount;?>" class="price float-left price-rate-night invisible-input iput-1" readonly>

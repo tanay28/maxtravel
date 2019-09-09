@@ -21,7 +21,7 @@
 				</div>
 				<?php }?>	
 			</div>
-			<form name="frmRequestPoint" action="<?php echo base_url('point/approvepoint/'.$this->uri->segment(4));?>" method="POST" enctype='multipart/form-data'>
+			<form name="frmRequestPoint" action="<?php echo base_url('point/approvepoint/'.$this->uri->segment(3));?>" method="POST" enctype='multipart/form-data'>
 				<div class="col-lg-12 float-left">
 					<div class="w-100 float-left wrap-section-sign account-sett  mb-3 mt-3">
 						<div class="w-100 float-left">

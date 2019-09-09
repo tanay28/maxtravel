@@ -18,11 +18,11 @@
 		{
 			
 			if($flag == 1){
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
 			}else{
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
 			}
 			
 			$target_file = $target_dir . basename($file["name"]);
@@ -38,7 +38,7 @@
 			}
 
 			// Check file size
-			if ($file["size"] > 500000)
+			if ($file["size"] > 2048000)
 			{
 			    $uploadOk = 0;
 			    return array('status' =>'error','msg'=> 'Sorry, your file is too large.');

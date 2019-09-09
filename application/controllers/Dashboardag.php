@@ -18,10 +18,16 @@ class Dashboardag extends CI_Controller {
 		$checkuservars = $this->session->userdata;
 		$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
 		$this->load->model('Notification_model');
+		$this->load->model('Usersmanagement');
+
 		$rs = $this->Notification_model->count_unread_notifications($user_id);
+		$walletDetails = $this->Usersmanagement->getUserWallet($_SESSION['userid']);
+
 		$data['nofication_count'] = isset($rs) ? count($rs) : 0;
 		$data['user_id'] = $user_id;
 		$data['notifications'] = $rs;
+		$data['wallet_amount'] = isset($walletDetails[0]['wallet']) ? $walletDetails[0]['wallet'] : 0;
+		
 		$this->load->view('dashboardag',$data);
 	}
 	

@@ -18,11 +18,11 @@
 		{
 			
 			if($flag == 1){
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
 			}else{
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
 			}
 			
 			$target_file = $target_dir . basename($file["name"]);
@@ -38,7 +38,7 @@
 			}
 
 			// Check file size
-			if ($file["size"] > 500000)
+			if ($file["size"] > 50000000)
 			{
 			    $uploadOk = 0;
 			    return array('status' =>'error','msg'=> 'Sorry, your file is too large.');
@@ -266,7 +266,7 @@ EOF;
 						
 					}
 				}
-				
+			
 				$filePic = $_FILES['filePic'];
 				
 				$arrPic = $this->image_upload($filePic,0);
@@ -490,6 +490,39 @@ EOF;
 			// }
 
 			$this->view_packages();
+		}
+
+		public function ajax_save_package()
+		{
+			$checkuservars = $this->session->userdata;
+			if(isset($_POST['id']) && isset($_POST['cost']) && isset($_POST['ptype']) && isset($checkuservars['usertype']) && $checkuservars['usertype'] == 'AGENT' && $_POST['ptype'] == 'package')
+			{
+				$this->load->model('Packagemanagement');
+				$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+				$p_id = $_POST['id'];
+				$chk = $this->Packagemanagement->check_booking_exists($user_id,$p_id);
+				if($chk!=1){
+					$arr = array(
+					'user_id'         => $user_id,
+					'key_id'          => $_POST['id'],
+					'key_type'        => 'PACKAGE',
+					'key_description' => '',
+					'counts'          => '1',
+					'amount'          => $_POST['cost'],
+					'status'          => 'ACTIVE',
+					'posted_on'       => date('Y-m-d H:i:s') 
+					);
+					$id = $this->Packagemanagement->insert_package_to_cart($arr);
+					if($id!=0){
+						echo 'success';
+					}else{
+						echo 'error';
+					}
+				}else{
+					echo 'Already booked...!!';
+				}
+				
+			}
 		}
 	}
 ?>

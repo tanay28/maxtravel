@@ -85,7 +85,6 @@
 			<section id="colorlib-about">
 				<div class="owl-carousel">
 					<?php
-						
 
 						if(isset($header_content) && count($header_content)>0)
 						{
@@ -331,15 +330,15 @@
 											foreach ($feedback_content as $ikey => $ivalue)
 											{
 										?>
-											<div class="item">
+											<!-- <div class="item">
 												<div class="col-md-12">
-													<!-- <iframe width="650" height="400"
+												<iframe width="650" height="400"
 														src="<?php echo isset($ivalue['image_name']) ? $ivalue['image_name'] : '';?>" frameborder="0"
 														allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 														allowfullscreen>
-													</iframe> -->
+													</iframe>
 												</div>
-											</div>
+											</div> -->
 										<?php			
 											}
 										}

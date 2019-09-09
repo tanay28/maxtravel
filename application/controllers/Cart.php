@@ -27,6 +27,9 @@ class Cart extends CI_Controller {
 		/////////// Notification and Order
 		if(isset($_POST) && count($_POST)>0 && isset($_POST['total']) && $_POST['total']!=''){
 			
+			/*echo "<pre>";
+			var_dump($_POST['cart']);
+			die();*/
 			if(isset($_POST['cart']) && count($_POST['cart'])>0){
 				// Update Cart Table
 				$this->load->model('Cartmanagement');
@@ -53,9 +56,12 @@ class Cart extends CI_Controller {
 
 					if($orderid>0){
 						// Insert Order Details
+						$transactionDescription = '';
 						foreach ($_POST['cart'] as $ckey1 => $cvalue1) {
 
 							$orderdetailsid = $this->Ordermanagement->insertOrderDetails($orderid,$ckey1);
+
+							$transactionDescription.= $cvalue1['productname'].' / Amount - '.$cvalue1['producttotamount'].' / Qty - '.$cvalue1['quantity'].',';
 
 							// Update Cart Status Table
 							$this->Cartmanagement->updateCartStatus('MOVE',$ckey1);
@@ -69,7 +75,9 @@ class Cart extends CI_Controller {
 						$available_point = isset($walletPoint[0]['wallet']) ? $walletPoint[0]['wallet'] : 0;
 						$status = 'CONFIRMED';
 						$message = 'Confirmed Order';
-						$this->Transactionmanagement->insertTransaction($user_id,$orderid,$available_point,$totalamount,$deductedWallet,$status,$message);
+						$description = $transactionDescription;
+						$this->Transactionmanagement->insertTransaction($user_id,$orderid,$available_point,$totalamount,'0',$deductedWallet,$status,'DEBIT',$message,$description);
+
 
 						// Update User Wallet			
 						$this->Usermanagement->updateUserWallet($user_id,$deductedWallet);

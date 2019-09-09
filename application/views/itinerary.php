@@ -50,10 +50,12 @@
 		<?php include_once('main_menu.php'); ?>
       <?php
          $arr = array();
+         
          if(isset($itinerary_details[0]['slider_details'])){
             $arr = json_decode($itinerary_details[0]['slider_details'],true);
          }
       ?>
+      <div id="ajaxmsg" style="display: none;"></div>
 		<div id="colorlib-page" class="float-left w-100">
 			<header class="home-header header-other-page w-100 float-left inner-header" style="background: url(<?php echo base_url('assets/content/'.$itinerary_details[0]['image_name']);?>);">
 				<div class="w-100 float-left inner-header-bg-two">
@@ -73,7 +75,7 @@
                      <div class="col-lg-8 col-md-12 col-12 float-left iti-left mt-3">
                         <div class="w-100 float-left wrap-iti">
                            <div class="w-100 float-left tour-shot-des">
-                              <h1><i class="fas fa-rupee-sign mr-1"></i> <?php echo isset($arr['cost']) ? $arr['cost'] : '';?></h1>
+                              <h1 id="pcost"><i class="fas fa-rupee-sign mr-1"></i> <?php echo isset($arr['cost']) ? $arr['cost'] : '';?></h1>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-qrcode"></i>
@@ -300,7 +302,7 @@
                            <span><i class="fas fa-star"></i> <font>Save money - It's often cheaper to prebook.</font></span>
                            <span><i class="fas fa-star"></i> <font>Save times - one stop travel services.</font></span>
                            <span><i class="fas fa-star"></i> <font>Trustworthy travel website.</font></span>
-                           <a href="#" class="w-100 float-left mt-5 book-iti-button text-uppercase">Book Now</a>
+                           <a href="javascript:void()" id="btnBook" class="w-100 float-left mt-5 book-iti-button text-uppercase">Book Now</a>
                         </div>
                      </div>
 
@@ -314,7 +316,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
 	<script  src="<?php echo base_url('assets/js/image-gallery.js');?>"></script>
 <script>
-	 $(window).scroll(function () {
+	$(window).scroll(function () {
       //if you hard code, then use console
       //.log to determine when you want the 
       //nav bar to stick.  
@@ -333,6 +335,33 @@
     $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top  - 100
     }, 500);
-});
+   });
+  $(document).ready(function(){
+   $('#btnBook').on('click',function(){
+         var base_url = "<?php echo base_url();?>";
+         var id = '<?php echo base64_decode($this->uri->segment(3))?>';
+         var ptype = '<?php echo ($this->uri->segment(4))?>';
+         var cost = '<?php echo isset($arr['cost']) ? $arr['cost'] : '';?>';
 
-	</script>
+         $.ajax({
+
+         url     : base_url+'package_management/ajax_save_package',
+         type    : "post",
+         data    : {"id":id,"ptype":ptype,'cost':cost},
+         success : function(result){
+            if(result == 'success')
+            {
+               alert('Booking successful..');
+            }
+            else if(result == 'error')
+            {
+               alert('Something went worng..Please try again later..!!');  
+            }
+            else
+            {
+               alert(result);
+            }
+      }});
+   });
+  });
+</script>

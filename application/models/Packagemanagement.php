@@ -21,5 +21,19 @@
 			}
 			return $this->db->query($sql)->result_array();
 		}
+
+		public function insert_package_to_cart($arr)
+		{
+			$this->db->insert('cart',$arr);
+			return $this->db->insert_id();
+		}
+
+		public function check_booking_exists($user_id,$p_id)
+		{
+			$sql = "SELECT count(*) AS cnt FROM cart WHERE user_id = '".$user_id."' AND key_id = '".$p_id."' AND key_type = 'PACKAGE'";
+			$rs = $this->db->query($sql)->result_array();
+			if(isset($rs[0]['cnt']) && $rs[0]['cnt']!=0) return 1;
+			return 0;			
+		}
 	}
 ?>
