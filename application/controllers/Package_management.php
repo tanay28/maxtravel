@@ -519,7 +519,7 @@ EOF;
 						echo 'error';
 					}
 				}else{
-					echo 'Already booked...!!';
+					echo 'Already added to cart...!!';
 				}
 				
 			}

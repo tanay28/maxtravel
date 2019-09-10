@@ -351,7 +351,7 @@
          success : function(result){
             if(result == 'success')
             {
-               alert('Booking successful..');
+               alert('Added to cart');
             }
             else if(result == 'error')
             {
