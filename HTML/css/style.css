@@ -2979,3 +2979,32 @@ table a {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600; }
+
+.tour-durations h4 {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #d1137c;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif; }
+
+.info-tours i {
+  color: #d1137c;
+  font-size: 14px;
+  position: relative;
+  top: 3px; }
+
+.info-tours span {
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 3px;
+  font-weight: 700; }
+
+.included-wrap span {
+  color: #333;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 0; }
+
+.included-wrap .facilities-single {
+  padding: 0 7px !important;
+  margin-top: -5px; }
