@@ -135,7 +135,12 @@ class Point extends CI_Controller {
 			$message = 'Successfully Addes';
 			$description = 'Requested point has been credited.';
 
-			$yy = $this->Transactionmanagement->insertTransaction($getPointsDetails[0]['sender_id'],'0',$walletPoint,'0',$approved_point,$totPoint,'CONFIRMED','CREDIT',$message,$description);
+			$lastTransactionId = $this->Transactionmanagement->getLastTransactionId();
+
+			$tid = isset($lastTransactionId[0]->id) ? $lastTransactionId[0]->id : 0;
+			$transactionCode = rand(999,99999).$tid;
+
+			$yy = $this->Transactionmanagement->insertTransaction($getPointsDetails[0]['sender_id'],'0',$walletPoint,'0',$approved_point,$totPoint,'CONFIRMED','CREDIT',$message,$description,$transactionCode);
 
 			if($xx>0){
 

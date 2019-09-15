@@ -81,7 +81,11 @@ class Cart extends CI_Controller {
 						$status = 'CONFIRMED';
 						$message = 'Confirmed Order';
 						$description = $transactionDescription;
-						$this->Transactionmanagement->insertTransaction($user_id,$orderid,$available_point,$totalamount,'0',$deductedWallet,$status,'DEBIT',$message,$description);
+						$lastTransactionId = $this->Transactionmanagement->getLastTransactionId();
+
+						$tid = isset($lastTransactionId[0]->id) ? $lastTransactionId[0]->id : 0;
+						$transactionCode = rand(999,99999).$tid; 
+						$this->Transactionmanagement->insertTransaction($user_id,$orderid,$available_point,$totalamount,'0',$deductedWallet,$status,'DEBIT',$message,$description,$transactionCode);
 
 
 						// Update User Wallet			

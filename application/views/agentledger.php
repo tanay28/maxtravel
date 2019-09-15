@@ -44,8 +44,8 @@ $checkuservars = $this->session->userdata; echo isset($checkuservars['useremail'
 					<thead>
 						<tr>
 							<th>Date</th>
-							<th>Type</th>
-							<th>Order No.</th>
+							<th>Purchase Type</th>
+							<th>Transaction No.</th>
 							<th>Debit</th>
 							<th>Credit</th>
 							<th>Balance</th>
@@ -60,7 +60,7 @@ $checkuservars = $this->session->userdata; echo isset($checkuservars['useremail'
 						<tr>
 							<td><?php echo date('d F Y', strtotime($lvalue['posted_on']));;?></td>
 							<td>Hotel</td>
-							<td><?php echo '#'.$lvalue['orderno']?></td>
+							<td><a href="<?php echo base_url('ledger/index/'.base64_encode($lvalue['id']));?>" target="_blank"><?php echo '#'.$lvalue['transaction_code']?></a></td>
 							<td><?php echo $lvalue['purchase_amount']?></td>
 							<td><?php echo $lvalue['credit_amount']?></td>
 							<td><?php echo $lvalue['after_deduction_point']?></td>

@@ -158,4 +158,6 @@ ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;*/
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;*/
 
 /*ALTER TABLE `transaction` ADD `user_id` INT(11) NOT NULL AFTER `id`;*/
+
+ALTER TABLE `transaction` ADD `transaction_code` VARCHAR(255) NOT NULL AFTER `id`;
 ?>
