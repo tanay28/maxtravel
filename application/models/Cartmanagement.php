@@ -3,6 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cartmanagement extends CI_Model {
 
+    public function countMycart($userid){
+
+        $query = "SELECT COUNT(*) AS C FROM cart
+                  WHERE user_id = '".$userid."'
+                  AND status = 'ACTIVE' 
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
+
     public function getMyCart($userid,$status){
 
         $query = "SELECT * FROM cart

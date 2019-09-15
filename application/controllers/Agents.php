@@ -35,9 +35,15 @@
 			$this->load->model('Notification_model');
 			$rs = $this->Notification_model->count_unread_notifications($user_id);
 			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+
 			$data['user_id'] = $user_id;
 			$data['notifications'] = $rs;
 			/////////// Notification and Order
+			
 
 			$data['agents'] = $this->getAllagents();
 			$this->load->view('listagent',$data);
@@ -70,6 +76,11 @@
 			$this->load->model('Notification_model');
 			$rs = $this->Notification_model->count_unread_notifications($user_id);
 			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+
 			$data['user_id'] = $user_id;
 			$data['notifications'] = $rs;
 			/////////// Notification and Order
@@ -323,6 +334,11 @@
 			$this->load->model('Notification_model');
 			$rs = $this->Notification_model->count_unread_notifications($user_id);
 			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+
 			$data['user_id'] = $user_id;
 			$data['notifications'] = $rs;
 			/////////// Notification and Order

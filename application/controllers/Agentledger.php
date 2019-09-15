@@ -33,6 +33,20 @@
 
 			$data['ledger_list'] = $this->Ledgermanagement->getLedgerList($_SESSION['userid'],$ledgerStartDate,$ledgerEndDate);
 
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+			
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			
 			$this->load->view('agentledger',$data);
 		}
 

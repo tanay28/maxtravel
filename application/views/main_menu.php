@@ -51,7 +51,13 @@
 					</div>
 				</div>
 				<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-				<span>3</span></a>
+				<?php
+					if(isset($cart_count) && $cart_count>0){
+				?>
+				<span><?php echo $cart_count;?></span>
+				<?php }?>
+				</a>
+
 			</div>
 	<?php
 		}
@@ -79,6 +85,7 @@
 			
 			<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
 			<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
+			<li><a href="<?php echo base_url('package_management/view_packages');?>">Packages</a></li>
 			<?php
 				$checkuservars = $this->session->userdata;
 
@@ -103,9 +110,10 @@
 							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('agentledger');?>">Ledger</a></li>
+							<li><a href="<?php echo base_url('order/orderlist');?>">My Order</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
-							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
-							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
+							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Fund</a></li>
+							
 							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
@@ -160,8 +168,9 @@
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('adminledger');?>">Ledger</a></li>
+							<li><a href="<?php echo base_url('order/orderlist');?>">My Order</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
-							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
+							<li><a href="<?php echo base_url('point/requestlist');?>">Fund Management</a></li>
 							<li>
 								<li><a href='javascript:void()'>Hotel Management</a>
 									<ul class="s-menu">
@@ -295,7 +304,11 @@
 					</div>
 				</div>
 				<a href="<?php echo base_url('cart');?>" class="cart-main position-relative"><i class="fas fa-shopping-cart"></i>
-				<span>3</span></a>
+				<?php
+					if(isset($cart_count) && $cart_count>0){
+				?>
+				<span><?php echo $cart_count;?></span>
+				<?php }?></a>
 			</div>
 	<?php
 		}
@@ -323,6 +336,7 @@
 			<li><a href='javascript:void()'>PACKAGE TOURS</a></li> -->
 			<li><a href="<?php echo base_url('aboutus');?>">About Us</a></li>
 			<li><a href="<?php echo base_url('hotel/book');?>">Hotels</a></li>
+			<li><a href="<?php echo base_url('package_management/view_packages');?>">Packages</a></li>
 			<?php
 				$checkuservars = $this->session->userdata;
 				if(!isset($checkuservars['is_logged_in']) || $checkuservars['is_logged_in'] != 1){
@@ -345,9 +359,10 @@
 							<li><a href="<?php echo base_url('dashboardag');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountag');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('agentledger');?>">Ledger</a></li>
+							<li><a href="<?php echo base_url('order/orderlist');?>">My Order</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
-							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Point</a></li>
-							<li><a href="<?php echo base_url('package_management/view_packages');?>">Package List</a></li>
+							<li><a href="<?php echo base_url('point/requestpoint');?>">Request For Fund</a></li>
+							
 							<li><a href="<?php echo base_url('query');?>">Queries</a></li>
 							<li><a href="<?php echo base_url('login/logout');?>">Logout</a></li>	
 						</ul>
@@ -402,8 +417,9 @@
 							<li><a href="<?php echo base_url('dashboardsa');?>">Dashboard</a></li>
 							<li><a href="<?php echo base_url('myaccountsu');?>">My Account</a></li>
 							<li><a href="<?php echo base_url('adminledger');?>">Ledger</a></li>
+							<li><a href="<?php echo base_url('order/orderlist');?>">My Order</a></li>
 							<li><a href="<?php echo base_url('changepass');?>">Change Password</a></li>
-							<li><a href="<?php echo base_url('point/requestlist');?>">Point Management</a></li>
+							<li><a href="<?php echo base_url('point/requestlist');?>">Fund Management</a></li>
 							<li>
 								<li><a href='javascript:void()'>Hotel Management</a>
 									<ul class="s-menu">
