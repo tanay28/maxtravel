@@ -14,8 +14,8 @@
 	<!-- <link rel="stylesheet" href="css/animate.css"> -->
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	
-	
+
+
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -106,13 +106,15 @@
 								<h3 class="w-100 float-left">Search Hotel</h3>
 								<div class="col-12 col-md-12 col-lg-4 float-left hotel-sel pl-0">
 									<label>Select Hotel</label>
-									
+
 									<div action='' autocomplete='off' class="w-100">
-											<div class='input-group w-100 float-left'>
-											  <input aria-describedby='button-addon2' aria-label='Country' class='form-control autocomplete w-100 float-left' id='myInput' name='myCountry' placeholder='Select Hotel Destination' type='text'>
-											  
-											</div>
+										<div class='input-group w-100 float-left'>
+											<input aria-describedby='button-addon2' aria-label='Country'
+												class='form-control autocomplete w-100 float-left' id='myInput'
+												name='myCountry' placeholder='Select Hotel Destination' type='text'>
+
 										</div>
+									</div>
 								</div>
 								<div class="col-12 col-md-12 col-lg-3 float-left checkin-dates">
 									<label>Select Check In </label>
@@ -163,6 +165,7 @@
 										</div>
 										<span class="float-left">4 star</span>
 										<h3 class="room-type-hotel float-left">Dulux Room</h3>
+										<a href="javascript:void(0)" class="secate float-left">See Categories</a>
 									</div>
 									<div class="w-100 float-left bottom-info-hotels">
 										<div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
@@ -203,6 +206,15 @@
 									<span class="w-100 float-left">Per Night</span>
 									<a href="#" class="btn btn-booknow">BooK Now</a>
 								</div>
+								<div class="w-100 float-left toggle-sec-hotels" style="display: none;">
+									<h4>Sub Categories</h4>
+									<ul>
+										<li><i class="far fa-check-circle"></i> Sub Category 01</li>
+										<li><i class="far fa-check-circle"></i> Sub Category 01</li>
+										<li><i class="far fa-check-circle"></i> Sub Category 01</li>
+									</ul>
+								</div>
+
 							</div>
 
 							<div class="w-100 float-left hotel-list-wrap">
@@ -548,7 +560,7 @@
 	</div>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
-	
+
 	<script>
 		$(window).load(function () {
 			jQuery('#page').fadeIn(500);
@@ -597,6 +609,11 @@
 		});
 	</script>
 	<script src="js/destination-autocomplete.js"></script>
+	<script>
+		$(".secate").click(function () {
+			$(".toggle-sec-hotels").toggle("fast");
+		});
+	</script>
 </body>
 
 </html>

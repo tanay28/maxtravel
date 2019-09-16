@@ -3008,3 +3008,29 @@ table a {
 .included-wrap .facilities-single {
   padding: 0 7px !important;
   margin-top: -5px; }
+
+.secate {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0px;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  padding: 3px 7px 1px 7px;
+  background: #2e1161;
+  border-radius: 2px;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  margin-left: 8px; }
+  .secate:hover {
+    background: #333; }
+
+.toggle-sec-hotels {
+  padding: 25px; }
+  .toggle-sec-hotels ul {
+    margin: 0px;
+    padding: 0px; }
+    .toggle-sec-hotels ul li {
+      list-style: none;
+      padding: 5px;
+      width: 100%;
+      float: left; }

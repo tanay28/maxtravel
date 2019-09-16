@@ -2998,3 +2998,35 @@ table a {
 		margin-top: -5px;
 	}
 }
+.secate {
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    padding: 3px 7px 1px 7px;
+    background: #2e1161;
+    border-radius: 2px;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    margin-left: 8px;
+    &:hover {
+      background: #333;
+    }
+}
+.toggle-sec-hotels {
+	padding: $pix25;
+	ul {
+		margin: $pix0;
+		padding: $pix0;
+		li {
+			list-style: none;
+			padding: $pix5;
+			width: 100%;
+			float: left;
+			font-size: $pix14;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+	}
+}
