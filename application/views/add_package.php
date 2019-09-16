@@ -29,13 +29,15 @@
 								<h3>Package Details</h3>
 							</div>
 							<div class="col-12 col-md-12 col-lg-6 float-left wr-form p-0">
+								
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
-									<label class="float-left">Package name</label>
-									<textarea name="txtdestination_name" required="" class="input-class-common float-left"></textarea>
+									<label class="float-left">Package Type</label>
+									<input type="radio" name="Rdo_type" id="Rdo_type" value="all" checked=""> All Agents
+									<input type="radio" name="Rdo_type" id="Rdo_type_specific" value="agent_specific"> Specific Agents
 								</div>
-								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main" id="agent_list" style="display: none">
 									<label class="float-left">Package for</label>
-									<select class="input-class-common float-left" name="cmbAgents[]" multiple="" required="">
+									<select class="input-class-common float-left" name="cmbAgents[]" multiple="">
 										<!-- <option value="none">Select</option> -->
 										<?php
 											if(isset($agents) && count($agents)>0){
@@ -47,6 +49,10 @@
 											}
 										?>
 									</select>
+								</div>
+								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
+									<label class="float-left">Package name</label>
+									<textarea name="txtdestination_name" required="" class="input-class-common float-left"></textarea>
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Cost</label>
@@ -110,6 +116,17 @@
 	</div>
 </section>
 <?php include_once('footer.php');?>
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('#Rdo_type_specific').on('click',function(){
+			$('#agent_list').show('slow');
+		});
+
+		$('#Rdo_type').on('click',function(){
+			$('#agent_list').hide('slow');
+		});
+	});
+</script>
 
 
 			

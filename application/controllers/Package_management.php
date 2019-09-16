@@ -244,8 +244,11 @@ EOF;
 			// echo '<pre>';
 			// var_dump($_POST['cmbAgents']);
 			// die;
-			if(isset($_POST['txtdestination_name']) && $_POST['txtdestination_name']!='' && isset($_POST['txtcost']) && $_POST['txtcost']!='' && isset($_POST['txtdestinationcode']) && $_POST['txtdestinationcode']!='' && isset($_POST['txtpackagetype']) && $_POST['txtpackagetype']!='' && isset($_POST['txtduration']) && $_POST['txtduration']!='' && isset($_POST['txttourdate']) && $_POST['txttourdate']!='' && isset($_POST['txtCk']) && $_POST['txtCk']!='' && isset($_POST['txtMap']) && $_POST['txtMap']!='' && isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0)
+			if(isset($_POST['txtdestination_name']) && $_POST['txtdestination_name']!='' && isset($_POST['txtcost']) && $_POST['txtcost']!='' && isset($_POST['txtdestinationcode']) && $_POST['txtdestinationcode']!='' && isset($_POST['txtpackagetype']) && $_POST['txtpackagetype']!='' && isset($_POST['txtduration']) && $_POST['txtduration']!='' && isset($_POST['txttourdate']) && $_POST['txttourdate']!='' && isset($_POST['txtCk']) && $_POST['txtCk']!='' && isset($_POST['txtMap']) && $_POST['txtMap']!='')
 			{
+
+
+				isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0
 				$destination_name = $_POST['txtdestination_name'];
 				$tag_name = $_POST['txtdestination_name'];
 				
@@ -282,16 +285,29 @@ EOF;
 					$image_name = isset($arrPic['file_name']) ? $arrPic['file_name'] : ''; 
 					$arrDetails = array('cost' => $cost,'code' => $code, 'type' => $package_type, 'duration' => $duration, 'date' => $date);
 
-					$Arr = array(
-						'slider_name'    => $destination_name,
-						'tag_name'       => $destination_name,
-						'slider_details' => json_encode($arrDetails),
-						'image_name'     => $image_name,
-						'slider_for'     => 'package',
-						'date_created'   => date('Y-m-d H:i:s'),
-						'last_modified'  => date('Y-m-d H:i:s'),
-						'status'         => '0',
-					);
+					if(isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0){
+						$Arr = array(
+							'slider_name'    => $destination_name,
+							'tag_name'       => $destination_name,
+							'slider_details' => json_encode($arrDetails),
+							'image_name'     => $image_name,
+							'slider_for'     => 'package',
+							'date_created'   => date('Y-m-d H:i:s'),
+							'last_modified'  => date('Y-m-d H:i:s'),
+							'status'         => '0',
+						);
+					}else{
+						$Arr = array(
+							'slider_name'    => $destination_name,
+							'tag_name'       => $destination_name,
+							'slider_details' => json_encode($arrDetails),
+							'image_name'     => $image_name,
+							'slider_for'     => 'package',
+							'date_created'   => date('Y-m-d H:i:s'),
+							'last_modified'  => date('Y-m-d H:i:s'),
+							'status'         => 'ALL',
+						);
+					}
 
 					$this->load->model('Contentmanagement');
 					$id_package = $this->Contentmanagement->insert_data($Arr,'contents');
@@ -305,16 +321,20 @@ EOF;
 						'date_modified'  => date('Y-m-d H:i:s')
 					);
 					$id = $this->Contentmanagement->insert_data($Arr,'dynamic_content');
-					$ag = $_POST['cmbAgents'];
-					foreach ($ag as $ikey => $ag_id){
-						$Arr = array(
-							'content_id'    => $id_package,
-							'agent_id'      => $ag_id, 
-							'date_created'  => date('Y-m-d H:i:s'),
-							'date_modified' => date('Y-m-d H:i:s')
-						);
-						$this->Contentmanagement->insert_data($Arr,'agent_package_mapping');
+					if(isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0)
+					{
+						$ag = $_POST['cmbAgents'];
+						foreach ($ag as $ikey => $ag_id){
+							$Arr = array(
+								'content_id'    => $id_package,
+								'agent_id'      => $ag_id, 
+								'date_created'  => date('Y-m-d H:i:s'),
+								'date_modified' => date('Y-m-d H:i:s')
+							);
+							$this->Contentmanagement->insert_data($Arr,'agent_package_mapping');
+						}
 					}
+					
 					$this->session->set_flashdata('success', 'Content creation successful..');
 					redirect('package_management/view_packages');
 				}
