@@ -62,7 +62,7 @@
 							}elseif(isset($cartvalue['key_type']) && $cartvalue['key_type']=='PACKAGE'){
 								$query = "SELECT * FROM contents
                   						WHERE id = '".$cartvalue['key_id']."'
-                  						AND status = '0' AND slider_for = 'package'
+                  						 AND slider_for = 'package'
                   						ORDER BY id DESC";
         
 

@@ -1,198 +1,254 @@
 <?php include_once('header.php');?>
-<style type="text/css">
-.myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.myImg:hover {opacity: 0.7;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 200px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: scroll; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
-/* Caption of Modal Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 50%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
-
-/* Add Animation */
-.modal-content, #caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 150px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-}
-</style>		
 <section class="w-100 float-left wrap-signup pt-3 pb-5">
-      <div class="container">
-            <?php
-                  if(isset($page_access) && $page_access=='ACTIVE'){
-            ?>	
-            <div class="row">
-                  <div class="col-lg-12 float-left page-title-top mt-3">
-                        <h1>Package List</h1>
-                  </div>
-                  <div class="col-lg-12 float-left">
-                        <?php if ($this->session->userdata('success')) { ?>
-                        <div class="alert alert-success w-100 float-left">
-                            <?php echo $this->session->userdata('success');?>
-                        </div>
-                        <?php }?>
-                        <?php if ($this->session->userdata('error')) { ?>
-                        <div class="alert alert-danger">
-                            <?php echo $this->session->userdata('error');?>
-                        </div>
-                        <?php }?>   
-                  </div>
-                  <div class="col-lg-12 float-left mt-4">
-                        <div class="table-responsive">
-                              <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                          <tr>
-                                                <th>SL No.</th>
-                                                <th>Agent Name</th>
-                                                <th>Package Name</th>
-                                                <th>Tag Name</th>
-                                                <th>Details</th>
-                                                <th>Package Image</th>
-                                          </tr>
-                                    </thead>
-                                    <tbody>
-                                          
-                                          <?php
-                                                if(isset($datas) && count($datas)>0){
-                                                      $i=1; 
-                                                      foreach ($datas as $ukey => $uvalue) {
-                                          ?>
-
-                                          <tr>
-                                                <td><?php echo $i;?></td>
-                                                <td>
-                                                  <?php echo isset($uvalue['name']) ? $uvalue['name'] : '';?>
-                                                  </td>
-                                                <td>
-                                                  <a href="<?php echo base_url('itinerary/show_itinerary/'.base64_encode($uvalue['id']).'/package');?>">
-                                                    <?php echo isset($uvalue['slider_name']) ? $uvalue['slider_name'] : '';?>  
-                                                  </a>
-                                                  </td>
-                                                <td><?php echo isset($uvalue['tag_name']) ? $uvalue['tag_name'] : '';?></td>
-                                                <td>
-                                                  <?php 
-                                                        if(isset($uvalue['details']['duration']) && isset($uvalue['details']['cost'])){
-                                                          echo 'Cost: '.$uvalue['details']['cost']."<br>";
-                                                          echo 'Tour Code: '.$uvalue['details']['code']."<br>";
-                                                          echo 'Package Type: '.$uvalue['details']['type']."<br>";
-                                                          echo 'Duration: '.$uvalue['details']['duration']."<br>";
-                                                          echo 'Tour Date: '.$uvalue['details']['date']."<br>";
-                                                        }
-                                                  ?>   
-                                                </td>
-                                                <td><img src="<?php echo base_url('assets/content/'.$uvalue['image_name'])?>" class="myImg" alt="<?php echo $uvalue['image_name'];?>" style="width:100px;max-width:120px"></td>
-                                          </tr>
-                                          <?php $i++;}}else{?>
-                                          <tr><td colspan="7">No Record !!</td></tr>
-                                          <?php }?>
-                                    </tbody>
-                              </table>
-                        </div>	
-                  </div>
+	<div class="container">
+		 <?php if(isset($page_access) && $page_access=='ACTIVE'){?>	
+		<div class="row">
+			<div class="col-lg-12 float-left page-title-others mt-3">
+				<h1>Package List</h1>
+			</div>
+			<div class="col-lg-12 float-left">
+                <?php if ($this->session->userdata('success')) { ?>
+                <div class="alert alert-success w-100 float-left">
+                    <?php echo $this->session->userdata('success');?>
+                </div>
+                <?php }?>
+                <?php if ($this->session->userdata('error')) { ?>
+                <div class="alert alert-danger">
+                    <?php echo $this->session->userdata('error');?>
+                </div>
+                <?php }?>   
             </div>
-            <?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
-      </div>
+			<div class="col-lg-12 float-left wrap-hotel-list-agent mt-4 mb-4">
+
+				<?php
+					if(isset($datas) && count($datas)>0){
+	                  foreach ($datas as $ukey => $uvalue) {
+				?>
+				<div class="w-100 float-left hotel-list-wrap">
+					<input type="hidden" name="HiddID" id="HiddID" value="<?php echo isset($uvalue['id']) ? $uvalue['id'] : ''?>">
+					<input type="hidden" name="HiddCost" id="HiddCost" value="<?php echo isset($uvalue['details']['cost']) ? $uvalue['details']['cost'] : ''?>">
+					<div class="img-hotels float-left">
+						<img src="<?php echo base_url('assets/content/'.$uvalue['image_name'])?>" class="myImg" alt="<?php echo $uvalue['image_name'];?>">
+					</div>
+					<div class="hotel-name float-left">
+						<a href="<?php echo base_url('itinerary/show_itinerary/'.base64_encode($uvalue['id']).'/package');?>">
+							<h2 class="w-100 float-left">
+								<?php echo isset($uvalue['slider_name']) ? $uvalue['slider_name'] : '';?>
+							</h2>
+						</a>
+						<div class=" tour-durations float-left w-100">
+
+							<h4 class="mb-0">
+								<?php echo isset($uvalue['details']['duration']) ? $uvalue['details']['duration'] : '';?>
+							</h4>
+
+						</div>
+						<div class="w-100 float-left info-tours mt-2">
+							<div class="float-left mr-4">
+								<i class="fas fa-calendar-alt float-left mr-2"></i>
+								<span class="float-left address-wrap-hotel">
+									<?php echo isset($uvalue['details']['date']) ? $uvalue['details']['date'] : '';?>
+								</span>
+							</div>
+							<div class="float-left mr-4">
+
+								<span class="float-left address-wrap-hotel">Tour code : <?php echo isset($uvalue['details']['code']) ? $uvalue['details']['code'] : '';?></span>
+							</div>
+							<div class=" float-left facilities-hotel included-wrap">
+								<span class="mr-2 float-left">Included at this price</span>
+
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Lunch">
+									<i class="fas fa-utensils"></i>
+								</div>
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Hotel">
+									<i class="fas fa-hotel"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="hotel-price-wrap float-right position-relative">
+						<h1 class="w-100 float-left"> <?php echo isset($uvalue['details']['cost']) ? $uvalue['details']['cost'] : '';?> USD</h1>
+						<span class="w-100 float-left">Per Person</span>
+						<a href="javascript:void()" id="btnBook" class="btn btn-booknow">Book Now</a>
+					</div>
+				</div>
+				<?php }}?>
+				<!-- <div class="w-100 float-left hotel-list-wrap">
+					<div class="img-hotels float-left">
+						<img src="images/desimg.jpg" alt="hotel-img">
+					</div>
+					<div class="hotel-name float-left">
+						<h2 class="w-100 float-left">Package Name</h2>
+						<div class=" tour-durations float-left w-100">
+
+							<h4 class="mb-0">2 Days 3 Night</h4>
+
+						</div>
+						<div class="w-100 float-left info-tours mt-2">
+							<div class="float-left mr-4">
+								<i class="fas fa-calendar-alt float-left mr-2"></i>
+								<span class="float-left address-wrap-hotel">25-09-2019</span>
+							</div>
+							<div class="float-left mr-4">
+
+								<span class="float-left address-wrap-hotel">Tour code : 212352</span>
+							</div>
+							<div class=" float-left facilities-hotel included-wrap">
+								<span class="mr-2 float-left">Included at this price</span>
+
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Lunch">
+									<i class="fas fa-utensils"></i>
+								</div>
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Hotel">
+									<i class="fas fa-hotel"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="hotel-price-wrap float-right position-relative">
+						<h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
+						<span class="w-100 float-left">Per Person</span>
+						<a href="#" class="btn btn-booknow">BooK Now</a>
+					</div>
+				</div>
+
+				<div class="w-100 float-left hotel-list-wrap">
+					<div class="img-hotels float-left">
+						<img src="images/desimg.jpg" alt="hotel-img">
+					</div>
+					<div class="hotel-name float-left">
+						<h2 class="w-100 float-left">Package Name</h2>
+						<div class=" tour-durations float-left w-100">
+
+							<h4 class="mb-0">2 Days 3 Night</h4>
+
+						</div>
+						<div class="w-100 float-left info-tours mt-2">
+							<div class="float-left mr-4">
+								<i class="fas fa-calendar-alt float-left mr-2"></i>
+								<span class="float-left address-wrap-hotel">25-09-2019</span>
+							</div>
+							<div class="float-left mr-4">
+
+								<span class="float-left address-wrap-hotel">Tour code : 212352</span>
+							</div>
+							<div class=" float-left facilities-hotel included-wrap">
+								<span class="mr-2 float-left">Included at this price</span>
+
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Lunch">
+									<i class="fas fa-utensils"></i>
+								</div>
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Hotel">
+									<i class="fas fa-hotel"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="hotel-price-wrap float-right position-relative">
+						<h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
+						<span class="w-100 float-left">Per Person</span>
+						<a href="#" class="btn btn-booknow">BooK Now</a>
+					</div>
+				</div>
+
+				<div class="w-100 float-left hotel-list-wrap">
+					<div class="img-hotels float-left">
+						<img src="images/desimg.jpg" alt="hotel-img">
+					</div>
+					<div class="hotel-name float-left">
+						<h2 class="w-100 float-left">Package Name</h2>
+						<div class=" tour-durations float-left w-100">
+
+							<h4 class="mb-0">2 Days 3 Night</h4>
+
+						</div>
+						<div class="w-100 float-left info-tours mt-2">
+							<div class="float-left mr-4">
+								<i class="fas fa-calendar-alt float-left mr-2"></i>
+								<span class="float-left address-wrap-hotel">25-09-2019</span>
+							</div>
+							<div class="float-left mr-4">
+
+								<span class="float-left address-wrap-hotel">Tour code : 212352</span>
+							</div>
+							<div class=" float-left facilities-hotel included-wrap">
+								<span class="mr-2 float-left">Included at this price</span>
+
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Lunch">
+									<i class="fas fa-utensils"></i>
+								</div>
+								<div class="facilities-single float-left position-relative"
+									data-toggle="tooltip" data-placement="top" title="Hotel">
+									<i class="fas fa-hotel"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="hotel-price-wrap float-right position-relative">
+						<h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> 3000</h1>
+						<span class="w-100 float-left">Per Person</span>
+						<a href="#" class="btn btn-booknow">BooK Now</a>
+					</div>
+				</div> -->
+
+
+
+				<div class="w-100 float-left bottom-hotels-pagi">
+					<p class="w-100 float-left">Showing result 10 of 100</p>
+					<nav class="w-100 float-left pagination-hotels mt-2">
+						<ul class="pagination mb-0">
+							<li class="page-item"><a class="page-link p-n-but" href="#">Previous</a></li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link p-n-but" href="#">Next</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</div>
+		<?php }else{ echo 'OOPS!! Something went wrong. Try again after sometime';}?>
+	</div>
 </section>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
-
 <?php include_once('footer.php');?>
-<script>
-// Get the modal
+<script type="text/javascript">
+	$(document).ready(function(){
+   $('#btnBook').on('click',function(){
+         var base_url = "<?php echo base_url();?>";
+         var id = $('#HiddID').val();
+         var ptype = 'package';
+         var cost = $('#HiddCost').val();;
+         $.ajax({
 
-var ct = <?php echo count($datas);?>;
-var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-
-for (var i = 0; i < ct; i++){
-  var img = document.getElementsByClassName("myImg")[i];
-  var modalImg = document.getElementById("img01");
-  var captionText = document.getElementById("caption");
-  img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-  }
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() { 
-    modal.style.display = "none";
-  }
-}
+         url     : base_url+'package_management/ajax_save_package',
+         type    : "post",
+         data    : {"id":id,"ptype":ptype,'cost':cost},
+         success : function(result){
+            if(result == 'success')
+            {
+               alert('Added to cart');
+            }
+            else if(result == 'error')
+            {
+               alert('Something went worng..Please try again later..!!');  
+            }
+            else
+            {
+               alert(result);
+            }
+      }});
+   });
+  });
 </script>
-
-
-
-			

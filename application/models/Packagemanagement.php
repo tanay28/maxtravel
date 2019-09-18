@@ -14,10 +14,13 @@
 
 		public function get_packages($agent_id='')
 		{
-			$sql = "SELECT CON.*,CON.id AS cont_id,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package'";
+			/*$sql = "SELECT CON.*,CON.id AS cont_id,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package' OR CON.status='ALL'";*/
+			$sql = 'SELECT * FROM contents WHERE slider_for = "package"';
+			
 			if($agent_id != '')
 			{
-				$sql = "SELECT CON.*,CON.id AS cont_id,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package' AND MAP.agent_id='".$agent_id."'";
+				/*$sql = "SELECT CON.*,CON.id AS cont_id,MAP.*,AG.first_name FROM contents CON LEFT JOIN agent_package_mapping MAP ON MAP.content_id = CON.id JOIN agents AG ON AG.id=MAP.agent_id WHERE CON.slider_for='package' AND MAP.agent_id='".$agent_id."'";*/
+				$sql = "SELECT * FROM contents WHERE slider_for='package' AND id = (select id from agent_package_mapping WHERE agent_id = '".$agent_id."') OR status = 'ALL'";
 			}
 			return $this->db->query($sql)->result_array();
 		}

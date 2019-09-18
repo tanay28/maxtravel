@@ -75,7 +75,7 @@
                      <div class="col-lg-8 col-md-12 col-12 float-left iti-left mt-3">
                         <div class="w-100 float-left wrap-iti">
                            <div class="w-100 float-left tour-shot-des">
-                              <h1 id="pcost"><i class="fas fa-rupee-sign mr-1"></i> <?php echo isset($arr['cost']) ? $arr['cost'] : '';?></h1>
+                              <h1 id="pcost"><?php echo isset($arr['cost']) ? $arr['cost'] : '';?></h1>
                            </div>
                            <div class="col-12 col-md-6 col-lg-6 float-left tour-shot-des"><i
                               class="fas fa-qrcode"></i>

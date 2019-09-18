@@ -18,11 +18,11 @@
 		{
 			
 			if($flag == 1){
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
 			}else{
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
+				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
 			}
 			
 			$target_file = $target_dir . basename($file["name"]);
@@ -248,7 +248,7 @@ EOF;
 			{
 
 
-				isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0
+				//isset($_POST['cmbAgents']) && count($_POST['cmbAgents'])>0
 				$destination_name = $_POST['txtdestination_name'];
 				$tag_name = $_POST['txtdestination_name'];
 				
@@ -384,13 +384,19 @@ EOF;
 					$Arr_details = array();
 					if(isset($ivalue['slider_details'])) $Arr_details = json_decode($ivalue['slider_details'],true);
 					
-					$Dataarr[] = array(
+					/*$Dataarr[] = array(
 						'id' => $ivalue['cont_id'],
 						'name' => $ivalue['first_name'],
 						'slider_name' => $ivalue['slider_name'],
 						'tag_name' => $ivalue['tag_name'],
 						'details' => $Arr_details,
 						'image_name' => $ivalue['image_name'],
+					);*/
+					$Dataarr[] = array(
+						'id' => $ivalue['id'],
+						'slider_name' => $ivalue['slider_name'],
+						'details' => $Arr_details,
+						'image_name' => $ivalue['image_name']
 					);
 				}
 			}
@@ -532,8 +538,9 @@ EOF;
 				$this->load->model('Packagemanagement');
 				$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
 				$p_id = $_POST['id'];
-				$chk = $this->Packagemanagement->check_booking_exists($user_id,$p_id);
-				if($chk!=1){
+				//$chk = $this->Packagemanagement->check_booking_exists($user_id,$p_id);
+				$chk = 1;
+				if($chk=1){
 					$arr = array(
 					'user_id'         => $user_id,
 					'key_id'          => $_POST['id'],

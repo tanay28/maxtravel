@@ -13,10 +13,10 @@
 </script>
 <section class="w-100 float-left wrap-signup pt-3 pb-5">
 	<div class="container">
-		<div class="col-lg-12 float-left page-title-others mt-3" style="text-align: right;">
-			<a href="javascript:void(0);" onclick="printDiv('printableArea');">Print</a>
+		<div class="col-lg-12 float-left page-title-others mt-3 mb-4" style="text-align: right;">
+			<a href="javascript:void(0);" onclick="printDiv('printableArea');" class="btn btn-primary">Print</a>
 		</div>
-		<div class="row" id="printableArea">
+		<div class="col-lg-12 float-left" id="printableArea">
 			
 			<div class="col-lg-12 float-left page-title-others mt-3">
 				<img src="<?php echo base_url('assets/images/logo-full.png');?>" alt="">

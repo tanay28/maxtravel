@@ -1,3 +1,4 @@
+<!DOCTYPE html> 
 <?php include_once('header.php');?>
 			
 <section class="w-100 float-left wrap-signup pt-3 pb-5">
@@ -56,7 +57,7 @@
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">
 									<label class="float-left">Cost</label>
-									<input type="text" name="txtcost" required="" class="input-class-common float-left">
+									<input type="text" name="txtcost" required="" class="input-class-common float-left" placeholder="IN USD" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
 								</div>
 
 								<div class="col-lg-12 col-md-12 col-12 float-left wrap-sign-main">

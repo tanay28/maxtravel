@@ -39,6 +39,7 @@
 					$rs = $this->Contentmanagement->get_itinerary_details($id,'destination');	
 				}
 				$data['itinerary_details'] = $rs;
+				
 				$this->load->view('itinerary',$data);
 			}
 			
