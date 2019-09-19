@@ -92,7 +92,7 @@
 							{
 					?>
 					<div class="item">
-						<a href="#" class="w-100 img-top-slider position-relative"
+						<a href="<?php echo base_url('itinerary/show_itinerary/'.base64_encode($ivalue['id']).'/header');?>" class="w-100 img-top-slider position-relative"
 							style="background:url(<?php echo base_url('assets/content/'.$ivalue['image_name'])?>);">
 							<div class="inner-slider-wrap w-100 text-center inner-slider-wrap2">
 								<div class="container">

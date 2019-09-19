@@ -18,7 +18,7 @@
 			$data['event_content'] = $this->get_content('event');
 			$data['destination_content'] = $this->get_content('destination');
 			$data['feedback_content'] = $this->get_content('feedback');
-
+			
 			/////////// Notification and Order
 			$checkuservars = $this->session->userdata;
 			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';

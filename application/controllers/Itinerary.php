@@ -10,6 +10,7 @@
 		}
 		public function show_itinerary()
 		{
+			
 			$data = array();
 			/////////// Notification and Order
 			$checkuservars = $this->session->userdata;
@@ -29,15 +30,22 @@
 			if($this->uri->segment('3')!='')
 			{
 				$id = base64_decode($this->uri->segment('3'));
+
 				$this->load->model('Contentmanagement');
 				if($this->uri->segment('4')=='package')
 				{
 					$rs = $this->Contentmanagement->get_itinerary_details($id,'package');
 				}
+				elseif($this->uri->segment('4')=='header')
+				{
+					$rs = $this->Contentmanagement->get_itinerary_details($id,'header');
+				}
 				else
 				{
 					$rs = $this->Contentmanagement->get_itinerary_details($id,'destination');	
 				}
+
+				
 				$data['itinerary_details'] = $rs;
 				
 				$this->load->view('itinerary',$data);
