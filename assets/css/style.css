@@ -404,12 +404,13 @@ h1, h2, h3, h4, h5, h6 {
   .img-top-slider h1 {
     font-family: "Conv_ufonts.com_gotham-black";
     color: #ffffff;
-    font-size: 70px;
-    letter-spacing: 2px; }
+    font-size: 60px;
+    letter-spacing: 7px;
+    text-shadow: 0px 4px 7px black; }
   .img-top-slider h2 {
     font-family: "Conv_ufonts.com_gotham-black";
     color: #ffffff;
-    font-size: 60px;
+    font-size: 50px;
     letter-spacing: 3px;
     margin: 0px 0px; }
   .img-top-slider h4 {
@@ -444,13 +445,16 @@ h1, h2, h3, h4, h5, h6 {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0152e9', endColorstr='#6f0087',GradientType=1 );
     /* ie6-9 */ }
   .img-top-slider .cost-bg {
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(37, 37, 37, 0.89);
     padding: 15px;
     -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.58);
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.58);
     border-radius: 20px; }
   .img-top-slider .inner-slider-wrap2 {
-    background: rgba(0, 0, 0, 0.12); }
+    min-height: 600px;
+    overflow: hidden;
+    max-height: 600px;
+    background: transparent; }
   .img-top-slider .inner-slider-wrap3 {
     background: -moz-linear-gradient(337deg, rgba(244, 3, 17, 0.6) 0%, rgba(244, 3, 17, 0.6) 3%, rgba(5, 25, 55, 0.6) 95%, rgba(5, 25, 55, 0.6) 100%);
     /* ff3.6+ */
@@ -552,7 +556,8 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.6s;
     transition: all 0.6s; }
   .inner-pack-main img {
-    min-width: 100%; }
+    min-width: 100%;
+    min-height: 443px; }
   .inner-pack-main p {
     line-height: 20px;
     font-size: 13px; }
@@ -1733,7 +1738,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   background-size: cover !important;
   padding: 0px; }
   .inner-header .inner-header-bg-two {
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     padding: 100px 0px 30px; }
 
 .img-abt img {
@@ -3033,4 +3038,7 @@ table a {
       list-style: none;
       padding: 5px;
       width: 100%;
-      float: left; }
+      float: left;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px; }
