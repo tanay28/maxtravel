@@ -159,5 +159,5 @@ ADD  `no_of_child` INT( 11 ) NOT NULL AFTER  `no_of_adult`;*/
 
 /*ALTER TABLE `transaction` ADD `user_id` INT(11) NOT NULL AFTER `id`;*/
 
-ALTER TABLE `transaction` ADD `transaction_code` VARCHAR(255) NOT NULL AFTER `id`;
+/*ALTER TABLE `transaction` ADD `transaction_code` VARCHAR(255) NOT NULL AFTER `id`;*/
 ?>
