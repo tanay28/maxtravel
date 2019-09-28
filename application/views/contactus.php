@@ -81,21 +81,45 @@
 							
 						</form></div>
 
-						  <div class="col-lg-4 col-md-12 col-12 float-left blockform contact-info mb-4 mt-4">
-								<div class="w-100 float-left mb-3">
-								<h4>Our Contacts</h4>
+						<div class="col-lg-4 col-md-12 col-12 float-left blockform contact-info mb-4 mt-4">
+							<div class="w-100 float-left addrsss-contact">
+								<div class="w-100 float-left mb-2">
+									<h4>Thailand Office</h4>
+								</div>
+								<div class="w-100 float-left mb-2">
+									<span><i class="fas fa-map-marker-alt"></i></span>
+									<p class="float-right">Maxxholidays Corporation Co. Ltd.<br>
+										8/80 Moo 6 Naklua Banglamung<br>
+										Chonburi, Pattaya - 20150</p>
+								</div>
+								<div class="w-100 float-left mb-2">
+									<span><i class="fas fa-mobile"></i></span>
+									<p><a href="tel:+66824600136">+66824600136</a></p>
+								</div>
+								<div class="w-100 float-left mb-2">
+									<span><i class="fas fa-envelope"></i></span>
+									<p><a href="mailto:info@maxxholidays.com">info@maxxholidays.com</a>
+										<a href="mailto:sales@maxxholidays.com">sales@maxxholidays.com</a></p>
+								</div>
 							</div>
-								<div class="w-100 float-left mb-3">
-									<h5><i class="fas fa-mobile"></i> 90002 00005</h5>
+
+							<div class="w-100 float-left addrsss-contact mt-2">
+								<div class="w-100 float-left mb-2">
+									<h4>India Office</h4>
 								</div>
-								<div class="w-100 float-left mb-3">
-									<h5><i class="fas fa-paper-plane"></i> maxxholidays@gmail.com</h5>
+								<div class="w-100 float-left mb-2">
+									<span><i class="fas fa-map-marker-alt"></i></span>
+									<p class="float-right">Maxxholidays Co. Pvt. Ltd.<br>
+										2, Ganesh Chandra Avenue<br>
+										1st Floor, Room no. - 10<br>
+										Kolkata - 700013</p>
 								</div>
-								
-								<div class="w-100 float-left">
-									<p>Sed non vulputate nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Nullam neque erat.</p>
+								<div class="w-100 float-left mb-2">
+									<span><i class="fas fa-mobile"></i></span>
+									<p><a href="tel:+91 9330302200">+91 9330302200</a></p>
 								</div>
-							  </div>
+							</div>
+						</div>
 						
 					</div>
 				</div>

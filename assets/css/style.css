@@ -3042,3 +3042,22 @@ table a {
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 1px; }
+
+.addrsss-contact span {
+  width: 40px;
+  float: left;
+  font-size: 22px;
+  color: #ec7800; }
+
+.addrsss-contact p {
+  width: calc(100% - 40px);
+  padding-left: 0;
+  float: right;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #000;
+  padding-top: 7px; }
+  .addrsss-contact p a {
+    width: 100%;
+    float: left; }

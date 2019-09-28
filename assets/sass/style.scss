@@ -3035,3 +3035,27 @@ table a {
 		}
 	}
 }
+.addrsss-contact {
+	span {
+		width: 40px;
+		float: left;
+		font-size: 22px;
+		color: $orange ;
+	}
+	p {
+		width: calc(100% - 40px);
+		padding-left: 0;
+		float: right;
+		font-size: 16px;
+		font-weight: 700;
+		margin-bottom: 5px;
+		color: #000;
+		padding-top: 7px;
+		a {
+			width: 100%;
+			float: left;
+		}
+		
+	}
+	
+}
