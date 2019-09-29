@@ -149,21 +149,21 @@
 						<div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
 								<h3>Sub Category</h3>	
-								<input type="text" name="subcategorycount" id="subcategorycountid" value="1">
+								<input type="hidden" name="subcategorycount" id="subcategorycountid" value="1">
 								<div id="subcategorydivid">
 									<div id="innersubcategoryid_1">					
-										<input type="text" name="subcategory[1][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name">
+										<input type="text" name="txtsubCat[1][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name">
 										
 										
-										<input type="radio" name="subcategory[1][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable
-										<input type="radio" name="subcategory[1][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable
+										<input type="radio" name="txtsubCat[1][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable
+										<input type="radio" name="txtsubCat[1][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable
 
 
-										<input type="radio" name="subcategory[1][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast
+										<input type="radio" name="txtsubCat[1][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast
 
-										<input type="radio" name="subcategory[1][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast
+										<input type="radio" name="txtsubCat[1][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast
 
-										<input type="text" name="subcategory[1][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate">
+										<input type="text" name="txtsubCat[1][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate">
 										
 										<label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory(1);">+ Add</a></label>
 										
@@ -176,7 +176,7 @@
 
 									var count = eval($('#subcategorycountid').val());
 									count = count+1;
-									$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><input type="text" name="subcategory['+count+'][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name"><input type="radio" name="subcategory['+count+'][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable<input type="radio" name="subcategory['+count+'][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable<input type="radio" name="subcategory['+count+'][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast<input type="radio" name="subcategory['+count+'][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast<input type="text" name="subcategory['+count+'][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate"><label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left w-25"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div>');
+									$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><input type="text" name="txtsubCat['+count+'][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name"><input type="radio" name="txtsubCat['+count+'][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable<input type="radio" name="txtsubCat['+count+'][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable<input type="radio" name="txtsubCat['+count+'][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast<input type="radio" name="txtsubCat['+count+'][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast<input type="text" name="txtsubCat['+count+'][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate"><label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left w-25"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div>');
 									$('#subcategorycountid').val(count);
 								}
 
