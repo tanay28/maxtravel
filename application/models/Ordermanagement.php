@@ -58,6 +58,31 @@ class Ordermanagement extends CI_Model {
         return $r;
     }
 
+    public function getOrderDetails($orderid,$userid){
+
+        $query = "SELECT * FROM orders
+                  WHERE user_id = '".$userid."'
+                  AND id = '".$orderid."' 
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
+
+    public function getOrderCartDetails($orderid){
+
+        $query = "SELECT * FROM order_details
+                  WHERE order_id = '".$orderid."' 
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
+
     
 }
 ?>

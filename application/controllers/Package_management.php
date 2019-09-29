@@ -18,11 +18,19 @@
 		{
 			
 			if($flag == 1){
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server
+				if($_SERVER['DOCUMENT_ROOT']=='C:/xampp/htdocs'){
+					$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/gallery/'; // Local
+				}else{
+					$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/gallery/'; // Server	
+				}				
+				
 			}else{
-				$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
-				//$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
+
+				if($_SERVER['DOCUMENT_ROOT']=='C:/xampp/htdocs'){
+					$target_dir = $_SERVER['DOCUMENT_ROOT'].'/maxtravel/assets/content/'; // Local
+				}else{
+					$target_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/content/'; // Server
+				}
 			}
 			
 			$target_file = $target_dir . basename($file["name"]);
@@ -564,6 +572,128 @@ EOF;
 				}
 				
 			}
+		}
+
+
+		public function bookpackageforagent(){
+
+			$data = array();
+			$data['page_access'] = 'INACTIVE';
+
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+			$this->load->model('Packagemanagement');
+			$this->load->model('agentmanagement');
+
+			//////////
+			if(isset($_POST['bookpackageforagent']) && $_POST['bookpackageforagent']!='' && isset($_POST['usersid']) && $_POST['usersid']!='' && isset($_POST['package_id']) && $_POST['package_id']!=''){
+
+				$userID = $_POST['usersid'];
+				$packageID = $_POST['package_id'];
+
+				// Check Account Balance
+				$this->load->model('usersmanagement');
+				$this->load->model('usermanagement');
+				$this->load->model('hotelmanagement');
+				$userWalletAmount = $this->usersmanagement->getUserWallet($userID);
+
+				// Get Package Details
+				$package_details = $this->Packagemanagement->getpackageDetails($packageID);
+				if(isset($package_details[0]['slider_details']) && $package_details[0]['slider_details']!=''){
+					$costDetailsArr = json_decode($package_details[0]['slider_details'],true);
+					$packageCost = isset($costDetailsArr['cost']) ? $costDetailsArr['cost'] : 0;
+					/*echo "<pre>";
+					var_dump($userID);
+					var_dump($packageID);
+					var_dump($userWalletAmount[0]['wallet']);
+					var_dump($packageCost);
+					die();*/
+
+					
+					// Check Wallet Balance
+					if(isset($userWalletAmount[0]['wallet']) && $userWalletAmount[0]['wallet']!='' && $userWalletAmount[0]['wallet']>=$packageCost){
+
+							// Insert Into Cart Table
+
+							$cartid = $this->hotelmanagement->savecart($userID,$packageID,'PACKAGE','','1',$packageCost,'MOVE');
+							if($cartid>0){
+
+								// Insert Into Order Table
+								$orderno = rand(999,99999);
+								$subtotal = $packageCost;
+								$tax = 0;
+								$totalamount = $packageCost;
+								$orderstatus = 'CONFIRMED';
+								$ordermessage = 'Confirmed Order';
+								$this->load->model('Ordermanagement');
+								$orderid = $this->Ordermanagement->insertOrder($orderno,$userID,$subtotal,$tax,$totalamount,$orderstatus,$ordermessage);
+								if($orderid>0){
+									//$this->session->set_flashdata('success', 'Successfully Added The Hotel.');
+									$orderdetailsid = $this->Ordermanagement->insertOrderDetails($orderid,$cartid);
+
+									$transactionDescription = $package_details[0]['slider_name'].' / Amount - '.$totalamount.' / Qty - 1,';
+
+									// Deducted The Wallet Amount
+									$deductedWallet = ($userWalletAmount[0]['wallet'] - $totalamount);
+
+									// Insert Transaction Table
+									$this->load->model('Transactionmanagement');
+									$available_point = isset($userWalletAmount[0]['wallet']) ? $userWalletAmount[0]['wallet'] : 0;
+									$status = 'CONFIRMED';
+									$message = 'Confirmed Order';
+									$description = $transactionDescription;
+									$lastTransactionId = $this->Transactionmanagement->getLastTransactionId();
+
+									$tid = isset($lastTransactionId[0]->id) ? $lastTransactionId[0]->id : 0;
+									$transactionCode = rand(999,99999).$tid; 
+									$this->Transactionmanagement->insertTransaction($userID,$orderid,$available_point,$totalamount,'0',$deductedWallet,$status,'DEBIT',$message,$description,$transactionCode);
+
+
+									// Update User Wallet			
+									$this->usermanagement->updateUserWallet($userID,$deductedWallet);
+
+							
+
+									$this->session->set_flashdata('success', 'Thank you!! Your oredr has been placed successfully. Point has been deducted from AGENT wallet.');
+
+
+								}else{
+									$this->session->set_flashdata('error', 'We can not post this order. Please try again After Sometime or conttact with system admin.');
+								}
+							}else{
+								$this->session->set_flashdata('error', 'We can not add to cart. Please try again After Sometime or conttact with system admin.');
+							}				
+					}else{
+						$this->session->set_flashdata('error', 'Insufficient fund. Please request from agent end first then you can book for agent this hotel.');
+					}
+				}else{
+					$this->session->set_flashdata('error', 'Package Cost Not Found. Please request from agent end first then you can book for agent this hotel.');
+				}
+			}
+			//////////
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+				$data['page_access'] = 'ACTIVE';
+			}
+			$data['package_list'] = $this->Packagemanagement->get_packages('');
+			$data['agent_list'] = $this->agentmanagement->getAgents();
+			/*echo "<pre>";
+			var_dump($data['package_list']);
+			die();*/
+
+			$this->load->view('bookpackageforagent',$data);
 		}
 	}
 ?>

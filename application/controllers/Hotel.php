@@ -184,6 +184,128 @@
 			$this->load->view('addhotel',$data);
 		}
 
+		public function bookhotelforagent(){
+
+			$data = array();
+			$data['page_access'] = 'INACTIVE';
+
+			/////////// Notification and Order
+			$checkuservars = $this->session->userdata;
+			$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';
+			$this->load->model('Notification_model');
+			$rs = $this->Notification_model->count_unread_notifications($user_id);
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+
+			$this->load->model('Cartmanagement');
+			$rsCart = $this->Cartmanagement->countMycart($user_id);
+			$data['cart_count'] = isset($rsCart[0]['C']) ? $rsCart[0]['C'] : 0;
+
+			$data['nofication_count'] = isset($rs) ? count($rs) : 0;
+			$data['user_id'] = $user_id;
+			$data['notifications'] = $rs;
+			/////////// Notification and Order
+
+			$this->load->model('hotelmanagement');
+			$this->load->model('agentmanagement');			
+			if(isset($_POST['bookhotelforagent']) && $_POST['bookhotelforagent']!='' && isset($_POST['usersid']) && $_POST['usersid']!='' && isset($_POST['hotel_id']) && $_POST['hotel_id']!='' && isset($_POST['modelcartcheckin']) && $_POST['modelcartcheckin']!='' && isset($_POST['modelcartcheckout']) && $_POST['modelcartcheckout']!='' && isset($_POST['modelcartroom']) && $_POST['modelcartroom']!=''){
+
+				$userID = $_POST['usersid'];
+				$hotelID = $_POST['hotel_id'];
+
+				// Check Account Balance
+				$this->load->model('usersmanagement');
+				$this->load->model('usermanagement');
+				$userWalletAmount = $this->usersmanagement->getUserWallet($userID);
+
+				// Get Hotel Details
+				$hotel_details = $this->hotelmanagement->getHotelDetails($hotelID);
+				// Checkin Time
+				$checkin = date('Y-m-d', strtotime($_POST['modelcartcheckin']));
+				$checkout = date('Y-m-d', strtotime($_POST['modelcartcheckout']));
+				$room = isset($_POST['modelcartroom']) ? $_POST['modelcartroom'] : 1;
+				$adults = isset($_POST['modelcartadults']) ? $_POST['modelcartadults'] : 1;
+				$child = isset($_POST['modelcartchild']) ? $_POST['modelcartchild'] : 1;
+
+				$numberofDays = $this->dateDiffInDays($checkin,$checkout);
+
+				$pernight_room_rate = isset($hotel_details[0]['pernight_room_rate']) ? $hotel_details[0]['pernight_room_rate'] : 0;
+				$totalRoomrate = $pernight_room_rate * $numberofDays * $room;
+				
+				// Check Wallet Balance
+				if(isset($userWalletAmount[0]['wallet']) && $userWalletAmount[0]['wallet']!='' && $userWalletAmount[0]['wallet']>=$totalRoomrate){
+
+						// Insert Into Cart Table
+						$key_description = json_encode(array('checkin'=>$checkin,'checkout'=>$checkout,'room'=>$room,'adult'=>$adults,'child'=>$child));
+
+						$cartid = $this->hotelmanagement->savecart($userID,$hotelID,'HOTEL',$key_description,$room,$totalRoomrate,'MOVE');
+						if($cartid>0){
+
+							// Insert Into Order Table
+							$orderno = rand(999,99999);
+							$subtotal = $totalRoomrate;
+							$tax = 0;
+							$totalamount = $totalRoomrate;
+							$orderstatus = 'CONFIRMED';
+							$ordermessage = 'Confirmed Order';
+							$this->load->model('Ordermanagement');
+							$orderid = $this->Ordermanagement->insertOrder($orderno,$userID,$subtotal,$tax,$totalamount,$orderstatus,$ordermessage);
+							if($orderid>0){
+								//$this->session->set_flashdata('success', 'Successfully Added The Hotel.');
+								$orderdetailsid = $this->Ordermanagement->insertOrderDetails($orderid,$cartid);
+
+								$transactionDescription = $hotel_details[0]['hotel_name'].' / Amount - '.$totalRoomrate.' / Qty - '.$room.',';
+
+								// Deducted The Wallet Amount
+								$deductedWallet = ($userWalletAmount[0]['wallet'] - $totalRoomrate);
+
+								// Insert Transaction Table
+								$this->load->model('Transactionmanagement');
+								$available_point = isset($userWalletAmount[0]['wallet']) ? $userWalletAmount[0]['wallet'] : 0;
+								$status = 'CONFIRMED';
+								$message = 'Confirmed Order';
+								$description = $transactionDescription;
+								$lastTransactionId = $this->Transactionmanagement->getLastTransactionId();
+
+								$tid = isset($lastTransactionId[0]->id) ? $lastTransactionId[0]->id : 0;
+								$transactionCode = rand(999,99999).$tid; 
+								$this->Transactionmanagement->insertTransaction($userID,$orderid,$available_point,$totalRoomrate,'0',$deductedWallet,$status,'DEBIT',$message,$description,$transactionCode);
+
+
+								// Update User Wallet			
+								$this->usermanagement->updateUserWallet($userID,$deductedWallet);
+
+						
+
+								$this->session->set_flashdata('success', 'Thank you!! Your oredr has been placed successfully. Point has been deducted from AGENT wallet.');
+
+
+							}else{
+								$this->session->set_flashdata('error', 'We can not post this order. Please try again After Sometime or conttact with system admin.');
+							}
+						}else{
+							$this->session->set_flashdata('error', 'We can not add to cart. Please try again After Sometime or conttact with system admin.');
+						}				
+				}else{
+					$this->session->set_flashdata('error', 'Insufficient fund. Please request from agent end first then you can book for agent this hotel.');
+				}
+
+				
+				
+
+			}
+
+			if(isset($_SESSION['usertype']) && $_SESSION['usertype']=='SUPERADMIN'){
+				$data['page_access'] = 'ACTIVE';
+			}
+			$data['hotel_list'] = $this->hotelmanagement->getHotelList('');
+			$data['agent_list'] = $this->agentmanagement->getAgents();
+			/*echo "<pre>";
+			var_dump($data['hotel_list']);
+			die();*/
+
+			$this->load->view('bookhotelforagent',$data);	
+		}
+
 		public function dateDiffInDays($date1, $date2)  
 		{ 
 		    // Calulating the difference in timestamps 

@@ -29,6 +29,19 @@ class Cartmanagement extends CI_Model {
         return $r;
     }
 
+    public function getMyCartForPrint($userid,$cartid){
+
+        $query = "SELECT * FROM cart
+                  WHERE user_id = '".$userid."'
+                  AND id = '".$cartid."'
+                  ORDER BY id DESC";
+        
+
+        $r = $this->db->query($query)->result_array();
+
+        return $r;
+    }
+
     public function deletecart($cartid){
 
         $query = "DELETE FROM cart WHERE id = '".$cartid."'";

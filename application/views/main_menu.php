@@ -1,9 +1,15 @@
 <?php
 	$is_home = true;
 	$ex = explode('/',$_SERVER["REQUEST_URI"]);
-	//var_dump($ex);
-	$name = isset($ex[2]) ? $ex[2] : ''; // For Local
-	//$name = isset($ex[1]) ? $ex[1] : ''; // For Server
+	//var_dump($_SERVER['DOCUMENT_ROOT']);
+	//die();
+	if($_SERVER['DOCUMENT_ROOT']=='C:/xampp/htdocs'){
+		$name = isset($ex[2]) ? $ex[2] : ''; // For Local
+	}else{
+		$name = isset($ex[1]) ? $ex[1] : ''; // For Server	
+	}
+	
+	
 	//var_dump($name);
 	if($name!='home'){
 		$is_home = false;
@@ -176,6 +182,7 @@
 									<ul class="s-menu">
 										<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
 										<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
+										<li><a href="<?php echo base_url('hotel/bookhotelforagent');?>">Book Hotel For Agent</a></li>
 									</ul>
 								</li>
 							</li>
@@ -208,6 +215,7 @@
 									<ul class="s-menu">
 										<li><a href='<?php echo base_url('package_management/packages')?>'>Add</a></li>
 										<li><a href='<?php echo base_url('package_management/view_packages')?>'>List</a></li>
+										<li><a href="<?php echo base_url('package_management/bookpackageforagent');?>">Book Package For Agent</a></li>
 									</ul>
 								</li>
 							</li>
@@ -425,6 +433,7 @@
 									<ul class="s-menu">
 										<li><a href="<?php echo base_url('hotel/add');?>">Add</a></li>
 										<li><a href="<?php echo base_url('hotel/lists');?>">List</a></li>
+										<li><a href="<?php echo base_url('hotel/bookhotelforagent');?>">Book Hotel For Agent</a></li>
 									</ul>
 								</li>
 							</li>
@@ -457,6 +466,7 @@
 									<ul class="s-menu">
 										<li><a href='<?php echo base_url('package_management/packages')?>'>Add</a></li>
 										<li><a href='<?php echo base_url('package_management/view_packages')?>'>List</a></li>
+										<li><a href="<?php echo base_url('package_management/bookpackageforagent');?>">Book Package For Agent</a></li>
 									</ul>
 								</li>
 							</li>

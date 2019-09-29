@@ -326,16 +326,16 @@ function savecart(){
 </div>
 
 <script>
-		$('#modelcartcheckin').datepicker({
-                  showOtherMonths: true,
-                  container: '#myCartModel modal-body',
-		});
-		$('#modelcartcheckout').datepicker({
-			showOtherMonths: true
-		});
-      </script>
-      <style>
-      .gj-calendar {
-            z-index:99999 !important;
-      }
+	$('#modelcartcheckin').datepicker({
+            showOtherMonths: true,
+            container: '#myCartModel modal-body',
+	});
+	$('#modelcartcheckout').datepicker({
+		showOtherMonths: true
+	});
+</script>
+<style>
+.gj-calendar {
+      z-index:99999 !important;
+}
 <style>

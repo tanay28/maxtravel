@@ -6,6 +6,13 @@
         {
             parent::__construct();
         }
+
+        public function getpackageDetails($pid)
+		{
+			$sql = "SELECT * FROM contents WHERE id = '".$pid."'";
+			return $this->db->query($sql)->result_array();
+		}
+
 		public function get_agent_list()
 		{
 			$sql = "SELECT AG.first_name,AG.id FROM agents AG LEFT JOIN users USR ON AG.id = USR.id  WHERE USR.userstype='AGENT' ORDER BY id";

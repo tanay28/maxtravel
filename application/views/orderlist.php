@@ -22,6 +22,7 @@
                                                 <th>Status</th>
                                                 <th>Message</th>
                                                 <th>Date</th>
+                                                <th>Action</th>
                                           </tr>
                                     </thead>
                                     <tbody>
@@ -41,6 +42,7 @@
                                                 <td><?php echo $ovalue['orderstatus'];?></td>
                                                 <td><?php echo $ovalue['ordermessage'];?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($ovalue['posted_on']));?></td>
+                                                <td><a href="<?php echo 'printorder/'.$ovalue['id'];?>" target="_blank">Print</a></td>
                                           </tr>
                                           <?php $i++;}}?>
                                     </tbody>
