@@ -3061,3 +3061,14 @@ table a {
   .addrsss-contact p a {
     width: 100%;
     float: left; }
+
+.wrp-su-cate {
+  margin-right: 15px;
+  font-size: 13px;
+  color: #000;
+  font-weight: 700;
+  margin-right: 15px; }
+  .wrp-su-cate input[type=radio] {
+    position: relative;
+    top: 5px;
+    margin-right: 10px; }

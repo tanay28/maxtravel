@@ -3059,3 +3059,15 @@ table a {
 	}
 	
 }
+.wrp-su-cate {
+	margin-right: 15px;
+    font-size: 13px;
+    color: #000;
+    font-weight: 700;
+	margin-right: $pix15;
+	input[type=radio]{
+		position: relative;
+		top: 5px;
+		margin-right: 10px;
+	}
+}
