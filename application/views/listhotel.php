@@ -55,15 +55,26 @@
                                                 </td>
                                                 <td>
                                                       <?php
-                                                            if(isset($hvalue['subcategories']))
+                                                            if(isset($hvalue['subcategories']) && count($hvalue['subcategories'])>0)
                                                             {
-                                                                  $arr = json_decode($hvalue['subcategories'],true);
-                                                                  if(isset($arr) && count($arr)>0){
+                                                                  $arr1 = json_decode($hvalue['subcategories'],true);
+
+                                                                  if(isset($arr1) && count($arr1)>0){
+                                                                  foreach ($arr1 as $ikey1 => $arr)
+                                                                  {
+
+                                                                  if(isset($arr) && count($arr)>0 && is_array($arr)){
+                                                                  
                                                                   foreach ($arr as $ikey => $subcat)
                                                                   {
+                                                                        
+                                                                        if(isset($subcat) && $subcat!='') {
                                                       ?>
                                                                         <span class="h-subcat"><?php echo $subcat;?></span>
                                                       <?php
+                                                                        }
+                                                                  }
+                                                                  }
                                                                   }
                                                             }
                                                             }

@@ -70,6 +70,7 @@
                   <div class="col-lg-12 float-left wrap-hotel-list-agent mt-4 mb-4">
                         <?php
                               if(isset($hotels) && count($hotels)>0){
+                                    $i = 1;
                                     foreach ($hotels as $hkey => $hvalue) {
                               
                         ?>
@@ -128,6 +129,7 @@
                                           </div>
                                           <span class="float-left"><?php echo isset($hvalue['hotel_category']) ? $hvalue['hotel_category'] : 0;?> star</span>
                                           <h3 class="room-type-hotel float-left"><?php echo isset($hvalue['room_type']) ? $hvalue['room_type'] : 'NA';?></h3>
+                                          <a href="javascript:void(0)" class="secate float-left" onclick="expandsubcategories(<?php echo $i;?>);">See Categories</a>
                                     </div>
                                     <div class="w-100 float-left bottom-info-hotels">
                                           <div class="col-12 col-md-6 col-lg-6 float-left address-hotel p-0">
@@ -160,23 +162,7 @@
                                                       <i class="fas fa-wifi"></i>
                                                 </div>
                                           </div>
-                                          <div class="col-12 col-md-12 col-lg-12 float-left subcat-hotel">
-                                                <?php
-                                                      if(isset($hvalue['subcategories']))
-                                                      {
-                                                            $str = '';
-                                                            $arr = json_decode($hvalue['subcategories'],true);
-                                                            if(isset($arr) && count($arr)>0)
-                                                            {
-                                                                  foreach ($arr as $ikey => $subcat){
-                                                ?>
-                                                                  <span class="h-subcat"><?php echo $subcat;?></span>
-                                                <?php
-                                                                  }
-                                                            }
-                                                      }
-                                                ?>
-                                          </div>
+                                          
                                     </div>
                               </div>
                               <div class="hotel-price-wrap float-right position-relative">
@@ -184,8 +170,33 @@
                                     <span class="w-100 float-left">Per Night</span>
                                     <a href="javascript:void(0);" class="btn btn-booknow" data-toggle="modal" data-target="#myCartModel" onclick="addtocart('<?php echo $hvalue['id']?>','<?php echo $hvalue['hotel_name']?>');">Add to cart</a>
                               </div>
+                              <div class="w-100 float-left toggle-sec-hotels" id="subcate_<?php echo $i;?>" style="display: none;">
+                                    <h4>Sub Categories</h4>
+                                    <ul>
+                                          <?php
+
+                                          if(isset($hvalue['subcategories']) && $hvalue['subcategories']!='')
+                                          {
+                                                $str = '';
+                                                $arr = json_decode($hvalue['subcategories'],true);
+                                                if(isset($arr) && count($arr)>0 && is_array($arr)){
+                                                      foreach ($arr as $ctkey => $ctvalue) {
+                                                      
+                                                      $catname = isset($ctvalue['name']) ? $ctvalue['name'] : 'NA';
+                                                      $refundable = (isset($ctvalue['refundable']) && ($ctvalue['refundable']=='refund')) ? 'Refundable' : 'Non-Refundable';
+                                                      $breakfast = (isset($ctvalue['breakfast']) && ($ctvalue['breakfast']=='exclude')) ? 'Exclude' : 'Include';
+                                                      $catrate = isset($ctvalue['roomrate']) ? $ctvalue['roomrate'] : 'NA';
+                                                      
+                                          ?>
+                                          <li><i class="far fa-check-circle"></i> <?php echo $catname;?>, <?php echo $refundable;?>, <?php echo $breakfast;?>, <?php echo $catrate;?></li>
+                                          <?php }}else{echo 'No Record!';}
+                                          }else{echo 'No Record!';}?>
+                                          
+                                          
+                                    </ul>
+                              </div>
                         </div>
-                        <?php }}else{ echo 'No Records !!';}?>
+                        <?php $i++;}}else{ echo 'No Records !!';}?>
 
                   </div>
 
@@ -333,9 +344,16 @@ function savecart(){
 	$('#modelcartcheckout').datepicker({
 		showOtherMonths: true
 	});
+      /*$(".secate").click(function () {
+            $(".toggle-sec-hotels").toggle("fast");
+      });*/
+      function expandsubcategories(divid){
+
+            $('#subcate_'+divid).toggle();
+      }
 </script>
 <style>
 .gj-calendar {
       z-index:99999 !important;
 }
-<style>
+</style>

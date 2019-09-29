@@ -152,7 +152,7 @@
 								<input type="hidden" name="subcategorycount" id="subcategorycountid" value="1">
 								<div id="subcategorydivid">
 									<div id="innersubcategoryid_1">	
-									<div class="wrp-su-cate float-left">				
+									<div class="w-100 wrp-su-cate float-left">				
 										<input type="text" name="txtsubCat[1][name]" class="input-class-common float-left" placeholder="Enter Category Name">
 										</div>
 										
@@ -185,23 +185,7 @@
 								</div>
 							</div>
 
-							<script type="text/javascript">
-								function addsubcategory(divid){
-
-									var count = eval($('#subcategorycountid').val());
-									count = count+1;
-									$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><input type="text" name="txtsubCat['+count+'][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name"><input type="radio" name="txtsubCat['+count+'][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable<input type="radio" name="txtsubCat['+count+'][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable<input type="radio" name="txtsubCat['+count+'][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast<input type="radio" name="txtsubCat['+count+'][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast<input type="text" name="txtsubCat['+count+'][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate"><label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left w-25"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div>');
-									$('#subcategorycountid').val(count);
-								}
-
-								function delsubcategory(divid){
-
-									var count = eval($('#subcategorycountid').val());
-									count = count-1;
-									$('#innersubcategoryid_'+divid).remove();
-									$('#subcategorycountid').val(count);
-								}
-							</script>
+							
 						</div>
 						<div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
@@ -323,11 +307,21 @@
 
 </script>
 
-<script>
-/*$(document).ready(function () {
-      $('.selectbox:not(.ignore)').niceSelect();
-      FastClick.attach(document.body);
-});  */
+<script type="text/javascript">
+	function addsubcategory(divid){
 
+		var count = eval($('#subcategorycountid').val());
+		count = count+1;
+		$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><div class="w-100 wrp-su-cate float-left"><input type="text" name="txtsubCat['+count+'][name]" class="input-class-common float-left" placeholder="Enter Category Name"></div><div class="wrp-su-cate float-left"><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][refundable]" value="refund" class="float-left"> Refundable</div><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][refundable]" value="nonrefund" class="float-left"> Non Refundable</div></div><div class="wrp-su-cate float-left"><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][breakfast]" value="include" class="float-left"> Include Breakfast</div><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][breakfast]" value="exclude" class="float-left"> Exclude Breakfast</div></div><div class="wrp-su-cate float-left"><input type="text" name="txtsubCat['+count+'][roomrate]" class="input-class-common  float-left" placeholder="Per Night Room Rate"></div><div class="wrp-su-cate float-left"><label class="float-left pt-2"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left pt-2"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div></div></div>');
+		$('#subcategorycountid').val(count);
+	}
+
+	function delsubcategory(divid){
+
+		var count = eval($('#subcategorycountid').val());
+		count = count-1;
+		$('#innersubcategoryid_'+divid).remove();
+		$('#subcategorycountid').val(count);
+	}
 </script>
 			

@@ -20,7 +20,7 @@ function login(){
 						//alert(result);
 			if(result == 'AGENT')
 			{
-				window.location.href = base_url+'dashboardag';	
+				window.location.href = base_url+'package_management/view_packages';	
 			}
 			if(result == 'SUPERADMIN')
 			{

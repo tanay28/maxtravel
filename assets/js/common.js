@@ -17,10 +17,10 @@ function login(){
 			type    : "post",
 			data    : {"txtEmail":email,"txtPassword":password},
 			success : function(result){
-						//alert(result);
+			//alert(result);
 			if(result == 'AGENT')
 			{
-				window.location.href = base_url+'dashboardag';	
+				window.location.href = base_url+'package_management/view_packages';	
 			}
 			if(result == 'SUPERADMIN')
 			{

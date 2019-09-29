@@ -142,7 +142,7 @@
 								</label>
 							</div>
 						</div>
-						<div class="w-100 float-left mt-2">
+						<!-- <div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
 								<h3>Sub Category</h3>
 								<?php
@@ -166,6 +166,115 @@
 							<div class="w-100 float-left mb-1" style="display: none" id="dy_div">
 								
 							</div>
+						</div> -->
+						<div class="w-100 float-left mt-2">
+							<div class="col-lg-12 mb-1">
+								<h3>Sub Category</h3>	
+								
+
+								<?php 
+									$arr = array();
+									if(isset($hotel_details[0]['subcategories']) && $hotel_details[0]['subcategories']!=''){
+										$arr = json_decode($hotel_details[0]['subcategories'],true);
+										/*echo "<pre>";
+										var_dump($arr);*/
+									}
+									if(isset($arr) && count($arr)>0){
+								?>
+								<input type="hidden" name="subcategorycount" id="subcategorycountid" value="<?php echo count($arr);?>">
+								<div id="subcategorydivid">
+								<?php
+										foreach ($arr as $ckey => $cvalue) {
+											$ckeyid = $ckey + 1;
+										
+								?>
+
+								
+								
+								
+								<div id="innersubcategoryid_<?php echo $ckeyid;?>">	
+									<div class="w-100 wrp-su-cate float-left">				
+									<input type="text" name="txtsubCat[<?php echo $ckeyid;?>][name]" class="input-class-common float-left" placeholder="Enter Category Name" value="<?php echo $cvalue['name'];?>">
+									</div>
+									
+									<div class="wrp-su-cate float-left">
+									<div class="w-100 float-left">
+									<input type="radio" name="txtsubCat[<?php echo $ckeyid;?>][refundable]" value="refund" class="float-left" <?php echo ($cvalue['refundable']=='refund') ? 'checked' : '';?>> Refundable
+									</div>
+									<div class="w-100 float-left">
+									<input type="radio" name="txtsubCat[<?php echo $ckeyid;?>][refundable]" value="nonrefund" class="float-left" <?php echo ($cvalue['refundable']=='nonrefund') ? 'checked' : '';?>> Non Refundable
+									</div>
+									</div>
+
+									<div class="wrp-su-cate float-left">
+									<div class="w-100 float-left">
+									<input type="radio" name="txtsubCat[<?php echo $ckeyid;?>][breakfast]" value="include" class="float-left" <?php echo ($cvalue['breakfast']=='include') ? 'checked' : '';?>> Include Breakfast
+									</div>
+									<div class="w-100 float-left">
+									<input type="radio" name="txtsubCat[<?php echo $ckeyid;?>][breakfast]" value="exclude" class="float-left" <?php echo ($cvalue['breakfast']=='exclude') ? 'checked' : '';?>> Exclude Breakfast
+									</div>
+									</div>
+
+									<div class="wrp-su-cate float-left">
+									<input type="text" name="txtsubCat[<?php echo $ckeyid;?>][roomrate]" class="input-class-common  float-left" placeholder="Per Night Room Rate" value="<?php echo $cvalue['roomrate'];?>">
+									</div>
+									<div class="wrp-su-cate float-left">
+									<label class="float-left pt-2"><a href="javascript:void(0);" onclick="addsubcategory(<?php echo $ckeyid;?>);">+ Add</a></label>
+									<?php 
+										if($ckeyid>1){
+									?>
+									<label class="float-left pt-2"><a href="javascript:void(0);" onclick="delsubcategory(<?php echo $ckeyid;?>);">- Remove</a></label>
+									<?php }?>
+									</div>
+									
+								</div>
+								
+								<?php }?>
+								</div>
+								<?php}else{?>
+								<?php 
+									if(isset($ckeyid) && $ckeyid>1){
+								?>
+
+								<?php }else{?>
+								<input type="hidden" name="subcategorycount" id="subcategorycountid" value="1">
+								<div id="subcategorydivid">
+									<div id="innersubcategoryid_1">	
+									<div class="w-100 wrp-su-cate float-left">				
+										<input type="text" name="txtsubCat[1][name]" class="input-class-common float-left" placeholder="Enter Category Name">
+										</div>
+										
+										<div class="wrp-su-cate float-left">
+										<div class="w-100 float-left">
+										<input type="radio" name="txtsubCat[1][refundable]" value="refund" class="float-left"> Refundable
+										</div>
+										<div class="w-100 float-left">
+										<input type="radio" name="txtsubCat[1][refundable]" value="nonrefund" class="float-left"> Non Refundable
+										</div>
+										</div>
+
+										<div class="wrp-su-cate float-left">
+										<div class="w-100 float-left">
+										<input type="radio" name="txtsubCat[1][breakfast]" value="include" class="float-left"> Include Breakfast
+										</div>
+										<div class="w-100 float-left">
+										<input type="radio" name="txtsubCat[1][breakfast]" value="exclude" class="float-left"> Exclude Breakfast
+										</div>
+										</div>
+
+										<div class="wrp-su-cate float-left">
+										<input type="text" name="txtsubCat[1][roomrate]" class="input-class-common  float-left" placeholder="Per Night Room Rate">
+										</div>
+										<div class="wrp-su-cate float-left">
+										<label class="float-left pt-2"><a href="javascript:void(0);" onclick="addsubcategory(1);">+ Add</a></label>
+										</div>
+										
+									</div>
+								</div>
+								<?php }}?>
+							</div>
+
+							
 						</div>
 						<div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
@@ -285,6 +394,23 @@
       FastClick.attach(document.body);
 }); */ 
 
+</script>
+<script type="text/javascript">
+	function addsubcategory(divid){
+
+		var count = eval($('#subcategorycountid').val());
+		count = count+1;
+		$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><div class="w-100 wrp-su-cate float-left"><input type="text" name="txtsubCat['+count+'][name]" class="input-class-common float-left" placeholder="Enter Category Name"></div><div class="wrp-su-cate float-left"><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][refundable]" value="refund" class="float-left"> Refundable</div><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][refundable]" value="nonrefund" class="float-left"> Non Refundable</div></div><div class="wrp-su-cate float-left"><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][breakfast]" value="include" class="float-left"> Include Breakfast</div><div class="w-100 float-left"><input type="radio" name="txtsubCat['+count+'][breakfast]" value="exclude" class="float-left"> Exclude Breakfast</div></div><div class="wrp-su-cate float-left"><input type="text" name="txtsubCat['+count+'][roomrate]" class="input-class-common  float-left" placeholder="Per Night Room Rate"></div><div class="wrp-su-cate float-left"><label class="float-left pt-2"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left pt-2"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div></div></div>');
+		$('#subcategorycountid').val(count);
+	}
+
+	function delsubcategory(divid){
+
+		var count = eval($('#subcategorycountid').val());
+		count = count-1;
+		$('#innersubcategoryid_'+divid).remove();
+		$('#subcategorycountid').val(count);
+	}
 </script>
 
 
