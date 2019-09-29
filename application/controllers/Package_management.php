@@ -370,7 +370,7 @@ EOF;
 			/////////// Notification and Order
 			$this->load->model('Packagemanagement');
 			$agent_id = '';
-			if(isset($checkuservars['usertype']) && $checkuservars['usertype'] == 'AGENT')
+			if(isset($checkuservars['usertype']))
 			{
 				$agent_id = $checkuservars['userid'];
 			}
@@ -533,7 +533,9 @@ EOF;
 		public function ajax_save_package()
 		{
 			$checkuservars = $this->session->userdata;
-			if(isset($_POST['id']) && isset($_POST['cost']) && isset($_POST['ptype']) && isset($checkuservars['usertype']) && $checkuservars['usertype'] == 'AGENT' && $_POST['ptype'] == 'package')
+			//if(isset($_POST['id']) && isset($_POST['cost']) && isset($_POST['ptype']) && isset($checkuservars['usertype']) && $checkuservars['usertype'] == 'AGENT' && $_POST['ptype'] == 'package')
+			//{
+			if(isset($_POST['id']) && isset($_POST['cost']) && isset($_POST['ptype']) && isset($checkuservars['usertype']) && $_POST['ptype'] == 'package')
 			{
 				$this->load->model('Packagemanagement');
 				$user_id = isset($checkuservars['userid']) ? $checkuservars['userid'] : '';

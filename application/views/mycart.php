@@ -82,7 +82,7 @@
 				?>
 				<input type="hidden" name="cartfield_<?php echo $i;?>" id="cartfield_<?php echo $i;?>" value="<?php echo $cartvalue['id'];?>">
 				<article class="product cart-page position-relative  w-100 float-left" id="cartdiv_<?php echo $i;?>">
-					<div class="remove-hotels position-absolute">
+					<div class="remove-hotels position-absolute" style="cursor: pointer;">
 						<a class="remove1" onclick="removeTheItem(<?php echo $i;?>);"><i class="fas fa-trash-alt"></i></a>
 					</div>
 
@@ -168,8 +168,8 @@
 										<!-- <span class="qt  float-right">2</span> -->
 										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][quantity]" id="quantity_<?php echo $i;?>" value="<?php echo $quantity;?>" class="qt  float-right" readonly>
 										<span class="qt-minus float-right" onclick="subroom(<?php echo $i;?>);">-</span>
-										<h2 class="float-left room-tate-text"><?php echo $subtitle;?> <i
-												class="fas fa-rupee-sign"></i> </h2>
+										<h2 class="float-left room-tate-text"><?php echo $subtitle;?> <!-- <i
+												class="fas fa-rupee-sign"></i> -->USD </h2>
 
 										<input type="text" name="cart[<?php echo $cartvalue['id'];?>][productamount]" id="productamount_<?php echo $i;?>" value="<?php echo $productAmount;?>" class="price float-left price-rate-night invisible-input iput-1" readonly>
 										<!-- <h2 class="price float-left price-rate-night">

@@ -136,7 +136,7 @@
 								</label>
 							</div>
 						</div>
-						<div class="w-100 float-left mt-2">
+						<!-- <div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
 								<h3>Sub Category</h3>
 								<label class="float-left w-100">Enter No of sub categories</label>
@@ -145,8 +145,50 @@
 							<div class="w-100 float-left mb-1" style="display: none" id="dy_div">
 								
 							</div>
+						</div> -->
+						<div class="w-100 float-left mt-2">
+							<div class="col-lg-12 mb-1">
+								<h3>Sub Category</h3>	
+								<input type="text" name="subcategorycount" id="subcategorycountid" value="1">
+								<div id="subcategorydivid">
+									<div id="innersubcategoryid_1">					
+										<input type="text" name="subcategory[1][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name">
+										
+										
+										<input type="radio" name="subcategory[1][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable
+										<input type="radio" name="subcategory[1][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable
+
+
+										<input type="radio" name="subcategory[1][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast
+
+										<input type="radio" name="subcategory[1][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast
+
+										<input type="text" name="subcategory[1][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate">
+										
+										<label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory(1);">+ Add</a></label>
+										
+									</div>
+								</div>
+							</div>
+
+							<script type="text/javascript">
+								function addsubcategory(divid){
+
+									var count = eval($('#subcategorycountid').val());
+									count = count+1;
+									$('#subcategorydivid').append('<div id="innersubcategoryid_'+count+'"><input type="text" name="subcategory['+count+'][name]" class="input-class-common w-30 float-left" placeholder="Enter Category Name"><input type="radio" name="subcategory['+count+'][refundable]" value="refund" class="input-class-common w-30 float-left"> Refundable<input type="radio" name="subcategory['+count+'][refundable]" value="nonrefund" class="input-class-common w-30 float-left"> Non Refundable<input type="radio" name="subcategory['+count+'][breakfast]" value="include" class="input-class-common w-30 float-left"> Include Breakfast<input type="radio" name="subcategory['+count+'][breakfast]" value="exclude" class="input-class-common w-30 float-left"> Exclude Breakfast<input type="text" name="subcategory['+count+'][roomrate]" class="input-class-common w-25 float-left" placeholder="Per Night Room Rate"><label class="float-left w-25"><a href="javascript:void(0);" onclick="addsubcategory('+count+');">+ Add</a></label><label class="float-left w-25"><a href="javascript:void(0);" onclick="delsubcategory('+count+');">- Remove</a></label></div>');
+									$('#subcategorycountid').val(count);
+								}
+
+								function delsubcategory(divid){
+
+									var count = eval($('#subcategorycountid').val());
+									count = count-1;
+									$('#innersubcategoryid_'+divid).remove();
+									$('#subcategorycountid').val(count);
+								}
+							</script>
 						</div>
-						
 						<div class="w-100 float-left mt-2">
 							<div class="col-lg-12 mb-1">
 								<h3>Room Type</h3>

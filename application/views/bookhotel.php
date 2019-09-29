@@ -180,7 +180,7 @@
                                     </div>
                               </div>
                               <div class="hotel-price-wrap float-right position-relative">
-                                    <h1 class="w-100 float-left"><i class="fas fa-rupee-sign"></i> <?php echo isset($hvalue['pernight_room_rate']) ? number_format($hvalue['pernight_room_rate'],2) : 'NA';?></h1>
+                                    <h1 class="w-100 float-left"><!-- <i class="fas fa-rupee-sign"></i> -->USD <?php echo isset($hvalue['pernight_room_rate']) ? number_format($hvalue['pernight_room_rate'],2) : 'NA';?></h1>
                                     <span class="w-100 float-left">Per Night</span>
                                     <a href="javascript:void(0);" class="btn btn-booknow" data-toggle="modal" data-target="#myCartModel" onclick="addtocart('<?php echo $hvalue['id']?>','<?php echo $hvalue['hotel_name']?>');">Add to cart</a>
                               </div>
