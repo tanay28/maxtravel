@@ -1,4 +1,4 @@
-			<?php include_once('footer_box.php');?>
+	<?php include_once('footer_box.php');?>
 
 		</div>
 	</div>

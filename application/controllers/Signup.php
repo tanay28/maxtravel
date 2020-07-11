@@ -15,7 +15,7 @@ class Signup extends CI_Controller {
 		}
 
 		/*$checkuservars = $this->session->userdata;
-                
+        
         if((!isset($checkuservars['usertype']) || $checkuservars['usertype']!="SUPERADMIN") && (!isset($checkuservars['usertype']) || $checkuservars['usertype']!="ADMIN") && (!isset($checkuservars['usertype']) || $checkuservars['usertype']!="AGENT"))
         {
          redirect('login/logout/'); 
